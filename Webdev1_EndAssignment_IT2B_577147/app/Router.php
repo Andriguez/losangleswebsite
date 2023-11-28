@@ -82,7 +82,7 @@ class Router
     private function callRouteFunction($route)
     {
         if ($route->getFunction() !== null) {
-            $handler = 'feature_' . $route->getFunction();
+            $handler = 'redirectTo_' . $route->getFunction();
 
             if (!is_callable($handler)) {
                 $this->respondServerError($route->getFunction());
@@ -137,21 +137,21 @@ class Router
 
 }
 
- function feature_homepage()
+ function redirectTo_homepage()
 {
     $content = '<p>Showing the frontpage</p>';
     $r = new Router();
     $r->respond(200, $content);
 }
 
- function feature_connect()
+ function redirectTo_connect()
 {
     $content = '<p>Showing the connect page </p>';
 
     $r = new Router();
     $r->respond(200, $content);
 }
-function feature_artists()
+function redirectTo_artists()
 {
     $content = '<p>Showing the artists page </p>';
 
