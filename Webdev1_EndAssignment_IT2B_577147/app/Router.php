@@ -159,5 +159,5 @@ function feature_artists()
     $r->respond(200, $content);
 }
 
-//must add the rest of the functions
+//must add the rest of the functions for displaying pages
 
