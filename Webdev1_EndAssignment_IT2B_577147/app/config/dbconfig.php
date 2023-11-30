@@ -1,7 +1,27 @@
 <?php
-$servername = "mysql";
-$username = "developer";
-$password = "secret123";
-$db1Name = "losangles_content";
-$db2Name = "losangles_users";
-$db1Name = "losangles_feed";
+     $configs = [
+        $config1 = [
+
+            'hostname' => 'mysql',
+            'port' => 3306,
+            'username' => 'developer',
+            'password' => 'secret123',
+            'name' => 'losangles_content'
+        ],
+        $config2 = [
+
+            'hostname' => 'mysql',
+            'port' => 3306,
+            'username' => 'developer',
+            'password' => 'secret123',
+            'name' => 'losangles_users'
+        ],
+        $config3 = [
+
+            'hostname' => 'mysql',
+            'port' => 3306,
+            'username' => 'developer',
+            'password' => 'secret123',
+            'name' => 'losangles_feed'
+        ]
+    ];

@@ -1,29 +1,40 @@
-
 <?php
-require __DIR__ . '/../config/dbconfig.php';
+
+use models\ContentType;
+use Repositories\Repository;
 
 try{
-    $pdo1 = new PDO("mysql:host=$servername;dbname=$db1Name", $username, $password);
-    $pdo1->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    require __DIR__ . '/../repositories/Repository.php';
+    require __DIR__ . '/../models/ContentType.php';
 
-    $pdo2 = new PDO("mysql:host=$servername;dbname=$db2Name", $username, $password);
-    $pdo2->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $pdo3 = new PDO("mysql:host=$servername;dbname=$db3Name", $username, $password);
-    $pdo3->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $repo = new Repository();
 
-    echo "connected succesfully";
+    $stmt = $repo->contentdb->prepare('SELECT * FROM content_type');
+    $stmt->execute();
+    $contents = new ArrayObject();
+
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+    $content = new ContentType();
+    $content->setTypeId($row['content_type_Id']);
+    $content->setName($row['content_type_name']);
+
+    $contents->append($content);
+    }
+
 } catch (PDOException $e){
     echo "Connection failed: ". $e->getMessage();
 }
 ?>
-<!DOCTYPE html>
+<html>
 <head>
     <title>Los Angles</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
 <h1>Los Angles Home</h1>
-<h3><?php print_r($_GET)?></h3>
+<?php foreach ($contents as $c){
+ echo '<p>'.$c->getTypeId().'has name '.$c->getName().'</p>';
+} ?>
 </body>
 </html>

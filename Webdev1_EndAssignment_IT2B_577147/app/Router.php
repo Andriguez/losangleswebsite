@@ -135,11 +135,14 @@ class Router
         exit();
     }
 
+
 }
 
  function redirectTo_homepage()
 {
-    $content = '<p>Showing the frontpage</p>';
+    ob_start();
+    require __DIR__.'/views/homepageView.php';
+    $content = ob_get_clean();
     $r = new Router();
     $r->respond(200, $content);
 }
@@ -147,7 +150,6 @@ class Router
  function redirectTo_connect()
 {
     $content = '<p>Showing the connect page </p>';
-
     $r = new Router();
     $r->respond(200, $content);
 }

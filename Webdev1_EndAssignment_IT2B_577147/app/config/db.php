@@ -31,35 +31,4 @@ class DB extends PDO
         }
         return self::$instance;
     }
-
-
-    static function getConfigs():array
-    {
-        return $configs = [
-        $config1 = [
-
-                'hostname' => $_ENV['mysql'],
-                'port' => 3306,
-                'username' => $_ENV['developer'],
-                'password' => $_ENV['secret123'],
-                'name' => $_ENV['losangles_content']
-        ],
-        $config2 = [
-
-            'hostname' => $_ENV['mysql'],
-            'port' => 3306,
-            'username' => $_ENV['developer'],
-            'password' => $_ENV['secret123'],
-            'name' => $_ENV['losangles_users']
-        ],
-        $config3 = [
-
-            'hostname' => $_ENV['mysql'],
-            'port' => 3306,
-            'username' => $_ENV['developer'],
-            'password' => $_ENV['secret123'],
-            'name' => $_ENV['losangles_feed']
-        ]
-        ];
-    }
 }
