@@ -3,8 +3,15 @@
 require __DIR__ . '/../config/dbconfig.php';
 
 try{
-    $connection = new PDO("mysql:host=$servername;dbname=$databaseName", $username, $password);
-    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo1 = new PDO("mysql:host=$servername;dbname=$db1Name", $username, $password);
+    $pdo1->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $pdo2 = new PDO("mysql:host=$servername;dbname=$db2Name", $username, $password);
+    $pdo2->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $pdo3 = new PDO("mysql:host=$servername;dbname=$db3Name", $username, $password);
+    $pdo3->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
     echo "connected succesfully";
 } catch (PDOException $e){
     echo "Connection failed: ". $e->getMessage();
