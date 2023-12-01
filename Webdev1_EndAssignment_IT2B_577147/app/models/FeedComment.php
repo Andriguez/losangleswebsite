@@ -18,7 +18,7 @@ class FeedComment
     public function setContentText($text){$this->comment_text_content = $text;}
 
     //getters
-    public function getCommentId():int{return $this->comment_Id;}
+    public function getId():int{return $this->comment_Id;}
     public function getUser():User{return $this->comment_user;}
     public function getParentPost():FeedPost{return $this->comment_parentpost;}
     public function getParentComment():FeedComment{return $this->comment_parentcomment;}

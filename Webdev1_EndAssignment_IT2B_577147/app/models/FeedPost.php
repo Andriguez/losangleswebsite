@@ -20,7 +20,7 @@ class FeedPost
     public function setTopic($topic){$this->post_topic = $topic;}
 
     //getters
-    public function getPostId():int{return $this->post_Id;}
+    public function getId():int{return $this->post_Id;}
     public function getCommentAmount():int{return $this->post_comment_amount;}
     public function getUser():User{return $this->post_user;}
     public function getPicture():MediaInfo{return $this->post_picture;}
