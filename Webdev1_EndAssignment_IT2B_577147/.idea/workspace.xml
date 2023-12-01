@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/repositories/UserRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/repositories/UserTypeRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/db.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/Repository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/Repository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/aboutusView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/aboutus/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/artistView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/artists/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/connectView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/connect/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/eventsView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/homepageView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/homepage/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,11 +53,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\Webdev1_EndAssignment_IT2B_577147\app" />
-      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\Webdev1_EndAssignment_IT2B_577147" />
-      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\Webdev1_EndAssignment_IT2B_577147\app\public\style" />
-      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\Webdev1_EndAssignment_IT2B_577147\app/config" />
-      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\Webdev1_EndAssignment_IT2B_577147\app\config" />
+      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\events" />
+      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\connect" />
+      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\aboutus" />
+      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\artists" />
+      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\homepage" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -63,7 +72,7 @@
       <workItem from="1700655628803" duration="5180000" />
       <workItem from="1701107354222" duration="929000" />
       <workItem from="1701108307797" duration="12814000" />
-      <workItem from="1701137287432" duration="35167000" />
+      <workItem from="1701137287432" duration="38200000" />
     </task>
     <servers />
   </component>

@@ -4,13 +4,13 @@ use models\ContentType;
 use Repositories\Repository;
 
 try{
-    require __DIR__ . '/../repositories/Repository.php';
-    require __DIR__ . '/../models/ContentType.php';
+    require __DIR__ . '/../../repositories/Repository.php';
+    require __DIR__ . '/../../models/ContentType.php';
 
 
     $repo = new Repository();
 
-    $stmt = $repo->contentdb->prepare('SELECT * FROM content_type');
+    $stmt = $repo->content_db->prepare('SELECT * FROM content_type');
     $stmt->execute();
     $contents = new ArrayObject();
 

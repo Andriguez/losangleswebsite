@@ -141,7 +141,7 @@ class Router
 
  function redirectTo_homepage()
 {
-    require __DIR__.'/views/homepageView.php';
+    require __DIR__ . '/views/homepage/index.php';
     $content = ob_get_clean();
     $r = new Router();
     $r->respond(200, $content);

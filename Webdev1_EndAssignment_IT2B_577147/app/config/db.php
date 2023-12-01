@@ -24,7 +24,7 @@ class DB extends PDO
                 $dsn = "mysql:host=$host;port=$port;dbname=$name;charset=$charset";
 
                 self::$instance = new DB($dsn, $user, $password);
-                self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
+                self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $pdoe) {
                 echo $pdoe->getMessage();
             }
