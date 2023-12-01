@@ -3,12 +3,18 @@ require_once __DIR__.'/config/Route.php';
 class Router
 {
     private $routes;
+    private static Router $instance;
 
-    public function __construct()
+    private function __construct()
     {
         $this->routes = $this->createRoutes();
     }
-
+    public static function getInstance():Router{
+        if(empty(self::$instance)){
+            self::$instance = new Router();
+        }
+        return self::$instance;
+    }
     private function createRoutes(): array
     {
         $routes = [
@@ -143,22 +149,19 @@ class Router
 {
     require __DIR__ . '/views/homepage/index.php';
     $content = ob_get_clean();
-    $r = new Router();
-    $r->respond(200, $content);
+    Router::getInstance()->respond(200, $content);
 }
 
  function redirectTo_connect()
 {
     $content = '<p>Showing the connect page </p>';
-    $r = new Router();
-    $r->respond(200, $content);
+    Router::getInstance()->respond(200, $content);
 }
 function redirectTo_artists()
 {
     $content = '<p>Showing the artists page </p>';
+    Router::getInstance()->respond(200, $content);
 
-    $r = new Router();
-    $r->respond(200, $content);
 }
 
 //must add the rest of the functions for displaying pages

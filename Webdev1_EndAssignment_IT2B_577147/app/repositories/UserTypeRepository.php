@@ -13,7 +13,7 @@ class UserTypeRepository extends Repository
 
             $statement->setFetchMode(PDO::FETCH_CLASS, 'UserType');
             return $statement->fetch();
-            
+
         } catch (\PDOException $e){echo $e;}
     }
 
