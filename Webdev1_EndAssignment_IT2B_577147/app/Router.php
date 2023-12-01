@@ -81,13 +81,14 @@ class Router
 
     private function callRouteFunction($route)
     {
+
         if ($route->getFunction() !== null) {
             $handler = 'redirectTo_' . $route->getFunction();
 
             if (!is_callable($handler)) {
                 $this->respondServerError($route->getFunction());
             }
-
+            ob_start();
             call_user_func_array($handler, isset($matches) ? [$matches] : []);
         } else {
             throw new Exception("Missing required parameter (function) in route.");
@@ -140,7 +141,6 @@ class Router
 
  function redirectTo_homepage()
 {
-    ob_start();
     require __DIR__.'/views/homepageView.php';
     $content = ob_get_clean();
     $r = new Router();
