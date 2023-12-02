@@ -56,7 +56,7 @@ class UserRepository extends Repository
     }
 
     //usertype table
-    public function getUserTypeById($id){
+    public function getTypeById($id){
         $query = "SELECT usertype_Id, usertype_name FROM users_usertypes WHERE usertype_Id = :id";
 
         try{
@@ -70,7 +70,7 @@ class UserRepository extends Repository
         } catch (\PDOException $e){echo $e;}
     }
 
-    public function getAllUserTypes(){
+    public function getAllTypes(){
         $query = "SELECT usertype_Id FROM users_usertypes";
 
         try{
@@ -79,7 +79,7 @@ class UserRepository extends Repository
 
             while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
 
-                $userType = $this->getUserTypeById($row['usertype_Id']);
+                $userType = $this->getTypeById($row['usertype_Id']);
                 $allUserTypes[] = $userType;
             }
 

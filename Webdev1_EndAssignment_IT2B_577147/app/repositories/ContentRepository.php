@@ -1,9 +1,6 @@
 <?php
 namespace repositories;
-use models\Artist;
 use models\Page;
-use models\PageContent;
-
 require __DIR__.'/../models/DirectoryLog.php';
 require __DIR__.'/../models/Page.php';
 require __DIR__.'/../models/PageContent.php';
@@ -203,7 +200,7 @@ class ContentRepository extends Repository
     }
 
     //directory logs
-    public function getLogById($id){
+    public function getDirectoryLogById($id){
         $query = "SELECT `path_Id`, `filename`, `filetype`, `path` FROM `file_directory` WHERE path_Id = :id";
 
         try{
@@ -226,7 +223,7 @@ class ContentRepository extends Repository
 
             while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
 
-                $log = $this->getLogById($row['path_Id']);
+                $log = $this->getDirectoryLogById($row['path_Id']);
                 $directoryLogs[] = $log;
             }
 

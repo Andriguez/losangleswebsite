@@ -55,8 +55,7 @@ class EventRepository extends Repository
 
             if (isset($params)) {
                 foreach ($params as $pname => $pvalue) {
-                    $statement->bindParam($pname, $pvalue);
-                }
+                    $statement->bindParam($pname, $pvalue);}
             }
 
             $statement->execute();
@@ -73,6 +72,21 @@ class EventRepository extends Repository
     public function getLineupById($id){
         $query = "SELECT `lineup_Id`, `lineup_event`, `lineup_artist`,
        `non_artist_name` FROM `event_lineups` WHERE lineup_Id = :id";
+
+        try{
+            $statement = $this->content_db->prepare($query);
+            $statement->bindParam(':id', $id);
+            $statement->execute();
+
+            $statement->setFetchMode(\PDO::FETCH_CLASS, 'EventLineup');
+            return $statement->fetch();
+
+        } catch (\PDOException $e){echo $e;}
+    }
+
+    public function getLineupByEvent($id){
+        $query = "SELECT `lineup_Id`, `lineup_event`, `lineup_artist`,
+       `non_artist_name` FROM `event_lineups` WHERE lineup_event = :id";
 
         try{
             $statement = $this->content_db->prepare($query);

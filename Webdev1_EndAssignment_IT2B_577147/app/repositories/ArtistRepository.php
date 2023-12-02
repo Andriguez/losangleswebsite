@@ -77,19 +77,32 @@ class ArtistRepository extends Repository
 
     public function getAllArtistContent(){
         $query = "SELECT artist_Id FROM artist_content";
+        return $this->getContent($query);
+    }
+    public function getAllArtistContentByDiscipline($disciplineId){
+        $query = "SELECT artist_Id FROM artist_content WHERE artist_discipline = :discipline";
+        $params = [':discipline', $disciplineId];
 
-        try{
+        return $this->getContent($query,$params);
+    }
+
+    private function getContent($query, $params = null) {
+        try {
             $statement = $this->content_db->prepare($query);
-            $statement->execute();
 
-            while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
-
-                $discipline = $this->getArtistContentById($row['artist_Id']);
-                $allDisciplines[] = $discipline;
+            if (isset($params)) {
+                foreach ($params as $pname => $pvalue) {
+                    $statement->bindParam($pname, $pvalue);}
             }
 
-            return $allDisciplines;
-        }catch (\PDOException $e){echo $e;}
+            $statement->execute();
+
+            while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+                $content = $this->getArtistContentById($row['artist_Id']);
+                $allContent[] = $content;
+            }
+            return $allContent;
+        } catch (\PDOException $e){echo $e;}
     }
 
     //disciplines

@@ -164,5 +164,5 @@ function redirectTo_artists()
 
 }
 
-//must add the rest of the functions for displaying pages
+//TODO: must add the rest of the functions for displaying pages
 
