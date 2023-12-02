@@ -31,51 +31,52 @@ class FeedRepository extends Repository
         //or how to load them in chunks
         $query = "SELECT post_Id FROM feed_posts";
 
-        try{
-            $statement = $this->feed_db->prepare($query);
-            $statement->execute();
-
-            return $this->getPosts($statement->fetch(\PDO::FETCH_ASSOC));
-
-        }catch (\PDOException $e){echo $e;}
+        return $this->getPosts($query);
     }
 
     public function getPostsByUser($userId){
         //TODO : research into how to paginate posts
         //or how to load them in chunks
         $query = "SELECT post_Id FROM feed_posts WHERE post_user = :user";
+        $params = [':user', $userId];
 
-        try{
-            $statement = $this->feed_db->prepare($query);
-            $statement->bindParam(':user', $userId);
-            $statement->execute();
-
-            return $this->getPosts($statement->fetch(\PDO::FETCH_ASSOC));
-
-        }catch (\PDOException $e){echo $e;}
+        return $this->getPosts($query, $params);
     }
 
-    public function getPostsByTopic($TopicId){
+    public function getPostsByTopic($topicId){
     //TODO : research into how to paginate posts
     //or how to load them in chunks
         $query = "SELECT post_Id FROM feed_posts WHERE post_topic = :topic";
+        $params = [':topic', $topicId];
 
-        try{
+        return $this->getPosts($query, $params);
+    }
+    private function getPosts($query, $params = null) {
+        try {
             $statement = $this->feed_db->prepare($query);
-            $statement->bindParam(':topic', $TopicId);
+
+            if (isset($params)) {
+                foreach ($params as $pname => $pvalue) {
+                    $statement->bindParam($pname, $pvalue);
+                }
+            }
+
             $statement->execute();
 
-            return $this->getPosts($statement->fetch(\PDO::FETCH_ASSOC));
-
-         }catch (\PDOException $e){echo $e;}
+            while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+                $post = $this->getPostById($row['post_Id']);
+                $allPosts[] = $post;
+            }
+            return $allPosts;
+        } catch (\PDOException $e){echo $e;}
     }
 
-    private function getPosts($row){
-        while($row) {
-            $post = $this->getPostById($row['post_Id']);
-            $allPosts[] = $post;
-        }
-        return $allPosts; }
+    //private function getPosts2($row){
+      //  while($row) {
+        //    $post = $this->getPostById($row['post_Id']);
+          //  $allPosts[] = $post;
+        //}
+        //return $allPosts; }
 
     //comments
     private function getCommentById($id){

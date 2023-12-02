@@ -1153,332 +1153,206 @@ developmentdb|schema||developer||UPDATE|G</Grants>
     <user id="335" parent="1" name="root">
       <Host>localhost</Host>
     </user>
-    <table id="336" parent="326" name="aboutus_page_content">
+    <table id="336" parent="326" name="artist_content">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="337" parent="326" name="artist_content">
+    <table id="337" parent="326" name="artist_disciplines">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="338" parent="326" name="artist_disciplines">
+    <table id="338" parent="326" name="content_types">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="339" parent="326" name="artists_page_content">
+    <table id="339" parent="326" name="event_lineups">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="340" parent="326" name="content_type">
+    <table id="340" parent="326" name="event_locations">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="341" parent="326" name="event_lineup">
+    <table id="341" parent="326" name="event_types">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="342" parent="326" name="event_location">
+    <table id="342" parent="326" name="events">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="343" parent="326" name="event_page_content">
+    <table id="343" parent="326" name="file_directory">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="344" parent="326" name="event_type">
+    <table id="344" parent="326" name="media">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="345" parent="326" name="file_directory">
+    <table id="345" parent="326" name="navbar_content">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="346" parent="326" name="homepage_content">
+    <table id="346" parent="326" name="page_content">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="347" parent="326" name="media">
+    <table id="347" parent="326" name="pages">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="348" parent="326" name="navbar_content">
-      <Engine>InnoDB</Engine>
-      <CollationName>utf8mb4_general_ci</CollationName>
-    </table>
-    <table id="349" parent="326" name="pages">
-      <Engine>InnoDB</Engine>
-      <CollationName>utf8mb4_general_ci</CollationName>
-    </table>
-    <column id="350" parent="336" name="aboutus_page_content_Id">
-      <AutoIncrement>1</AutoIncrement>
+    <column id="348" parent="336" name="artist_Id">
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="351" parent="336" name="aboutus_page_content_name">
-      <DasType>varchar(50)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="352" parent="336" name="aboutus_page_content_type">
-      <DasType>int(11)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-    </column>
-    <column id="353" parent="336" name="aboutus_page_content_text">
-      <DasType>varchar(500)|0s</DasType>
-      <Position>4</Position>
-    </column>
-    <column id="354" parent="336" name="aboutus_page_content_media_Id">
-      <DasType>int(11)|0s</DasType>
-      <Position>5</Position>
-    </column>
-    <foreign-key id="355" parent="336" name="aboutus_content_type_FK">
-      <ColNames>aboutus_page_content_type</ColNames>
-      <RefColNames>content_type_Id</RefColNames>
-      <RefTableName>content_type</RefTableName>
-    </foreign-key>
-    <foreign-key id="356" parent="336" name="aboutus_page_content_media_FK">
-      <ColNames>aboutus_page_content_media_Id</ColNames>
-      <OnDelete>cascade</OnDelete>
-      <OnUpdate>cascade</OnUpdate>
-      <RefColNames>media_Id</RefColNames>
-      <RefTableName>media</RefTableName>
-    </foreign-key>
-    <index id="357" parent="336" name="PRIMARY">
-      <ColNames>aboutus_page_content_Id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="358" parent="336" name="aboutus_content_type_FK">
-      <ColNames>aboutus_page_content_type</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="359" parent="336" name="aboutus_page_content_media_FK">
-      <ColNames>aboutus_page_content_media_Id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="360" parent="336" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="361" parent="337" name="artist_Id">
-      <DasType>int(11)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="362" parent="337" name="artist_name">
+    <column id="349" parent="336" name="artist_name">
       <DasType>varchar(25)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="363" parent="337" name="artist_description">
+    <column id="350" parent="336" name="artist_description">
       <DasType>varchar(500)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="364" parent="337" name="artist_discipline">
+    <column id="351" parent="336" name="artist_discipline">
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="365" parent="337" name="artist_pronouns">
+    <column id="352" parent="336" name="artist_pronouns">
       <DasType>varchar(25)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="366" parent="337" name="artist_email">
+    <column id="353" parent="336" name="artist_email">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="367" parent="337" name="artist_soundcloud_url">
+    <column id="354" parent="336" name="artist_soundcloud_url">
       <DasType>varchar(250)|0s</DasType>
       <Position>7</Position>
     </column>
-    <column id="368" parent="337" name="artist_socialmedia">
+    <column id="355" parent="336" name="artist_socialmedia">
       <DasType>varchar(50)|0s</DasType>
       <Position>8</Position>
     </column>
-    <column id="369" parent="337" name="artist_stagename">
+    <column id="356" parent="336" name="artist_stagename">
       <DasType>varchar(25)|0s</DasType>
       <Position>9</Position>
     </column>
-    <column id="370" parent="337" name="artist_picture">
+    <column id="357" parent="336" name="artist_picture">
       <DasType>int(11)|0s</DasType>
       <Position>10</Position>
     </column>
-    <column id="371" parent="337" name="artist_location">
+    <column id="358" parent="336" name="artist_location">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>11</Position>
     </column>
-    <foreign-key id="372" parent="337" name="artist_Id_FK">
+    <foreign-key id="359" parent="336" name="artist_Id_FK">
       <ColNames>artist_Id</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>user_Id</RefColNames>
       <RefTableName>users</RefTableName>
       <RefTableParentName>losangles_users</RefTableParentName>
     </foreign-key>
-    <foreign-key id="373" parent="337" name="artist_discipline_detailpageFK">
+    <foreign-key id="360" parent="336" name="artist_discipline_detailpageFK">
       <ColNames>artist_discipline</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>artist_discipline_Id</RefColNames>
       <RefTableName>artist_disciplines</RefTableName>
     </foreign-key>
-    <foreign-key id="374" parent="337" name="artist_picture_detailpageFK">
+    <foreign-key id="361" parent="336" name="artist_picture_detailpageFK">
       <ColNames>artist_picture</ColNames>
       <OnDelete>set-null</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>media_Id</RefColNames>
       <RefTableName>media</RefTableName>
     </foreign-key>
-    <index id="375" parent="337" name="artist_Id_FK">
+    <index id="362" parent="336" name="artist_Id_FK">
       <ColNames>artist_Id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="376" parent="337" name="artist_discipline_detailpageFK">
+    <index id="363" parent="336" name="artist_discipline_detailpageFK">
       <ColNames>artist_discipline</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="377" parent="337" name="artist_picture_detailpageFK">
+    <index id="364" parent="336" name="artist_picture_detailpageFK">
       <ColNames>artist_picture</ColNames>
       <Type>btree</Type>
     </index>
-    <column id="378" parent="338" name="artist_discipline_Id">
+    <column id="365" parent="337" name="artist_discipline_Id">
       <AutoIncrement>1</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="379" parent="338" name="artist_discipline_name">
+    <column id="366" parent="337" name="artist_discipline_name">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <index id="380" parent="338" name="PRIMARY">
+    <index id="367" parent="337" name="PRIMARY">
       <ColNames>artist_discipline_Id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="381" parent="338" name="PRIMARY">
+    <key id="368" parent="337" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="382" parent="339" name="artist_Id">
-      <AutoIncrement>1</AutoIncrement>
-      <DasType>int(11)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="383" parent="339" name="artist_name">
-      <DasType>varchar(50)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="384" parent="339" name="artist_detailpage_Id">
-      <DasType>int(11)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-    </column>
-    <column id="385" parent="339" name="artist_picture_Id">
-      <DasType>int(11)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-    </column>
-    <column id="386" parent="339" name="artist_discipline_Id">
-      <DasType>int(11)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-    </column>
-    <foreign-key id="387" parent="339" name="artist_FK">
-      <ColNames>artist_Id</ColNames>
-      <OnUpdate>cascade</OnUpdate>
-      <RefColNames>user_Id</RefColNames>
-      <RefTableName>users</RefTableName>
-      <RefTableParentName>losangles_users</RefTableParentName>
-    </foreign-key>
-    <foreign-key id="388" parent="339" name="artist_picture_FK">
-      <ColNames>artist_picture_Id</ColNames>
-      <OnDelete>cascade</OnDelete>
-      <OnUpdate>cascade</OnUpdate>
-      <RefColNames>media_Id</RefColNames>
-      <RefTableName>media</RefTableName>
-    </foreign-key>
-    <foreign-key id="389" parent="339" name="artist_discipline_FK">
-      <ColNames>artist_discipline_Id</ColNames>
-      <OnUpdate>cascade</OnUpdate>
-      <RefColNames>artist_discipline_Id</RefColNames>
-      <RefTableName>artist_disciplines</RefTableName>
-    </foreign-key>
-    <index id="390" parent="339" name="PRIMARY">
-      <ColNames>artist_Id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="391" parent="339" name="artist_picture_FK">
-      <ColNames>artist_picture_Id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="392" parent="339" name="artist_discipline_FK">
-      <ColNames>artist_discipline_Id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="393" parent="339" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="394" parent="340" name="content_type_Id">
+    <column id="369" parent="338" name="content_type_Id">
       <AutoIncrement>5</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="395" parent="340" name="content_type_name">
+    <column id="370" parent="338" name="content_type_name">
       <DasType>varchar(25)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <index id="396" parent="340" name="PRIMARY">
+    <index id="371" parent="338" name="PRIMARY">
       <ColNames>content_type_Id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="397" parent="340" name="PRIMARY">
+    <key id="372" parent="338" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="398" parent="341" name="lineup_Id">
+    <column id="373" parent="339" name="lineup_Id">
       <AutoIncrement>1</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="399" parent="341" name="lineup_event">
+    <column id="374" parent="339" name="lineup_event">
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="400" parent="341" name="lineup_artist">
+    <column id="375" parent="339" name="lineup_artist">
       <DasType>int(11)|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="401" parent="341" name="non_artist_name">
+    <column id="376" parent="339" name="non_artist_name">
       <DasType>varchar(25)|0s</DasType>
       <Position>4</Position>
     </column>
-    <foreign-key id="402" parent="341" name="event_FK">
+    <foreign-key id="377" parent="339" name="event_FK">
       <ColNames>lineup_event</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>event_Id</RefColNames>
-      <RefTableName>event_page_content</RefTableName>
+      <RefTableName>events</RefTableName>
     </foreign-key>
-    <foreign-key id="403" parent="341" name="artist_lineupFK">
+    <foreign-key id="378" parent="339" name="artist_lineupFK">
       <ColNames>lineup_artist</ColNames>
       <OnDelete>set-null</OnDelete>
       <OnUpdate>cascade</OnUpdate>
@@ -1486,270 +1360,397 @@ developmentdb|schema||developer||UPDATE|G</Grants>
       <RefTableName>users</RefTableName>
       <RefTableParentName>losangles_users</RefTableParentName>
     </foreign-key>
-    <index id="404" parent="341" name="PRIMARY">
+    <index id="379" parent="339" name="PRIMARY">
       <ColNames>lineup_Id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="405" parent="341" name="event_FK">
+    <index id="380" parent="339" name="event_FK">
       <ColNames>lineup_event</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="406" parent="341" name="artist_lineupFK">
+    <index id="381" parent="339" name="artist_lineupFK">
       <ColNames>lineup_artist</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="407" parent="341" name="PRIMARY">
+    <key id="382" parent="339" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="408" parent="342" name="location_Id">
+    <column id="383" parent="340" name="location_Id">
       <AutoIncrement>1</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="409" parent="342" name="location_name">
+    <column id="384" parent="340" name="location_name">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="410" parent="342" name="location_address">
+    <column id="385" parent="340" name="location_address">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="411" parent="342" name="location_city">
+    <column id="386" parent="340" name="location_city">
       <DasType>varchar(25)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="412" parent="342" name="location_country">
+    <column id="387" parent="340" name="location_country">
       <DasType>varchar(25)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="413" parent="342" name="location_website">
+    <column id="388" parent="340" name="location_website">
       <DasType>varchar(250)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="414" parent="342" name="location_map_url">
+    <column id="389" parent="340" name="location_map_url">
       <DasType>varchar(250)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <index id="415" parent="342" name="PRIMARY">
+    <index id="390" parent="340" name="PRIMARY">
       <ColNames>location_Id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="416" parent="342" name="PRIMARY">
+    <key id="391" parent="340" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="417" parent="343" name="event_Id">
+    <column id="392" parent="341" name="event_type_Id">
       <AutoIncrement>1</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="418" parent="343" name="event_name">
+    <column id="393" parent="341" name="event_type_name">
+      <DasType>varchar(35)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <index id="394" parent="341" name="PRIMARY">
+      <ColNames>event_type_Id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="395" parent="341" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="396" parent="342" name="event_Id">
+      <AutoIncrement>1</AutoIncrement>
+      <DasType>int(11)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="397" parent="342" name="event_name">
       <DasType>varchar(25)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="419" parent="343" name="event_datetime">
+    <column id="398" parent="342" name="event_datetime">
       <DasType>datetime|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="420" parent="343" name="event_location">
+    <column id="399" parent="342" name="event_location">
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="421" parent="343" name="event_type">
+    <column id="400" parent="342" name="event_type">
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="422" parent="343" name="event_poster">
+    <column id="401" parent="342" name="event_poster">
       <DasType>int(11)|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="423" parent="343" name="event_lineup">
+    <column id="402" parent="342" name="event_lineup">
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <column id="424" parent="343" name="event_description">
+    <column id="403" parent="342" name="event_description">
       <DasType>varchar(500)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <column id="425" parent="343" name="event_ticketbtn_text">
+    <column id="404" parent="342" name="event_ticketbtn_text">
       <DasType>varchar(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>9</Position>
     </column>
-    <column id="426" parent="343" name="event_ticketbtn_url">
+    <column id="405" parent="342" name="event_ticketbtn_url">
       <DasType>varchar(250)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>10</Position>
     </column>
-    <foreign-key id="427" parent="343" name="event_location_FK">
+    <foreign-key id="406" parent="342" name="event_location_FK">
       <ColNames>event_location</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>location_Id</RefColNames>
-      <RefTableName>event_location</RefTableName>
+      <RefTableName>event_locations</RefTableName>
     </foreign-key>
-    <foreign-key id="428" parent="343" name="event_type_FK">
+    <foreign-key id="407" parent="342" name="event_type_FK">
       <ColNames>event_type</ColNames>
       <RefColNames>event_type_Id</RefColNames>
-      <RefTableName>event_type</RefTableName>
+      <RefTableName>event_types</RefTableName>
     </foreign-key>
-    <foreign-key id="429" parent="343" name="event_poster_FK">
+    <foreign-key id="408" parent="342" name="event_poster_FK">
       <ColNames>event_poster</ColNames>
       <OnDelete>set-null</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>media_Id</RefColNames>
       <RefTableName>media</RefTableName>
     </foreign-key>
-    <foreign-key id="430" parent="343" name="event_lineup_FK">
+    <foreign-key id="409" parent="342" name="event_lineup_FK">
       <ColNames>event_lineup</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>lineup_Id</RefColNames>
-      <RefTableName>event_lineup</RefTableName>
+      <RefTableName>event_lineups</RefTableName>
     </foreign-key>
-    <index id="431" parent="343" name="PRIMARY">
+    <index id="410" parent="342" name="PRIMARY">
       <ColNames>event_Id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="432" parent="343" name="event_location_FK">
+    <index id="411" parent="342" name="event_location_FK">
       <ColNames>event_location</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="433" parent="343" name="event_type_FK">
+    <index id="412" parent="342" name="event_type_FK">
       <ColNames>event_type</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="434" parent="343" name="event_poster_FK">
+    <index id="413" parent="342" name="event_poster_FK">
       <ColNames>event_poster</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="435" parent="343" name="event_lineup_FK">
+    <index id="414" parent="342" name="event_lineup_FK">
       <ColNames>event_lineup</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="436" parent="343" name="PRIMARY">
+    <key id="415" parent="342" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="437" parent="344" name="event_type_Id">
+    <column id="416" parent="343" name="path_Id">
       <AutoIncrement>1</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="438" parent="344" name="event_type_name">
-      <DasType>varchar(35)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <index id="439" parent="344" name="PRIMARY">
-      <ColNames>event_type_Id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <key id="440" parent="344" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="441" parent="345" name="path_Id">
-      <AutoIncrement>1</AutoIncrement>
-      <DasType>int(11)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="442" parent="345" name="filename">
+    <column id="417" parent="343" name="filename">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="443" parent="345" name="filetype">
+    <column id="418" parent="343" name="filetype">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="444" parent="345" name="path">
+    <column id="419" parent="343" name="path">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <index id="445" parent="345" name="PRIMARY">
+    <index id="420" parent="343" name="PRIMARY">
       <ColNames>path_Id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="446" parent="345" name="PRIMARY">
+    <key id="421" parent="343" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="447" parent="346" name="homepage_content_Id">
+    <column id="422" parent="344" name="media_Id">
       <AutoIncrement>1</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="448" parent="346" name="homepage_content_name">
-      <DasType>varchar(50)|0s</DasType>
+    <column id="423" parent="344" name="media_filename">
+      <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="449" parent="346" name="homepage_content_type">
-      <DasType>int(11)|0s</DasType>
+    <column id="424" parent="344" name="media_type">
+      <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="450" parent="346" name="homepage_content_text">
-      <DasType>varchar(500)|0s</DasType>
+    <column id="425" parent="344" name="media_path">
+      <DasType>int(11)|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="451" parent="346" name="homepage_content_media">
+    <foreign-key id="426" parent="344" name="media_path_FK">
+      <ColNames>media_path</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+      <RefColNames>path_Id</RefColNames>
+      <RefTableName>file_directory</RefTableName>
+    </foreign-key>
+    <index id="427" parent="344" name="PRIMARY">
+      <ColNames>media_Id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="428" parent="344" name="media_path_FK">
+      <ColNames>media_path</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="429" parent="344" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="430" parent="345" name="navbar_content_Id">
+      <AutoIncrement>1</AutoIncrement>
       <DasType>int(11)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="431" parent="345" name="navbar_content_type">
+      <DasType>int(11)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="432" parent="345" name="navbar_content_media">
+      <DasType>int(11)|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="433" parent="345" name="navbar_content_page">
+      <DasType>int(11)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="434" parent="345" name="navbar_content_text">
+      <DasType>varchar(25)|0s</DasType>
       <Position>5</Position>
     </column>
-    <foreign-key id="452" parent="346" name="homepage_element_type_FK">
-      <ColNames>homepage_content_type</ColNames>
+    <column id="435" parent="345" name="navbar_content_url">
+      <DasType>varchar(250)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <foreign-key id="436" parent="345" name="navbar_content_type_FK">
+      <ColNames>navbar_content_type</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>content_type_Id</RefColNames>
-      <RefTableName>content_type</RefTableName>
+      <RefTableName>content_types</RefTableName>
     </foreign-key>
-    <foreign-key id="453" parent="346" name="homepage_content_media_FK">
-      <ColNames>homepage_content_media</ColNames>
+    <foreign-key id="437" parent="345" name="navbar_content_media_FK">
+      <ColNames>navbar_content_media</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>media_Id</RefColNames>
       <RefTableName>media</RefTableName>
     </foreign-key>
-    <index id="454" parent="346" name="PRIMARY">
-      <ColNames>homepage_content_Id</ColNames>
+    <foreign-key id="438" parent="345" name="navbar_content_page_FK">
+      <ColNames>navbar_content_page</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+      <RefColNames>page_Id</RefColNames>
+      <RefTableName>pages</RefTableName>
+    </foreign-key>
+    <index id="439" parent="345" name="PRIMARY">
+      <ColNames>navbar_content_Id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="455" parent="346" name="homepage_element_type_FK">
-      <ColNames>homepage_content_type</ColNames>
+    <index id="440" parent="345" name="navbar_content_type_FK">
+      <ColNames>navbar_content_type</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="456" parent="346" name="homepage_content_media_FK">
-      <ColNames>homepage_content_media</ColNames>
+    <index id="441" parent="345" name="navbar_content_media_FK">
+      <ColNames>navbar_content_media</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="442" parent="345" name="navbar_content_page_FK">
+      <ColNames>navbar_content_page</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="443" parent="345" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="444" parent="346" name="page_content_Id">
+      <AutoIncrement>1</AutoIncrement>
+      <DasType>int(11)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="445" parent="346" name="page_content_name">
+      <DasType>varchar(50)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="446" parent="346" name="page_content_text">
+      <DasType>varchar(50)|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="447" parent="346" name="page_content_type">
+      <DasType>int(11)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="448" parent="346" name="page_content_media">
+      <DasType>int(11)|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="449" parent="346" name="parent_page">
+      <DasType>int(11)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <foreign-key id="450" parent="346" name="page_content_type_FK">
+      <ColNames>page_content_type</ColNames>
+      <RefColNames>content_type_Id</RefColNames>
+      <RefTableName>content_types</RefTableName>
+    </foreign-key>
+    <foreign-key id="451" parent="346" name="page_content_media_FK">
+      <ColNames>page_content_media</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+      <RefColNames>media_Id</RefColNames>
+      <RefTableName>media</RefTableName>
+    </foreign-key>
+    <foreign-key id="452" parent="346" name="page_content_parent_page_FK">
+      <ColNames>parent_page</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+      <RefColNames>page_Id</RefColNames>
+      <RefTableName>pages</RefTableName>
+    </foreign-key>
+    <index id="453" parent="346" name="PRIMARY">
+      <ColNames>page_content_Id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="454" parent="346" name="page_content_type_FK">
+      <ColNames>page_content_type</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="455" parent="346" name="page_content_media_FK">
+      <ColNames>page_content_media</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="456" parent="346" name="page_content_parent_page_FK">
+      <ColNames>parent_page</ColNames>
       <Type>btree</Type>
     </index>
     <key id="457" parent="346" name="PRIMARY">
@@ -1757,170 +1758,54 @@ developmentdb|schema||developer||UPDATE|G</Grants>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="458" parent="347" name="media_Id">
+    <column id="458" parent="347" name="page_Id">
       <AutoIncrement>1</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="459" parent="347" name="media_filename">
+    <column id="459" parent="347" name="page_title">
       <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="460" parent="347" name="media_type">
-      <DasType>varchar(50)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-    </column>
-    <column id="461" parent="347" name="media_path">
-      <DasType>int(11)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-    </column>
-    <foreign-key id="462" parent="347" name="media_path_FK">
-      <ColNames>media_path</ColNames>
-      <OnDelete>cascade</OnDelete>
-      <OnUpdate>cascade</OnUpdate>
-      <RefColNames>path_Id</RefColNames>
-      <RefTableName>file_directory</RefTableName>
-    </foreign-key>
-    <index id="463" parent="347" name="PRIMARY">
-      <ColNames>media_Id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="464" parent="347" name="media_path_FK">
-      <ColNames>media_path</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="465" parent="347" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="466" parent="348" name="navbar_content_Id">
-      <AutoIncrement>1</AutoIncrement>
-      <DasType>int(11)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="467" parent="348" name="navbar_content_type">
-      <DasType>int(11)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="468" parent="348" name="navbar_content_media">
-      <DasType>int(11)|0s</DasType>
-      <Position>3</Position>
-    </column>
-    <column id="469" parent="348" name="navbar_content_page">
-      <DasType>int(11)|0s</DasType>
-      <Position>4</Position>
-    </column>
-    <column id="470" parent="348" name="navbar_content_text">
-      <DasType>varchar(25)|0s</DasType>
-      <Position>5</Position>
-    </column>
-    <column id="471" parent="348" name="navbar_content_url">
-      <DasType>varchar(250)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>6</Position>
-    </column>
-    <foreign-key id="472" parent="348" name="navbar_content_type_FK">
-      <ColNames>navbar_content_type</ColNames>
-      <OnUpdate>cascade</OnUpdate>
-      <RefColNames>content_type_Id</RefColNames>
-      <RefTableName>content_type</RefTableName>
-    </foreign-key>
-    <foreign-key id="473" parent="348" name="navbar_content_media_FK">
-      <ColNames>navbar_content_media</ColNames>
-      <OnDelete>cascade</OnDelete>
-      <OnUpdate>cascade</OnUpdate>
-      <RefColNames>media_Id</RefColNames>
-      <RefTableName>media</RefTableName>
-    </foreign-key>
-    <foreign-key id="474" parent="348" name="navbar_content_page_FK">
-      <ColNames>navbar_content_page</ColNames>
-      <OnDelete>cascade</OnDelete>
-      <OnUpdate>cascade</OnUpdate>
-      <RefColNames>page_Id</RefColNames>
-      <RefTableName>pages</RefTableName>
-    </foreign-key>
-    <index id="475" parent="348" name="PRIMARY">
-      <ColNames>navbar_content_Id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="476" parent="348" name="navbar_content_type_FK">
-      <ColNames>navbar_content_type</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="477" parent="348" name="navbar_content_media_FK">
-      <ColNames>navbar_content_media</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="478" parent="348" name="navbar_content_page_FK">
-      <ColNames>navbar_content_page</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="479" parent="348" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="480" parent="349" name="page_Id">
-      <AutoIncrement>1</AutoIncrement>
-      <DasType>int(11)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="481" parent="349" name="page_title">
-      <DasType>varchar(100)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="482" parent="349" name="page_displayname">
+    <column id="460" parent="347" name="page_displayname">
       <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="483" parent="349" name="page_url">
+    <column id="461" parent="347" name="page_url">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="484" parent="349" name="page_directory">
+    <column id="462" parent="347" name="page_directory">
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="485" parent="349" name="page_inNavbar">
+    <column id="463" parent="347" name="page_inNavbar">
       <DasType>bit(1)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="486" parent="349" name="page_content_table">
-      <DasType>varchar(100)|0s</DasType>
-      <Position>7</Position>
-    </column>
-    <foreign-key id="487" parent="349" name="page_directory_FK">
+    <foreign-key id="464" parent="347" name="page_directory_FK">
       <ColNames>page_directory</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>path_Id</RefColNames>
       <RefTableName>file_directory</RefTableName>
     </foreign-key>
-    <index id="488" parent="349" name="PRIMARY">
+    <index id="465" parent="347" name="PRIMARY">
       <ColNames>page_Id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="489" parent="349" name="page_directory_FK">
+    <index id="466" parent="347" name="page_directory_FK">
       <ColNames>page_directory</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="490" parent="349" name="PRIMARY">
+    <key id="467" parent="347" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

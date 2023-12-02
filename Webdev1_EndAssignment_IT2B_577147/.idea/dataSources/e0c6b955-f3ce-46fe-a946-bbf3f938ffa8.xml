@@ -1239,106 +1239,80 @@ developmentdb|schema||developer||UPDATE|G</Grants>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="354" parent="337" name="artist_dicipline">
+    <column id="354" parent="337" name="artist_content">
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="355" parent="337" name="artist_stage_name">
-      <DasType>varchar(100)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-    </column>
-    <column id="356" parent="337" name="artist_location">
-      <DasType>varchar(100)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-    </column>
-    <column id="357" parent="337" name="artist_content">
-      <DasType>int(11)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-    </column>
-    <foreign-key id="358" parent="337" name="userId_PKFK">
+    <foreign-key id="355" parent="337" name="userId_PKFK">
       <ColNames>artist_data_user_Id</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>user_Id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <foreign-key id="359" parent="337" name="artist_discipline_FK">
-      <ColNames>artist_dicipline</ColNames>
-      <OnUpdate>cascade</OnUpdate>
-      <RefColNames>artist_discipline_Id</RefColNames>
-      <RefTableName>artist_disciplines</RefTableName>
-      <RefTableParentName>losangles_content</RefTableParentName>
-    </foreign-key>
-    <foreign-key id="360" parent="337" name="artistdata_detailpage_FK">
+    <foreign-key id="356" parent="337" name="artistdata_detailpage_FK">
       <ColNames>artist_content</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>artist_Id</RefColNames>
       <RefTableName>artist_content</RefTableName>
       <RefTableParentName>losangles_content</RefTableParentName>
     </foreign-key>
-    <index id="361" parent="337" name="PRIMARY">
+    <index id="357" parent="337" name="PRIMARY">
       <ColNames>artist_data_user_Id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="362" parent="337" name="artist_discipline_FK">
-      <ColNames>artist_dicipline</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="363" parent="337" name="artistdata_detailpage_FK">
+    <index id="358" parent="337" name="artistdata_detailpage_FK">
       <ColNames>artist_content</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="364" parent="337" name="PRIMARY">
+    <key id="359" parent="337" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="365" parent="338" name="user_Id">
+    <column id="360" parent="338" name="user_Id">
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="366" parent="338" name="user_firstname">
+    <column id="361" parent="338" name="user_firstname">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="367" parent="338" name="user_lastname">
+    <column id="362" parent="338" name="user_lastname">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="368" parent="338" name="user_email">
+    <column id="363" parent="338" name="user_email">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="369" parent="338" name="user_pronouns">
+    <column id="364" parent="338" name="user_pronouns">
       <DasType>varchar(25)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="370" parent="338" name="user_picture">
+    <column id="365" parent="338" name="user_picture">
       <DasType>int(11)|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="371" parent="338" name="user_type">
+    <column id="366" parent="338" name="user_type">
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <column id="372" parent="338" name="user_password">
+    <column id="367" parent="338" name="user_password">
       <DasType>varchar(255)|0s</DasType>
       <DefaultExpression>&apos;password&apos;</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <foreign-key id="373" parent="338" name="user_picture_FK">
+    <foreign-key id="368" parent="338" name="user_picture_FK">
       <ColNames>user_picture</ColNames>
       <OnDelete>set-null</OnDelete>
       <OnUpdate>cascade</OnUpdate>
@@ -1346,55 +1320,55 @@ developmentdb|schema||developer||UPDATE|G</Grants>
       <RefTableName>media</RefTableName>
       <RefTableParentName>losangles_content</RefTableParentName>
     </foreign-key>
-    <foreign-key id="374" parent="338" name="usertype_FK">
+    <foreign-key id="369" parent="338" name="usertype_FK">
       <ColNames>user_type</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>usertype_Id</RefColNames>
       <RefTableName>users_usertypes</RefTableName>
     </foreign-key>
-    <index id="375" parent="338" name="PRIMARY">
+    <index id="370" parent="338" name="PRIMARY">
       <ColNames>user_Id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="376" parent="338" name="user_email">
+    <index id="371" parent="338" name="user_email">
       <ColNames>user_email</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="377" parent="338" name="user_picture_FK">
+    <index id="372" parent="338" name="user_picture_FK">
       <ColNames>user_picture</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="378" parent="338" name="usertype_FK">
+    <index id="373" parent="338" name="usertype_FK">
       <ColNames>user_type</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="379" parent="338" name="PRIMARY">
+    <key id="374" parent="338" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="380" parent="338" name="user_email">
+    <key id="375" parent="338" name="user_email">
       <UnderlyingIndexName>user_email</UnderlyingIndexName>
     </key>
-    <column id="381" parent="339" name="usertype_Id">
+    <column id="376" parent="339" name="usertype_Id">
       <AutoIncrement>4</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="382" parent="339" name="usertype_name">
+    <column id="377" parent="339" name="usertype_name">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <index id="383" parent="339" name="PRIMARY">
+    <index id="378" parent="339" name="PRIMARY">
       <ColNames>usertype_Id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="384" parent="339" name="PRIMARY">
+    <key id="379" parent="339" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
