@@ -10,7 +10,7 @@ try{
 
     $repo = new Repository();
 
-    $stmt = $repo->content_db->prepare('SELECT * FROM content_type');
+    $stmt = $repo->content_db->prepare('SELECT * FROM content_types');
     $stmt->execute();
     $contents = new ArrayObject();
 

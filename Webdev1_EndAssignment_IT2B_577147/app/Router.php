@@ -19,7 +19,7 @@ class Router
     {
         $routes = [
             new Route(['GET','HEAD'],'connect', '/^\/connect(?:\/([a-z0-1_-]+))?$/'),
-            new Route(['GET','HEAD'],'homepage', null,'/'),
+            new Route(['GET','HEAD'],'home', null,'/'),
             new Route(['GET','HEAD'],'artists',  '/^\/artists(?:\/([a-z0-1_-]+))?$/'),
 
         ];
@@ -145,9 +145,9 @@ class Router
 
 }
 
- function redirectTo_homepage()
+ function redirectTo_home()
 {
-    require __DIR__ . '/views/homepage/index.php';
+    require __DIR__ . '/views/home/index.php';
     $content = ob_get_clean();
     Router::getInstance()->respond(200, $content);
 }
