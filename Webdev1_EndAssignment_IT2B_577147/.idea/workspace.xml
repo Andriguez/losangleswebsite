@@ -6,18 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Router.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/aboutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/aboutController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/artistsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/artistsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/connectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/connectController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/eventsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/eventsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/loginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/loginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/about/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/about/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/artists/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/artists/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/connect/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/connect/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/events/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/home/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/navbar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/loginView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/loginView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/navbar.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +72,7 @@
       <workItem from="1700655628803" duration="5180000" />
       <workItem from="1701107354222" duration="929000" />
       <workItem from="1701108307797" duration="12814000" />
-      <workItem from="1701137287432" duration="118870000" />
+      <workItem from="1701137287432" duration="119881000" />
     </task>
     <servers />
   </component>

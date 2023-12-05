@@ -54,16 +54,16 @@
 
         <div class="col mb-1 mb-md-0">
             <ul class="nav justify-content-center text-bg-body">
-                <li class="nav-item"><h3><a href="/artists" class="nav-link mt-3 mx-5">Artists</a></h3></li>
-                <li class="nav-item"><h3><a href="/events" class="nav-link mt-3 mx-5">Events</a></h3></li>
+                <li class="nav-item"><h3><a id="artist-link" href="/artists" class="nav-link mt-3 mx-5">Artists</a></h3></li>
+                <li class="nav-item"><h3><a id="events-link" href="/events" class="nav-link mt-3 mx-5">Events</a></h3></li>
                 <div class="mb-2 mb-md-0 mx-5">
                     <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none navbar-brand">
                         <img src="/media/logocrop.jpeg" alt="Logo" width="125" height="80" class="d-inline-block align-text-top">
                     </a>
                 </div>
 
-                <li class="nav-item"><h3><a href="/about" class="nav-link mt-3 mx-5">About</a></h3></li>
-                <li class="nav-item"><h3><a href="/connect" class="nav-link mt-3 ms-4 me-5" id="connectDropdown" data-bs-toggle="dropdown" aria-expanded="false">Connect</a>
+                <li class="nav-item"><h3><a id="about-link" href="/about" class="nav-link mt-3 mx-5">About</a></h3></li>
+                <li class="nav-item"><h3><a id="connect-link" href="/connect" class="nav-link mt-3 ms-4 me-5" id="connectDropdown" data-bs-toggle="dropdown" aria-expanded="false">Connect</a>
                         <ul class="dropdown-menu" aria-labelledby="connectDropdown">
                             <li><a class="dropdown-item" href="#">Register</a></li>
                             <li><a class="dropdown-item" href="/login">Login</a></li>
