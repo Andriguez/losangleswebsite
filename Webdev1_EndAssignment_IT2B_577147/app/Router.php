@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__.'/config/Route.php';
+ require_once __DIR__.'/config/Route.php';
 class Router
 {
     private $routes;
@@ -18,9 +18,11 @@ class Router
     private function createRoutes(): array
     {
         $routes = [
-            new Route(['GET','HEAD'],'connect', '/^\/connect(?:\/([a-z0-1_-]+))?$/'),
-            new Route(['GET','HEAD'],'home', null,'/'),
-            new Route(['GET','HEAD'],'artists',  '/^\/artists(?:\/([a-z0-1_-]+))?$/'),
+            new Route(['GET','HEAD'],'connectController', null,'/^\/connect(?:\/([a-z0-1_-]+))?$/'),
+            new Route(['GET','HEAD'],'homeController', null,null, '/'),
+            new Route(['GET','HEAD'],'artistsController',  null,'/^\/artists(?:\/([a-z0-1_-]+))?$/'),
+            new Route(['GET','HEAD'],'eventsController',  null,'/^\/events(?:\/([a-z0-1_-]+))?$/'),
+            new Route(['GET','HEAD'],'aboutController',  null,'/^\/about(?:\/([a-z0-1_-]+))?$/'),
 
         ];
 
@@ -38,7 +40,7 @@ class Router
             try {
                 if ($this->matchRoute($route, $requestedPath)) {
                     $this->checkRequestMethod($route);
-                    $this->callRouteFunction($route);
+                    $this->redirect($route);
                 }
             } catch (Exception $e) {
                 echo $e->getMessage();
@@ -70,6 +72,7 @@ class Router
     private function matchRoute($route, $requestedPath)
     {
         if ($route->getPattern() !== null) {
+            ob_start();
             return preg_match($route->getPattern(), $requestedPath, $matches);
         } elseif ($route->getString() !== null) {
             return $route->getString() === $requestedPath;
@@ -85,19 +88,31 @@ class Router
         }
     }
 
-    private function callRouteFunction($route)
-    {
-
-        if ($route->getFunction() !== null) {
-            $handler = 'redirectTo_' . $route->getFunction();
-
-            if (!is_callable($handler)) {
-                $this->respondServerError($route->getFunction());
-            }
+    private function redirect($route){
+        $filename = __DIR__ . '/controllers/'.$route->getController().'.php';
+        //if ($api) {
+        // $filename = __DIR__ . '/api/controllers/' . $controllerName . '.php';
+        //}
+        if (file_exists($filename)) {
             ob_start();
-            call_user_func_array($handler, isset($matches) ? [$matches] : []);
+            $controllerName = 'controllers\\'.$route->getController();
+            require $filename;
         } else {
-            throw new Exception("Missing required parameter (function) in route.");
+            $this->respondNotFound();
+        }
+
+        // dynamically call relevant controller method
+        try {
+            //$reflectionClass = new ReflectionClass($controller);
+            //$controllerObj = $reflectionClass->newInstance();
+            $controllerObj = new $controllerName;
+            $controllerObj->{$route->getFunction()}();
+            $content = ob_get_clean();
+            Router::getInstance()->respond(200, $content);
+
+        } catch (Exception $e) {
+            echo $e;
+            $this->respondServerError('Controller: '.$route->getController().' Function: '.$route->getFunction());
         }
     }
 
@@ -117,11 +132,11 @@ class Router
         respond(405, '<h1>405 Method Not Allowed</h1>', ['allow' => implode(', ', $allowedMethods)]);
     }
 
-    private function respondServerError($function)
+    private function respondServerError($controller)
     {
         $content = '<h1>500 Internal Server Error</h1>';
         $content .= '<p>Specified route-handler does not exist.</p>';
-        $content .= '<pre>' . htmlspecialchars($function) . '</pre>';
+        $content .= '<pre>' . htmlspecialchars($controller) . '</pre>';
         $this->respond(500, $content);
     }
 
@@ -141,28 +156,4 @@ class Router
         echo $html;
         exit();
     }
-
-
 }
-
- function redirectTo_home()
-{
-    require __DIR__ . '/views/home/index.php';
-    $content = ob_get_clean();
-    Router::getInstance()->respond(200, $content);
-}
-
- function redirectTo_connect()
-{
-    $content = '<p>Showing the connect page </p>';
-    Router::getInstance()->respond(200, $content);
-}
-function redirectTo_artists()
-{
-    $content = '<p>Showing the artists page </p>';
-    Router::getInstance()->respond(200, $content);
-
-}
-
-//TODO: must add the rest of the functions for displaying pages
-
