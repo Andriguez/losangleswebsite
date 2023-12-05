@@ -3,6 +3,6 @@
     <title>login</title>
 </head>
 <body>
-<h1>Login Page</h1>
+<?php include __DIR__.'/../navbar.php'?>
 </body>
 </html>

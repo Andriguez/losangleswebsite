@@ -5,7 +5,7 @@ require __DIR__ . '/Controller.php';
 class eventsController extends Controller
 {
     public function index(){
-        echo 'reaches events controller';
+        require __DIR__ . '/../views/events/index.php';
 
     }
 }

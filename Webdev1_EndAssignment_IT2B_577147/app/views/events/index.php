@@ -3,6 +3,6 @@
     <title>events</title>
 </head>
 <body>
-<h1>Events Page</h1>
+<?php include __DIR__.'/../navbar.php'?>
 </body>
 </html>

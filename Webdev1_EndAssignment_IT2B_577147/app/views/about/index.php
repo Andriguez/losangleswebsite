@@ -3,6 +3,6 @@
     <title>about us</title>
 </head>
 <body>
-<h1>About Us Page</h1>
+<?php include __DIR__.'/../navbar.php'?>
 </body>
 </html>

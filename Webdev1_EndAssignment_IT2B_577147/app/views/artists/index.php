@@ -3,6 +3,6 @@
     <title>artists</title>
 </head>
 <body>
-<h1>Artists Page</h1>
+<?php include __DIR__.'/../navbar.php'?>
 </body>
 </html>

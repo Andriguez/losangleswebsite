@@ -3,6 +3,6 @@
     <title>connect</title>
 </head>
 <body>
-<h1>Connect Page</h1>
+<?php include __DIR__.'/../navbar.php'?>
 </body>
 </html>

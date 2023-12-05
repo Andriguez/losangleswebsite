@@ -23,7 +23,7 @@ class Router
             new Route(['GET','HEAD'],'artistsController',  null,'/^\/artists(?:\/([a-z0-1_-]+))?$/'),
             new Route(['GET','HEAD'],'eventsController',  null,'/^\/events(?:\/([a-z0-1_-]+))?$/'),
             new Route(['GET','HEAD'],'aboutController',  null,'/^\/about(?:\/([a-z0-1_-]+))?$/'),
-
+            new Route(['GET','HEAD'],'loginController',  null,'/^\/login(?:\/([a-z0-1_-]+))?$/'),
         ];
 
         return $routes;
