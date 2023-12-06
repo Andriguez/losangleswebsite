@@ -94,9 +94,6 @@
         border-radius: 0 !important;
         border-color: black !important;
     }
-    .dropdown-toggle{
-        border-color: purple;
-    }
     button{
         border-radius: 0 !important;
         border-color: black !important;
@@ -114,11 +111,16 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        color: white;
+        color: black;
         font-weight: bold;
         font-size: 30px;
         opacity: 0;
         transition: opacity 0.3s ease-in-out;
+        text-shadow:
+                -1px -1px 0 white,
+                1px -1px 0 white,
+                -1px 1px 0 white,
+                1px 1px 0 white;
     }
 
     .card:hover .overlay-text{
