@@ -50,7 +50,7 @@
 
             document.querySelector(".car").appendChild(tmpNode);
 
-        }, 80);
+        }, 100);
 
     }
 
@@ -79,7 +79,7 @@
                 boxes[1].className = "car-item move-to-position3-from-right";
                 boxes[2].className = "car-item move-to-position4-from-right";
                 boxes[3].className = "car-item move-to-position5-from-right";
-            }, 80);
+            }, 100);
         } else {
             console.error("No elements found with class .car-item");
         }

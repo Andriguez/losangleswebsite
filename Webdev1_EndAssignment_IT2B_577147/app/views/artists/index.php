@@ -72,7 +72,15 @@
                         </div>-->
                     </div></a>
             </div>
-
+            <div class="col">
+                <a class="button" href="#"><div class="card shadow-sm position-relative">
+                        <img class="img" width="100%" height="225" src="/media/artist1.png" role="img" focusable="false">
+                        <div class="overlay-text">Artist Name</div>
+                        <!--<div class="card-body">
+                            <p class="card-text">Artist Name</p>
+                        </div>-->
+                    </div></a>
+            </div>
 
         </div>
             </div>
@@ -105,6 +113,8 @@
 
     .card {
         border-radius: 0 !important;
+        border-color: black !important;
+        border-width: 3px;
     }
     .overlay-text{
         position: absolute;

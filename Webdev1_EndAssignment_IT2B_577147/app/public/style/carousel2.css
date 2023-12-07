@@ -66,12 +66,12 @@ left: 19%;
 }
 
 .car-item:nth-child(2) {
-    left: 12%;
+    left: 9%;
     filter: blur(2px);
 }
 
 .car-item:nth-child(4) {
-    left: -12%;
+    left: -9%;
     filter: blur(2px);
 }
 
@@ -81,12 +81,12 @@ left: 19%;
 }
 
 .car-item:nth-child(1) {
-    left: 26%;
+    left: 21%;
     filter: blur(2px);
 }
 
 .car-item:nth-child(5) {
-    left: -26%;
+    left: -21%;
     filter: blur(2px);
 }
 
@@ -104,11 +104,11 @@ left: 19%;
 }
 
 .move-out-from-left {
-    animation: moveOutLeft 0.5s ease-in-out;
+    animation: moveOutLeft 0.3s ease-in-out;
 }
 
 .move-out-from-right {
-    animation: moveOutRight 0.5s ease-in-out;
+    animation: moveOutRight 0.3s ease-in-out;
 }
 
 .move-to-position5-from-left {
@@ -154,7 +154,7 @@ left: 19%;
         opacity: 1;
     }
     50% {
-        transform: scale(0.5) translateX(-150%);
+        transform: scale(0.5) translateX(-50%);
         opacity: 0.5;
     }
     100% {
@@ -169,7 +169,7 @@ left: 19%;
         opacity: 1;
     }
     50% {
-        transform: scale(0.5) translateX(150%);
+        transform: scale(0.5) translateX(50%);
         opacity: 0.5;
     }
     100% {
