@@ -1,0 +1,36 @@
+.carousel-container {
+    perspective: 1000px;
+    overflow: hidden;
+    width: auto;
+    height: auto;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.carousel-item {
+    min-width: 100%;
+    flex: 0 0 auto;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item.center {
+    transform: translateZ(0);
+}
+
+.carousel-item.right {
+    transform: translateZ(-300px) rotateY(-30deg);
+}
+
+.carousel-item.left {
+    transform: translateZ(-300px) rotateY(30deg);
+}

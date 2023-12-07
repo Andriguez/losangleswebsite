@@ -4,7 +4,7 @@
 </head>
 <body>
 <?php include __DIR__.'/../navbar.php'?>
-<div class="dropdown mt-5 ms-3">
+<div class="dropdown mt-3 ms-5">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="filerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
         discipline filter
     </button>
@@ -108,7 +108,7 @@
     }
     .overlay-text{
         position: absolute;
-        top: 50%;
+        top: 70%;
         left: 50%;
         transform: translate(-50%, -50%);
         color: black;
