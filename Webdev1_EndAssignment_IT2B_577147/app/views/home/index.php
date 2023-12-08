@@ -8,12 +8,12 @@
 </head>
 <body>
     <div id="page" class="container px-0">
-        <header class="d-flex flex-nowrap align-items-center justify-content-between pt-2 text-secondary">
+        <header class="d-flex flex-nowrap align-items-center justify-content-between pt-2">
 
             <div class="col mb-1 mb-md-0">
-                <ul class="nav justify-content-center text-bg-body">
-                    <li class="nav-item"><h3><a href="/artists" class="nav-link mt-3 mx-5">Artists</a></h3></li>
-                    <li class="nav-item"><h3><a href="/events" class="nav-link mt-3 mx-5">Events</a></h3></li>
+                <ul class="nav justify-content-center">
+                    <li class="nav-item"><h3><a href="/artists" class="nav-link mt-3 mx-5 text-reset">Artists</a></h3></li>
+                    <li class="nav-item"><h3><a href="/events" class="nav-link mt-3 mx-5 text-reset">Events</a></h3></li>
                     <div class="mb-2 mb-md-0 mx-5">
                         <!-- Centered Brand -->
                         <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none navbar-brand">
@@ -21,8 +21,8 @@
                         </a>
                     </div>
 
-                    <li class="nav-item"><h3><a href="/about" class="nav-link mt-3 mx-5">About</a></h3></li>
-                    <li class="nav-item"><h3><a href="/connect" class="nav-link mt-3 ms-4 me-5" id="connectDropdown" data-bs-toggle="dropdown" aria-expanded="false">Connect</a>
+                    <li class="nav-item"><h3><a href="/about" class="nav-link mt-3 mx-5 text-reset">About</a></h3></li>
+                    <li class="nav-item"><h3><a href="/connect" class="nav-link mt-3 ms-4 me-5 text-reset" id="connectDropdown" data-bs-toggle="dropdown" aria-expanded="false">Connect</a>
                             <ul class="dropdown-menu" aria-labelledby="connectDropdown">
                                 <li><a class="dropdown-item" href="#">Register</a></li>
                                 <li><a class="dropdown-item" href="#">Login</a></li>

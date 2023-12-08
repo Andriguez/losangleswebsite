@@ -4,18 +4,19 @@
 </head>
 <body>
 <?php include __DIR__.'/../navbar.php'?>
-<div class="album py-4">
-    <div class="container text-center">
-
-        <div class="text-container mx-5" style="width: 50rem;">
-        <h4 class="mb-4">Some text about los angles</h4>
-        <h6 class="mb-5">Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id.</h6>
-        </div>
-
+    <div class="album py-4">
+        <div class="container ">
+            <div class="row">
+                <div class="col">
+                    <div class="text-container mx-5 text-center" style="width: 50rem;">
+                        <h4 class="mb-2">Some text about los angles</h4>
+                        <h6 class="mb-4">Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id.</h6>
+                    </div>
+                </div>
+            </div>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
             <div class="col">
-                <div class="card shadow-sm position-relative">
+                <div class="card shadow-sm">
                     <div class="card-body">
                         <div class="card-front">
                             <img style="max-width: 100%; max-height: 100%;" src="/media/artist1.png" role="img">
@@ -57,6 +58,7 @@
             </div>
         </div>
     </div>
+    </div>
 </body>
 </html>
 <style>
@@ -72,7 +74,7 @@
     .card {
         perspective: 1000px;
         width: 300px;
-        height: 300px;
+        height: 270px;
         position: relative;
         transform-style: preserve-3d;
         transition: transform 0.5s;
@@ -81,13 +83,17 @@
         border-color: black !important;
         border-width: 3px;
     }
-
+    .col{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .card-body {
         width: 100%;
         height: 100%;
         transform-style: preserve-3d;
         transition: transform 0.5s;
-        margin: 0;
+        margin: 0 !important;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -107,7 +113,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 0 !important;
         box-sizing: border-box;
     }
 
