@@ -46,6 +46,7 @@
 </header> -->
 <html>
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
@@ -63,11 +64,11 @@
                 </div>
 
                 <li class="nav-item"><h3><a id="about-link" href="/about" class="nav-link mt-3 mx-5">About</a></h3></li>
-                <li class="nav-item"><h3><a id="connect-link" href="/connect" class="nav-link mt-3 ms-4 me-5" id="connectDropdown" data-bs-toggle="dropdown" aria-expanded="false">Connect</a>
-                        <ul class="dropdown-menu" aria-labelledby="connectDropdown">
+                <li class="nav-item"><h3><a id="connect-link" href="/connect" class="nav-link mt-3 ms-4 me-5" aria-expanded="false">Connect</a>
+                        <!--<ul class="dropdown-menu" aria-labelledby="connectDropdown">
                             <li><a class="dropdown-item" href="#">Register</a></li>
                             <li><a class="dropdown-item" href="/login">Login</a></li>
-                        </ul>
+                        </ul>-->
                     </h3>
                 </li>
             </ul>
