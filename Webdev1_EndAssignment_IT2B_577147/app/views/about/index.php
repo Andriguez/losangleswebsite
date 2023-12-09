@@ -116,17 +116,10 @@
         box-sizing: border-box;
     }
 
-    /**.card-back{
-        width: 100%;
-        height: 100%;
-        backface-visibility: hidden;
-        position: absolute;;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 0 !important;
-    } */
+    .card-back{
+        background-color: black;
+        color: white;
+    }
 
     .card-back {
         transform: rotateY(180deg);

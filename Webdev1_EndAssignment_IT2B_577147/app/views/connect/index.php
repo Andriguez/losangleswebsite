@@ -4,12 +4,7 @@
 </head>
 <body>
 <?php include __DIR__.'/../navbar.php'?>
-<div class="container text-center">
-    <div id="btns-container">
-        <a type="button" id="text"><img src="/media/text-icon.svg" alt=""></a>
-        <a type="button" id="more"><img src="/media/more-icon.svg" alt=""></a>
-    </div>
-
+<div id="page" class="main-container text-center">
     <div id="topics-container" class="container my-4">
         <h5 id="topics-label">Topics</h5>
         <ul class="nav justify-content-center" id="topics-nav">
@@ -35,7 +30,7 @@
                     <div class="card-body">
                         <div class="profile-picture">
                             <img class="picture" src="/media/artist1.png" role="img" width="90px" height="90px">
-                            <img class="frame" src="/media/picture-frame.svg" role="img" width="90px">
+                            <!--<img class="frame" src="/media/picture-frame.svg" role="img" width="90px"> -->
                         </div>
                             <h5 class="poster-name">Angle Name</h5>
                             <h5 class="post-title">Here is the title</h5>
@@ -57,11 +52,65 @@
             </div>
         </div>
 
-        <div id="postbtns" class="col mt-4">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Open modal for @mdo</button>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Open modal for @fat</button>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button>
+    <div class="row">
+        <div class="col">
+            <div class="post-container">
+                <div class="post-card shadow-sm">
+                    <div class="card-body">
+                        <div class="profile-picture">
+                            <img class="picture" src="/media/artist2.png" role="img" width="90px" height="90px">
+                            <!--<img class="frame" src="/media/picture-frame.svg" role="img" width="90px"> -->
+                        </div>
+                        <h5 class="poster-name">Angle Name</h5>
+                        <h5 class="post-title">Here is the title</h5>
+                        <p class="post-content mx-3">Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id.</p>
+                        <div class="post-footer">
+                            <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">3 comments</a>
+                            <p>‣</p>
+                            <label>posted on <cite title="time stamp">09/12/23 at 17:45</cite></label>
+                        </div>
+                    </div>
+                </div>
+                <form action="">
+                    <div class="embed-submit-field">
+                        <input type="text" placeholder="Say something..."/>
+                        <button type="submit">comment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
+    <div class="row">
+        <div class="col">
+            <div class="post-container">
+                <div class="post-card shadow-sm">
+                    <div class="card-body">
+                        <div class="profile-picture">
+                            <img class="picture" src="/media/artist1.png" role="img" width="90px" height="90px">
+                            <!--<img class="frame" src="/media/picture-frame.svg" role="img" width="90px"> -->
+                        </div>
+                        <h5 class="poster-name">Angle Name</h5>
+                        <h5 class="post-title">Here is the title</h5>
+                        <p class="post-content mx-3">Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id.</p>
+                        <div class="post-footer">
+                            <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">3 comments</a>
+                            <p>‣</p>
+                            <label>posted on <cite title="time stamp">09/12/23 at 17:45</cite></label>
+                        </div>
+                    </div>
+                </div>
+                <form action="">
+                    <div class="embed-submit-field">
+                        <input type="text" placeholder="Say something..."/>
+                        <button type="submit">comment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+        <div class="col mt-4">
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -91,7 +140,7 @@
         </div>
         <div class="col mt-5">
         <nav aria-label="Page navigation example">
-            <ul class="pagination">
+            <ul class="pagination bg-body">
                 <li class="page-item">
                     <a class="page-link" href="#" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
@@ -108,7 +157,12 @@
             </ul>
         </nav>
         </div>
+    <div id="btns-container">
+        <a type="button" id="text" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat"><img src="/media/text-icon.svg" alt=""></a>
+        <a type="button" id="more" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat"><img src="/media/more-icon.svg" alt=""></a>
     </div>
+
+</div>
 
     <script>
         const myModal = document.getElementById('myModal')
@@ -133,10 +187,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 0;
+
     }
 
     .post-container{
-        border: 3px solid pink; /* Adjust thickness and color as needed */
+        /*border: 3px solid pink; /* Adjust thickness and color as needed */
         text-align: center;
         justify-content: center;
         position: relative;
@@ -153,7 +209,7 @@
         margin-top: 1rem;
         margin-left: 1rem;
         padding: 0.5rem;
-        background-color: #D9D9D9;
+        background-color: #E5E5E5;
     }
     .card-body{
         margin-left: 4rem;
@@ -190,6 +246,7 @@
     .picture{
         position: absolute;
         z-index: 2 !important;
+        border: black solid 3px;
     }
 
     .frame{
@@ -253,6 +310,9 @@
         height: auto;
         border: 3px solid black;
         padding: .4rem;
+        position: absolute;
+        bottom: 2rem;
+        right: 4rem;
     }
 
     #btns-container img{
@@ -260,5 +320,15 @@
         height: 3rem; /* Maintain aspect ratio */
         border: none; /* Remove default button border */
         cursor: pointer;
+    }
+
+    body{
+        overflow: hidden;
+    }
+
+    #page{
+        overflow-y: scroll;
+        overflow-x: hidden;
+        max-height: 445px;
     }
 </style>

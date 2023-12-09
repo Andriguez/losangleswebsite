@@ -26,7 +26,7 @@
     var coverflow = $("#coverflow").flipster();
 </script>
 
-<pre class="code">$("#coverflow").flipster();</pre> -->
+<pre class="code">$("#coverflow").flipster();</pre>
 
 <!--<div id="carousel">
     <ul class="flip-items">
@@ -79,6 +79,7 @@
     });
 </script>
 -->
+
 <div id="flat">
     <ul>
         <li data-flip-title="139 Los Angles">
@@ -92,13 +93,14 @@
         </li>
     </ul>
 </div>
-
 <script>
     var flat = $("#flat").flipster({
         style: 'flat',
         spacing: -0.25
     });
 </script>
+
+
 <style>
     body{
         overflow: hidden;

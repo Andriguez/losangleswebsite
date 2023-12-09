@@ -4,7 +4,7 @@
 </head>
 <body>
 <?php include __DIR__.'/../navbar.php'?>
-<div class="dropdown mt-3 ms-5">
+<div class="dropdown mt-1 mb-2 ms-5">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="filerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
         discipline filter
     </button>
@@ -14,13 +14,13 @@
         <li><a class="dropdown-item" href="#">Something else</a></li>
     </ul>
 </div>
-<div class="album py-5">
+<div class="album pt-1 pb-3">
     <div class="container">
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             <div class="col">
                 <a class="button" href="#"><div class="card shadow-sm position-relative">
-                        <img class="img" width="100%" height="225" src="/media/artist1.png" role="img" focusable="false">
+                        <img class="img" width="100%" height="100%" src="/media/artist1.png" role="img" focusable="false">
                         <div class="overlay-text">Artist Name</div>
                     <!--<div class="card-body">
                         <p class="card-text">Artist Name</p>
@@ -29,7 +29,7 @@
             </div>
             <div class="col">
                 <a class="button" href="#"><div class="card shadow-sm position-relative">
-                        <img class="img" width="100%" height="225" src="/media/artist2.png" role="img" focusable="false">
+                        <img class="img" width="100%" height="100%" src="/media/artist2.png" role="img" focusable="false">
                         <div class="overlay-text">Artist Name</div>
                         <!--<div class="card-body">
                             <p class="card-text">Artist Name</p>
@@ -38,7 +38,7 @@
             </div>
             <div class="col">
                 <a class="button" href="#"><div class="card shadow-sm position-relative">
-                        <img class="img" width="100%" height="225" src="/media/artist1.png" role="img" focusable="false">
+                        <img class="img" width="100%" height="100%" src="/media/artist1.png" role="img" focusable="false">
                         <div class="overlay-text">Artist Name</div>
                         <!--<div class="card-body">
                             <p class="card-text">Artist Name</p>
@@ -47,7 +47,7 @@
             </div>
             <div class="col">
                 <a class="button" href="#"><div class="card shadow-sm position-relative">
-                        <img class="img" width="100%" height="225" src="/media/artist2.png" role="img" focusable="false">
+                        <img class="img" width="100%" height="100%" src="/media/artist2.png" role="img" focusable="false">
                         <div class="overlay-text">Artist Name</div>
                         <!--<div class="card-body">
                             <p class="card-text">Artist Name</p>
@@ -56,7 +56,7 @@
             </div>
             <div class="col">
                 <a class="button" href="#"><div class="card shadow-sm position-relative">
-                        <img class="img" width="100%" height="225" src="/media/artist1.png" role="img" focusable="false">
+                        <img class="img" width="100%" height="100%" src="/media/artist1.png" role="img" focusable="false">
                         <div class="overlay-text">Artist Name</div>
                         <!--<div class="card-body">
                             <p class="card-text">Artist Name</p>
@@ -65,7 +65,7 @@
             </div>
             <div class="col">
                 <a class="button" href="#"><div class="card shadow-sm position-relative">
-                        <img class="img" width="100%" height="225" src="/media/artist2.png" role="img" focusable="false">
+                        <img class="img" width="100%" height="100%" src="/media/artist2.png" role="img" focusable="false">
                         <div class="overlay-text">Artist Name</div>
                         <!--<div class="card-body">
                             <p class="card-text">Artist Name</p>
@@ -74,7 +74,7 @@
             </div>
             <div class="col">
                 <a class="button" href="#"><div class="card shadow-sm position-relative">
-                        <img class="img" width="100%" height="225" src="/media/artist1.png" role="img" focusable="false">
+                        <img class="img" width="100%" height="100%" src="/media/artist1.png" role="img" focusable="false">
                         <div class="overlay-text">Artist Name</div>
                         <!--<div class="card-body">
                             <p class="card-text">Artist Name</p>
@@ -121,8 +121,8 @@
     }
     .card {
         border-radius: 0 !important;
-        border-color: black !important;
-        border-width: 3px;
+        border-width: 0;
+        height: 15rem;
     }
     .overlay-text{
         position: absolute;
@@ -141,10 +141,22 @@
                 1px 1px 0 white;
     }
 
+    .card:hover{
+        border-color: black !important;
+        border-width: 3px;
+    }
     .card:hover .overlay-text{
         opacity: 1;
     }
     .card img:hover{
         filter: blur(3px);
+    }
+    body{
+        overflow: hidden;
+    }
+    .album{
+        margin: auto;
+        overflow-y: scroll;
+        max-height: 390px;
     }
 </style>
