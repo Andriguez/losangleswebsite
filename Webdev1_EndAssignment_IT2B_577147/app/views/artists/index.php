@@ -101,6 +101,11 @@
         border-radius: 0 !important;
         border-color: black !important;
     }
+    .dropdown-item:hover {
+        background-color: black !important;
+        border-color: white !important;
+        color: white !important;
+    }
     button{
         border-radius: 0 !important;
         border-color: black !important;
@@ -109,7 +114,11 @@
         color: black !important;
         font-weight: bold !important;
     }
-
+    button:hover {
+        background-color: black !important;
+        border-color: white !important;
+        color: white !important;
+    }
     .card {
         border-radius: 0 !important;
         border-color: black !important;
