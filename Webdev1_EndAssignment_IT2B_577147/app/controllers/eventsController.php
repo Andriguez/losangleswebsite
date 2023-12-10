@@ -5,7 +5,7 @@ require __DIR__ . '/Controller.php';
 class eventsController extends Controller
 {
     public function index(){
-        require __DIR__ . '/../views/events/chatgptsuggest.php';
+        require __DIR__ . '/../views/events/newcarousel.php';
 
     }
 }
