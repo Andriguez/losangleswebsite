@@ -172,6 +172,7 @@ class Carousel {
         border-radius: 0;
         background-size: contain;
         cursor: pointer;
+        border: black solid 5px;
     }
 
     .gallery-item,

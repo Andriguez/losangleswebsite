@@ -97,6 +97,7 @@
                 1px 1px 0 #000000 !important;
     }
     .album{
+        cursor: url("/media/onlytb.png"), auto;
     }
     .dropdown-menu{
         border-width: 3px !important;

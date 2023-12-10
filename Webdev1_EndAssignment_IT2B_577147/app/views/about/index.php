@@ -4,6 +4,7 @@
 </head>
 <body>
 <?php include __DIR__.'/../navbar.php'?>
+<div class="custom-cursor"></div>
     <div class="album py-4">
         <div class="container ">
             <div class="row">
@@ -59,6 +60,18 @@
         </div>
     </div>
     </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const customCursor = document.querySelector(".custom-cursor");
+
+        document.addEventListener("mousemove", function (e) {
+            const x = e.clientX - 15;
+            const y = e.clientY - 95;
+
+            customCursor.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    });
+</script>
 </body>
 </html>
 <style>
@@ -78,7 +91,6 @@
         position: relative;
         transform-style: preserve-3d;
         transition: transform 0.5s;
-        cursor: pointer;
         border-radius: 0 !important;
         border-color: black !important;
         border-width: 3px;
@@ -124,5 +136,23 @@
     .card-back {
         transform: rotateY(180deg);
     }
+    .custom-cursor {
+        cursor: none; /* Hide the default cursor */
+    }
 
+    /* Create a circle around the cursor */
+    .custom-cursor::before {
+        content: '';
+        position: fixed;
+        width: 30px; /* Adjust the size of the circle */
+        height: 30px; /* Adjust the size of the circle */
+        border: 2px solid #ff0000; /* Set the border color */
+        border-radius: 50%; /* Make it a circle */
+        box-sizing: border-box;
+        pointer-events: none; /* Allow interactions with elements beneath */
+        z-index: 100;
+    }
+    body{
+        cursor: none;
+    }
 </style>
