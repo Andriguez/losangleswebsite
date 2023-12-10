@@ -138,6 +138,7 @@ class Carousel {
 </html>
 <style>
     body{
+        overflow: hidden;
     }
     .main-container{
         width: 100%;

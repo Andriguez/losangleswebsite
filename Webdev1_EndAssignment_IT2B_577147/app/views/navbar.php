@@ -81,10 +81,19 @@
         position: absolute;
         left: 147px;
     }
+
+    #artist-link, #connect-link{
+        font-size: 20px;
+    }
+    #events-link, #about-link{
+        font-size: 25px;
+    }
     .dropdown-item:active{
         background-color: black !important;
     }
     a.nav-link:hover{
+        /**font-size: 105% !important;*/
+        text-transform: uppercase;
         color: white !important; /* New text color on hover */
         text-shadow:
                 -1px -1px 0 #000,

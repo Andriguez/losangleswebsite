@@ -20,7 +20,7 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             <div class="col">
                 <a class="button" href="#"><div class="card shadow-sm position-relative">
-                        <img class="img" width="100%" height="100%" src="/media/artist1.png" role="img" focusable="false">
+                        <img class="img" width="100%" height="100%" src="/media/artist3.png" role="img" focusable="false">
                         <div class="overlay-text">Artist Name</div>
                     <!--<div class="card-body">
                         <p class="card-text">Artist Name</p>
@@ -29,7 +29,7 @@
             </div>
             <div class="col">
                 <a class="button" href="#"><div class="card shadow-sm position-relative">
-                        <img class="img" width="100%" height="100%" src="/media/artist2.png" role="img" focusable="false">
+                        <img class="img" width="100%" height="100%" src="/media/artist4.png" role="img" focusable="false">
                         <div class="overlay-text">Artist Name</div>
                         <!--<div class="card-body">
                             <p class="card-text">Artist Name</p>
@@ -38,7 +38,7 @@
             </div>
             <div class="col">
                 <a class="button" href="#"><div class="card shadow-sm position-relative">
-                        <img class="img" width="100%" height="100%" src="/media/artist1.png" role="img" focusable="false">
+                        <img class="img" width="100%" height="100%" src="/media/artist5.png" role="img" focusable="false">
                         <div class="overlay-text">Artist Name</div>
                         <!--<div class="card-body">
                             <p class="card-text">Artist Name</p>
@@ -95,6 +95,8 @@
                 1px -1px 0 #000,
                 -1px 1px 0 #000,
                 1px 1px 0 #000000 !important;
+    }
+    .album{
     }
     .dropdown-menu{
         border-width: 3px !important;
@@ -159,4 +161,22 @@
         overflow-y: scroll;
         max-height: 390px;
     }
+    /* For WebKit browsers (Chrome, Safari) */
+    ::-webkit-scrollbar {
+        width: 5px; /* Set width of the scrollbar */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: silver; /* Color of the thumb */
+        border-radius: 3px; /* Rounded corners of the thumb */
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: black; /* Color of the track */
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #0056b3; /* Color of the thumb on hover */
+    }
+
 </style>

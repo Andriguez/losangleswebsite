@@ -109,7 +109,7 @@
             </div>
         </div>
     </div>
-    
+
         <div class="col mt-4">
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -330,5 +330,22 @@
         overflow-y: scroll;
         overflow-x: hidden;
         max-height: 445px;
+    }
+    /* For WebKit browsers (Chrome, Safari) */
+    ::-webkit-scrollbar {
+        width: 5px; /* Set width of the scrollbar */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: silver; /* Color of the thumb */
+        border-radius: 3px; /* Rounded corners of the thumb */
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: black; /* Color of the track */
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #0056b3; /* Color of the thumb on hover */
     }
 </style>
