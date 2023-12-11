@@ -154,5 +154,6 @@
     }
     body{
         cursor: none;
+        overflow: hidden;
     }
 </style>

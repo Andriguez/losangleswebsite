@@ -24,8 +24,8 @@
                     <li class="nav-item"><h3><a href="/about" class="nav-link mt-3 mx-5 text-reset">About</a></h3></li>
                     <li class="nav-item"><h3><a href="/connect" class="nav-link mt-3 ms-4 me-5 text-reset" id="connectDropdown" data-bs-toggle="dropdown" aria-expanded="false">Connect</a>
                             <ul class="dropdown-menu" aria-labelledby="connectDropdown">
-                                <li><a class="dropdown-item" href="#">Register</a></li>
-                                <li><a class="dropdown-item" href="#">Login</a></li>
+                                <li><a class="dropdown-item" href="/register">Register</a></li>
+                                <li><a class="dropdown-item" href="/login">Login</a></li>
                             </ul>
                             </h3>
                     </li>
@@ -46,7 +46,29 @@
 <style>
     @page {
     }
-
+    .dropdown-menu{
+        border-width: 3px !important;
+        border-radius: 0 !important;
+        border-color: black !important;
+    }
+    .dropdown-item:hover {
+        background-color: black !important;
+        border-color: white !important;
+        color: white !important;
+    }
+    button{
+        border-radius: 0 !important;
+        border-color: black !important;
+        border-width: 4px !important;
+        background-color: white !important;
+        color: black !important;
+        font-weight: bold !important;
+    }
+    button:hover {
+        background-color: black !important;
+        border-color: white !important;
+        color: white !important;
+    }
     body{
         background-color: white;
     }
@@ -54,6 +76,7 @@
     .logoHomepage {
         position: absolute;
         left: 147px;
+
     }
     .dropdown-item:active{
         background-color: black !important;
