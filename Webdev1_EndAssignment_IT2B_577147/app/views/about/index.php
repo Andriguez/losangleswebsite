@@ -136,24 +136,8 @@
     .card-back {
         transform: rotateY(180deg);
     }
-    .custom-cursor {
-        cursor: none; /* Hide the default cursor */
-    }
 
-    /* Create a circle around the cursor */
-    .custom-cursor::before {
-        content: '';
-        position: fixed;
-        width: 30px; /* Adjust the size of the circle */
-        height: 30px; /* Adjust the size of the circle */
-        border: 2px solid #ff0000; /* Set the border color */
-        border-radius: 50%; /* Make it a circle */
-        box-sizing: border-box;
-        pointer-events: none; /* Allow interactions with elements beneath */
-        z-index: 100;
-    }
     body{
-        cursor: none;
         overflow: hidden;
     }
 </style>

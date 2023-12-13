@@ -9,16 +9,16 @@
         <h5 id="topics-label">Topics</h5>
         <ul class="nav justify-content-center" id="topics-nav">
             <li class="nav-item">
-                <h6><a class="nav-link active" aria-current="page" href="#">General</a></h6>
+                <p><a class="nav-link active" aria-current="page" href="#">General</a></p>
             </li>
             <li class="nav-item">
-                <h6><a class="nav-link active" aria-current="page" href="#">HRT</a></h6>
+                <p><a class="nav-link active" aria-current="page" href="#">HRT</a></p>
             </li>
             <li class="nav-item">
-                <h6><a class="nav-link active" aria-current="page" href="#">Gigs</a></h6>
+                <p><a class="nav-link active" aria-current="page" href="#">Gigs</a></p>
             </li>
             <li class="nav-item">
-                <h6><a class="nav-link active" aria-current="page" href="#">Other</a></h6>
+                <p><a class="nav-link active" aria-current="page" href="#">Other</a></p>
             </li>
         </ul>
     </div>
@@ -209,7 +209,8 @@
         margin-top: 1rem;
         margin-left: 1rem;
         padding: 0.5rem;
-        background-color: #E5E5E5;
+        background-color: #000000;
+        color: white;
     }
     .card-body{
         margin-left: 4rem;
@@ -218,15 +219,22 @@
         margin-left: 0;
     }
     .post-card a{
-        color: black;
+        color: white;
         font-weight: lighter;
     }
     .post-card .post-content{
         margin-left: 0 !important;
     }
-    .post-card .post-title{
+    .post-card .poster-name{
+        font-family: angles;
         font-weight: bold;
-        font-size: 22px;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+    .post-card .post-title{
+        font-family: angles;
+        font-size: 17px;
+        text-transform: lowercase;
     }
     .post-footer{
         display: flex;
@@ -290,14 +298,22 @@
         display: inline-block;
         width: auto;
     }
-
+    #topics-container a{
+        font-size: 9px !important;
+   }
+    #topics-container p{
+        margin-bottom: 0;
+    }
     #topics-label {
         position: absolute;
-        top: -16px;
+        top: -7px;
         left: 20px;
         height: auto;
-        width: 60px;
+        width: 75px;
         background-color: white;
+        font-family: angles;
+        font-size: 10px !important;
+        text-transform: uppercase;
     }
 
     #topics-nav{
@@ -305,7 +321,7 @@
     }
 
     #btns-container{
-        background-color: #D9D9D9;
+        background-color: #000000;
         width: 8rem;
         height: auto;
         border: 3px solid black;
@@ -318,7 +334,7 @@
     #btns-container img{
         width: 3rem;
         height: 3rem; /* Maintain aspect ratio */
-        border: none; /* Remove default button border */
+        border: silver solid 1px; /* Remove default button border */
         cursor: pointer;
     }
 

@@ -56,6 +56,26 @@
         <div class="gallery-controls-next" id="right"><img src="/media/arrow_right.svg" alt=""></div><-->
 
     </div>
+    <div id="date-filter-container">
+        <div id="year-container">
+            <a href="#"><span>2023<img src="/media/triangle-icon.svg"></span></a>
+            <a href="#"><span>2024<img src="/media/triangle-icon.svg"></span></a>
+        </div>
+        <div id="month-container">
+            <a href="#"><span>jan<img src="/media/triangle-icon.svg"></span></a>
+            <a href="#"><span>feb<img src="/media/triangle-icon.svg"></span></a>
+            <a href="#"><span>mar<img src="/media/triangle-icon.svg"></span></a>
+            <a href="#"><span>apr<img src="/media/triangle-icon.svg"></span></a>
+            <a href="#"><span>may<img src="/media/triangle-icon.svg"></span></a>
+            <a href="#"><span>jun<img src="/media/triangle-icon.svg"></span></a>
+            <a href="#"><span>jul<img src="/media/triangle-icon.svg"></span></a>
+            <a href="#"><span>aug<img src="/media/triangle-icon.svg"></span></a>
+            <a href="#"><span>sep<img src="/media/triangle-icon.svg"></span></a>
+            <a href="#"><span>oct<img src="/media/triangle-icon.svg"></span></a>
+            <a href="#"><span>nov<img src="/media/triangle-icon.svg"></span></a>
+            <a href="#"><span>dec<img src="/media/triangle-icon.svg"></span></a>
+        </div>
+    </div>
 </div>
 </div>
 <script>
@@ -137,6 +157,14 @@ class Carousel {
 </body>
 </html>
 <style>
+    #events-link {
+        color: white !important; /* New text color on hover */
+        text-shadow:
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000000 !important;
+    }
     body{
         overflow: hidden;
     }
@@ -155,7 +183,7 @@ class Carousel {
     .gallery-container{
         align-items: center;
         display: flex;
-        height: 450px;
+        height: 400px;
         margin: 0 auto;
         max-width: 1020px;
         position: relative;
@@ -167,12 +195,13 @@ class Carousel {
         opacity: 0;
         transition: all 0.3s ease-in-out;
         transform-style: preserve-3d;
-        width: 330px;
+        max-width: 350px;
+        max-height: 380px;
         z-index: 0;
         border-radius: 0;
         background-size: contain;
         cursor: pointer;
-        border: black solid 5px;
+        border: black solid 3px;
     }
 
     .gallery-item,
@@ -242,10 +271,35 @@ class Carousel {
         transform: translateX(-50%);
         height: 360px;
     }
+    #date-filter-container{
+        text-align: center;
+    }
+    #year-container{
+        font-size: 16px !important;
+    }
+    #month-container{
+        font-size: 14px !important;
+    }
 
+    #date-filter-container a{
+        text-decoration: none;
+        color: black;
+        font-family: angles;
+    }
+    #date-filter-container a:hover{
+        color: white !important; /* New text color on hover */
+        text-shadow:
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000000 !important;
+    }
+    #date-filter-container img{
+        width:10px;
+        height: 10px;
+    }
     .gallery-controls{
         display: flex;
-
     }
 
     .gallery-controls button{

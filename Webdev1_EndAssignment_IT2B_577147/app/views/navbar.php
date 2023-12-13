@@ -58,7 +58,7 @@
                 <li class="nav-item"><h3><a id="events-link" href="/events" class="nav-link mt-3 mx-5">Events</a></h3></li>
                 <div class="mb-2 mb-md-0 mx-5">
                     <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none navbar-brand">
-                        <img src="/media/logocrop.jpeg" alt="Logo" width="125" height="80" class="d-inline-block align-text-top">
+                        <img src="/media/logocrop.jpeg" alt="Logo" width="90" height="60" class="d-inline-block align-text-top">
                     </a>
                 </div>
 
@@ -76,24 +76,21 @@
 </body>
 </html>
 <style>
+    @font-face {
+        font-family: 'angles';
+        src: url('/style/losangles-font.ttf');
+    }
 
     .logoHomepage {
         position: absolute;
         left: 147px;
     }
-
-    #artist-link, #connect-link{
-        font-size: 20px;
-    }
-    #events-link, #about-link{
-        font-size: 25px;
-    }
     .dropdown-item:active{
         background-color: black !important;
     }
     a.nav-link:hover{
-        /**font-size: 105% !important;*/
-        text-transform: uppercase;
+        /**font-size: 105% !important;
+        text-transform: uppercase;*/
         color: white !important; /* New text color on hover */
         text-shadow:
                 -1px -1px 0 #000,
@@ -103,6 +100,10 @@
     }
     a.nav-link{
         color: black !important;
+        font-family: angles;
+        font-size: 16px !important;
+        /*font-size: 18px !important;*/
+        text-transform: uppercase;
     }
 
     @media (max-width: 1200px) {

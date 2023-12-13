@@ -6,15 +6,12 @@
 <?php include __DIR__.'/../navbar.php'?>
 <div class="form-container">
     <form>
-        <h3>Apply!</h3>
-        <div class="form-floating">
-            <input type="email" id="floatingInput" placeholder="email">
-            <input type="text" id="socials" placeholder="socials">
-        </div>
+        <h3 class="mb-4">Join us!</h3>
         <div class="form-floating">
             <input type="text" id="floatingInput" placeholder="name">
             <input type="text" id="floatingInput" placeholder="stage name">
         </div>
+
         <div class="form-floating">
             <input type="text" id="pronouns" placeholder="pro/nouns">
             <input type="text" id="gender" placeholder="gender">
@@ -24,7 +21,11 @@
             <input type="text" id="discipline" placeholder="discipline">
         </div>
         <div class="form-floating">
-            <textarea id="message" placeholder="100 words about you" rows="5"></textarea>
+            <input type="email" id="floatingInput" placeholder="e-mail">
+            <input type="text" id="socials" placeholder="socials">
+        </div>
+        <div class="form-floating">
+            <textarea id="message" placeholder="100 words about you" rows="8"></textarea>
         </div>
         <div class="btn-group">
             <button type="submit">send</button>
@@ -35,13 +36,15 @@
 </body>
 </html>
 <style>
+    body{
+        overflow: hidden;
+    }
     .form-container{
-        margin: 1rem;
+        margin: 2rem;
         padding: 0;
         display: flex;
         align-items: center;
         justify-content: center;
-        overflow: hidden;
     }
     form{
         position: relative;
@@ -49,6 +52,8 @@
         flex-direction: column;
         align-items: center;
         width: 600px;
+        font-family: angles;
+        font-size: 10px;
     }
     input, textarea{
         border-radius: 0;
@@ -72,7 +77,8 @@
         font-weight: bold !important;
         margin: 2px;
         text-align: center;
-        font-size: 16px;
+        font-size: 12px;
+        text-transform: uppercase;
     }
     textarea{
         width: 300px;
@@ -89,9 +95,9 @@
         margin-top: 20px;
     }
     #pronouns{
-        max-width: 100px;
+        max-width: 110px;
     }
     #gender{
-        max-width: 100px;
+        max-width: 110px;
     }
 </style>

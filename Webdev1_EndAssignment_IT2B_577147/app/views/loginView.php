@@ -7,10 +7,10 @@
 <div class="form-container">
 <form>
     <div class="form-floating">
-        <input type="email" id="floatingInput" placeholder="email">
+        <input type="email" id="floatingInput" placeholder="e-mail">
     </div>
     <div class="form-floating">
-        <input type="password" id="floatingPassword" placeholder="password">
+        <input id="passwordfield" type="password" style="-webkit-text-security: disc;" id="floatingPassword" placeholder="password">
     </div>
     <div class="btn-group">
     <button type="submit">log in</button>
@@ -33,10 +33,14 @@
     }
     form{
         position: relative;
-        max-width: 300px;
+        max-width: 350px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        font-family: angles;
+        font-size: 12px;
+    }
+    form #passwordfield{
     }
     input{
         border-radius: 0;
@@ -60,7 +64,7 @@
         font-weight: bold !important;
         margin: 2px;
         text-align: center;
-        font-size: 16px;
+        font-size: 13px !important;
     }
     button:hover {
         background-color: black !important;
