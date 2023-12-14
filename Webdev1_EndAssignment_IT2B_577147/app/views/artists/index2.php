@@ -37,7 +37,7 @@
                 <a class="artist-name" href="#"><span>Diora<img src="/media/triangle-icon.svg"></span></a>
             </div>
             <div class="col">
-                <a class="artist-name" href="#"><span>Zobayda<img src="/media/triangle-icon.svg"></span></a>
+                <a id="zobayda" class="artist-name" href="#" onclick="showArtistDetails()"><span>Zobayda<img src="/media/triangle-icon.svg"></span></a>
             </div>
             <div class="col">
                 <a class="artist-name" href="#"><span>Andy Rodriguez<img src="/media/triangle-icon.svg"></span></a>
@@ -126,6 +126,112 @@
             </div>
         </div></div>
 </div>
+<script>
+    function replaceClass(element){
+        if (element.classList.contains('artist-details')){
+            element.classList.replace('artist-details', 'artist-details.show');
+            element.parentElement.style.color = 'white';
+            element.style.backgroundColor = 'black';
+            let artistName = document.getElementById('zobayda');
+            artistName.parentElement.style.backgroundColor = 'black';
+            artistName.style.color = 'white';
+        } else{
+            element.classList.replace('artist-details.show', 'artist-details');
+            element.parentElement.style.color = 'black';
+            element.parentElement.style.backgroundColor = 'white';
+            let artistName = document.getElementById('zobayda');
+            artistName.style.color = 'black';
+            artistName.parentElement.style.backgroundColor = 'white';
+        }
+    }
+    function showArtistDetails(){
+        let artistDetail = document.getElementById('zobayda-details');
+        replaceClass(artistDetail);
+    }
+
+    function addZobaydaDetails() {
+        // Create the zobayda-details div
+        let zobaydaDetails = document.createElement('div');
+        zobaydaDetails.classList.add('artist-details');
+
+        // Create the img-container div
+        let imgContainer = document.createElement('div');
+        imgContainer.classList.add('img-container');
+
+        // Create the img element
+        let img = document.createElement('img');
+        img.src = "/media/artist1.png";
+        img.alt = "Artist Image";
+
+        // Create the label element
+        let label = document.createElement('label');
+        label.textContent = "some labels/pronouns/artistic tags idk";
+
+        // Append img and label to img-container
+        imgContainer.appendChild(img);
+        imgContainer.appendChild(label);
+
+        // Create the text-container div
+        let textContainer = document.createElement('div');
+        textContainer.classList.add('text-container');
+
+        // Create the p element
+        let paragraph = document.createElement('p');
+        paragraph.textContent = "Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id.";
+
+        // Append paragraph to text-container
+        textContainer.appendChild(paragraph);
+
+        // Create the soundcloud-container div
+        let soundcloudContainer = document.createElement('div');
+        soundcloudContainer.classList.add('soundcloud-container');
+
+        // Create the iframe element
+        let iframe = document.createElement('iframe');
+        iframe.width = "400px";
+        iframe.height = "166";
+        iframe.scrolling = "no";
+        iframe.frameBorder = "no";
+        iframe.allow = "autoplay";
+        iframe.src = "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1642138038&color=%230c402a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true";
+
+        // Create the div for additional styling
+        let additionalStyleDiv = document.createElement('div');
+        additionalStyleDiv.style.cssText = "font-size: 10px; color: #cccccc; line-break: anywhere; word-break: normal; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif; font-weight: 100;";
+
+        // Create the links inside the div
+        let link1 = document.createElement('a');
+        link1.href = "https://soundcloud.com/admiredarkness";
+        link1.title = "ADMIRE DARKNESS";
+        link1.target = "_blank";
+        link1.style.cssText = "color: #cccccc; text-decoration: none;";
+        link1.textContent = "ADMIRE DARKNESS";
+
+        let link2 = document.createElement('a');
+        link2.href = "https://soundcloud.com/admiredarkness/bunt-voila-techno1";
+        link2.title = "BUNT. - Voila (TECHNO)";
+        link2.target = "_blank";
+        link2.style.cssText = "color: #cccccc; text-decoration: none;";
+        link2.textContent = "BUNT. - Voila (TECHNO)";
+
+        // Append links to additionalStyleDiv
+        additionalStyleDiv.appendChild(link1);
+        additionalStyleDiv.appendChild(document.createTextNode(" · "));
+        additionalStyleDiv.appendChild(link2);
+
+        // Append iframe and additionalStyleDiv to soundcloud-container
+        soundcloudContainer.appendChild(iframe);
+        soundcloudContainer.appendChild(additionalStyleDiv);
+
+        // Append img-container, text-container, and soundcloud-container to zobayda-details
+        zobaydaDetails.appendChild(imgContainer);
+        zobaydaDetails.appendChild(textContainer);
+        zobaydaDetails.appendChild(soundcloudContainer);
+
+        // Append zobayda-details to the container
+        document.getElementById('container').appendChild(zobaydaDetails);
+    }
+</script>
 </body>
 </html>
 <style>
@@ -188,13 +294,8 @@
         width: .8rem;
     }
 
-    /*img:hover{
-        filter: invert(80%);
-        border: black;
-    }*/
-
     .artist-name:hover{
-        color: white;
+        color: white !important;
         text-shadow:
                 -1px -1px 0 black,
                 1px -1px 0 black,
@@ -210,8 +311,27 @@
         margin-top: 7px;
     }
 
+    .text-container{
+        max-width: 300px;
+    }
+    .artist-details img{
+        width: 100%
+        height: 100%
+    }
     .artists-container .row{
         padding: 3px;
+        margin-top: 5px;
+        margin-bottom: 2px;
+    }
+    .artist-details{
+       display: none;
+    }
+    .artist-details.show{
+        background-color: black !important;
+        color: white !important;
+        width: 100%;
+        box-sizing: border-box;
+
     }
     body{
         overflow: hidden;

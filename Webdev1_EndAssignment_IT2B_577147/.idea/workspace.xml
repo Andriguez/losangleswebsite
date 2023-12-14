@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/views/artists/index2.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/artistsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/artistsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/media/logocrop.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/media/logocrop.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/about/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/about/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/connect/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/connect/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/events/newcarousel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/newcarousel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/loginView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/loginView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/navbar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/register/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/register/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/aboutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/aboutController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/eventsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/eventsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/artists/index2.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/artists/index2.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,27 +37,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/brhig/Downloads/3d-slider-master&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/brhig/OneDrive/Escritorio/Project Haarlem Festival/The Festival Repository/haarlemfestival-website",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\public\style" />
@@ -88,7 +81,7 @@
       <workItem from="1701108307797" duration="12814000" />
       <workItem from="1701137287432" duration="128007000" />
       <workItem from="1701869545344" duration="31048000" />
-      <workItem from="1701991381577" duration="86428000" />
+      <workItem from="1701991381577" duration="97102000" />
     </task>
     <servers />
   </component>
