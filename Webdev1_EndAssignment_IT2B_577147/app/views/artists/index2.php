@@ -164,8 +164,7 @@
         } else {
             let parentDiv = element.parentElement.parentElement;
             let mergedDiv = mergeDivs(div1, div2);
-            parentDiv.removeChild(div1)
-            parentDiv.removeChild(div2)
+            parentDiv.innerHTML = ' ';
             parentDiv.appendChild(mergedDiv)
             isMerged = true;
         }
@@ -203,7 +202,8 @@
 
         // Insert the new divs after the original target div
         targetDiv.parentNode.insertBefore(div1, targetDiv);
-        targetDiv.parentNode.insertBefore(div2, targetDiv.nextSibling);
+        targetDiv.parentNode.insertBefore(addZobaydaDetails(), targetDiv.nextSibling);
+        targetDiv.parentNode.insertBefore(div2, targetDiv.nextSibling.nextSibling);
 
         // Remove the original target div
         targetDiv.parentNode.removeChild(targetDiv);
@@ -231,10 +231,11 @@
         return combinedDiv;
     }
 
-    /*function addZobaydaDetails(clickedElement) {
+    function addZobaydaDetails() {
         // Create the zobayda-details div
         let zobaydaDetails = document.createElement('div');
         zobaydaDetails.classList.add('artist-details.show');
+        zobaydaDetails.id = 'zobayda-details';
 
         // Create the img-container div
         let imgContainer = document.createElement('div');
@@ -312,10 +313,10 @@
 
 
         // Append zobayda-details to the container
-        document.getElementById('djs').appendChild(zobaydaDetails);
-        clickedElement.parentNode.insertBefore(zobaydaDetails, clickedElement.nextSibling);
-
-    }*/
+        //document.getElementById('djs').appendChild(zobaydaDetails);
+        //targetDiv.parentNode.insertBefore(zobaydaDetails, div1);
+        return zobaydaDetails;
+    }
 </script>
 </body>
 </html>
