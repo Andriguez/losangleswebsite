@@ -15,58 +15,59 @@
     </ul>
 </div>
 <div class="album pt-1 pb-3">
-    <div class="artists-container">
+    <div id="djs" class="artists-container">
         <label class="type-label">djs</label>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-            <div class="col">
-                <a class="artist-name" href="#"><span>Kenza Badi<img src="/media/triangle-icon.svg"></span></a>
+        <div id="target-row" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+            <div id="artist-1" class="col">
+                <a  class="artist-name" href="#"><span>Kenza Badi<img src="/media/triangle-icon.svg"></span></a>
             </div>
-            <div class="col">
+            <div id="artist-2" class="col">
                 <a class="artist-name" href="#"><span>Amir<img src="/media/triangle-icon.svg"></span></a>
             </div>
-            <div class="col">
+            <div id="artist-3" class="col">
                 <a class="artist-name" href="#"><span>Ada M. Patterson<img src="/media/triangle-icon.svg"></span></a>
             </div>
-            <div class="col">
-                <a class="artist-name" href="#"><span>Smother<img src="/media/triangle-icon.svg"></span></a>
+            <div id="artist-4" class="col">
+                <a  class="artist-name" href="#"><span>Smother<img src="/media/triangle-icon.svg"></span></a>
             </div>
-            <div class="col">
-                <a class="artist-name" href="#"><span>younggwoman<img src="/media/triangle-icon.svg"></span></a>
+            <div id="artist-5" class="col">
+                <a  class="artist-name" href="#"><span>younggwoman<img src="/media/triangle-icon.svg"></span></a>
             </div>
-            <div class="col">
+            <div id="artist-6" class="col">
                 <a class="artist-name" href="#"><span>Diora<img src="/media/triangle-icon.svg"></span></a>
             </div>
-            <div class="col">
-                <a id="zobayda" class="artist-name" href="#" onclick="showArtistDetails()"><span>Zobayda<img src="/media/triangle-icon.svg"></span></a>
+            <div id="zobayda" class="col">
+                <a class="artist-name" href="#" onclick="toggleDiv('zobayda')"><span>Zobayda<img src="/media/triangle-icon.svg"></span></a>
             </div>
-            <div class="col">
+            <div id="artist-8" class="col">
                 <a class="artist-name" href="#"><span>Andy Rodriguez<img src="/media/triangle-icon.svg"></span></a>
             </div>
-            <div class="col">
+            <div id="artist-9" class="col">
                 <a class="artist-name" href="#"><span>hi.asl<img src="/media/triangle-icon.svg"></span></a>
             </div>
-            <div class="col">
+            <div id="artist-101" class="col">
                 <a class="artist-name" href="#"><span>angelboy<img src="/media/triangle-icon.svg"></span></a>
             </div>
-            <div class="col">
+            <div id="artist-12" class="col">
                 <a class="artist-name" href="#"><span>Kenza Badi<img src="/media/triangle-icon.svg"></span></a>
             </div>
-            <div class="col">
+            <div id="artist-13" class="col">
                 <a class="artist-name" href="#"><span>Amir<img src="/media/triangle-icon.svg"></span></a>
             </div>
-            <div class="col">
+            <div id="artist-14" class="col">
                 <a class="artist-name" href="#"><span>Ada M. Patterson<img src="/media/triangle-icon.svg"></span></a>
-            </div><div class="col">
+            </div>
+            <div id="artist-15" class="col">
                 <a class="artist-name" href="#"><span>angelboy<img src="/media/triangle-icon.svg"></span></a>
             </div>
-            <div class="col">
+            <div id="artist-16" class="col">
                 <a class="artist-name" href="#"><span>Kenza Badi<img src="/media/triangle-icon.svg"></span></a>
             </div>
-            <div class="col">
+            <div id="artist-17" class="col">
                 <a class="artist-name" href="#"><span>Amir<img src="/media/triangle-icon.svg"></span></a>
             </div>
-            <div class="col">
-                <a class="artist-name" href="#"><span>Ada M. Patterson<img src="/media/triangle-icon.svg"></span></a>
+            <div id="artist-18" class="col">
+                <a  class="artist-name" href="#"><span>Ada M. Patterson<img src="/media/triangle-icon.svg"></span></a>
             </div>
         </div>
     </div>
@@ -127,7 +128,7 @@
         </div></div>
 </div>
 <script>
-    function replaceClass(element){
+    /**function replaceClass(element){
         if (element.classList.contains('artist-details')){
             element.classList.replace('artist-details', 'artist-details.show');
             element.parentElement.style.color = 'white';
@@ -147,12 +148,93 @@
     function showArtistDetails(){
         let artistDetail = document.getElementById('zobayda-details');
         replaceClass(artistDetail);
+    }*/
+    let isMerged = true;
+    let div1 = document.createElement('div');
+    let div2 = document.createElement('div');
+
+    function toggleDiv(clickedElementId){
+        //let targetDiv = document.getElementById(targetDivId);
+        let element = document.getElementById(clickedElementId)
+
+        if(isMerged){
+            let targetDiv1 = element.parentElement;
+            splitDivFromElement(targetDiv1.id, element.id, div1, div2);
+            isMerged = false
+        } else {
+            let parentDiv = element.parentElement.parentElement;
+            let mergedDiv = mergeDivs(div1, div2);
+            parentDiv.removeChild(div1)
+            parentDiv.removeChild(div2)
+            parentDiv.appendChild(mergedDiv)
+            isMerged = true;
+        }
     }
 
-    function addZobaydaDetails() {
+
+    function splitDivFromElement(targetDivId, clickedElementId, div1, div2) {
+        // Get the target div and the split element
+        let targetDiv = document.getElementById(targetDivId);
+        let splitElement = document.getElementById(clickedElementId);
+
+        div1.classList.add('row', 'row-cols-1', 'row-cols-sm-2', 'row-cols-md-3', 'g-4');
+        div2.classList.add('row', 'row-cols-1', 'row-cols-sm-2', 'row-cols-md-3', 'g-4');
+
+
+        let isAfterSplitElement = false;
+
+        // Move the children of the target div to the new divs
+        while (targetDiv.firstChild) {
+            let child = targetDiv.firstChild;
+
+            // Check if the current child is the split element
+            if (child === splitElement) {
+                div1.appendChild(splitElement);
+                isAfterSplitElement = true;
+            }
+
+            // Move the children to the new divs based on the split condition
+            if (isAfterSplitElement && child !== splitElement) {
+                div2.appendChild(child);
+            } else {
+                div1.appendChild(child);
+            }
+        }
+
+        // Insert the new divs after the original target div
+        targetDiv.parentNode.insertBefore(div1, targetDiv);
+        targetDiv.parentNode.insertBefore(div2, targetDiv.nextSibling);
+
+        // Remove the original target div
+        targetDiv.parentNode.removeChild(targetDiv);
+    }
+
+    function mergeDivs(div1, div2){
+        let combinedDiv = document.createElement('div');
+        combinedDiv.classList.add('row', 'row-cols-1', 'row-cols-sm-2', 'row-cols-md-3', 'g-4');
+        combinedDiv.id = 'target-row';
+
+        while (div1.firstChild) {
+            let child = div1.firstChild;
+            let clonedChild = child.cloneNode(true);
+            combinedDiv.appendChild(clonedChild);
+            div1.removeChild(child);
+        }
+
+        while (div2.firstChild) {
+            let child = div2.firstChild;
+            let clonedChild = child.cloneNode(true);
+            combinedDiv.appendChild(clonedChild);
+            div2.removeChild(child);
+        }
+
+        return combinedDiv;
+    }
+
+    /*function addZobaydaDetails(clickedElement) {
         // Create the zobayda-details div
         let zobaydaDetails = document.createElement('div');
-        zobaydaDetails.classList.add('artist-details');
+        zobaydaDetails.classList.add('artist-details.show');
 
         // Create the img-container div
         let imgContainer = document.createElement('div');
@@ -228,9 +310,12 @@
         zobaydaDetails.appendChild(textContainer);
         zobaydaDetails.appendChild(soundcloudContainer);
 
+
         // Append zobayda-details to the container
-        document.getElementById('container').appendChild(zobaydaDetails);
-    }
+        document.getElementById('djs').appendChild(zobaydaDetails);
+        clickedElement.parentNode.insertBefore(zobaydaDetails, clickedElement.nextSibling);
+
+    }*/
 </script>
 </body>
 </html>
@@ -329,8 +414,8 @@
     .artist-details.show{
         background-color: black !important;
         color: white !important;
-        width: 100%;
-        box-sizing: border-box;
+        width: 100% !important;
+        box-sizing: border-box !important;
 
     }
     body{
