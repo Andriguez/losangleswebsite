@@ -236,6 +236,8 @@
         let zobaydaDetails = document.createElement('div');
         zobaydaDetails.classList.add('artist-details.show');
         zobaydaDetails.id = 'zobayda-details';
+        zobaydaDetails.style.backgroundColor = 'black';
+        zobaydaDetails.style.color = 'white';
 
         // Create the img-container div
         let imgContainer = document.createElement('div');
@@ -413,8 +415,6 @@
        display: none;
     }
     .artist-details.show{
-        background-color: black !important;
-        color: white !important;
         width: 100% !important;
         box-sizing: border-box !important;
 
