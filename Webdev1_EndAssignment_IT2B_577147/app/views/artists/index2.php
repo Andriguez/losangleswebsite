@@ -164,7 +164,7 @@
         } else {
             let parentDiv = element.parentElement.parentElement;
             let mergedDiv = mergeDivs(div1, div2);
-            parentDiv.innerHTML = ' ';
+            parentDiv.innerHTML = '<label class="type-label">djs</label>';
             parentDiv.appendChild(mergedDiv)
             isMerged = true;
         }
