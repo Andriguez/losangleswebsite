@@ -226,14 +226,17 @@
             }
         }
 
+        let artistDetails = addZobaydaDetails();
+
         // Insert the new divs after the original target div
         targetDiv.parentNode.insertBefore(div1, targetDiv);
         clickedElement.style.backgroundColor = 'black';
-        targetDiv.parentNode.insertBefore(addZobaydaDetails(), targetDiv.nextSibling);
+        targetDiv.parentNode.insertBefore(artistDetails, targetDiv.nextSibling);
         targetDiv.parentNode.insertBefore(div2, targetDiv.nextSibling.nextSibling);
 
         // Remove the original target div
         targetDiv.parentNode.removeChild(targetDiv);
+        artistDetails.scrollIntoView({behavior: 'smooth', block: "center"});
     }
 
     function mergeDivs(div1, div2){
@@ -289,7 +292,7 @@
 
         // Create paragraph
         const paragraph = document.createElement('p');
-        paragraph.textContent = 'Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id.';
+        paragraph.textContent = 'Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur erat nam.';
 
         // Append label and paragraph to text-container
         textContainerDiv.appendChild(name);
@@ -543,11 +546,10 @@
 
             span{
                 color: white;
+                margin-bottom: 2px;
             }
             p{
-                margin-top: 30px;
-                margin-left: 30px;
-                margin-right: 15px;
+                margin: 30px 30px 15px 5px;
             }
         }
 
@@ -605,7 +607,7 @@
     }
 
     ::-webkit-scrollbar-track {
-        background-color: silver; /* Color of the track */
+        background-color: white; /* Color of the track */
     }
 
     ::-webkit-scrollbar-thumb:hover {
