@@ -90,6 +90,30 @@
             <div class="col">
                 <a class="artist-name" href="#"><span>younggwoman<img src="/media/triangle-icon.svg"></span></a>
             </div>
+        </div>
+        <div id="zobayda-details" class="artist-details">
+            <div class="img-container">
+                <img src="/media/artist1.png" alt="Artist Image">
+            </div>
+            <div class="text-container">
+                <label>some labels/pronouns/artistic tags idk</label>
+                <p>Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id.</p>
+            </div>
+            <div class="media-container">
+                <div class="icon-container">
+                    <a href="#"><img src="/media/instagram.svg"></a>
+                    <a href="#"><img src="/media/mail.svg"></a>
+                    <a href="#"><img src="/media/triangle.svg"></a>
+                </div>
+                <div class="soundcloud-container">
+                <iframe width="350px" height="100px" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1642138038&color=%230c402a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                <div style="font-size: 10px; color: #cccccc; line-break: anywhere; word-break: normal; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif; font-weight: 100;">
+                    <a href="https://soundcloud.com/admiredarkness" title="ADMIRE DARKNESS" target="_blank" style="color: #cccccc; text-decoration: none;">ADMIRE DARKNESS</a> · <a href="https://soundcloud.com/admiredarkness/bunt-voila-techno1" title="BUNT. - Voila (TECHNO)" target="_blank" style="color: #cccccc; text-decoration: none;">BUNT. - Voila (TECHNO)</a>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
             <div class="col">
                 <a class="artist-name" href="#"><span>Diora<img src="/media/triangle-icon.svg"></span></a>
             </div>
@@ -399,12 +423,56 @@
         margin-top: 7px;
     }
 
-    .text-container{
-        max-width: 300px;
+    .artist-details{
+
+        width: 100% !important;
+        background-color: black !important;
+        color: white !important;
+        display: flex;
+        height: 280px;
+
+        img{
+            height: 250px !important;
+            width: 250px !important;
+        }
+
+        .img-container{
+            margin: auto;
+        }
+        .text-container{
+            max-width: 420px;
+            height: 80%;
+            margin: auto;
+            padding: 5px;
+            justify-content: center;
+            overflow-y: auto;
+
+            p{
+                margin-top: 30px;
+                margin-left: 30px;
+                margin-right: 15px;
+            }
+        }
+
+        .media-container {
+        margin: auto auto 10px auto;
+    .icon-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
+
+    img {
+        width: 55px !important;
+        height: 55px !important;
+        margin: 10px;
     }
-    .artist-details img{
-        width: 100%
-        height: 100%
+
+    .soundcloud-container{
+        margin-right: 10px;
+        margin-top: 50px !important;
+    }
+    }  }
     }
     .artists-container .row{
         padding: 3px;
@@ -412,11 +480,13 @@
         margin-bottom: 2px;
     }
     .artist-details{
-       display: none;
+
     }
     .artist-details.show{
         width: 100% !important;
         box-sizing: border-box !important;
+        background-color: black !important;
+        color: white !important;
 
     }
     body{
