@@ -108,7 +108,7 @@
 
     .about-row{
         margin-top: 10px;
-        margin-bottom: 45px;
+        margin-bottom: 70px;
     }
     .about-col{
         margin: auto;
