@@ -96,6 +96,7 @@
                 <img src="/media/artist1.png" alt="Artist Image">
             </div>
             <div class="text-container">
+                <span class="artist-name">Zobayda</span>
                 <label>some labels/pronouns/artistic tags idk</label>
                 <p>Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id.</p>
             </div>
@@ -186,6 +187,7 @@
             splitDivFromElement(targetDiv1.id, element.id, div1, div2);
             isMerged = false
         } else {
+            element.style.backgroundColor = 'white';
             let parentDiv = element.parentElement.parentElement;
             let mergedDiv = mergeDivs(div1, div2);
             parentDiv.innerHTML = '<label class="type-label">djs</label>';
@@ -198,7 +200,7 @@
     function splitDivFromElement(targetDivId, clickedElementId, div1, div2) {
         // Get the target div and the split element
         let targetDiv = document.getElementById(targetDivId);
-        let splitElement = document.getElementById(clickedElementId);
+        let clickedElement = document.getElementById(clickedElementId);
 
         div1.classList.add('row', 'row-cols-1', 'row-cols-sm-2', 'row-cols-md-3', 'g-4');
         div2.classList.add('row', 'row-cols-1', 'row-cols-sm-2', 'row-cols-md-3', 'g-4');
@@ -211,13 +213,13 @@
             let child = targetDiv.firstChild;
 
             // Check if the current child is the split element
-            if (child === splitElement) {
-                div1.appendChild(splitElement);
+            if (child === clickedElement) {
+                div1.appendChild(clickedElement);
                 isAfterSplitElement = true;
             }
 
             // Move the children to the new divs based on the split condition
-            if (isAfterSplitElement && child !== splitElement) {
+            if (isAfterSplitElement && child !== clickedElement) {
                 div2.appendChild(child);
             } else {
                 div1.appendChild(child);
@@ -226,6 +228,7 @@
 
         // Insert the new divs after the original target div
         targetDiv.parentNode.insertBefore(div1, targetDiv);
+        clickedElement.style.backgroundColor = 'black';
         targetDiv.parentNode.insertBefore(addZobaydaDetails(), targetDiv.nextSibling);
         targetDiv.parentNode.insertBefore(div2, targetDiv.nextSibling.nextSibling);
 
@@ -256,92 +259,183 @@
     }
 
     function addZobaydaDetails() {
-        // Create the zobayda-details div
-        let zobaydaDetails = document.createElement('div');
-        zobaydaDetails.classList.add('artist-details.show');
-        zobaydaDetails.id = 'zobayda-details';
-        zobaydaDetails.style.backgroundColor = 'black';
-        zobaydaDetails.style.color = 'white';
+        const zobaydaDetailsDiv = document.createElement('div');
+        zobaydaDetailsDiv.id = 'zobayda-details';
+        zobaydaDetailsDiv.classList.add('artist-details');
 
-        // Create the img-container div
-        let imgContainer = document.createElement('div');
-        imgContainer.classList.add('img-container');
+        // Create the img-container
+        const imgContainerDiv = document.createElement('div');
+        imgContainerDiv.classList.add('img-container');
 
-        // Create the img element
-        let img = document.createElement('img');
-        img.src = "/media/artist1.png";
-        img.alt = "Artist Image";
+        // Create the image
+        const artistImage = document.createElement('img');
+        artistImage.src = '/media/artist1.png';
+        artistImage.alt = 'Artist Image';
 
-        // Create the label element
-        let label = document.createElement('label');
-        label.textContent = "some labels/pronouns/artistic tags idk";
+        // Append the image to img-container
+        imgContainerDiv.appendChild(artistImage);
 
-        // Append img and label to img-container
-        imgContainer.appendChild(img);
-        imgContainer.appendChild(label);
+        // Create the text-container
+        const textContainerDiv = document.createElement('div');
+        textContainerDiv.classList.add('text-container');
 
-        // Create the text-container div
-        let textContainer = document.createElement('div');
-        textContainer.classList.add('text-container');
+        const name = document.createElement('span');
+        name.textContent = 'Zobayda';
+        name.classList.add('artist-name');
 
-        // Create the p element
-        let paragraph = document.createElement('p');
-        paragraph.textContent = "Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id.";
+        // Create label
+        const label = document.createElement('label');
+        label.textContent = 'some labels/pronouns/artistic tags idk';
 
-        // Append paragraph to text-container
-        textContainer.appendChild(paragraph);
+        // Create paragraph
+        const paragraph = document.createElement('p');
+        paragraph.textContent = 'Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id.';
 
-        // Create the soundcloud-container div
-        let soundcloudContainer = document.createElement('div');
-        soundcloudContainer.classList.add('soundcloud-container');
+        // Append label and paragraph to text-container
+        textContainerDiv.appendChild(name);
+        textContainerDiv.appendChild(label);
+        textContainerDiv.appendChild(paragraph);
 
-        // Create the iframe element
-        let iframe = document.createElement('iframe');
-        iframe.width = "400px";
-        iframe.height = "166";
-        iframe.scrolling = "no";
-        iframe.frameBorder = "no";
-        iframe.allow = "autoplay";
-        iframe.src = "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1642138038&color=%230c402a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true";
+        // Create the media-container
+        const mediaContainerDiv = document.createElement('div');
+        mediaContainerDiv.classList.add('media-container');
 
-        // Create the div for additional styling
-        let additionalStyleDiv = document.createElement('div');
-        additionalStyleDiv.style.cssText = "font-size: 10px; color: #cccccc; line-break: anywhere; word-break: normal; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif; font-weight: 100;";
+        // Create the icon-container
+        const iconContainerDiv = document.createElement('div');
+        iconContainerDiv.classList.add('icon-container');
 
-        // Create the links inside the div
-        let link1 = document.createElement('a');
-        link1.href = "https://soundcloud.com/admiredarkness";
-        link1.title = "ADMIRE DARKNESS";
-        link1.target = "_blank";
-        link1.style.cssText = "color: #cccccc; text-decoration: none;";
-        link1.textContent = "ADMIRE DARKNESS";
+        // Create Instagram icon
+        const instagramIcon = createIcon('/media/instagram.svg', '#');
 
-        let link2 = document.createElement('a');
-        link2.href = "https://soundcloud.com/admiredarkness/bunt-voila-techno1";
-        link2.title = "BUNT. - Voila (TECHNO)";
-        link2.target = "_blank";
-        link2.style.cssText = "color: #cccccc; text-decoration: none;";
-        link2.textContent = "BUNT. - Voila (TECHNO)";
+        // Create Mail icon
+        const mailIcon = createIcon('/media/mail.svg', '#');
 
-        // Append links to additionalStyleDiv
-        additionalStyleDiv.appendChild(link1);
-        additionalStyleDiv.appendChild(document.createTextNode(" · "));
-        additionalStyleDiv.appendChild(link2);
+        // Create Triangle icon
+        const triangleIcon = createIcon('/media/triangle.svg', '#');
 
-        // Append iframe and additionalStyleDiv to soundcloud-container
-        soundcloudContainer.appendChild(iframe);
-        soundcloudContainer.appendChild(additionalStyleDiv);
+        // Append icons to icon-container
+        iconContainerDiv.appendChild(instagramIcon);
+        iconContainerDiv.appendChild(mailIcon);
+        iconContainerDiv.appendChild(triangleIcon);
 
-        // Append img-container, text-container, and soundcloud-container to zobayda-details
-        zobaydaDetails.appendChild(imgContainer);
-        zobaydaDetails.appendChild(textContainer);
-        zobaydaDetails.appendChild(soundcloudContainer);
+        // Append icon-container to media-container
+        mediaContainerDiv.appendChild(iconContainerDiv);
+
+        // Create the soundcloud-container
+        const soundcloudContainerDiv = document.createElement('div');
+        soundcloudContainerDiv.classList.add('soundcloud-container');
+
+        // Add your SoundCloud embed code here
+        soundcloudContainerDiv.innerHTML = '<iframe width="350px" height="100px" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1642138038&color=%230c402a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe> <div style="font-size: 10px; color: #cccccc; line-break: anywhere; word-break: normal; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif; font-weight: 100;"><a href="https://soundcloud.com/admiredarkness" title="ADMIRE DARKNESS" target="_blank" style="color: #cccccc; text-decoration: none;">ADMIRE DARKNESS</a> · <a href="https://soundcloud.com/admiredarkness/bunt-voila-techno1" title="BUNT. - Voila (TECHNO)" target="_blank" style="color: #cccccc; text-decoration: none;">BUNT. - Voila (TECHNO)</a> </div>';
+
+        // Append soundcloud-container to media-container
+        mediaContainerDiv.appendChild(soundcloudContainerDiv);
+
+        // Append img-container, text-container, and media-container to zobayda-details
+        zobaydaDetailsDiv.appendChild(imgContainerDiv);
+        zobaydaDetailsDiv.appendChild(textContainerDiv);
+        zobaydaDetailsDiv.appendChild(mediaContainerDiv);
+
+        // Append zobayda-details to the body
+        //document.body.appendChild(zobaydaDetailsDiv);
+
+        /* // Create the zobayda-details div
+         let zobaydaDetails = document.createElement('div');
+         zobaydaDetails.classList.add('artist-details.show');
+         zobaydaDetails.id = 'zobayda-details';
+         zobaydaDetails.style.backgroundColor = 'black';
+         zobaydaDetails.style.color = 'white';
+
+         // Create the img-container div
+         let imgContainer = document.createElement('div');
+         imgContainer.classList.add('img-container');
+
+         // Create the img element
+         let img = document.createElement('img');
+         img.src = "/media/artist1.png";
+         img.alt = "Artist Image";
+
+         // Create the label element
+         let label = document.createElement('label');
+         label.textContent = "some labels/pronouns/artistic tags idk";
+
+         // Append img and label to img-container
+         imgContainer.appendChild(img);
+         imgContainer.appendChild(label);
+
+         // Create the text-container div
+         let textContainer = document.createElement('div');
+         textContainer.classList.add('text-container');
+
+         // Create the p element
+         let paragraph = document.createElement('p');
+         paragraph.textContent = "Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id.";
+
+         // Append paragraph to text-container
+         textContainer.appendChild(paragraph);
+
+         // Create the soundcloud-container div
+         let soundcloudContainer = document.createElement('div');
+         soundcloudContainer.classList.add('soundcloud-container');
+
+         // Create the iframe element
+         let iframe = document.createElement('iframe');
+         iframe.width = "400px";
+         iframe.height = "166";
+         iframe.scrolling = "no";
+         iframe.frameBorder = "no";
+         iframe.allow = "autoplay";
+         iframe.src = "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1642138038&color=%230c402a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true";
+
+         // Create the div for additional styling
+         let additionalStyleDiv = document.createElement('div');
+         additionalStyleDiv.style.cssText = "font-size: 10px; color: #cccccc; line-break: anywhere; word-break: normal; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif; font-weight: 100;";
+
+         // Create the links inside the div
+         let link1 = document.createElement('a');
+         link1.href = "https://soundcloud.com/admiredarkness";
+         link1.title = "ADMIRE DARKNESS";
+         link1.target = "_blank";
+         link1.style.cssText = "color: #cccccc; text-decoration: none;";
+         link1.textContent = "ADMIRE DARKNESS";
+
+         let link2 = document.createElement('a');
+         link2.href = "https://soundcloud.com/admiredarkness/bunt-voila-techno1";
+         link2.title = "BUNT. - Voila (TECHNO)";
+         link2.target = "_blank";
+         link2.style.cssText = "color: #cccccc; text-decoration: none;";
+         link2.textContent = "BUNT. - Voila (TECHNO)";
+
+         // Append links to additionalStyleDiv
+         additionalStyleDiv.appendChild(link1);
+         additionalStyleDiv.appendChild(document.createTextNode(" · "));
+         additionalStyleDiv.appendChild(link2);
+
+         // Append iframe and additionalStyleDiv to soundcloud-container
+         soundcloudContainer.appendChild(iframe);
+         soundcloudContainer.appendChild(additionalStyleDiv);
+
+         // Append img-container, text-container, and soundcloud-container to zobayda-details
+         zobaydaDetails.appendChild(imgContainer);
+         zobaydaDetails.appendChild(textContainer);
+         zobaydaDetails.appendChild(soundcloudContainer);*/
 
 
         // Append zobayda-details to the container
         //document.getElementById('djs').appendChild(zobaydaDetails);
         //targetDiv.parentNode.insertBefore(zobaydaDetails, div1);
-        return zobaydaDetails;
+        return zobaydaDetailsDiv;
+    }
+
+    function createIcon(src, href) {
+        const link = document.createElement('a');
+        link.href = href;
+        const icon = document.createElement('img');
+        icon.src = src;
+
+        link.appendChild(icon);
+
+        return link;
     }
 </script>
 </body>
@@ -447,6 +541,9 @@
             justify-content: center;
             overflow-y: auto;
 
+            span{
+                color: white;
+            }
             p{
                 margin-top: 30px;
                 margin-left: 30px;
@@ -465,7 +562,7 @@
     img {
         width: 55px !important;
         height: 55px !important;
-        margin: 10px;
+        margin: 20px;
     }
 
     .soundcloud-container{
