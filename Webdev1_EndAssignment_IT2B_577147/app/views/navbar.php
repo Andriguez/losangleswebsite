@@ -12,7 +12,7 @@
             <ul class="nav justify-content-center text-bg-body">
                 <li class="nav-item"><h3><a id="artist-link" href="/artists" class="nav-link mt-3 mx-5">Artists</a></h3></li>
                 <li class="nav-item"><h3><a id="events-link" href="/events" class="nav-link mt-3 mx-5">Events</a></h3></li>
-                <div class="mb-2 mb-md-0 mx-5">
+                <div class="nav-logo mb-2 mb-md-0 mx-5">
                     <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none navbar-brand">
                         <img src="/media/logocrop.jpeg" alt="Logo" width="90" height="60" class="d-inline-block align-text-top">
                     </a>
