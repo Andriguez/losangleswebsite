@@ -281,45 +281,46 @@
         padding: 0.5rem;
         background-color: #000000;
         color: white;
+    label{
+        font-weight: lighter;
     }
-    .card-body{
-        margin-left: 4rem;
-    }
-    .card-body p{
-        margin-left: 0;
-    }
-    .post-card a{
+    a{
         color: white;
         font-weight: lighter;
     }
-    .post-card .post-content{
+    .post-content{
         margin-left: 0 !important;
     }
-    .post-card .poster-name{
+    .poster-name{
         font-family: angles;
         font-weight: bold;
         font-size: 12px;
         text-transform: uppercase;
     }
-    .post-card .post-title{
-        font-family: angles;
-        font-size: 17px;
+    .post-title{
+        font-size: 22px;
         text-transform: lowercase;
     }
+    }
+    .card-body{
+        margin-left: 4rem;
+
+    p{
+        margin-left: 0;
+    }
+    }
+
     .post-footer{
         display: flex;
         align-items: center;
         justify-content: flex-end;
         font-size: 14px;
         margin-bottom: 0;
-    }
-    .post-footer p{
+
+    p{
         margin: 0 4px;
 
-    }
-    .post-card label{
-        font-weight: lighter;
-    }
+    }  }
 
     .picture{
         position: absolute;
