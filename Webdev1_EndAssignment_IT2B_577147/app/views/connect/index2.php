@@ -132,8 +132,8 @@
         </nav>
     </div>
     <div id="btns-container">
-        <a type="button" id="text" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat"><img src="/media/text-icon.svg" alt=""></a>
-        <a type="button" id="more" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat"><img src="/media/more-icon.svg" alt=""></a>
+        <a type="button" id="text" onclick="openForm('post-text')"><img src="/media/text-icon.svg" alt=""></a>
+        <a type="button" id="more" onclick="openForm('post-media')"><img src="/media/more-icon.svg" alt=""></a>
     </div>
 </div>
 
@@ -212,6 +212,23 @@
         </div>
     </div>
 
+<div class="box-popup" id="post-text">
+    <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="filerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            topic
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">topic</a></li>
+            <li><a class="dropdown-item" href="#">topic</a></li>
+            <li><a class="dropdown-item" href="#">topic</a></li>
+        </ul>
+    </div>
+    <form action="">
+    <input type="text" placeholder="title">
+    <textarea rows="8" placeholder="content"></textarea>
+    <button type="submit">POST</button>
+</form>
+</div>
 </body>
     <script>
     function openForm(formId){
@@ -404,8 +421,6 @@
 
     .box-popup{
         border: black solid 3px;
-        width: 600px;
-        height: 400px;
         display: none;
         position: fixed;
         top: 50%;
@@ -413,6 +428,17 @@
         transform: translate(-50%, -50%);
         z-index: 9;
         background-color: white;
+
+    button {
+        border-width: 3px;
+        font-weight: bold;
+        background-color: white;
+    }
+    button:hover {
+        background-color: black;
+        border-color: white;
+        color: white;
+    }
     }
 
     /* For WebKit browsers (Chrome, Safari) */
@@ -437,6 +463,7 @@
         overflow-y: scroll;
         background-color: white;
         width: 500px;
+        height: 400px;
 
     .name-section{
         margin-top: 5px;
@@ -497,16 +524,42 @@
 
     }
     .comment-submit button {
-        border-width: 3px;
-        font-weight: bold;
-        background-color: white;
         position: absolute;
         right: 0;
-    }
-    .comment-submit button:hover {
-        background-color: black;
-        border-color: white;
-        color: white;
     }  }
+
+    #post-text{
+        width: 400px;
+        height: 300px;
+
+        button{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            font-family: angles;
+        }
+        .dropdown{
+            border-radius: 0 !important;
+        }
+
+         .dropdown-menu{
+        border-width: 3px !important;
+        border-radius: 0 !important;
+        border-color: black !important;
+        font-family: angles;
+        font-size: 10px;
+
+        }
+        .dropdown-item:hover {
+        background-color: black !important;
+        border-color: white !important;
+        color: white !important;
+        }
+
+        textarea{
+            width: 100%;
+        }
+
+    }
 
 </style>
