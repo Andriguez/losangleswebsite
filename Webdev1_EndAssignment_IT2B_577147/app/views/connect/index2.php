@@ -155,17 +155,17 @@
         <div class="children-comments">
         <div class="child-comment">
             <span class="poster-name">poster name</span>
-            <span>says</span>
+            <img src="/media/triangle-icon.svg">
             <span>this is a comment in the comment section</span>
         </div>
         <div class="child-comment">
             <span class="poster-name">poster name</span>
-            <span>says</span>
+            <img src="/media/triangle-icon.svg">
             <span>this is a comment in the comment section</span>
         </div>
         <div class="child-comment">
             <span class="poster-name">poster name</span>
-            <span>says</span>
+            <img src="/media/triangle-icon.svg">
             <span>this is a comment in the comment section</span>
         </div>
         </div>
@@ -196,12 +196,12 @@
         <div class="children-comments">
         <div class="child-comment">
             <span class="poster-name">poster name</span>
-            <span>says</span>
+            <img src="/media/triangle-icon.svg">
             <span>this is a comment in the comment section</span>
         </div>
     <div class="child-comment">
         <span class="poster-name">poster name</span>
-        <span>says</span>
+        <img src="/media/triangle-icon.svg">
         <span>this is a comment in the comment section</span>
     </div>
         </div>
@@ -213,7 +213,7 @@
     </div>
 
 <div class="box-popup" id="post-text">
-    <div class="dropdown">
+    <form action="">
         <button class="dropdown-toggle" type="button" id="filerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
             topic
         </button>
@@ -222,11 +222,9 @@
             <li><a class="dropdown-item" href="#">topic</a></li>
             <li><a class="dropdown-item" href="#">topic</a></li>
         </ul>
-    </div>
-    <form action="">
     <input type="text" placeholder="title">
     <textarea rows="8" placeholder="content"></textarea>
-    <button type="submit">POST</button>
+    <button class="post-btn" type="submit">POST</button>
 </form>
 </div>
 </body>
@@ -461,7 +459,7 @@
 
     #comments-section{
         overflow-y: scroll;
-        background-color: white;
+        background-color: black;
         width: 500px;
         height: 400px;
 
@@ -472,12 +470,12 @@
 
     a{
         text-decoration: none;
-        color: white;
+        color: black;
         font-family: angles;
         font-size: 10px;
     }
     a:hover{
-        background-color: black;
+        background-color: white;
         filter: invert(100%);
     }
 
@@ -488,17 +486,17 @@
     }
     .comment{
         border: white solid 2px;
-        color: white;
-        background-color: black;
+        color: black;
+        background-color: white;
         padding: 5px;
         margin-bottom: 5px;
+        overflow-y: scroll;
 
         .btns-section{
             display: flex;
             justify-content: flex-end;
 
             img{
-                filter: invert(100%);
                 width: 7px !important;
                 height: 7px !important;
                 margin: 4px;
@@ -506,12 +504,21 @@
         }
     }
     .child-comment{
-        border: white solid 2px;
+        border: silver solid 2px;
         width: 100%;
         margin: auto;
         color: white;
         background-color: black;
         padding: 5px;
+
+        img{
+            filter: invert(100%);
+            width: 7px;
+            height: 7px;
+        }
+    }
+    .children-comments{
+        margin-top: 7px;
     }
     .comment-submit{
         width: 100%;
@@ -530,34 +537,47 @@
 
     #post-text{
         width: 400px;
-        height: 300px;
+        height: 235px;
+        background-color: black;
 
-        button{
+        .post-btn{
             position: absolute;
             right: 0;
             bottom: 0;
             font-family: angles;
         }
-        .dropdown{
-            border-radius: 0 !important;
-        }
+        form{
+            margin: 0 !important;
 
-         .dropdown-menu{
+    .dropdown-toggle{
+        border-radius: 0 !important;
+        position: absolute !important;
+        right: 0 !important;
+        top: 0 !important;
+        width: 30%;
+    }
+
+    .dropdown-menu{
         border-width: 3px !important;
         border-radius: 0 !important;
         border-color: black !important;
         font-family: angles;
         font-size: 10px;
 
-        }
-        .dropdown-item:hover {
+    }
+    .dropdown-item:hover {
         background-color: black !important;
         border-color: white !important;
         color: white !important;
-        }
+    }
+    input{
+        width: 70%;
+    }
 
-        textarea{
-            width: 100%;
+    textarea{
+        width: 100%;
+        margin-top: 2px;
+    }
         }
 
     }
