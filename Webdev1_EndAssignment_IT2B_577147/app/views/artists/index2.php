@@ -456,6 +456,12 @@
         width: 55px !important;
         height: 55px !important;
         margin: 20px;
+        border-radius: 30%;
+    }
+
+    img:hover{
+        background-color: black;
+        filter: invert(100%);
     }
 
     .soundcloud-container{
