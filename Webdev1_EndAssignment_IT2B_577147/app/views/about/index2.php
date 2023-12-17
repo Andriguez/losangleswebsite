@@ -144,6 +144,7 @@
             pointer-events: none;
             transition: transform 0.3s ease-in-out;
             z-index: 1;
+            border: black solid 3px;
         }
         .title{
             font-family: angles;
