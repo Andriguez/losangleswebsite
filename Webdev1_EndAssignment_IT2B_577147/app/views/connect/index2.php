@@ -211,7 +211,10 @@
             <button type="submit">comment</button>
         </div>
     </div>
-
+<div class="post-box-container">
+    <button class="closing-btn" onclick="closeForm('post-text')">
+        <img src="/media/closing-button.svg">
+    </button>
 <div class="box-popup" id="post-text">
     <form action="">
         <button class="dropdown-toggle" type="button" id="filerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -226,6 +229,7 @@
     <textarea rows="8" placeholder="content"></textarea>
     <button class="post-btn" type="submit">POST</button>
 </form>
+</div>
 </div>
 </body>
     <script>
@@ -536,6 +540,9 @@
         right: 0;
     }  }
 
+    .post-box-container{
+    width: 400px;
+    height: 250px;
     #post-text{
         width: 400px;
         height: 235px;
@@ -581,6 +588,6 @@
     }
         }
 
-    }
+    }}
 
 </style>
