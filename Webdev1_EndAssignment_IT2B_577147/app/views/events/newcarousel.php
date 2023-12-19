@@ -235,14 +235,14 @@ class Carousel {
 
     .gallery-item-1{
         left: 15%;
-        opacity: 0.4;
+        opacity: 0.2;
         transform: translateX(-50%);
         height: 360px;
     }
 
     .gallery-item-2, .gallery-item-4{
         height: 380px;
-        opacity: 0.8;
+        opacity: 0.5;
         width: 380px;
         z-index: 1;
     }
@@ -267,7 +267,7 @@ class Carousel {
 
     .gallery-item-5{
         left: 85%;
-        opacity: .4;
+        opacity: .2;
         transform: translateX(-50%);
         height: 360px;
     }

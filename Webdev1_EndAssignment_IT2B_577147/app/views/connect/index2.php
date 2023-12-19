@@ -211,10 +211,8 @@
             <button type="submit">comment</button>
         </div>
     </div>
-<div class="post-box-container">
-    <button class="closing-btn" onclick="closeForm('post-text')">
-        <img src="/media/closing-button.svg">
-    </button>
+
+
 <div class="box-popup" id="post-text">
     <form action="">
         <button class="dropdown-toggle" type="button" id="filerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -229,14 +227,18 @@
     <textarea rows="8" placeholder="content"></textarea>
     <button class="post-btn" type="submit">POST</button>
 </form>
+    <a id="closing-btn" onclick="closeForm('post-text')"><img src="/media/x-icon.svg"></a>
 </div>
-</div>
+
 </body>
     <script>
     function openForm(formId){
-        document.getElementById(formId).style.display="block";
-        document.getElementById("page").style.filter = "blur(5px)";
-        document.getElementById(formId).style.filter="none";
+        let popup = document.getElementById(formId);
+        const mainWindow = document.getElementById("page");
+        popup.style.display="block";
+        mainWindow.style.filter = "blur(5px)";
+        mainWindow.style.pointerEvents = "none";
+        popup.style.filter="none";
     }
 
     function closeForm(formId){
@@ -332,10 +334,6 @@
         border: black solid 3px;
     }
 
-    .frame{
-        position: absolute;
-        z-index: 3 !important;
-    }
     .profile-picture{
         position: absolute;
         top: 0;
@@ -403,13 +401,13 @@
         position: absolute;
         bottom: 2rem;
         right: 4rem;
-    }
 
-    #btns-container img{
+    img{
         width: 3rem;
         height: 3rem; /* Maintain aspect ratio */
         border: silver solid 1px; /* Remove default button border */
         cursor: pointer;
+    }
     }
 
     body{
@@ -540,9 +538,7 @@
         right: 0;
     }  }
 
-    .post-box-container{
-    width: 400px;
-    height: 250px;
+
     #post-text{
         width: 400px;
         height: 235px;
@@ -586,8 +582,16 @@
         width: 100%;
         margin-top: 2px;
     }
+
+    }
+    #closing-btn{
+        cursor: pointer;
+        position: absolute;
+        right: -3px;
+        top: -24px;
         }
-
-    }}
-
+    #closing-btn:hover{
+        filter: invert(100%);
+    }
+    }
 </style>
