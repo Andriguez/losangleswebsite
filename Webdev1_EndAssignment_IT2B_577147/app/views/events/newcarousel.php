@@ -18,7 +18,36 @@
                 <img class="picture" src="/media/event1.png" data-index="1">
            </div>
             <div class="item-back text-center">
-                <button type="button" class="tickets-btn" onclick="toggleButton()" href="#">BUY TICKETS HERE</button>
+                <span class="event-name">139 angles</span>
+
+                <span class="event-date">14 Oct</span>
+                <img src="/media/triangle-icon.svg">
+                <span class="event-location">Kanaal 40</span>
+                <span class="subtitle">description</span>
+                <span class="event-type">Art exhibition - club night</span>
+                <span class="event-description">Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. </span>
+                <span class="subtitle">line-up</span>
+                <div class="lineup-container">
+                    <div class="type-group">
+                <span class="lineup-type">djs</span>
+                    <span class="lineup-artist">larasati<img src="/media/triangle-icon.svg"></span>
+                    <span class="lineup-artist">NA-AH<img src="/media/triangle-icon.svg"></span>
+                    <span class="lineup-artist">Dr. dickey<img src="/media/triangle-icon.svg"></span>
+                    <span class="lineup-artist">slimfit b2b ???<img src="/media/triangle-icon.svg"></span>
+                    </div>
+                    <div class="type-group">
+                <span class="lineup-type">exhibits</span>
+                        <span class="lineup-artist">Siofra Augusteijn<img src="/media/triangle-icon.svg"></span>
+                        <span class="lineup-artist">Zazi Creijghton<img src="/media/triangle-icon.svg"></span>
+                        <span class="lineup-artist">Tild Greene<img src="/media/triangle-icon.svg"></span>
+                        <span class="lineup-artist">Linus van der Mass<img src="/media/triangle-icon.svg"></span>
+                    </div>
+                    <div class="type-group">
+                        <span class="lineup-type">performers</span>
+                        <span class="lineup-artist">Monika Joakim<img src="/media/triangle-icon.svg"></span>
+                    </div>
+                </div>
+                <button type="button" class="tickets-btn" onclick="toggleButton()" href="#">BUY TICKETS</button>
             </div>
         </div>
         <div class="gallery-item gallery-item-2">
@@ -248,8 +277,7 @@ class Carousel {
         cursor: pointer;
         position: absolute;
         left: 50%;
-
-
+        border: black 2px solid;
     }
 
     .gallery-item,
@@ -261,9 +289,6 @@ class Carousel {
         height: 100%;
         transform: translateX(-50%);
         /*backface-visibility: hidden;*/
-        display: flex;
-        justify-content: center;
-        align-items: center;
         color: white;
 
     }
@@ -273,10 +298,83 @@ class Carousel {
         background-color: black;
         position: absolute;
         translate: 50%;
+        padding: 10px;
 
-        button{
-            margin-top: 50%;
+    .event-name{
+            font-family: angles;
+            text-transform: uppercase;
+            font-size: 16px;
+            display: block;
+            margin-top: 8px;
         }
+    .event-date {
+        display: inline-block;
+    }
+    .event-location{
+        display: inline-block;
+    }
+    .event-type{
+        text-align: right;
+        display: block;
+        font-weight: lighter;
+        font-size: 14px;
+    }
+    .event-description{
+        display: block;
+        text-align: justify;
+        margin: auto;
+        width: 310px;
+        font-size: 14px;
+    }
+    .lineup-container{
+        display: block;
+        text-align: justify;
+        margin: auto;
+        width: 310px;
+        height: 100px;
+        overflow-y: scroll;
+    }
+    .lineup-type{
+        text-align: right;
+        display: block;
+        font-weight: lighter;
+        font-size: 15px;
+    }
+    .lineup-artist{
+        font-family: angles;
+        font-size: 9px;
+        text-transform: uppercase;
+    }
+    .subtitle{
+        display: block;
+        text-transform: uppercase;
+        font-family: angles;
+        font-size: 10px;
+        margin-top: 16px;
+        margin-bottom: 4px;
+        text-align: left;
+    }
+    img{
+        width: 10px !important;
+        height: 10px !important;
+        filter: invert(100%);
+    }
+
+    button {
+        border-width: 3px;
+        font-weight: bold;
+        background-color: white;
+        font-family: angles;
+        font-size: 12px;
+        margin-top: 15px;
+        margin-bottom: 5px;
+
+    }
+    button:hover {
+        background-color: black;
+        border-color: white;
+        color: white;
+    }
     }
     .gallery-item.back{
 
@@ -406,4 +504,20 @@ class Carousel {
         width: 5px;
     }
 
+    ::-webkit-scrollbar {
+        width: 5px; /* Set width of the scrollbar */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: black; /* Color of the thumb */
+        border-radius: 3px; /* Rounded corners of the thumb */
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: white; /* Color of the track */
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: silver; /* Color of the thumb on hover */
+    }
 </style>
