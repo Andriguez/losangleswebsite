@@ -139,8 +139,10 @@
 
 
 <div class="box-popup" id="comments-section">
-        <div class="comment">
-            <div class="name-section">
+    <a id="closing-btn" onclick="closeForm('post-text')"><img src="/media/x-icon.svg"></a>
+    <div id="comments">
+    <div class="comment">
+        <div class="name-section">
                 <span class="poster-name">poster name</span>
             </div>
             <div class="content-section">
@@ -206,11 +208,12 @@
     </div>
         </div>
         </div>
-        <div class="comment-submit">
+    </div>
+        <form class="comment-submit">
             <input type="text" placeholder="Say something..."/>
             <button type="submit">comment</button>
-        </div>
-    </div>
+        </form>
+</div>
 
 
 <div class="box-popup" id="post-text">
@@ -439,8 +442,7 @@
         background-color: black;
         border-color: white;
         color: white;
-    }
-    }
+    }  }
 
     /* For WebKit browsers (Chrome, Safari) */
     ::-webkit-scrollbar {
@@ -527,6 +529,7 @@
         width: 100%;
         position: sticky;
         bottom: 0;
+        margin: 0;
     }
     .comment-submit input{
         width: 100%;
@@ -536,7 +539,13 @@
     .comment-submit button {
         position: absolute;
         right: 0;
-    }  }
+    }
+    #closing-btn{
+    cursor: pointer;
+    position: sticky;
+        right: 0;
+    img{
+    }  }  }
 
 
     #post-text{
@@ -555,10 +564,8 @@
 
     .dropdown-toggle{
         border-radius: 0 !important;
-        position: absolute !important;
-        right: 0 !important;
-        top: 0 !important;
         width: 30%;
+        font-family: angles;
     }
 
     .dropdown-menu{
@@ -575,23 +582,23 @@
         color: white !important;
     }
     input{
-        width: 70%;
+        width: 60%;
     }
 
     textarea{
         width: 100%;
         margin-top: 2px;
-    }
-
-    }
+    }  }
     #closing-btn{
         cursor: pointer;
         position: absolute;
-        right: -3px;
-        top: -24px;
+        right: 0;
+        top: 0;
+        img{
+            height: 30px;
+        }
         }
     #closing-btn:hover{
         filter: invert(100%);
-    }
-    }
+    }  }
 </style>

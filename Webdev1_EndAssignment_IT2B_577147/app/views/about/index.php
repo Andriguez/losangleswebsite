@@ -68,6 +68,7 @@
             const x = e.clientX - 15;
             const y = e.clientY - 95;
 
+
             customCursor.style.transform = `translate(${x}px, ${y}px)`;
         });
     });

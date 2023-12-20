@@ -13,11 +13,13 @@
 <div class="main-container mt-2">
 <div class="gallery">
     <div class="gallery-container">
-
        <div class="gallery-item gallery-item-1">
+           <div class="item-front">
                 <img class="picture" src="/media/event1.png" data-index="1">
+           </div>
             <div class="item-back text-center">
-                <h6 class="mx-3">this is a all the information about the event</h6>
+                <a class="toggle-btn" onclick="toggleButton()"><img src="/media/x-icon.svg"></a>
+                <button class="tickets-btn" href="#">BUY TICKETS HERE</button>
             </div>
         </div>
         <div class="gallery-item gallery-item-2">
@@ -25,12 +27,14 @@
             <div class="item-back text-center">
                 <h6 class="mx-3">this is a all the information about the event</h6>
             </div>
-        </div> <div class="gallery-item gallery-item-3">
+        </div>
+        <div class="gallery-item gallery-item-3">
             <img class="picture" src="/media/event3.png" data-index="3">
             <div class="item-back text-center">
                 <h6 class="mx-3">this is a all the information about the event</h6>
             </div>
-        </div> <div class="gallery-item gallery-item-4">
+        </div>
+        <div class="gallery-item gallery-item-4">
             <img class="picture" src="/media/event4.png" data-index="4">
             <div class="item-back text-center">
                 <h6 class="mx-3">this is a all the information about the event</h6>
@@ -89,6 +93,7 @@ class Carousel {
         this.carouselContainer = container;
         this.carouselItems = [...items]
         this.carouselControls = controls;
+        this.back = false;
     }
 
     updateGallery() {
@@ -124,9 +129,10 @@ class Carousel {
     }
 
     useControls() {
-        this.carouselContainer.addEventListener('click', e => {
+        /*this.carouselContainer.addEventListener('click', e => {
             const rect = this.carouselContainer.getBoundingClientRect();
             const clickX = e.clientX - rect.left;
+            const centerItem = this.carouselItems[2];
 
             if (clickX < rect.width / 3) {
                 // Clicked on the left side of the carousel
@@ -135,6 +141,26 @@ class Carousel {
                 // Clicked on the right side of the carousel
                 this.setCurrentState('next');
             }
+            else if (this.allowToggle){
+                this.toggleCard();
+             }
+        });*/
+
+        this.carouselContainer.addEventListener('click', (e) => {
+            const centerIndex = 2; // Index of the center item
+
+            // Get the index of the clicked element within the carousel items
+            const clickedIndex = Array.from(this.carouselItems).indexOf(e.target.closest('.gallery-item'));
+
+            // Handle click on the left side of the carousel
+            if (clickedIndex < centerIndex) {
+                this.setCurrentState('previous');
+            }
+            // Handle click on the right side of the carousel
+            else if (clickedIndex > centerIndex) {
+                this.setCurrentState('next');
+            }
+            // Handle click on the center
             else {
                 this.toggleCard();
             }
@@ -145,9 +171,19 @@ class Carousel {
         // Toggle between front and back states for the center item
         const centerItem = this.carouselItems[2];
 
-        if (direction == 'previous'){this.carouselItems[3].classList.remove('back')}
-        else if (direction == 'next'){this.carouselItems[1].classList.remove('back')}
-        else {centerItem.classList.toggle('back');}
+        if (direction === 'previous'){this.carouselItems[3].classList.remove('back')}
+        else if (direction === 'next'){this.carouselItems[1].classList.remove('back')}
+        else {
+            this.back = true;
+            centerItem.classList.toggle('back');
+            centerItem.querySelector('.item-back').style.display = 'block';
+            centerItem.querySelector('.item-front').style.display = 'none';
+        }
+    }
+
+    toggleButton(){
+        this.allowToggle = true;
+        this.toggleCard();
     }
 }
      const carousel = new Carousel(galleryContainer, galleryItems, galleryControls);
@@ -201,29 +237,44 @@ class Carousel {
         border-radius: 0;
         background-size: contain;
         cursor: pointer;
-        border: black solid 3px;
+        position: absolute;
+        left: 50%;
+
+
     }
 
     .gallery-item,
+    .item-front,
     .item-back{
         position: absolute;
         top: 0;
-        left: 50%;
         width: 100%;
         height: 100%;
-        transform: rotateY(180deg);
-        backface-visibility: hidden;
+        transform: translateX(-50%);
+        /*backface-visibility: hidden;*/
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: black;
         color: white;
+
     }
 
     .item-back{
-
+        display: none;
+        background-color: black;
+        position: absolute;
+        transform: rotateY(180deg);
+        translate: 50%;
+        .toggle-btn{
+            width: 20px;
+            height: 20px;
+        }
     }
     .gallery-item.back{
+        transform: rotateY(180deg);
+    }
+    .item-front{
+        display: block;
         transform: rotateY(180deg);
 
     }
@@ -231,6 +282,7 @@ class Carousel {
     .gallery-item img {
         width: 100%;
         height: 100%;
+        z-index: 9;
     }
 
     .gallery-item-1{
