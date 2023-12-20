@@ -11,36 +11,43 @@
 <body>
 <?php include __DIR__.'/../navbar.php'?>
 <div class="main-container mt-2">
-<div class="gallery">
+<div id="gallery">
     <div class="gallery-container">
        <div class="gallery-item gallery-item-1">
            <div class="item-front">
                 <img class="picture" src="/media/event1.png" data-index="1">
            </div>
             <div class="item-back text-center">
-                <a class="toggle-btn" onclick="toggleButton()"><img src="/media/x-icon.svg"></a>
-                <button class="tickets-btn" href="#">BUY TICKETS HERE</button>
+                <button type="button" class="tickets-btn" onclick="toggleButton()" href="#">BUY TICKETS HERE</button>
             </div>
         </div>
         <div class="gallery-item gallery-item-2">
+            <div class="item-front">
             <img class="picture" src="/media/event2.png" data-index="2">
+            </div>
             <div class="item-back text-center">
                 <h6 class="mx-3">this is a all the information about the event</h6>
             </div>
         </div>
         <div class="gallery-item gallery-item-3">
+            <div class="item-front">
             <img class="picture" src="/media/event3.png" data-index="3">
+            </div>
             <div class="item-back text-center">
                 <h6 class="mx-3">this is a all the information about the event</h6>
             </div>
         </div>
         <div class="gallery-item gallery-item-4">
-            <img class="picture" src="/media/event4.png" data-index="4">
+            <div class="item-front">
+                <img class="picture" src="/media/event4.png" data-index="4">
+            </div>
             <div class="item-back text-center">
                 <h6 class="mx-3">this is a all the information about the event</h6>
             </div>
         </div> <div class="gallery-item gallery-item-5">
-            <img class="picture" src="/media/event5.png" data-index="5">
+            <div class="item-front">
+                <img class="picture" src="/media/event5.png" data-index="5">
+            </div>
             <div class="item-back text-center">
                 <h6 class="mx-3">this is a all the information about the event</h6>
             </div>
@@ -132,7 +139,6 @@ class Carousel {
         /*this.carouselContainer.addEventListener('click', e => {
             const rect = this.carouselContainer.getBoundingClientRect();
             const clickX = e.clientX - rect.left;
-            const centerItem = this.carouselItems[2];
 
             if (clickX < rect.width / 3) {
                 // Clicked on the left side of the carousel
@@ -141,26 +147,22 @@ class Carousel {
                 // Clicked on the right side of the carousel
                 this.setCurrentState('next');
             }
-            else if (this.allowToggle){
+            else{
                 this.toggleCard();
              }
         });*/
 
         this.carouselContainer.addEventListener('click', (e) => {
-            const centerIndex = 2; // Index of the center item
+            const centerIndex = 2;
 
-            // Get the index of the clicked element within the carousel items
             const clickedIndex = Array.from(this.carouselItems).indexOf(e.target.closest('.gallery-item'));
 
-            // Handle click on the left side of the carousel
             if (clickedIndex < centerIndex) {
                 this.setCurrentState('previous');
             }
-            // Handle click on the right side of the carousel
             else if (clickedIndex > centerIndex) {
                 this.setCurrentState('next');
             }
-            // Handle click on the center
             else {
                 this.toggleCard();
             }
@@ -170,25 +172,32 @@ class Carousel {
     toggleCard(direction) {
         // Toggle between front and back states for the center item
         const centerItem = this.carouselItems[2];
+        const front = centerItem.querySelector('.item-front');
+        const back = centerItem.querySelector('.item-back');
 
         if (direction === 'previous'){this.carouselItems[3].classList.remove('back')}
         else if (direction === 'next'){this.carouselItems[1].classList.remove('back')}
-        else {
+        else if (!this.back){
             this.back = true;
-            centerItem.classList.toggle('back');
-            centerItem.querySelector('.item-back').style.display = 'block';
-            centerItem.querySelector('.item-front').style.display = 'none';
+            back.style.display = 'block';
+            back.style.pointerEvents = 'auto';
+            front.style.display = 'none';
+            centerItem.classList.add('back');
+        } else{
+            centerItem.classList.remove('back');
+            back.style.display = 'none';
+            back.style.pointerEvents = 'none';
+            front.style.display = 'block';
+            this.back = false;
         }
-    }
-
-    toggleButton(){
-        this.allowToggle = true;
-        this.toggleCard();
     }
 }
      const carousel = new Carousel(galleryContainer, galleryItems, galleryControls);
     carousel.useControls()
-
+    function toggleButton(){
+    const body = document.getElementById('gallery');
+    body.style.backgroundColor = 'red';
+}
 </script>
 </body>
 </html>
@@ -211,7 +220,7 @@ class Carousel {
         align-items: center;
     }
 
-    .gallery{
+    #gallery{
         width: 100%;
         height: 500px;
     }
@@ -263,26 +272,23 @@ class Carousel {
         display: none;
         background-color: black;
         position: absolute;
-        transform: rotateY(180deg);
         translate: 50%;
-        .toggle-btn{
-            width: 20px;
-            height: 20px;
+
+        button{
+            margin-top: 50%;
         }
     }
     .gallery-item.back{
-        transform: rotateY(180deg);
+
     }
     .item-front{
         display: block;
-        transform: rotateY(180deg);
-
+        translate: 50%;
     }
 
     .gallery-item img {
         width: 100%;
         height: 100%;
-        z-index: 9;
     }
 
     .gallery-item-1{
