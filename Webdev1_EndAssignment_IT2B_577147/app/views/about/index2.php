@@ -108,7 +108,7 @@
 
     .about-row{
         margin-top: 10px;
-        margin-bottom: 70px;
+        margin-bottom: 55px;
     }
     .about-col{
         margin: auto;
@@ -159,12 +159,19 @@
             padding: 10px;
             max-width: 333px;
             margin: auto;
+            font-family: "Agency FB";
+            font-size: 20px;
+
+
         }
         .text-container{
             max-width: 800px;
             margin: auto;
-        }
-    }
+            font-family: "Agency FB";
+            font-size: 20px;
+            font-weight: bold;
+
+        }  }
 
     body{
         overflow: hidden;

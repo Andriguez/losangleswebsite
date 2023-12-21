@@ -23,7 +23,9 @@ class Router
             new Route(['GET','HEAD'],'artistsController',  null,'/^\/artists(?:\/([a-z0-1_-]+))?$/'),
             new Route(['GET','HEAD'],'eventsController',  null,'/^\/events(?:\/([a-z0-1_-]+))?$/'),
             new Route(['GET','HEAD'],'aboutController',  null,'/^\/about(?:\/([a-z0-1_-]+))?$/'),
-            new Route(['GET','HEAD'],'loginController',  null,'/^\/login(?:\/([a-z0-1_-]+))?$/'),
+            new Route(['GET','HEAD'],'loginController',  null,null,'/login'),
+            new Route(['POST'],'loginController',  'access',null, '/login/access'),
+            new Route(['GET'],'loginController',  'logOut',null, '/login/logout'),
             new Route(['GET','HEAD'],'registerController',  null,'/^\/register(?:\/([a-z0-1_-]+))?$/'),
 
         ];
@@ -131,7 +133,7 @@ class Router
 
     private function respondMethodNotAllowed($allowedMethods)
     {
-        respond(405, '<h1>405 Method Not Allowed</h1>', ['allow' => implode(', ', $allowedMethods)]);
+        $this->respond(405, '<h1>405 Method Not Allowed</h1>', ['allow' => implode(', ', $allowedMethods)]);
     }
 
     private function respondServerError($controller)

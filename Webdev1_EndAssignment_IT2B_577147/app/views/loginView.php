@@ -5,27 +5,35 @@
 <body>
 <?php include __DIR__.'/navbar.php'?>
 <div class="form-container">
-<form>
+<form method="post" action="/login/access">
     <div class="form-floating">
-        <input type="email" id="floatingInput" placeholder="e-mail">
+        <input required type="email" name="email" id="floatingInput" placeholder="e-mail">
     </div>
     <div class="form-floating">
-        <input id="passwordfield" type="password" style="-webkit-text-security: disc;" id="floatingPassword" placeholder="password">
+        <input id="passwordfield" name="password" type="password" style="-webkit-text-security: disc;" id="floatingPassword" placeholder="password">
     </div>
     <div class="btn-group">
     <button type="submit">log in</button>
-    <button>forgot password?</button>
+    <!--<button>forgot password?</button>-->
     </div>
-
 </form>
 </div>
+<?php if(isset($_SESSION['loginError'])){?>
+    <div id="error-message-container">
+        <span><?php echo $_SESSION['loginError']?></span>
+    </div>
+    <?php unset($_SESSION['loginError']); }  ?>
 </body>
 </html>
 <style>
+    body{
+        overflow: hidden;
+        position: relative;
+    }
     .form-container{
-        margin: 0;
+        margin-top: 80px;
         padding: 0;
-        height: 70vh;
+        height: 40vh;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -75,5 +83,13 @@
     }
     .btn-group{
         margin-top: 20px;
+    }
+    #error-message-container{
+        color: red;
+        font-family: "Agency FB";
+        font-size: 16px;
+        margin: auto;
+        width: 300px;
+
     }
 </style>

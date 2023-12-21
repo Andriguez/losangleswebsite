@@ -3,6 +3,7 @@
 class DB extends PDO
 {
     private static DB $instance;
+    private static array $currentConfig;
 
     private function __construct($dsn, $user, $password){
         parent::__construct($dsn, $user,$password);
@@ -10,7 +11,7 @@ class DB extends PDO
     }
     public static function getInstance(array $config): DB
     {
-        if (empty(self::$instance)) {
+        if (empty(self::$instance) || self::$currentConfig !== $config) {
             try {
                 //$dbOptions = self::getConfig();
 
@@ -25,10 +26,15 @@ class DB extends PDO
 
                 self::$instance = new DB($dsn, $user, $password);
                 self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                self::$currentConfig = $config;
             } catch (PDOException $pdoe) {
                 echo $pdoe->getMessage();
             }
         }
         return self::$instance;
+    }
+
+    public static function switchDatabase(array $config){
+        self::getInstance($config);
     }
 }

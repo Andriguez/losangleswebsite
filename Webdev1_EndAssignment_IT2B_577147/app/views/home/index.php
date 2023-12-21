@@ -26,6 +26,8 @@
                             <ul class="dropdown-menu" aria-labelledby="connectDropdown">
                                 <li><a class="dropdown-item" href="/register">register</a></li>
                                 <li><a class="dropdown-item" href="/login">login</a></li>
+                                <li><a class="dropdown-item" href="/login/logout">logout</a></li>
+
                             </ul>
                             </h3>
                     </li>

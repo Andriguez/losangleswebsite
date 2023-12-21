@@ -1,8 +1,10 @@
 <?php
 namespace services;
-use models\User;
-use models\UserType;
 use repositories\UserRepository;
+require __DIR__ . '/../repositories/UserRepository.php';
+require_once __DIR__ . '/../models/User.php';
+
+
 class UserService
 {
     private UserRepository $userRepo;
@@ -25,5 +27,11 @@ class UserService
     }
     public function getAllTypes():array{
         return $this->userRepo->getAllTypes();
+    }
+    public function getUserByEmail($email){
+        return $this->userRepo->getUserByEmail($email);
+    }
+    public function getUserByLoginCredentials($email, $password){
+        return $this->userRepo->getUserByLoginCredentials($email, $password);
     }
 }

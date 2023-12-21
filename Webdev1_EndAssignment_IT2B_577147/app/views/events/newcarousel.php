@@ -305,26 +305,30 @@ class Carousel {
             text-transform: uppercase;
             font-size: 16px;
             display: block;
-            margin-top: 8px;
+            margin-top: 5px;
         }
     .event-date {
         display: inline-block;
+        font-family: "Agency FB";
     }
     .event-location{
         display: inline-block;
+        font-family: "Agency FB";
     }
     .event-type{
         text-align: right;
         display: block;
         font-weight: lighter;
-        font-size: 14px;
+        font-size: 16px;
+        font-family: "Agency FB";
     }
     .event-description{
         display: block;
         text-align: justify;
         margin: auto;
         width: 310px;
-        font-size: 14px;
+        font-size: 18px;
+        font-family: "Agency FB";
     }
     .lineup-container{
         display: block;
@@ -338,19 +342,26 @@ class Carousel {
         text-align: right;
         display: block;
         font-weight: lighter;
-        font-size: 15px;
+        font-size: 18px;
+        font-family: "Agency FB";
     }
     .lineup-artist{
         font-family: angles;
         font-size: 9px;
         text-transform: uppercase;
+        margin-left: 1px;
+        margin-right: 1px;
+
+        img{
+            margin:1px;
+        }
     }
     .subtitle{
         display: block;
         text-transform: uppercase;
         font-family: angles;
         font-size: 10px;
-        margin-top: 16px;
+        margin-top: 14px;
         margin-bottom: 4px;
         text-align: left;
     }

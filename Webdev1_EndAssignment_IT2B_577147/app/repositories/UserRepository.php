@@ -1,8 +1,14 @@
 <?php
 namespace repositories;
+use models\User;
+use models\UserType;
+
 require_once __DIR__.'/../models/User.php';
 require_once __DIR__.'/../models/UserType.php';
 require_once __DIR__.'/../models/MediaInfo.php';
+require __DIR__ . '/../repositories/Repository.php';
+require __DIR__ . '/../repositories/ContentRepository.php';
+
 class UserRepository extends Repository
 {
     //users table
@@ -11,12 +17,32 @@ class UserRepository extends Repository
        user_password FROM users WHERE user_Id = :id";
 
         try{
-            $statement = $this->users_db->prepare($query);
-            $statement->bindParam(':id', $id);
+            $statement = $this->getusersDB()->prepare($query);
+            $statement->bindParam(':id', $id, \PDO::PARAM_INT);
             $statement->execute();
 
-            $statement->setFetchMode(\PDO::FETCH_CLASS, 'User');
-            return $statement->fetch();
+            //$statement->setFetchMode(\PDO::FETCH_CLASS, 'models\User');
+            //return $statement->fetch();
+
+            while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+
+                $user = new User();
+                $user->setUserId($row['user_Id']);
+                $user->setFirstName($row['user_firstname']);
+                $user->setEmail($row['user_email']);
+                $user->setLastName($row['user_lastname']);
+                $user->setPronouns($row['user_pronouns']);
+                $user->setPassword($row['user_password']);
+                $user->setUserType($this->getTypeById($row['user_type']));
+
+                if(!is_null($row['user_picture'])){
+                    $contentRepo = new ContentRepository();
+                    $user->setMediaInfo($contentRepo->getMediaInfoById($row['user_picture']));
+                }
+
+            }
+
+            return $user ?? null;
 
         } catch (\PDOException $e){echo $e;}
     }
@@ -28,7 +54,7 @@ class UserRepository extends Repository
             $statement = $this->users_db->prepare($query);
             $statement->execute();
 
-            while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+            while($row = $statement->fetchColumn()) {
 
                 $user = $this->getUserById($row['user_Id']);
                 $allUsers[] = $user;
@@ -45,7 +71,7 @@ class UserRepository extends Repository
             $statement->bindParam(':usertype', $usertype);
             $statement->execute();
 
-            while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+            while($row = $statement->fetchColumn()) {
 
                 $user = $this->getUserById($row['user_Id']);
                 $allUsers[] = $user;
@@ -60,12 +86,17 @@ class UserRepository extends Repository
         $query = "SELECT usertype_Id, usertype_name FROM users_usertypes WHERE usertype_Id = :id";
 
         try{
-            $statement = $this->users_db->prepare($query);
+            $statement = $this->getusersDB()->prepare($query);
             $statement->bindParam(':id', $id);
             $statement->execute();
 
-            $statement->setFetchMode(\PDO::FETCH_CLASS, 'UserType');
-            return $statement->fetch();
+            while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+
+                $userType = new UserType();
+                $userType->setUserTypeId($row['usertype_Id']);
+                $userType->setUserType($row['usertype_name']);
+            }
+            return $userType;
 
         } catch (\PDOException $e){echo $e;}
     }
@@ -74,10 +105,10 @@ class UserRepository extends Repository
         $query = "SELECT usertype_Id FROM users_usertypes";
 
         try{
-            $statement = $this->users_db->prepare($query);
+            $statement = $this->getusersDB()->prepare($query);
             $statement->execute();
 
-            while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+            while($row = $statement->fetchColumn()) {
 
                 $userType = $this->getTypeById($row['usertype_Id']);
                 $allUserTypes[] = $userType;
@@ -85,5 +116,41 @@ class UserRepository extends Repository
 
             return $allUserTypes;
         }catch (\PDOException $e){echo $e;}
+    }
+
+    public function getUserByLoginCredentials($email, $password){
+        $query = "SELECT user_Id FROM users WHERE user_email = :email AND user_password = :password";
+        $sanitizedEmail = $this->sanitizeText($email);
+        $sanitizedPassword = $this->sanitizeText($password);
+
+        try{
+            $statement = $this->getusersDB()->prepare($query);
+            $statement->bindParam(':email', $sanitizedEmail);
+            $statement->bindParam(':password', $sanitizedPassword);
+
+            $statement->execute();
+
+            return $this->getUserById($statement->fetchColumn());
+        } catch (\PDOException $e){echo $e;}
+    }
+
+    public function getUserByEmail($email){
+        $query = "SELECT user_Id FROM users WHERE user_email = :email";
+        $sanitizedEmail = $this->sanitizeText($email);
+
+        try{
+            $statement = $this->getusersDB()->prepare($query);
+            $statement->bindParam(':email', $sanitizedEmail);
+
+
+            $statement->execute();
+
+            return $this->getUserById($statement->fetchColumn());
+        } catch (\PDOException $e){echo $e;}
+    }
+
+    private function sanitizeText($input):string{
+        return htmlspecialchars($input);
+
     }
 }

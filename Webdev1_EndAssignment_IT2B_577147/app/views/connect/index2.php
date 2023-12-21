@@ -150,7 +150,6 @@
             </div>
             <div class="btns-section">
                 <a href="#">reply</a>
-                <img src="/media/triangle-icon.svg">
                 <a href="#">3 replies</a>
             </div>
 
@@ -192,7 +191,6 @@
             </div>
             <div class="btns-section">
                 <a href="#">reply</a>
-                <img src="/media/triangle-icon.svg">
                 <a href="#">1 replies</a>
             </div>
         <div class="children-comments">
@@ -227,7 +225,7 @@
             <li><a class="dropdown-item" href="#">topic</a></li>
         </ul>
     <input type="text" placeholder="title">
-    <textarea rows="8" placeholder="content"></textarea>
+    <textarea rows="7" placeholder="content"></textarea>
     <button class="post-btn" type="submit">POST</button>
 </form>
     <a id="closing-btn" onclick="closeForm('post-text')"><img src="/media/x-icon.svg"></a>
@@ -299,6 +297,8 @@
     }
     .post-content{
         margin-left: 0 !important;
+        font-family: "Agency FB";
+        font-size: 20px;
     }
     .poster-name{
         font-family: angles;
@@ -309,6 +309,9 @@
     .post-title{
         font-size: 22px;
         text-transform: lowercase;
+        font-family: "Agency FB";
+        font-size: 25px;
+        font-weight: bold;
     }
     }
     .card-body{
@@ -323,8 +326,17 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        font-size: 14px;
+        font-family: "Agency FB";
+        font-size: 17px;
         margin-bottom: 0;
+    a{
+        font-weight: bold;
+        font-size: 15px;
+    }
+    a:hover{
+        filter: invert(100%);
+        background-color: black;
+    }
 
     p{
         margin: 0 4px;
@@ -354,9 +366,11 @@
     .embed-submit-field button {
         position: absolute;
         right: 10px;
-        top: 7px;
+        top: 6px;
         border-width: 3px;
         font-weight: bold;
+        font-family: "Agency FB";
+        font-size: 20px;
         background-color: white;
     }
     .embed-submit-field button:hover {
@@ -374,7 +388,7 @@
         width: auto;
     }
     #topics-container a{
-        font-size: 9px !important;
+        font-size: 11px !important;
     }
     #topics-container p{
         margin-bottom: 0;
@@ -474,10 +488,9 @@
         }
 
     a{
-        text-decoration: none;
         color: black;
-        font-family: angles;
-        font-size: 10px;
+        font-family: "Agency FB";
+        font-size: 18px;
     }
     a:hover{
         background-color: white;
@@ -486,7 +499,7 @@
 
     .poster-name{
         font-family: angles !important;
-        font-size: 10px;
+        font-size: 11px;
         text-transform: uppercase;
     }
     .comment{
@@ -496,16 +509,17 @@
         padding: 5px;
         margin-bottom: 5px;
         overflow-y: scroll;
+        font-family: "Agency FB";
+    font-size: 20px;
 
-        .btns-section{
+    .btns-section{
             display: flex;
             justify-content: flex-end;
 
-            img{
-                width: 7px !important;
-                height: 7px !important;
-                margin: 4px;
-            }
+        a{
+            margin: 5px;
+            font-weight: bold;
+        }
         }
     }
     .child-comment{
@@ -515,8 +529,9 @@
         color: white;
         background-color: black;
         padding: 5px;
+        font-family: "Agency FB";
 
-        img{
+    img{
             filter: invert(100%);
             width: 7px;
             height: 7px;
@@ -539,6 +554,9 @@
     .comment-submit button {
         position: absolute;
         right: 0;
+        font-family: "Agency FB";
+        font-size: 18px;
+        font-weight: bold;
     }
     #closing-btn{
     cursor: pointer;
@@ -550,7 +568,7 @@
 
     #post-text{
         width: 400px;
-        height: 235px;
+        height: 260px;
         background-color: black;
 
         .post-btn{
@@ -583,11 +601,17 @@
     }
     input{
         width: 60%;
+        font-family: "Agency FB";
+        font-size: 20px;
     }
 
     textarea{
         width: 100%;
         margin-top: 2px;
+        font-family: "Agency FB";
+        font-size: 20px;
+
+
     }  }
     #closing-btn{
         cursor: pointer;

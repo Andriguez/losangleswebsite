@@ -1,12 +1,13 @@
 <?php
 namespace repositories;
+use models\MediaInfo;
 use models\Page;
-require __DIR__.'/../models/DirectoryLog.php';
-require __DIR__.'/../models/Page.php';
-require __DIR__.'/../models/PageContent.php';
-require __DIR__.'/../models/ContentType.php';
-require __DIR__.'/../models/MediaInfo.php';
-require __DIR__.'/../models/NavbarElement.php';
+require_once __DIR__.'/../models/DirectoryLog.php';
+require_once __DIR__.'/../models/Page.php';
+require_once __DIR__.'/../models/PageContent.php';
+require_once __DIR__.'/../models/ContentType.php';
+require_once __DIR__.'/../models/MediaInfo.php';
+require_once __DIR__.'/../models/NavbarElement.php';
 
 class ContentRepository extends Repository
 {
@@ -172,13 +173,20 @@ class ContentRepository extends Repository
         $query = "SELECT media_Id, media_filename, media_type, media_path FROM media WHERE media_Id = :id";
 
         try{
-            $statement = $this->content_db->prepare($query);
+            $statement = $this->getContentDB()->prepare($query);
             $statement->bindParam(':id', $id);
             $statement->execute();
 
-            $statement->setFetchMode(\PDO::FETCH_CLASS, 'MediaInfo');
-            return $statement->fetch();
+            while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
 
+                $mediaInfo = new MediaInfo();
+                $mediaInfo->setMediaId($row['media_Id']);
+                $mediaInfo->setMediaFilename($row['media_filename']);
+                $mediaInfo->setMediaType($row['media_type']);
+                $mediaInfo->setMediaPath($this->getDirectoryLogById($row['media_path']));
+            }
+
+            return $mediaInfo;
         } catch (\PDOException $e){echo $e;}
     }
 

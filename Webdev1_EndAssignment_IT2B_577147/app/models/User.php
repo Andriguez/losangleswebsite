@@ -1,12 +1,14 @@
 <?php
 
 namespace models;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
-class User
+class User implements JsonSerializable
 {
     protected int $user_Id;
     protected string $user_firstname, $user_lastname, $user_email, $user_pronouns, $user_password;
-    protected MediaInfo $user_picture;
+    protected ?MediaInfo $user_picture = null;
     protected UserType $user_type;
     //setter
     public function setUserId(int $Id){$this->user_Id = $Id;}
@@ -18,6 +20,11 @@ class User
     public function setMediaInfo(MediaInfo $media){$this->user_picture = $media;}
     public function setUserType(UserType $type){$this->user_type = $type;}
 
+    #[ReturnTypeWillChange]
+    public function jsonSerialize(){
+        $vars = get_object_vars($this);
+        return $vars;
+    }
 
     //getters
     public function getUserId():int{return $this->user_Id;}
