@@ -25,22 +25,20 @@ class loginController extends Controller
 
     private function validateAccess($email, $password){
         $this->userService = new UserService();
-        $user = $this->userService->getUserByLoginCredentials($email, $password);
+        $user = $this->userService->getUserByEmail($email);
 
-        if (!is_null($user)){
+        if (is_null($user)){
+            $this->loginError('email');
+        }
+        else if ($user->getPassword() !== $password) {
+            $this->loginError('password');}
+        else{
             $_SESSION['user_id'] = $user->getUserId();
             $_SESSION['user_type'] = $user->getUserType();
-            header("location: /");
-        } else {
-            $user = $this->userService->getUserByEmail($email);
-            if(!is_null($user) && $user->getPassword() !== $password){
-                    $this->loginError('password');
-            } else{
-                $this->loginError('email');
-            }
-        }
+            header("location: /");}
     }
-    public function loginError($error){
+
+    private function loginError($error){
 
         $message = match ($error) {
             'email' => "This email is not linked to any user. If you have registered: Please make sure your email is correct and try again. If nothing changes contact us.",

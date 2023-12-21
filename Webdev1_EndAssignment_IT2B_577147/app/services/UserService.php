@@ -31,7 +31,4 @@ class UserService
     public function getUserByEmail($email){
         return $this->userRepo->getUserByEmail($email);
     }
-    public function getUserByLoginCredentials($email, $password){
-        return $this->userRepo->getUserByLoginCredentials($email, $password);
-    }
 }

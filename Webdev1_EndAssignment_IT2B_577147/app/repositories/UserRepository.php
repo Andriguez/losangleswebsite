@@ -118,22 +118,6 @@ class UserRepository extends Repository
         }catch (\PDOException $e){echo $e;}
     }
 
-    public function getUserByLoginCredentials($email, $password){
-        $query = "SELECT user_Id FROM users WHERE user_email = :email AND user_password = :password";
-        $sanitizedEmail = $this->sanitizeText($email);
-        $sanitizedPassword = $this->sanitizeText($password);
-
-        try{
-            $statement = $this->getusersDB()->prepare($query);
-            $statement->bindParam(':email', $sanitizedEmail);
-            $statement->bindParam(':password', $sanitizedPassword);
-
-            $statement->execute();
-
-            return $this->getUserById($statement->fetchColumn());
-        } catch (\PDOException $e){echo $e;}
-    }
-
     public function getUserByEmail($email){
         $query = "SELECT user_Id FROM users WHERE user_email = :email";
         $sanitizedEmail = $this->sanitizeText($email);
