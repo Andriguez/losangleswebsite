@@ -34,6 +34,9 @@ if (session_status() == PHP_SESSION_NONE) {
                         <ul class="dropdown-menu" aria-labelledby="connectDropdown">
                             <?php if(isset($_SESSION['user_id'])){ echo $_SESSION['user_id'];?>
                                 <li><a class="dropdown-item" href="/feed">feed</a></li>
+                                <?php if(isset($_SESSION['user_type'])&& $_SESSION['user_type'] === 'developer' || $_SESSION['user_type'] === 'admin'){?>
+                                    <li><a class="dropdown-item" href="/admin">admin</a></li>
+                                    <?php } ?>
                                 <li><a class="dropdown-item" href="/logout">logout</a></li>
                             <?php } else{ ?>
                                 <li><a class="dropdown-item" href="/register">register</a></li>

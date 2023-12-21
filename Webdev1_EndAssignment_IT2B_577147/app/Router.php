@@ -27,6 +27,7 @@ class Router
             new Route(['POST'],'loginController',  'access',null, '/login/access'),
             new Route(['GET'],'loginController',  'logOut',null, '/logout'),
             new Route(['GET','HEAD'],'registerController',  null,'/^\/register(?:\/([a-z0-1_-]+))?$/'),
+            new Route(['GET','HEAD'],'adminController',  null,'/^\/admin(?:\/([a-z0-1_-]+))?$/'),
 
         ];
 

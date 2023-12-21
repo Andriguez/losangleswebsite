@@ -1,6 +1,5 @@
 <?php
 namespace controllers;
-
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -8,13 +7,20 @@ if (session_status() == PHP_SESSION_NONE) {
 require __DIR__ . '/Controller.php';
 require __DIR__ . '/../services/UserService.php';
 require_once __DIR__.'/../models/User.php';
+
+use JetBrains\PhpStorm\NoReturn;
 use services\UserService;
 
 class loginController extends Controller
 {
     protected UserService $userService;
     public function index(){
+        if(isset($_SESSION['user_id'])){
+            $this->redirectPage();
+        }
+
         require __DIR__ . '/../views/loginView.php';
+
     }
 
     public function access(){
@@ -38,8 +44,22 @@ class loginController extends Controller
             $this->loginError('password');}
         else{
             $_SESSION['user_id'] = $user->getUserId();
-            $_SESSION['user_type'] = $user->getUserType();
-            header("location: /");}
+            $_SESSION['user_type'] = $user->getUserType()->getUserType();
+
+            $this->redirectPage();
+    } }
+
+     #[NoReturn] private function redirectPage(){
+
+        if(isset($_SESSION['redirect_url'])) {
+            $redirectUrl = $_SESSION['redirect_url'];
+            unset($_SESSION['redirect_url']);
+
+            header("Location: $redirectUrl");
+        } else {
+            header("Location: /");
+        }
+        exit;
     }
 
     private function loginError($error){
@@ -57,8 +77,6 @@ class loginController extends Controller
             unset($_SESSION['user_id']);
             unset($_SESSION['user_type']);
             session_destroy();
-
-        header('Location: /');
-        exit;
+        $this->redirectPage();
     }
 }
