@@ -49,19 +49,6 @@ class loginController extends Controller
             $this->redirectPage();
     } }
 
-     #[NoReturn] private function redirectPage(){
-
-        if(isset($_SESSION['redirect_url'])) {
-            $redirectUrl = $_SESSION['redirect_url'];
-            unset($_SESSION['redirect_url']);
-
-            header("Location: $redirectUrl");
-        } else {
-            header("Location: /");
-        }
-        exit;
-    }
-
     private function loginError($error){
 
         $message = match ($error) {
@@ -79,4 +66,18 @@ class loginController extends Controller
             session_destroy();
         $this->redirectPage();
     }
+
+    #[NoReturn] private function redirectPage(){
+
+        if(isset($_SESSION['redirect_url'])) {
+            $redirectUrl = $_SESSION['redirect_url'];
+            unset($_SESSION['redirect_url']);
+
+            header("Location: $redirectUrl");
+        } else {
+            header("Location: /");
+        }
+        exit;
+    }
+
 }
