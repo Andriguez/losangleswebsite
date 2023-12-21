@@ -425,6 +425,10 @@
         border: silver solid 1px; /* Remove default button border */
         cursor: pointer;
     }
+
+    img:hover{
+        filter: invert(100%);
+    }
     }
 
     body{
