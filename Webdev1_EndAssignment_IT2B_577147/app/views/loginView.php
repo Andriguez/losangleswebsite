@@ -3,7 +3,7 @@
     <title>login</title>
 </head>
 <body>
-<?php include __DIR__.'/navbar.php'?>
+<?php include_once __DIR__.'/navbar.php'?>
 <div class="form-container">
 <form method="post" action="/login/access">
     <div class="form-floating">

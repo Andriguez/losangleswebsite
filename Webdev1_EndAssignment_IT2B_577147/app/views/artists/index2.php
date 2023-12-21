@@ -3,7 +3,7 @@
     <title>artists</title>
 </head>
 <body>
-<?php include __DIR__.'/../navbar.php'?>
+<?php include_once __DIR__.'/../navbar.php'?>
 <div class="dropdown mt-1 mb-2 ms-5">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="filerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
         discipline

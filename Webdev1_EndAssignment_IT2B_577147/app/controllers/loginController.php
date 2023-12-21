@@ -1,6 +1,10 @@
 <?php
 namespace controllers;
-session_start();
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 require __DIR__ . '/Controller.php';
 require __DIR__ . '/../services/UserService.php';
 require_once __DIR__.'/../models/User.php';
@@ -50,7 +54,10 @@ class loginController extends Controller
         $this->index();
     }
     public function logOut(){
-        session_destroy();
+            unset($_SESSION['user_id']);
+            unset($_SESSION['user_type']);
+            session_destroy();
+
         header('Location: /');
         exit;
     }
