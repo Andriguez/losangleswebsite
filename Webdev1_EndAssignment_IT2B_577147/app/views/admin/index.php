@@ -1,3 +1,5 @@
+<?php if (session_status() == PHP_SESSION_NONE) {
+session_start();} ?>
 <html>
 <head>
     <title>Admin page</title>
@@ -8,17 +10,10 @@
 <div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 250px; height: 100%;">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-reset text-decoration-none">
         <img src="/media/onlytb.png" id="logo" width="60" height="40">
-        <span class="fs-4">Los Angles Admin</span>
+        <span class="fs-4">Los Angles <label>backstage</label></span>
     </a>
     <hr>
     <div id="menu-container">
-    <!--<ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item"><a href="#" class="nav-link text-reset"> <!- active aria-current="page"->Home</a></li>
-        <li><a href="#" class="nav-link text-reset">Dashboard</a></li>
-        <li><a href="#" class="nav-link text-reset"></a></li>
-        <li><a href="#" class="nav-link text-reset">Products</a></li>
-        <li><a href="#" class="nav-link text-reset">Customers</a></li>
-    </ul>-->
         <div class="accordion accordion-flush" id="main-accordion">
 
             <!--CONTENT ACCORDION-->
@@ -33,48 +28,107 @@
 
                         <!--CONTENT CHiLD ACCORDION-->
                         <div class="child-accordion accordion accordion-flush" id="content-child-accordion">
-
+                            <!--CHiLD ACCORDION NAVBAR-->
                             <div class="child-accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#content-artist-flush-collapse" aria-expanded="false" aria-controls="content-artist-flush-collapse">
-                                        Artists
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#content-navbar-flush-collapse" aria-expanded="false" aria-controls="content-navbar-flush-collapse">
+                                        NavBar
                                     </button>
                                 </h2>
-                                <div id="content-artist-flush-collapse" class="accordion-collapse collapse" data-bs-parent="#content-child-accordion">
+                                <div id="content-navbar-flush-collapse" class="accordion-collapse collapse" data-bs-parent="#content-child-accordion">
                                     <div class="accordion-body">
-                                        <!--CHiLD ACCORDION ARTISTS OPTIONS-->
+                                        <!--CHiLD ACCORDION NAVBAR OPTIONS-->
                                         <ul class="nav nav-pills flex-column mb-auto">
-                                            <li><a href="#" class="nav-link text-reset">disciplines</a></li>
-                                            <li><a href="#" class="nav-link text-reset">bios</a></li>
+                                            <li><a href="#" class="nav-link text-reset">Buttons</a></li>
+                                            <li><a href="#" class="nav-link text-reset">Logo</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-
+                            <!--CHiLD ACCORDION HOME-PAGE-->
+                            <div class="child-accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#content-home-flush-collapse" aria-expanded="false" aria-controls="content-home-flush-collapse">
+                                        Home Page
+                                    </button>
+                                </h2>
+                                <div id="content-home-flush-collapse" class="accordion-collapse collapse" data-bs-parent="#content-child-accordion">
+                                    <div class="accordion-body">
+                                        <!--CHiLD ACCORDION HOME-PAGE OPTIONS-->
+                                        <ul class="nav nav-pills flex-column mb-auto">
+                                            <li><a href="#" class="nav-link text-reset">Logo</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--CHiLD ACCORDION ARTISTS-PAGE-->
+                            <div class="child-accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#content-artist-flush-collapse" aria-expanded="false" aria-controls="content-artist-flush-collapse">
+                                        Artists Page
+                                    </button>
+                                </h2>
+                                <div id="content-artist-flush-collapse" class="accordion-collapse collapse" data-bs-parent="#content-child-accordion">
+                                    <div class="accordion-body">
+                                        <!--CHiLD ACCORDION ARTISTS-PAGE OPTIONS-->
+                                        <ul class="nav nav-pills flex-column mb-auto">
+                                            <li><a href="#" class="nav-link text-reset">details</a></li>
+                                            <li><a href="#" class="nav-link text-reset">disciplines</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--CHiLD ACCORDION EVENTS-PAGE-->
                             <div class="child-accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#content-events-flush-collapse" aria-expanded="false" aria-controls="content-events-flush-collapse">
-                                        Events
+                                        Events Page
                                     </button>
                                 </h2>
                                 <div id="content-events-flush-collapse" class="accordion-collapse collapse" data-bs-parent="#content-child-accordion">
                                     <div class="accordion-body">
-                                        <!--CHiLD ACCORDION EVENTS OPTIONS-->
-
+                                        <!--CHiLD ACCORDION EVENTS-PAGE OPTIONS-->
+                                        <ul class="nav nav-pills flex-column mb-auto">
+                                            <li><a href="#" class="nav-link text-reset">details</a></li>
+                                            <li><a href="#" class="nav-link text-reset">dates</a></li>
+                                            <li><a href="#" class="nav-link text-reset">locations</a></li>
+                                            <li><a href="#" class="nav-link text-reset">types</a></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-
+                            <!--CHiLD ACCORDION ABOUT-PAGE-->
                             <div class="child-accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#content-about-flush-collapse" aria-expanded="false" aria-controls="content-about-flush-collapse">
-                                        About
+                                        About Page
                                     </button>
                                 </h2>
                                 <div id="content-about-flush-collapse" class="accordion-collapse collapse" data-bs-parent="#content-child-accordion">
                                     <div class="accordion-body">
-                                        <!--CHiLD ACCORDION ABOUT OPTIONS-->
-
+                                        <!--CHiLD ACCORDION ABOUT-PAGE OPTIONS-->
+                                        <ul class="nav nav-pills flex-column mb-auto">
+                                            <li><a href="#" class="nav-link text-reset">description</a></li>
+                                            <li><a href="#" class="nav-link text-reset">angles details</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="child-accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#content-media-flush-collapse" aria-expanded="false" aria-controls="content-media-flush-collapse">
+                                        Media
+                                    </button>
+                                </h2>
+                                <div id="content-media-flush-collapse" class="accordion-collapse collapse" data-bs-parent="#content-child-accordion">
+                                    <div class="accordion-body">
+                                        <!--CHiLD ACCORDION MEDIA OPTIONS-->
+                                        <ul class="nav nav-pills flex-column mb-auto">
+                                            <li><a href="#" class="nav-link text-reset">images</a></li>
+                                            <li><a href="#" class="nav-link text-reset">logos</a></li>
+                                            <li><a href="#" class="nav-link text-reset">icons</a></li>
+                                            <li><a href="#" class="nav-link text-reset">fonts</a></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -92,8 +146,11 @@
                 </h2>
                 <div id="users-flush-collapse" class="accordion-collapse collapse" data-bs-parent="#main-accordion">
                     <div class="accordion-body">
-                        <!--USERS CHILD ACCORDION-->
-
+                        <!--USERS CHILD OPTIONS-->
+                        <ul class="nav nav-pills flex-column mb-auto">
+                            <li><a href="#" class="nav-link text-reset">Angles</a></li>
+                            <li><a href="#" class="nav-link text-reset">Artists</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -107,8 +164,11 @@
                 </h2>
                 <div id="applications-flush-collapse" class="accordion-collapse collapse" data-bs-parent="#main-accordion">
                     <div class="accordion-body">
-                        <!--APPLICATIONS CHILD ACCORDION-->
-
+                        <!--APPLICATIONS CHILD OPTIONS-->
+                        <ul class="nav nav-pills flex-column mb-auto">
+                            <li><a href="#" class="nav-link text-reset">Manage Applications</a></li>
+                            <li><a href="#" class="nav-link text-reset">Download Applications</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -122,8 +182,10 @@
                 </h2>
                 <div id="feed-flush-collapse" class="accordion-collapse collapse" data-bs-parent="#main-accordion">
                     <div class="accordion-body">
-                        <!--FEED CHILD ACCORDION-->
-
+                        <!--FEED CHILD OPTIONS-->
+                        <ul class="nav nav-pills flex-column mb-auto">
+                            <li><a href="#" class="nav-link text-reset">Topics</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -132,14 +194,18 @@
     </div>
     <hr>
     <div id="admin-info-container">
-        <a href="#" class="d-flex align-items-center text-reset text-decoration-none" aria-expanded="false">
             <img src="/media/artist1.png" alt="" width="40" height="40" class="ms-3 me-2">
-            <strong>admin name</strong>
-        </a>
+        <div id="info-text">
+            <strong><?php echo (isset($_SESSION['user_id'])) ? $_SESSION['user_id'] : 'admin name';?></strong>
+            <a href="/logout">logout</a>
+        </div>
     </div>
 </div>
 <div id="main-window" style="flex-grow: 1; padding: 20px;">
-    <h1>this is the main window</h1>
+    <div id="main-window-content">
+    <img src="/media/charlies-angles.svg"
+    <span>"Good Morning, Angles"</span>
+    </div>
 </div>
 </body>
 </html>
@@ -153,9 +219,24 @@
     }
     #main-window{
         overflow: auto;
-    }
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
+    #main-window-content{
+        text-align: center;
+        font-size: 40px !important;
+
+    img{
+        margin: auto;
+        display: block;
+    }
+    }
+    }
     #sidebar{
+        label{
+            font-size: 15px;
+        }
         #menu-container{
             overflow-y: auto;
             overflow-x: hidden;
@@ -164,8 +245,16 @@
         #admin-info-container{
         img{
             border: black 2px solid;
-
-        }}
+            display: inline;
+        }
+        #info-text{
+            display: inline;
+        }
+        a{
+            font-size: 16px;
+            color: #6D6D6D;
+        }
+    }
     .accordion-item{
         border: black 1px solid;
     .child-accordion-item{

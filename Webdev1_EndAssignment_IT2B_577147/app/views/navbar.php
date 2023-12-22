@@ -30,8 +30,8 @@ if (session_status() == PHP_SESSION_NONE) {
                 </div>
 
                 <li class="nav-item"><h3><a id="about-link" href="/about" class="<?php echo ($atHomepage) ? $aboutClass[1] : $aboutClass[0] ?>">About</a></h3></li>
-                <li class="nav-item"><h3><a id="connectDropdown" class="<?php echo ($atHomepage) ? $connectClass[1] : $connectClass[0] ?>" data-bs-toggle="dropdown" aria-expanded="false">Connect</a>
-                        <ul class="dropdown-menu" aria-labelledby="connectDropdown">
+                <li class="nav-item"><h3><a id="connect-link" class="<?php echo ($atHomepage) ? $connectClass[1] : $connectClass[0] ?>" data-bs-toggle="dropdown" aria-expanded="false">Connect</a>
+                        <ul class="dropdown-menu" aria-labelledby="connect-link">
                             <?php if(isset($_SESSION['user_id'])){ echo $_SESSION['user_id'];?>
                                 <li><a class="dropdown-item" href="/feed">feed</a></li>
                                 <?php if(isset($_SESSION['user_type'])&& $_SESSION['user_type'] === 'developer' || $_SESSION['user_type'] === 'admin'){?>

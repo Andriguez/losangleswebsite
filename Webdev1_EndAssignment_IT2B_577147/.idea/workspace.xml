@@ -5,7 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/applications/downloadApplications.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/applications/manageApplications.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/content/aboutpage/manageAnglesDetails.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/content/aboutpage/manageDescription.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/content/artistpage/manageDetails.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/content/artistpage/manageDisciplines.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/manageDate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/manageDetails.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/manageLocations.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/managetype.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/content/homepage/manageLogo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/content/media/manageFonts.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/content/media/manageIcons.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/content/media/manageImages.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/content/media/manageLogos.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/content/navbar/manageButtons.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/content/navbar/manageLogo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/feed/manageTopics.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/users/manageAngles.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/users/manageArtists.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/homeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/homeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/navbar.php" afterDir="false" />
     </list>
@@ -59,11 +80,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\admin\windows\content" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\public\style" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\events" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\connect" />
-      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\aboutus" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -82,7 +103,7 @@
       <workItem from="1701869545344" duration="31048000" />
       <workItem from="1701991381577" duration="97102000" />
       <workItem from="1702565029721" duration="63469000" />
-      <workItem from="1703006366247" duration="86641000" />
+      <workItem from="1703006366247" duration="96753000" />
     </task>
     <servers />
   </component>
