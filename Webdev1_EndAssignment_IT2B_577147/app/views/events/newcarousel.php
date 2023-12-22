@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <head>
-    <title>3D Carousel</title>
-    <link rel="stylesheet" href="/style/jquery.flipster.min.css">
-
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="/js/jquery.flipster.min.js"></script>
-
+    <title>events</title>
+    <link rel="icon" href="/media/onlytb.png" type="image/png">
 </head>
 <body>
 <?php include __DIR__.'/../navbar.php'?>

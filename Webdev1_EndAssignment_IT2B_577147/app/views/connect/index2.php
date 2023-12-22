@@ -1,6 +1,7 @@
 <html>
 <head>
     <title>connect</title>
+    <link rel="icon" href="/media/onlytb.png" type="image/png">
 </head>
 <body>
 <?php include __DIR__.'/../navbar.php'?>

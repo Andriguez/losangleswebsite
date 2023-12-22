@@ -1,6 +1,7 @@
 <html>
 <head>
-    <title>login</title>
+    <title>Join us!</title>
+    <link rel="icon" href="/media/onlytb.png" type="image/png">
 </head>
 <body>
 <?php include __DIR__.'/../navbar.php'?>
