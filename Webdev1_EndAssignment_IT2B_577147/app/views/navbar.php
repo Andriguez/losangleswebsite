@@ -4,12 +4,12 @@ if (session_status() == PHP_SESSION_NONE) {
 
      $atHomepage = ($_SERVER['REQUEST_URI'] == "/");
 
-    $artistClass = ['nav-link mt-3 mx-5', 'nav-link mt-3 mx-4 text-reset'];
-    $eventsClass = ['nav-link mt-3 mx-5', 'nav-link mt-3 mx-4 text-reset'];
+    $artistClass = ['nav-link mt-3 mx-5 text-reset', 'nav-link mt-3 mx-4 text-reset'];
+    $eventsClass = ['nav-link mt-3 mx-5 text-reset', 'nav-link mt-3 mx-4 text-reset'];
     $logoInfo = ['src="/media/logocrop.jpeg" width="90" height="60"',
         'src="/media/logo_placeholder.png" width="125" height="80"'];
-    $aboutClass = ['nav-link mt-3 mx-5', 'nav-link mt-3 mx-4 text-reset'];
-    $connectClass = ['nav-link mt-3 ms-4 me-5', 'nav-link mt-3 ms-3 me-4'];
+    $aboutClass = ['nav-link mt-3 mx-5 text-reset', 'nav-link mt-3 mx-4 text-reset'];
+    $connectClass = ['nav-link mt-3 ms-4 me-5 text-reset', 'nav-link mt-3 ms-3 me-4 text-reset'];
 ?>
 <html>
 <head>
