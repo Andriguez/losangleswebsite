@@ -351,7 +351,7 @@
         background-color: white !important;
         color: black !important;
         font-family: angles !important;
-        font-size: 15px !important;
+        font-size: 12px !important;
     }
     button:hover {
         background-color: black !important;
