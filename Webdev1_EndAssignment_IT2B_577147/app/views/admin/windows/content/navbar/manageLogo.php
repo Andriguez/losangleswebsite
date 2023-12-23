@@ -21,7 +21,7 @@ $connectClass = ['nav-link mt-3 ms-4 me-5 text-reset', 'nav-link mt-3 ms-3 me-4 
 <div id="main-page">
     <div class="btn-group" role="group">
     <button type="button" class="btn btn-success">save</button>
-    <button type="button" class="btn btn-primary">go back</button>
+    <a type="button" class="btn btn-primary" href="/admin">go back</a>
     </div>
 
     <div class="accordion accordion-flush" id="navbars-accordion">
@@ -108,6 +108,11 @@ $connectClass = ['nav-link mt-3 ms-4 me-5 text-reset', 'nav-link mt-3 ms-3 me-4 
     </div>
 </div>
 </div>
+    <div id="specifications-container">
+        <img alt="specifications" src="/media/logo-specifications.png" width="400px" height="300px">
+        <span><strong>Logo must have these measurements (px) for alignment purposes.</strong></span>
+    </div>
+
 </div>
 </body>
 </html>
@@ -119,7 +124,14 @@ $connectClass = ['nav-link mt-3 ms-4 me-5 text-reset', 'nav-link mt-3 ms-3 me-4 
     #main-page{
         .btn-group{
             margin: 20px;
+        }
 
+        #specifications-container{
+            text-align: center;
+             img{
+                margin: auto;
+                display: block;
+            }
         }
     }
     .accordion-body{
