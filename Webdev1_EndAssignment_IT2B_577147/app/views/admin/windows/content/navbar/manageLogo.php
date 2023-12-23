@@ -13,44 +13,101 @@ $connectClass = ['nav-link mt-3 ms-4 me-5 text-reset', 'nav-link mt-3 ms-3 me-4 
 ?>
 <html>
 <head>
-    <title>manage Buttons</title>
+    <title>manage logos</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-<div class="mainPage"><div class="separator text-center"><h1>Homepage navbar</h1></div>
-
-<header class="d-flex flex-nowrap align-items-center justify-content-between pt-2">
-    <div class="col mb-1 mb-md-0">
-        <ul class="nav justify-content-center">
-            <li class="nav-item"><h3><a id="artist-link" href="/artists" class="<?php echo ($atHomepage) ? $artistClass[1] : $artistClass[0] ?>">Artists</a></h3></li>
-            <li class="nav-item"><h3><a id="events-link" href="/events" class="<?php echo ($atHomepage) ? $eventsClass[1] : $eventsClass[0] ?>">Events</a></h3></li>
-
-            <div class="nav-logo mb-2 mb-md-0 mx-5">
-                <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none navbar-brand">
-                    <img <?php echo ($atHomepage) ? $logoInfo[1] : $logoInfo[0] ?> alt="Logo" class="d-inline-block align-text-top">
-                </a>
-            </div>
-
-            <li class="nav-item"><h3><a id="about-link" href="/about" class="<?php echo ($atHomepage) ? $aboutClass[1] : $aboutClass[0] ?>">About</a></h3></li>
-            <li class="nav-item"><h3><a id="connect-link" class="<?php echo ($atHomepage) ? $connectClass[1] : $connectClass[0] ?>" data-bs-toggle="dropdown" aria-expanded="false">Connect</a>
-                    <ul class="dropdown-menu" aria-labelledby="connect-link">
-                        <?php if(isset($_SESSION['user_id'])){ echo $_SESSION['user_id'];?>
-                            <li><a class="dropdown-item" href="/feed">feed</a></li>
-                            <?php if(isset($_SESSION['user_type'])&& $_SESSION['user_type'] === 'developer' || $_SESSION['user_type'] === 'admin'){?>
-                                <li><a class="dropdown-item" href="/admin">admin</a></li>
-                            <?php } ?>
-                            <li><a class="dropdown-item" href="/logout">logout</a></li>
-                        <?php } else{ ?>
-                            <li><a class="dropdown-item" href="/register">register</a></li>
-                            <li><a class="dropdown-item" href="/login">login</a></li>
-                        <?php } ?>
-                    </ul>
-                </h3>
-            </li>
-        </ul>
+<div id="main-page">
+    <div class="btn-group" role="group">
+    <button type="button" class="btn btn-success">save</button>
+    <button type="button" class="btn btn-primary">go back</button>
     </div>
-</header>
+
+    <div class="accordion accordion-flush" id="navbars-accordion">
+        <!--PRIMARY NAVBAR-->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    Primary navbar
+                </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#navbars-accordion">
+                <div class="accordion-body">
+
+                    <header class="d-flex flex-nowrap align-items-center justify-content-between pt-2">
+                        <div class="col mb-1 mb-md-0">
+                            <ul class="nav justify-content-center">
+                                <li class="nav-item"><h3><a id="artist-link" href="/artists" class="<?php echo ($atHomepage) ? $artistClass[1] : $artistClass[0] ?>">Artists</a></h3></li>
+                                <li class="nav-item"><h3><a id="events-link" href="/events" class="<?php echo ($atHomepage) ? $eventsClass[1] : $eventsClass[0] ?>">Events</a></h3></li>
+
+                                <div class="nav-logo mb-2 mb-md-0 mx-5">
+                                    <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none navbar-brand">
+                                        <img src="/media/logoplaceholder.png" width="90" height="60" alt="Logo" class="d-inline-block align-text-top">
+                                    </a>
+                                </div>
+
+                                <li class="nav-item"><h3><a id="about-link" href="/about" class="<?php echo ($atHomepage) ? $aboutClass[1] : $aboutClass[0] ?>">About</a></h3></li>
+                                <li class="nav-item"><h3><a id="connect-link" class="<?php echo ($atHomepage) ? $connectClass[1] : $connectClass[0] ?>" data-bs-toggle="dropdown" aria-expanded="false">Connect</a>
+                                        <ul class="dropdown-menu" aria-labelledby="connect-link">
+                                            <li><a class="dropdown-item" href="/register">register</a></li>
+                                            <li><a class="dropdown-item" href="/login">login</a></li>
+                                        </ul>
+                                    </h3>
+                                </li>
+                            </ul>
+                        </div>
+                    </header>
+
+                    <div class="input-group">
+                        <input type="file" class="form-control" id="upload-primary-navbar-logo" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                        <button class="btn btn-success" type="submit" id="upload-primary-navbar-logo">Upload</button>
+                    </div>
+</div>
+</div>
+</div>
+
+<!--HOMEPAGE NAVBAR-->
+<div class="accordion-item">
+    <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+            Homepage navbar
+        </button>
+    </h2>
+    <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#navbars-accordion">
+        <div class="accordion-body">
+            <header class="d-flex flex-nowrap align-items-center justify-content-between pt-2">
+                <div class="col mb-1 mb-md-0">
+                    <ul class="nav justify-content-center">
+                        <li class="nav-item"><h3><a id="artist-link" href="/artists" class="<?php echo ($atHomepage) ? $artistClass[1] : $artistClass[0] ?>">Artists</a></h3></li>
+                        <li class="nav-item"><h3><a id="events-link" href="/events" class="<?php echo ($atHomepage) ? $eventsClass[1] : $eventsClass[0] ?>">Events</a></h3></li>
+
+                        <div class="nav-logo mb-2 mb-md-0 mx-5">
+                            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none navbar-brand">
+                                <img src="/media/logoplaceholder.png" width="90" height="60" alt="Logo" class="d-inline-block align-text-top">
+                            </a>
+                        </div>
+
+                        <li class="nav-item"><h3><a id="about-link" href="/about" class="<?php echo ($atHomepage) ? $aboutClass[1] : $aboutClass[0] ?>">About</a></h3></li>
+                        <li class="nav-item"><h3><a id="connect-link" class="<?php echo ($atHomepage) ? $connectClass[1] : $connectClass[0] ?>" data-bs-toggle="dropdown" aria-expanded="false">Connect</a>
+                                <ul class="dropdown-menu" aria-labelledby="connect-link">
+                                    <span>user name</span>
+                                    <li><a class="dropdown-item" href="/feed">feed</a></li>
+                                    <li><a class="dropdown-item" href="/logout">logout</a></li>
+                                </ul>
+                            </h3>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <div class="input-group">
+                <input type="file" class="form-control" id="upload-homepage-navbar-logo" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                <button class="btn btn-success" type="button" id="upload-homepage-navbar-logo">Upload</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 </div>
 </body>
 </html>
@@ -59,7 +116,26 @@ $connectClass = ['nav-link mt-3 ms-4 me-5 text-reset', 'nav-link mt-3 ms-3 me-4 
         font-family: 'angles';
         src: url('/style/losangles-font.ttf');
     }
+    #main-page{
+        .btn-group{
+            margin: 20px;
 
+        }
+    }
+    .accordion-body{
+        padding-left: 0;
+        padding-right: 0;
+        margin: auto;
+
+        header{
+            margin-bottom: 20px;
+            border: 2px black solid;
+        }
+        .input-group{
+            width: 400px;
+            margin: auto;
+        }
+    }
     .dropdown-menu{
         border-width: 3px !important;
         border-radius: 0 !important;
