@@ -111,9 +111,9 @@ $connectClass = ['nav-link mt-3 ms-4 me-5 text-reset', 'nav-link mt-3 ms-3 me-4 
             <input type="text" class="form-control link-input" aria-label="Sizing example input" aria-describedby="third-link-input">
             <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+                <label class="form-check-label" for="flexSwitchCheckDefault">Dropdown</label>
             </div>
-            <div class="dropdown-options-container">
+            <div class="options-container">
                 <div id="first-option"
                     <span class="input-group-text " id="first-option-text-input">text</span>
                     <input type="text" class="form-control text-input" aria-label="Sizing example input" aria-describedby="first-option-text-input">
