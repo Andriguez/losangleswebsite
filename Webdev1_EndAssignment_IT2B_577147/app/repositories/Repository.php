@@ -13,8 +13,7 @@ class Repository
 
     function __construct(){
         require_once __DIR__.'/../config/db.php';
-        //require_once __DIR__.'/../config/dbconfig.php';
-        include __DIR__.'/../config/dbconfig.php';
+        require __DIR__.'/../config/dbconfig.php';
 
         $this->configs = $configs;
         //$this->content_db = DB::getInstance($configs[0]);

@@ -41,7 +41,7 @@ session_start();} ?>
                                         <!--CHiLD ACCORDION NAVBAR OPTIONS-->
                                         <ul class="nav nav-pills flex-column mb-auto">
                                             <li><a href="#" class="nav-link text-reset">Buttons</a></li>
-                                            <li><a href="#" class="nav-link text-reset">Logo</a></li>
+                                            <li><a href="/admin/navbar/logo" class="nav-link text-reset">Logo</a></li>
                                         </ul>
                                     </div>
                                 </div>
