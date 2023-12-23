@@ -151,6 +151,7 @@ session_start();} ?>
                         <ul class="nav nav-pills flex-column mb-auto">
                             <li><a href="#" class="nav-link text-reset">Angles</a></li>
                             <li><a href="#" class="nav-link text-reset">Artists</a></li>
+                            <li><a href="#" class="nav-link text-reset">Collaborators</a></li>
                         </ul>
                     </div>
                 </div>

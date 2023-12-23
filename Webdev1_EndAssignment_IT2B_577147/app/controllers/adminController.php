@@ -21,18 +21,17 @@ class adminController extends Controller
     }
 
     private function allowAccess(){
-        $grantAccess = false;
 
         if (!isset($_SESSION['user_id'])) {
             $_SESSION['redirect_url'] = $_SERVER['REQUEST_URI'];
             header("Location: /login");
             exit;
         } else if ($_SESSION['user_type'] === 'developer' || $_SESSION['user_type'] === 'admin'){
-            $grantAccess = true;
+            return true;
         } else {
             header("Location: /");
         }
 
-        return $grantAccess;
+        return false;
     }
 }

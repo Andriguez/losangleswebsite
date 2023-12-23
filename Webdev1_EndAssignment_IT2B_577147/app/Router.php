@@ -1,5 +1,4 @@
 <?php
- require_once __DIR__.'/config/Route.php';
 class Router
 {
     private $routes;

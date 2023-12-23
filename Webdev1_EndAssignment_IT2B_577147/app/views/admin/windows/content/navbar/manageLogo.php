@@ -20,8 +20,8 @@ $connectClass = ['nav-link mt-3 ms-4 me-5 text-reset', 'nav-link mt-3 ms-3 me-4 
 <body>
 <div id="main-page">
     <div class="btn-group" role="group">
-    <button type="button" class="btn btn-success">save</button>
-    <a type="button" class="btn btn-primary" href="/admin">go back</a>
+        <a type="button" class="btn btn-primary" href="/admin">go back</a>
+        <button type="button" class="btn btn-success">save</button>
     </div>
 
     <div class="accordion accordion-flush" id="navbars-accordion">
