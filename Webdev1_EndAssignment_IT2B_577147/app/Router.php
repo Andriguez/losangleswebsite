@@ -28,7 +28,7 @@ class Router
             new Route(['GET'],'loginController',  'logOut',null, '/logout'),
             new Route(['GET','HEAD'],'registerController',  null,'/^\/register(?:\/([a-z0-1_-]+))?$/'),
             new Route(['GET','HEAD'],'adminController',  null,'/^\/admin(?:\/([a-z0-1_-]+))?$/'),
-
+            new Route(['GET','HEAD'],'trialController',  null,'/^\/trial(?:\/([a-z0-1_-]+))?$/'),
         ];
 
         return $routes;
