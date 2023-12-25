@@ -8,6 +8,7 @@
 <div id="main-page">
     <div class="container row">
         <div class="col-md-4">
+            <strong>Profile Picture</strong>
     <div id="img-container" class="d-flex flex-column align-items-center">
         <img src="/media/artist1.png">
         <div class="input-group mt-3">
@@ -19,31 +20,31 @@
         <div class="col-md-8">
     <form class="row g-3">
         <div class="col-md-6">
-            <label for="inputEmail" class="form-label">Email</label>
+            <label for="inputEmail" class="form-label"><strong>Email</strong></label>
             <input type="email" class="form-control" id="inputEmail">
         </div>
         <div class="col-md-6">
-            <label for="inputPassword" class="form-label">Password</label>
+            <label for="inputPassword" class="form-label"><strong>Password</strong></label>
             <div class="input-group">
                 <input type="password" class="form-control" id="inputPassword" name="password">
                 <button class="btn btn-outline-secondary" type="button" id="togglePassword">Show</button>
             </div>
         </div>
         <div class="col-md-4">
-            <label for="inputpronouns" class="form-label">pronouns</label>
+            <label for="inputpronouns" class="form-label"><strong>pronouns</strong></label>
             <input type="text" class="form-control" id="inputpronouns">
         </div>
         <div class="col-md-4">
-            <label for="inputfirstname" class="form-label">first name</label>
+            <label for="inputfirstname" class="form-label"><strong>first name</strong></label>
             <input type="text" class="form-control" id="inputfirstname">
         </div>
         <div class="col-md-4">
-            <label for="inputlastname" class="form-label">last name</label>
+            <label for="inputlastname" class="form-label"><strong>last name</strong></label>
             <input type="text" class="form-control" id="inputlastname">
         </div>
 
         <div class="col-md-6">
-            <label for="inputType" class="form-label">User type</label>
+            <label for="inputType" class="form-label"><strong>User type</strong></label>
             <select id="inputType" class="form-select">
                 <option selected>Choose...</option>
                 <option>Admin</option>

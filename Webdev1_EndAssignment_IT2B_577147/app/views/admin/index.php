@@ -26,26 +26,8 @@ session_start();} ?>
                 </h2>
                 <div id="content-flush-collapse" class="accordion-collapse collapse" data-bs-parent="#main-accordion">
                     <div class="accordion-body">
-
                         <!--CONTENT CHiLD ACCORDION-->
                         <div class="child-accordion accordion accordion-flush" id="content-child-accordion">
-                            <!--CHiLD ACCORDION NAVBAR-->
-                            <div class="child-accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#content-navbar-flush-collapse" aria-expanded="false" aria-controls="content-navbar-flush-collapse">
-                                        NavBar
-                                    </button>
-                                </h2>
-                                <div id="content-navbar-flush-collapse" class="accordion-collapse collapse" data-bs-parent="#content-child-accordion">
-                                    <div class="accordion-body">
-                                        <!--CHiLD ACCORDION NAVBAR OPTIONS-->
-                                        <ul class="nav nav-pills flex-column mb-auto">
-                                            <li><a href="#" class="nav-link text-reset">Buttons</a></li>
-                                            <li><a href="/admin/navbar/logo" class="nav-link text-reset">Logo</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
                             <!--CHiLD ACCORDION HOME-PAGE-->
                             <div class="child-accordion-item">
                                 <h2 class="accordion-header">
@@ -74,7 +56,7 @@ session_start();} ?>
                                         <!--CHiLD ACCORDION ARTISTS-PAGE OPTIONS-->
                                         <ul class="nav nav-pills flex-column mb-auto">
                                             <li><a href="#" class="nav-link text-reset">details</a></li>
-                                            <li><a href="#" class="nav-link text-reset">disciplines</a></li>
+                                            <li><a href="#" class="nav-link text-reset">Manage disciplines</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -90,10 +72,11 @@ session_start();} ?>
                                     <div class="accordion-body">
                                         <!--CHiLD ACCORDION EVENTS-PAGE OPTIONS-->
                                         <ul class="nav nav-pills flex-column mb-auto">
-                                            <li><a href="#" class="nav-link text-reset">details</a></li>
-                                            <li><a href="#" class="nav-link text-reset">dates</a></li>
-                                            <li><a href="#" class="nav-link text-reset">locations</a></li>
-                                            <li><a href="#" class="nav-link text-reset">types</a></li>
+                                            <li><a href="#" class="nav-link text-reset">View All Events</a></li>
+                                            <li><a href="#" class="nav-link text-reset">Create Event</a></li>
+                                            <li><a href="#" class="nav-link text-reset">Manage dates</a></li>
+                                            <li><a href="#" class="nav-link text-reset">Manage locations</a></li>
+                                            <li><a href="#" class="nav-link text-reset">Manage types</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -115,23 +98,6 @@ session_start();} ?>
                                     </div>
                                 </div>
                             </div>
-                            <div class="child-accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#content-media-flush-collapse" aria-expanded="false" aria-controls="content-media-flush-collapse">
-                                        Media
-                                    </button>
-                                </h2>
-                                <div id="content-media-flush-collapse" class="accordion-collapse collapse" data-bs-parent="#content-child-accordion">
-                                    <div class="accordion-body">
-                                        <!--CHiLD ACCORDION MEDIA OPTIONS-->
-                                        <ul class="nav nav-pills flex-column mb-auto">
-                                            <li><a href="#" class="nav-link text-reset">images</a></li>
-                                            <li><a href="#" class="nav-link text-reset">logos</a></li>
-                                            <li><a href="#" class="nav-link text-reset">icons</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -148,7 +114,7 @@ session_start();} ?>
                     <div class="accordion-body">
                         <!--USERS CHILD OPTIONS-->
                         <ul class="nav nav-pills flex-column mb-auto">
-                            <li><a href="#" class="nav-link text-reset">View Users</a></li>
+                            <li><a href="#" class="nav-link text-reset">View All Users</a></li>
                             <li><a href="#" class="nav-link text-reset">Create User</a></li>
                         </ul>
                     </div>
