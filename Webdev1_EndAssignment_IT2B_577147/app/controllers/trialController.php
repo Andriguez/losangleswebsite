@@ -6,6 +6,6 @@ class trialController extends Controller
 {
     public function index()
     {
-        require __DIR__ . '/../views/admin/windows/content/homepage/manageLogo.php';
+        require __DIR__ . '/../views/admin/windows/users/viewUsers.php';
     }
 }

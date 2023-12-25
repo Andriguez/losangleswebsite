@@ -128,7 +128,6 @@ session_start();} ?>
                                             <li><a href="#" class="nav-link text-reset">images</a></li>
                                             <li><a href="#" class="nav-link text-reset">logos</a></li>
                                             <li><a href="#" class="nav-link text-reset">icons</a></li>
-                                            <li><a href="#" class="nav-link text-reset">fonts</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -149,9 +148,8 @@ session_start();} ?>
                     <div class="accordion-body">
                         <!--USERS CHILD OPTIONS-->
                         <ul class="nav nav-pills flex-column mb-auto">
-                            <li><a href="#" class="nav-link text-reset">Angles</a></li>
-                            <li><a href="#" class="nav-link text-reset">Artists</a></li>
-                            <li><a href="#" class="nav-link text-reset">Collaborators</a></li>
+                            <li><a href="#" class="nav-link text-reset">View Users</a></li>
+                            <li><a href="#" class="nav-link text-reset">Create User</a></li>
                         </ul>
                     </div>
                 </div>
