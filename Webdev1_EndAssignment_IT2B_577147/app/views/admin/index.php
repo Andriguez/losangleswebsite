@@ -55,8 +55,8 @@ session_start();} ?>
                                     <div class="accordion-body">
                                         <!--CHiLD ACCORDION ARTISTS-PAGE OPTIONS-->
                                         <ul class="nav nav-pills flex-column mb-auto">
-                                            <li><a href="#" class="nav-link text-reset">details</a></li>
-                                            <li><a href="#" class="nav-link text-reset">Manage disciplines</a></li>
+                                            <li><a href="#" class="nav-link text-reset">artists details</a></li>
+                                            <li><a href="#" class="nav-link text-reset">disciplines</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -72,11 +72,10 @@ session_start();} ?>
                                     <div class="accordion-body">
                                         <!--CHiLD ACCORDION EVENTS-PAGE OPTIONS-->
                                         <ul class="nav nav-pills flex-column mb-auto">
-                                            <li><a href="#" class="nav-link text-reset">View All Events</a></li>
-                                            <li><a href="#" class="nav-link text-reset">Create Event</a></li>
-                                            <li><a href="#" class="nav-link text-reset">Manage dates</a></li>
-                                            <li><a href="#" class="nav-link text-reset">Manage locations</a></li>
-                                            <li><a href="#" class="nav-link text-reset">Manage types</a></li>
+                                            <li><a href="#" class="nav-link text-reset">events</a></li>
+                                            <!--<li><a href="#" class="nav-link text-reset">Manage dates</a></li>-->
+                                            <li><a href="#" class="nav-link text-reset">locations</a></li>
+                                            <li><a href="#" class="nav-link text-reset">types</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -92,7 +91,7 @@ session_start();} ?>
                                     <div class="accordion-body">
                                         <!--CHiLD ACCORDION ABOUT-PAGE OPTIONS-->
                                         <ul class="nav nav-pills flex-column mb-auto">
-                                            <li><a href="#" class="nav-link text-reset">description</a></li>
+                                            <li><a href="#" class="nav-link text-reset">about description</a></li>
                                             <li><a href="#" class="nav-link text-reset">angles details</a></li>
                                         </ul>
                                     </div>
@@ -114,8 +113,9 @@ session_start();} ?>
                     <div class="accordion-body">
                         <!--USERS CHILD OPTIONS-->
                         <ul class="nav nav-pills flex-column mb-auto">
-                            <li><a href="#" class="nav-link text-reset">View All Users</a></li>
-                            <li><a href="#" class="nav-link text-reset">Create User</a></li>
+                            <li><a href="#" class="nav-link text-reset">users</a></li>
+                            <li><a href="#" class="nav-link text-reset">create user</a></li>
+                            <li><a href="#" class="nav-link text-reset">collaborator details</a></li>
                         </ul>
                     </div>
                 </div>
@@ -132,8 +132,7 @@ session_start();} ?>
                     <div class="accordion-body">
                         <!--APPLICATIONS CHILD OPTIONS-->
                         <ul class="nav nav-pills flex-column mb-auto">
-                            <li><a href="#" class="nav-link text-reset">Manage Applications</a></li>
-                            <li><a href="#" class="nav-link text-reset">Download Applications</a></li>
+                            <li><a href="#" class="nav-link text-reset">manage applications</a></li>
                         </ul>
                     </div>
                 </div>
@@ -150,7 +149,7 @@ session_start();} ?>
                     <div class="accordion-body">
                         <!--FEED CHILD OPTIONS-->
                         <ul class="nav nav-pills flex-column mb-auto">
-                            <li><a href="#" class="nav-link text-reset">Topics</a></li>
+                            <li><a href="#" class="nav-link text-reset">topics</a></li>
                         </ul>
                     </div>
                 </div>

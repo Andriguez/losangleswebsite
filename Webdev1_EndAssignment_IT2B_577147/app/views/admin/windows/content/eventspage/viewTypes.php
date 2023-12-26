@@ -36,7 +36,7 @@
     <div id="button-container">
         <button type="button" class="btn btn-danger">Delete</button>
         <button class="btn btn-primary" type="button">Edit</button>
-        <button class="btn btn-success" type="button">Create new</button>
+        <button class="btn btn-success" type="button">Create Type</button>
 
     </div>
 </div>
