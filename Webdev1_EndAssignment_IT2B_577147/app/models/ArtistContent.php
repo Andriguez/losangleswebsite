@@ -5,7 +5,7 @@ namespace models;
 class ArtistContent
 {
     private Artist $artist_Id;
-    private string $artist_name, $artist_stagename, $artist_pronouns, $artist_email,
+    private string $artist_stagename, $artist_extralink, $artist_email,
         $artist_location, $artist_description, $artist_socialmedia, $artist_soundcloud_url;
     private ArtistDiscipline $artist_discipline;
     private MediaInfo $artist_picture;
@@ -13,9 +13,8 @@ class ArtistContent
 
     //setters
     public function setArtist($artist){$this->artist_Id = $artist;}
-    public function setName($name){$this->artist_name = $name;}
     public function setStagename($stagename){$this->artist_stagename = $stagename;}
-    public function setPronouns($pronouns){$this->artist_pronouns = $pronouns;}
+    public function setExtraLink($extralink){$this->artist_extralink = $extralink;}
     public function setEmail($email){$this->artist_email = $email;}
     public function setLocation($location){$this->artist_location = $location;}
     public function setDescription($description){$this->artist_description = $description;}
@@ -26,9 +25,8 @@ class ArtistContent
 
     //getters
     public function getArtist():Artist{return $this->artist_Id;}
-    public function getName():string{return $this->artist_name;}
     public function getStagename():string{return $this->artist_stagename;}
-    public function getPronouns():string{return $this->artist_pronouns;}
+    public function getExtraLink():string{return $this->artist_extralink;}
     public function getEmail():string{return $this->artist_email;}
     public function getLocation():string{return $this->artist_location;}
     public function getDescription():string{return $this->artist_description;}

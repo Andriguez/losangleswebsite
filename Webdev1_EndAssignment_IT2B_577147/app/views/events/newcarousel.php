@@ -93,15 +93,15 @@
     </div>
     <div id="date-filter-container">
         <div id="year-container">
-            <a href="#"><span>2023<img src="/media/triangle-icon.svg"></span></a>
-            <a href="#"><span>2024<img src="/media/triangle-icon.svg"></span></a>
+            <a href="#"><span>2023▶</span></a>
+            <a href="#"><span>2024▶</span></a>
         </div>
         <div id="month-container">
-            <a href="#"><span>jan<img src="/media/triangle-icon.svg"></span></a>
-            <a href="#"><span>feb<img src="/media/triangle-icon.svg"></span></a>
-            <a href="#"><span>mar<img src="/media/triangle-icon.svg"></span></a>
-            <a href="#"><span>apr<img src="/media/triangle-icon.svg"></span></a>
-            <a href="#"><span>may<img src="/media/triangle-icon.svg"></span></a>
+            <a href="#"><span>jan▶</span></a>
+            <a href="#"><span>feb▶</span></a>
+            <a href="#"><span>mar▶</span></a>
+            <a href="#"><span>apr▶</span></a>
+            <a href="#"><span>may▶</span></a>
             <a href="#"><span>jun<img src="/media/triangle-icon.svg"></span></a>
             <a href="#"><span>jul<img src="/media/triangle-icon.svg"></span></a>
             <a href="#"><span>aug<img src="/media/triangle-icon.svg"></span></a>

@@ -18,7 +18,7 @@
             <input type="text" id="gender" placeholder="gender">
         </div>
         <div class="form-floating">
-            <input type="text" id="location" placeholder="location">
+            <input type="text" id="location" placeholder="location city, CTY">
             <input type="text" id="discipline" placeholder="discipline">
         </div>
         <div class="form-floating">

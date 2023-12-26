@@ -65,20 +65,6 @@
         <button class="btn btn-primary" type="button">Edit</button>
     </div>
 </div>
-<script>
-    document.getElementById('togglePassword').addEventListener('click', function () {
-        const passwordInput = document.getElementById('inputPassword');
-        const button = document.getElementById('togglePassword');
-
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-            button.textContent = 'Hide';
-        } else {
-            passwordInput.type = 'password';
-            button.textContent = 'Show';
-        }
-    });
-</script>
 </body>
 </html>
 <style>

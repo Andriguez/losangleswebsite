@@ -77,54 +77,54 @@
         <label class="type-label">performers</label>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
             <div class="col">
-                <a class="artist-name" href="#"><span>Kenza Badi<img src="/media/triangle-icon.svg"></span></a>
+                <a class="artist-name" href="#"><span>Kenza Badi▶</span></a>
             </div>
             <div class="col">
-                <a class="artist-name" href="#"><span>Amir<img src="/media/triangle-icon.svg"></span></a>
+                <a class="artist-name" href="#"><span>Amir▶</span></a>
             </div>
             <div class="col">
-                <a class="artist-name" href="#"><span>Ada M. Patterson<img src="/media/triangle-icon.svg"></span></a>
+                <a class="artist-name" href="#"><span>Ada M. Patterson▶</span></a>
             </div>
             <div class="col">
-                <a class="artist-name" href="#"><span>Smother<img src="/media/triangle-icon.svg"></span></a>
+                <a class="artist-name" href="#"><span>Smother▶</span></a>
             </div>
             <div class="col">
-                <a class="artist-name" href="#"><span>younggwoman<img src="/media/triangle-icon.svg"></span></a>
+                <a class="artist-name" href="#"><span>younggwoman▶</span></a>
             </div>
             <div class="col">
-                <a class="artist-name" href="#"><span>Diora<img src="/media/triangle-icon.svg"></span></a>
+                <a class="artist-name" href="#"><span>Diora▶</span></a>
             </div>
             <div class="col">
-                <a class="artist-name" href="#"><span>Zobayda<img src="/media/triangle-icon.svg"></span></a>
+                <a class="artist-name" href="#"><span>Zobayda▶</span></a>
             </div>
             <div class="col">
-                <a class="artist-name" href="#"><span>Andy Rodriguez<img src="/media/triangle-icon.svg"></span></a>
+                <a class="artist-name" href="#"><span>Andy Rodriguez▶</span></a>
             </div>
             <div class="col">
-                <a class="artist-name" href="#"><span>hi.asl<img src="/media/triangle-icon.svg"></span></a>
+                <a class="artist-name" href="#"><span>hi.asl▶</span></a>
             </div>
             <div class="col">
-                <a class="artist-name" href="#"><span>angelboy<img src="/media/triangle-icon.svg"></span></a>
+                <a class="artist-name" href="#"><span>angelboy▶</span></a>
             </div>
             <div class="col">
-                <a class="artist-name" href="#"><span>Kenza Badi<img src="/media/triangle-icon.svg"></span></a>
+                <a class="artist-name" href="#"><span>Kenza Badi▶</span></a>
             </div>
             <div class="col">
-                <a class="artist-name" href="#"><span>Amir<img src="/media/triangle-icon.svg"></span></a>
+                <a class="artist-name" href="#"><span>Amir▶</span></a>
             </div>
             <div class="col">
-                <a class="artist-name" href="#"><span>Ada M. Patterson<img src="/media/triangle-icon.svg"></span></a>
+                <a class="artist-name" href="#"><span>Ada M. Patterson▶</span></a>
             </div><div class="col">
-                <a class="artist-name" href="#"><span>angelboy<img src="/media/triangle-icon.svg"></span></a>
+                <a class="artist-name" href="#"><span>angelboy▶</span></a>
             </div>
             <div class="col">
-                <a class="artist-name" href="#"><span>Kenza Badi<img src="/media/triangle-icon.svg"></span></a>
+                <a class="artist-name" href="#"><span>Kenza Badi▶</span></a>
             </div>
             <div class="col">
-                <a class="artist-name" href="#"><span>Amir<img src="/media/triangle-icon.svg"></span></a>
+                <a class="artist-name" href="#"><span>Amir▶</span></a>
             </div>
             <div class="col">
-                <a class="artist-name" href="#"><span>Ada M. Patterson<img src="/media/triangle-icon.svg"></span></a>
+                <a class="artist-name" href="#"><span>Ada M. Patterson▶</span></a>
             </div>
         </div></div>
 </div>

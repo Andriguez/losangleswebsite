@@ -11,6 +11,7 @@
                 <div class="text-container">
                     <a href="https://www.instagram.com/losanglescollective/"><span class="title">Meet Los Angles</span></a>
                     <span class="description">Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id.</span>
+                    <a href="#"><span>Reach us</span></a>
                 </div>
             </div>
         </div>
@@ -19,9 +20,10 @@
                 <div class="name-container">
                     <a class="name-link" href="#" data-image-src="/media/artist1.png"><span class="title">Maria Walhout</span></a>
                     <img alt="angle" id="angle-1">
+                    <label>she/her▶artist/researcher</label>
                 </div>
                 <div class="description-container">
-                    <span class="description">Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id.</span>
+                    <span class="description">Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam.</span>
                 </div>
             </div>
 
@@ -31,7 +33,8 @@
                     <img alt="angle" id="angle-2">
                 </div>
                 <div class="description-container">
-                    <span class="description">Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id.</span>
+                    <label>she/her▶artist/researcher</label>
+                    <span class="description">Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam.</span>
                 </div>
             </div>
 
@@ -41,7 +44,7 @@
                     <img alt="angle" id="angle-3">
                 </div>
                 <div class="description-container">
-                    <span class="description">Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id.</span>
+                    <span class="description">Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam.</span>
                 </div>
                 </div>
             </div>
@@ -108,13 +111,19 @@
     }
 
     .about-row{
-        margin-top: 10px;
-        margin-bottom: 55px;
+        margin-top: 7px;
+        margin-bottom: 40px;
     }
     .about-col{
         margin: auto;
         text-align: center;
-
+        .name-container{
+            label{
+        font-weight: bold;
+        font-family: "Agency FB";
+                font-size: 18px;
+    }
+        }
         a{
             text-decoration: none;
             color: black;
@@ -162,7 +171,10 @@
             margin: auto;
             font-family: "Agency FB";
             font-size: 20px;
-
+    label{
+        font-weight: bold;
+        font-family: "Agency FB";
+    }
 
         }
         .text-container{

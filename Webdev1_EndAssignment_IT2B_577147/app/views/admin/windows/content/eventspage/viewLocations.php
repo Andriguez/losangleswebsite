@@ -6,39 +6,39 @@
 </head>
 <body>
 <div id="main-page">
-    <h1>Events</h1>
+    <h1>Locations</h1>
     <div id="table-container">
         <table class="table table-hover">
             <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">name</th>
-                <th scope="col">date</th>
-                <th scope="col">location</th>
-                <th scope="col">type</th>
+                <th scope="col">city</th>
+                <th scope="col">address</th>
+                <th scope="col">country</th>
             </tr>
             </thead>
             <tbody>
             <tr>
                 <td><input type="checkbox" name="row1"></td>
-                <th scope="row">139 Angles</th>
-                <td>14 oct 2023</td>
-                <td>Kaanal 40</td>
-                <td>club night</td>
+                <th scope="row">Kaanal 40</th>
+                <td>Amsterdam</td>
+                <td>whatever address</td>
+                <td>Netherlands</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="row2"></td>
-                <th scope="row">Parish</th>
-                <td>15 dec 2023</td>
-                <td>Pip den haag</td>
-                <td>club night</td>
+                <td><input type="checkbox" name="row1"></td>
+                <th scope="row">PIP</th>
+                <td>The Hague</td>
+                <td>whatever address</td>
+                <td>Netherlands</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="row3"></td>
-                <th scope="row">Poing Pride</th>
-                <td>2 jun 2023</td>
-                <td>Poing</td>
-                <td>club night</td>
+                <td><input type="checkbox" name="row1"></td>
+                <th scope="row">Poing</th>
+                <td>Roterdam</td>
+                <td>whatever address</td>
+                <td>Netherlands</td>
             </tr>
             </tbody>
         </table>
@@ -48,9 +48,10 @@
     <div id="button-container">
         <button type="button" class="btn btn-danger">Delete</button>
         <button class="btn btn-primary" type="button">Edit</button>
+        <button class="btn btn-success" type="button">Create new</button>
+
     </div>
 </div>
-
 </body>
 </html>
 <style>

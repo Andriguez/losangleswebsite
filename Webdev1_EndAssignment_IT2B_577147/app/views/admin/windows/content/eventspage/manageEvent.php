@@ -64,7 +64,6 @@
                 </div>
 
                 <div class="col-12">
-                    <!--<button type="submit" class="btn btn-primary">Send password email</button>-->
                     <button type="submit" class="btn btn-success">Create</button>
                 </div>
 
@@ -73,20 +72,6 @@
 
     </div>
 </div>
-<script>
-    document.getElementById('togglePassword').addEventListener('click', function () {
-        const passwordInput = document.getElementById('inputPassword');
-        const button = document.getElementById('togglePassword');
-
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-            button.textContent = 'Hide';
-        } else {
-            passwordInput.type = 'password';
-            button.textContent = 'Show';
-        }
-    });
-</script>
 </body>
 </html>
 <style>

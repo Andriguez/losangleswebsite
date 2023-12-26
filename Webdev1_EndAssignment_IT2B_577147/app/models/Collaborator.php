@@ -4,7 +4,7 @@ namespace models;
 
 class Collaborator extends User
 {
-    protected CollaboratorContent $collaborator_content;
+    protected string $collaborator_jobtitle, $collaborator_socialmedia_link, $collaborator_location;
 
     //constructor
     public function __construct()
@@ -12,9 +12,15 @@ class Collaborator extends User
     }
 
     //setters
-    public function setCollaboratorInfo($info){$this->collaborator_content = $info;}
+    public function setCollaboratorTitle($title){$this->collaborator_jobtitle = $title;}
+    public function setCollaboratorSocialMediaLink($link){$this->collaborator_socialmedia_link = $link;}
+    public function setCollaboratorLocation($location){$this->collaborator_location = $location;}
+
 
     //getters
-    public function getCollaboratorInfo():ArtistContent{return $this->collaborator_content;}
+    public function getCollaboratorTitle():string{return $this->collaborator_jobtitle;}
+    public function getCollaboratorSocialMediaLink():string{return $this->collaborator_socialmedia_link;}
+    public function getCollaboratorLocation():string{return $this->collaborator_location;}
+
 
 }
