@@ -250,6 +250,17 @@ body{
         form{
             width: 500px;
         }
+
+        #img-container{
+            background-color: lightgrey;
+            border: 2px black solid;
+            padding: 5px;
+
+            img{
+                max-width: 200px !important;
+                max-height: 200px !important;
+            }
+        }
     }}
 /*MANAGE COLLAB INFO*/
 #managecollabinfo{

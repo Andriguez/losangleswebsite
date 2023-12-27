@@ -56,7 +56,7 @@ if (session_status() == PHP_SESSION_NONE) {
 <style>
     @font-face {
         font-family: 'angles';
-        src: url('/style/losangles-font.ttf');
+        src: url('/style/fonts/losangles-font.ttf');
     }
 
     .logoHomepage {

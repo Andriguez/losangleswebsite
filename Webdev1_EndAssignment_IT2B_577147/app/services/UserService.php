@@ -13,7 +13,7 @@ class UserService
         $this->userRepo = new UserRepository();
     }
 
-    public function getUserById($userId):User{
+    public function getUserById($userId){
         return $this->userRepo->getUserById($userId);
     }
     public function getAllUsers():array{

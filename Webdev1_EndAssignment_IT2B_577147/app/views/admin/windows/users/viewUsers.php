@@ -21,33 +21,18 @@
         </tr>
         </thead>
         <tbody>
+        <?php foreach ($users as $user){?>
         <tr>
-            <td><input type="checkbox" name="row1"></td>
-            <th scope="row">1001</th>
-            <td>Andy</td>
-            <td>Rodriguez</td>
-            <td>andhriguez@outlook.com</td>
-            <td>developer</td>
-            <td>no</td>
+            <td><input class="form-check-input userRadio" type="radio" name="radioButton" id="<?php echo $user->getUserId();?>"></td>
+            <th scope="row"><?php echo $user->getUserId(); ?></th>
+            <td><?php echo $user->getFirstName(); ?></td>
+            <td><?php echo $user->getLastName(); ?></td>
+            <td><?php echo $user->getEmail(); ?></td>
+            <td><?php echo $user->getUserType()->getUserType(); ?></td>
+            <td>no</td> <!-- <td><a href="usercontentpage">yes</a></td>-->
+
         </tr>
-        <tr>
-            <td><input type="checkbox" name="row2"></td>
-            <th scope="row">1002</th>
-            <td>Andy</td>
-            <td>Rodriguez</td>
-            <td>andhriguez@outlook.com</td>
-            <td>admin</td>
-            <td><a href="#">yes</a></td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="row13"></td>
-            <th scope="row">1003</th>
-            <td>Andy</td>
-            <td>Rodriguez</td>
-            <td>andhriguez@outlook.com</td>
-            <td>artist</td>
-            <td><a href="#">yes</a></td>
-        </tr>
+        <?php } ?>
         </tbody>
     </table>
 </div>
@@ -55,6 +40,6 @@
 
 <div id="button-container">
         <button type="button" class="btn btn-danger">Delete</button>
-        <button class="btn btn-primary" type="button">Edit</button>
+        <button class="btn btn-primary" type="button" id="editSelectedUserBtn" onclick="editSelectedUser()">Edit</button>
     </div>
 </div>

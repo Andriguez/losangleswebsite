@@ -51,10 +51,10 @@ class UserRepository extends Repository
         $query = "SELECT user_Id FROM users";
 
         try{
-            $statement = $this->users_db->prepare($query);
+            $statement = $this->getusersDB()->prepare($query);
             $statement->execute();
 
-            while($row = $statement->fetchColumn()) {
+            while($row = $statement->fetch()) {
 
                 $user = $this->getUserById($row['user_Id']);
                 $allUsers[] = $user;

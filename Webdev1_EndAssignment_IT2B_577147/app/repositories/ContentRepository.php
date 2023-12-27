@@ -1,5 +1,6 @@
 <?php
 namespace repositories;
+use models\DirectoryLog;
 use models\MediaInfo;
 use models\Page;
 require_once __DIR__.'/../models/DirectoryLog.php';
@@ -209,17 +210,23 @@ class ContentRepository extends Repository
 
     //directory logs
     public function getDirectoryLogById($id){
-        $query = "SELECT `path_Id`, `filename`, `filetype`, `path` FROM `file_directory` WHERE path_Id = :id";
+        $query = "SELECT `path_Id`, `type`, `path` FROM `file_directory` WHERE path_Id = :id";
 
         try{
             $statement = $this->content_db->prepare($query);
             $statement->bindParam(':id', $id);
             $statement->execute();
 
-            $statement->setFetchMode(\PDO::FETCH_CLASS, 'DirectoryLog');
-            return $statement->fetch();
+            while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
 
-        } catch (\PDOException $e){echo $e;}
+                $directory = new DirectoryLog();
+                $directory->setPathId($row['path_Id']);
+                $directory->setFiletype($row['type']);
+                $directory->setPath($row['path']);
+            }
+                return $directory;
+
+            } catch (\PDOException $e){echo $e;}
     }
 
     public function getAllDirectoryEntries(){

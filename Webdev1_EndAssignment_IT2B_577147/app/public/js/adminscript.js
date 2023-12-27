@@ -10,4 +10,27 @@ function openWindow(filePath) {
     };
     xhr.send();
 }
+function editSelectedUser(){
+    let userRadios = document.querySelectorAll('.userRadio:checked');
 
+    if (userRadios.length > 0) {
+        let userId = userRadios[0].id;
+        let filepath = 'admin/manageuser/'+userId;
+        openWindow(filepath);
+    } else {
+        console.log("No user selected.");
+    }
+}
+
+function togglePassword(){
+    const passwordInput = document.getElementById('inputPassword');
+    const button = document.getElementById('togglePasswordbtn');
+
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        button.textContent = 'Hide';
+    } else {
+        passwordInput.type = 'password';
+        button.textContent = 'Show';
+    }
+}

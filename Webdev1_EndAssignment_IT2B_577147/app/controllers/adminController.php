@@ -1,16 +1,30 @@
 <?php
 namespace controllers;
+
+use repositories\UserRepository;
+use services\UserService;
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
 require __DIR__ . '/Controller.php';
 require __DIR__ . '/../services/UserService.php';
+require_once __DIR__.'/../models/User.php';
+
 
 class adminController extends Controller
 {
+    protected UserService $userService;
+
+    public function __construct()
+    {
+        $this->userService = new UserService();
+    }
+
     public function index(){
         if ($this->allowAccess())
+            $this->userService = new UserService();
             require __DIR__ . '/../views/admin/index.php';
 
     }
@@ -80,11 +94,16 @@ class adminController extends Controller
             require __DIR__ . '/../views/admin/windows/feed/manageTopic.php';
     }
     public function viewUsers(){
-        if($this->allowAccess())
+        if($this->allowAccess()){
+            $users = $this->userService->getAllUsers();
             require __DIR__ . '/../views/admin/windows/users/viewUsers.php';
+
+        }
     }
-    public function manageUser(){
+    public function manageUser($userId = null){
         if($this->allowAccess())
+            if(!empty($userId)){$user = $this->userService->getUserById($userId);}
+
             require __DIR__ . '/../views/admin/windows/users/manageUser.php';
     }
     public function manageCollaboratorInfo(){

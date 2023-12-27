@@ -122,6 +122,7 @@ class Router
             if ($isMatch) {
                 // Extract the function part from the matched groups
                 $adminFunction = $matches[1] ?? 'index';
+                $param = $matches[2] ?? null;
 
                 // Create an instance of AdminController and call the specified function
                 require __DIR__ . '/controllers/adminController.php';
@@ -131,7 +132,7 @@ class Router
 
                 // Check if the method exists in AdminController
                 if (method_exists($adminController, $adminFunction)) {
-                    $adminController->{$adminFunction}();
+                    $adminController->{$adminFunction}($param);
                     $content = ob_get_clean();
                     Router::getInstance()->respond(200, $content);
                 }
