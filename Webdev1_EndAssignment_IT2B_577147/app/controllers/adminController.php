@@ -96,6 +96,7 @@ class adminController extends Controller
     public function viewUsers(){
         if($this->allowAccess()){
             $users = $this->userService->getAllUsers();
+            $userTypes = $this->userService->getAllTypes();
             require __DIR__ . '/../views/admin/windows/users/viewUsers.php';
 
         }
@@ -103,8 +104,26 @@ class adminController extends Controller
     public function manageUser($userId = null){
         if($this->allowAccess())
             if(!empty($userId)){$user = $this->userService->getUserById($userId);}
-
+            $userTypes = $this->userService->getAllTypes();
             require __DIR__ . '/../views/admin/windows/users/manageUser.php';
+    }
+
+    public function createUser(){
+        if($this->allowAccess()){
+            if($_SERVER['REQUEST_METHOD'] === 'POST'){
+
+                if ($_FILES['profilepicture']['error'] == UPLOAD_ERR_OK) {
+                    // Access file details
+                    $fileName = $_FILES['profilepicture']['name'];}
+                echo $_POST['email'];
+                echo $_POST['password'];
+                echo $_POST['usertype'];
+                echo $_POST['pronouns'];
+                echo $fileName;
+            }
+            //$this->index();
+        }
+
     }
     public function manageCollaboratorInfo(){
         if($this->allowAccess())

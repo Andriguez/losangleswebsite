@@ -108,7 +108,7 @@ class UserRepository extends Repository
             $statement = $this->getusersDB()->prepare($query);
             $statement->execute();
 
-            while($row = $statement->fetchColumn()) {
+            while($row = $statement->fetch()) {
 
                 $userType = $this->getTypeById($row['usertype_Id']);
                 $allUserTypes[] = $userType;

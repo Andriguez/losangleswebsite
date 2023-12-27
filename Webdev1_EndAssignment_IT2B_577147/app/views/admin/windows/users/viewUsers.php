@@ -2,9 +2,9 @@
 <h1>Users</h1>
     <select id="selectType" class="form-select">
         <option selected>Choose...</option>
-        <option>Admin</option>
-        <option>Artist</option>
-        <option>Collaborator</option>
+        <?php foreach ($userTypes as $type){ ?>
+            <option value="<?php echo $type->getUserTypeId();?>"><?php echo $type->getUserType();?></option>
+        <?php }?>
     </select>
 
     <div id="table-container">
