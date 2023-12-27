@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="losangles_feed@localhost">
-  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.45">
+  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.51">
     <root id="1">
       <DefaultCasing>exact</DefaultCasing>
       <DefaultEngine>InnoDB</DefaultEngine>
@@ -1131,6 +1131,7 @@ developmentdb|schema||developer||UPDATE|G</Grants>
     </schema>
     <schema id="327" parent="1" name="losangles_feed">
       <Current>1</Current>
+      <LastIntrospectionLocalTimestamp>2023-12-26.17:13:12</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="328" parent="1" name="losangles_users">

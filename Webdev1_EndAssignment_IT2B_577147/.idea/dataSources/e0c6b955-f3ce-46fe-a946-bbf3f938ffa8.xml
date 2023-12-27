@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="losangles_users@localhost">
-  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.45">
+  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.51">
     <root id="1">
       <DefaultCasing>exact</DefaultCasing>
       <DefaultEngine>InnoDB</DefaultEngine>
@@ -1134,6 +1134,7 @@ developmentdb|schema||developer||UPDATE|G</Grants>
     </schema>
     <schema id="328" parent="1" name="losangles_users">
       <Current>1</Current>
+      <LastIntrospectionLocalTimestamp>2023-12-26.17:13:26</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="329" parent="1" name="mysql">
@@ -1297,34 +1298,34 @@ developmentdb|schema||developer||UPDATE|G</Grants>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="365" parent="338" name="user_picture">
-      <DasType>int(11)|0s</DasType>
-      <Position>6</Position>
-    </column>
-    <column id="366" parent="338" name="user_type">
+    <column id="365" parent="338" name="user_type">
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
-      <Position>7</Position>
+      <Position>6</Position>
     </column>
-    <column id="367" parent="338" name="user_password">
+    <column id="366" parent="338" name="user_password">
       <DasType>varchar(255)|0s</DasType>
       <DefaultExpression>&apos;password&apos;</DefaultExpression>
       <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="367" parent="338" name="user_picture">
+      <DasType>int(11)|0s</DasType>
       <Position>8</Position>
     </column>
-    <foreign-key id="368" parent="338" name="user_picture_FK">
-      <ColNames>user_picture</ColNames>
-      <OnDelete>set-null</OnDelete>
-      <OnUpdate>cascade</OnUpdate>
-      <RefColNames>media_Id</RefColNames>
-      <RefTableName>media</RefTableName>
-      <RefTableParentName>losangles_content</RefTableParentName>
-    </foreign-key>
-    <foreign-key id="369" parent="338" name="usertype_FK">
+    <foreign-key id="368" parent="338" name="usertype_FK">
       <ColNames>user_type</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>usertype_Id</RefColNames>
       <RefTableName>users_usertypes</RefTableName>
+    </foreign-key>
+    <foreign-key id="369" parent="338" name="user_picture_FK">
+      <ColNames>user_picture</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+      <RefColNames>media_Id</RefColNames>
+      <RefTableName>media</RefTableName>
+      <RefTableParentName>losangles_content</RefTableParentName>
     </foreign-key>
     <index id="370" parent="338" name="PRIMARY">
       <ColNames>user_Id</ColNames>
@@ -1336,12 +1337,12 @@ developmentdb|schema||developer||UPDATE|G</Grants>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="372" parent="338" name="user_picture_FK">
-      <ColNames>user_picture</ColNames>
+    <index id="372" parent="338" name="usertype_FK">
+      <ColNames>user_type</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="373" parent="338" name="usertype_FK">
-      <ColNames>user_type</ColNames>
+    <index id="373" parent="338" name="user_picture">
+      <ColNames>user_picture</ColNames>
       <Type>btree</Type>
     </index>
     <key id="374" parent="338" name="PRIMARY">

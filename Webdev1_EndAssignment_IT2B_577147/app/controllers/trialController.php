@@ -6,6 +6,6 @@ class trialController extends Controller
 {
     public function index()
     {
-        require __DIR__ . '/../views/admin/windows/users/manageCollaboratorInfo.php';
+        require __DIR__ . '/../views/admin/windows/content/artistspage/manageArtistDetails.php';
     }
 }

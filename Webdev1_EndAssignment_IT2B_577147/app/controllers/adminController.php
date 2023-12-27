@@ -15,11 +15,17 @@ class adminController extends Controller
 
     }
 
-    public function navbarLogo(){
+    public function manageHomepageLogo(){
         if($this->allowAccess())
-            require __DIR__ . '/../views/admin/windows/content/navbar/manageLogo.php';
+            require __DIR__ . '/../views/admin/windows/content/homepage/manageLogo.php';
     }
-
+    public function manageArtistDetails(){
+        if($this->allowAccess())
+            require __DIR__ . '/../views/admin/windows/content/artistspage/manageArtistDetails.php';
+    }
+    public function trialFunction(){
+        echo 'it works';
+    }
     private function allowAccess(){
 
         if (!isset($_SESSION['user_id'])) {

@@ -31,7 +31,13 @@ class Router
             try {
                 if ($this->matchRoute($route, $requestedPath)) {
                     $this->checkRequestMethod($route);
-                    $this->redirect($route);
+
+                    if ($route->getPattern() !== null && str_starts_with($route->getPattern(), '/^\/admin(?:\/')) {
+                        $this->handleAdminRoute($route, $requestedPath);
+                        exit;
+                    } else {
+                        $this->redirect($route);
+                    }
                 }
             } catch (Exception $e) {
                 echo $e->getMessage();
@@ -105,6 +111,38 @@ class Router
             echo $e;
             $this->respondServerError('Controller: '.$route->getController().' Function: '.$route->getFunction());
         }
+    }
+
+    private function handleAdminRoute($route, $requestedPath)
+    {
+        try {
+            $matches = [];
+            $isMatch = preg_match($route->getPattern(), $requestedPath, $matches);
+
+            if ($isMatch) {
+                // Extract the function part from the matched groups
+                $adminFunction = $matches[1] ?? 'index';
+
+                // Create an instance of AdminController and call the specified function
+                require __DIR__ . '/controllers/adminController.php';
+                $adminController = new controllers\adminController();
+
+                ob_start();
+
+                // Check if the method exists in AdminController
+                if (method_exists($adminController, $adminFunction)) {
+                    $adminController->{$adminFunction}();
+                    $content = ob_get_clean();
+                    Router::getInstance()->respond(200, $content);
+                }
+            }
+
+            // If the pattern doesn't match, respond with a "Not Found" error
+            $this->respondNotFound();
+        } catch (Exception $e) {
+            echo $e;
+        }
+
     }
 
     private function respondInvalidParameters($invalidParameters)

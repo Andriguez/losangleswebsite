@@ -5,11 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/public/js/adminscript.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/style/adminstyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Webdev1_EndAssignment_IT2B_577147.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Webdev1_EndAssignment_IT2B_577147.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/51cfa111-f852-4349-9f6f-ece595806c11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/51cfa111-f852-4349-9f6f-ece595806c11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/abb37cc5-b258-4574-a5ed-09fb19a58ae0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/abb37cc5-b258-4574-a5ed-09fb19a58ae0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e0c6b955-f3ce-46fe-a946-bbf3f938ffa8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e0c6b955-f3ce-46fe-a946-bbf3f938ffa8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/Route.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/Route.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/adminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/trialController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/trialController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/viewEvents.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/viewEvents.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/viewLocations.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/viewLocations.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/viewTypes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/viewTypes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/content/artistspage/manageArtistDetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/content/artistspage/manageArtistDetails.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/content/homepage/manageLogo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/content/homepage/manageLogo.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,40 +46,51 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2YD3egFRwdJcjAleuHxj6FSMnQA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/brhig/OneDrive/Escritorio/School 22-23/Year 2 Term 3/Project Haarlem Festival/The Festival Repository/haarlemfestival-website&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "back-end-initial",
+    "last_opened_file_path": "C:/Users/brhig/OneDrive/Escritorio/School 22-23/Year 2 Term 3/Project Haarlem Festival/The Festival Repository",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\public\js" />
+      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\admin\js" />
+      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\admin" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\admin\windows\content" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\public\style" />
-      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views" />
-      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\events" />
-      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\connect" />
     </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-php-predefined-ba97393d7c68-b4dcf6bb9de9-com.jetbrains.php.sharedIndexes-PS-233.13135.108" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -85,7 +109,17 @@
       <workItem from="1701991381577" duration="97102000" />
       <workItem from="1702565029721" duration="63469000" />
       <workItem from="1703006366247" duration="119277000" />
-      <workItem from="1703505251823" duration="29212000" />
+      <workItem from="1703505251823" duration="29749000" />
+      <workItem from="1703608124813" duration="617000" />
+      <workItem from="1703609205165" duration="38000" />
+      <workItem from="1703609256540" duration="9000" />
+      <workItem from="1703609278262" duration="21000" />
+      <workItem from="1703609340478" duration="82000" />
+      <workItem from="1703609440278" duration="81000" />
+      <workItem from="1703609695071" duration="180000" />
+      <workItem from="1703610018447" duration="7000" />
+      <workItem from="1703610332816" duration="2300000" />
+      <workItem from="1703634191947" duration="18073000" />
     </task>
     <servers />
   </component>

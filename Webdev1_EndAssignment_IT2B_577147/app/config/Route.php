@@ -25,6 +25,9 @@ class Route
         $this->postParams = $postParams;
     }
 
+    public function setFunction($function){
+        $this->function = $function;
+    }
     public function getPattern()
     {
         return $this->pattern;

@@ -6,6 +6,8 @@ session_start();} ?>
     <link rel="icon" href="/media/onlytb.png" type="image/png">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/style/adminstyle.css">
+
 </head>
 <body>
 <div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 250px; height: 100%;">
@@ -39,7 +41,7 @@ session_start();} ?>
                                     <div class="accordion-body">
                                         <!--CHiLD ACCORDION HOME-PAGE OPTIONS-->
                                         <ul class="nav nav-pills flex-column mb-auto">
-                                            <li><a href="#" class="nav-link text-reset">Logo</a></li>
+                                            <li><a href="#" onClick="openWindow('/admin/managehomepagelogo')" class="nav-link text-reset">Logo</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -55,7 +57,7 @@ session_start();} ?>
                                     <div class="accordion-body">
                                         <!--CHiLD ACCORDION ARTISTS-PAGE OPTIONS-->
                                         <ul class="nav nav-pills flex-column mb-auto">
-                                            <li><a href="#" class="nav-link text-reset">artists details</a></li>
+                                            <li><a href="#" onclick="openWindow('admin/artists/details')" class="nav-link text-reset">artists details</a></li>
                                             <li><a href="#" class="nav-link text-reset">disciplines</a></li>
                                         </ul>
                                     </div>
@@ -178,64 +180,6 @@ session_start();} ?>
         </svg>
     </div>
 </div>
+<script src="/js/adminscript.js"></script>
 </body>
 </html>
-<style>
-    body{
-        font-family: "Agency FB";
-        color: black !important;
-        font-size: 20px;
-        display: flex;
-        overflow: hidden;
-    }
-    #main-window{
-        overflow: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-    #main-window-content{
-        text-align: center;
-        font-size: 40px !important;
-
-    img{
-        margin: auto;
-        display: block;
-    }
-    #closingq{
-        rotate: 180deg;
-    }
-    }
-    }
-    #sidebar{
-        label{
-            font-size: 15px;
-        }
-        #menu-container{
-            overflow-y: auto;
-            overflow-x: hidden;
-            height: 100%;
-        }
-        #admin-info-container{
-        img{
-            border: black 2px solid;
-            display: inline;
-        }
-        #info-text{
-            display: inline;
-        }
-        a{
-            font-size: 16px;
-            color: #6D6D6D;
-        }
-    }
-    .accordion-item{
-        border: black 1px solid;
-    .child-accordion-item{
-        border: black 1px solid;
-    }
-    .nav-link{
-        border: black 1px solid;
-    }}
-    }
-</style>
