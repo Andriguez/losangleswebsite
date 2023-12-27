@@ -5,7 +5,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-<div id="main-page">
+<div id="view-disciplines">
     <h1>Event Types</h1>
     <div id="table-container">
         <table class="table table-hover">
@@ -36,43 +36,12 @@
     <div id="button-container">
         <button type="button" class="btn btn-danger">Delete</button>
         <button class="btn btn-primary" type="button">Edit</button>
-        <button class="btn btn-success" type="button">Create new</button>
+        <button class="btn btn-success" onclick="openWindow('admin/managediscipline')" type="button">Create new</button>
 
     </div>
 </div>
-<script>
-    document.getElementById('togglePassword').addEventListener('click', function () {
-        const passwordInput = document.getElementById('inputPassword');
-        const button = document.getElementById('togglePassword');
-
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-            button.textContent = 'Hide';
-        } else {
-            passwordInput.type = 'password';
-            button.textContent = 'Show';
-        }
-    });
-</script>
 </body>
 </html>
 <style>
-    #main-page{
-        width: 962px;
-        height: 540px;
-        padding: 20px;
 
-    #table-container {
-        max-height: 300px !important;
-        overflow-y: auto;
-    }
-
-    #button-container{
-        float: right;
-        margin: 10px;
-
-
-    }
-
-    }
 </style>

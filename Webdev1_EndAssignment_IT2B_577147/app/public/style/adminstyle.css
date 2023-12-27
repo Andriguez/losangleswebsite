@@ -8,17 +8,17 @@ body{
 }
 #main-window{
     overflow: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
+    padding: 20px;
 
     #main-window-content{
+
         text-align: center;
         font-size: 40px !important;
+        justify-content: center;
+        align-items: center;
 
         img{
-            margin: auto;
+            margin: 15% auto auto auto;
             display: block;
         }
         #closingq{
@@ -89,8 +89,6 @@ body{
 }
 /*MANAGE ARTISTS DETAILS*/
 #manage-artist-details{
-    width: 962px;
-    height: 540px;
     padding: 10px;
 
     #select-artist-container{
@@ -105,5 +103,213 @@ body{
             button{
                 float: right;
             }
+        }
+    }}
+/*VIEW ARTISTS DISCIPLINES*/
+#view-disciplines{
+    padding: 20px;
+
+    #table-container {
+        max-height: 300px !important;
+        overflow-y: auto;
+    }
+
+    #button-container{
+        float: right;
+        margin: 10px;
+
+
+    } }
+/*MANAGE ARTISTS DISCIPLINE*/
+#manage-discipline{
+
+    .container{
+        margin: 50px 20px 20px 20px;
+
+        form{
+            width: 500px;
+        }
+    }}
+/*VIEW EVENTS*/
+#view-events{
+
+    #table-container {
+        max-height: 300px !important;
+        overflow-y: auto;
+    }
+    #button-container{
+        float: right;
+        margin: 10px;
+    } }
+/*MANAGE EVENT*/
+#manageevent{
+
+    .container{
+        margin: 50px 20px 20px 20px;
+
+        form{
+            width: 500px;
+        }
+    }}
+/*VIEW LOCATIONS*/
+#view-locations{
+
+    #table-container {
+        max-height: 300px !important;
+        overflow-y: auto;
+    }
+
+    #button-container{
+        float: right;
+        margin: 10px;
+    } }
+/*MANAGE LOCATION*/
+#manage-location{
+    width: 962px;
+    height: 540px;
+
+    .container{
+        margin: 50px 20px 20px 20px;
+
+        form{
+            width: 500px;
+        }
+    }}
+/*VIEW TYPES*/
+#viewtypes{
+
+    #table-container {
+        max-height: 300px !important;
+        overflow-y: auto;
+    }
+
+    #button-container{
+        float: right;
+        margin: 10px;
+    } }
+/*MANAGE TYPE*/
+#managetype{
+    .container{
+        margin: 50px 20px 20px 20px;
+
+        form{
+            width: 500px;
+        }
+    }}
+/*MANAGE DESCRIPTION*/
+#managedescription{
+    .container{
+        margin: 50px 20px 20px 20px;
+
+        form{
+            width: 500px;
+            button{
+                float: right;
+            }
+        }
+    }}
+/*MANAGE ADMIN DETAILS*/
+#manageadmindetails{
+
+    #select-artist-container{
+        width: 200px;
+        margin: 20px;
+    }
+    .container{
+        margin: 50px 20px 20px 20px;
+
+        form{
+            width: 500px;
+            button{
+                float: right;
+            } } }}
+
+/*VIEW USERS*/
+#viewusers{
+
+    #selectType{
+        width: 150px;
+        margin: 10px;
+    }
+
+    #table-container {
+        max-height: 300px !important;
+        overflow-y: auto;
+    }
+
+    #button-container{
+        float: right;
+        margin: 10px;
+    } }
+/*MANAGE USER*/
+#manageuser{
+
+    .container{
+        margin: 50px 20px 20px 20px;
+
+        form{
+            width: 500px;
+        }
+    }}
+/*MANAGE COLLAB INFO*/
+#managecollabinfo{
+    #select-artist-container{
+        width: 200px;
+        margin: 20px;
+    }
+    .container{
+        margin: 50px 20px 20px 20px;
+
+        form{
+            width: 500px;
+            button{
+                float: right;
+            } } }}
+/*VIEW APPLICATIONS*/
+#viewapplications{
+    #table-container {
+        max-height: 300px !important;
+        overflow-y: auto;
+    }
+
+    #button-container{
+        float: right;
+        margin: 10px;
+
+    } }
+/*MANAGE APPLICATION*/
+#manageapplication{
+
+    .container{
+        margin: 50px 20px 20px 20px;
+
+        form{
+            width: 600px;
+
+            button{
+                margin: 10px;
+                float: right;
+            }
+        }
+    }}
+/*VIEW TOPICS*/
+#viewtopics{
+
+    #table-container {
+        max-height: 300px !important;
+        overflow-y: auto;
+    }
+
+    #button-container{
+        float: right;
+        margin: 10px;
+    } }
+/*MANAGE TOPIC*/
+#managetopic{
+    .container{
+        margin: 50px 20px 20px 20px;
+
+        form{
+            width: 500px;
         }
     }}

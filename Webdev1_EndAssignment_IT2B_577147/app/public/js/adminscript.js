@@ -10,3 +10,4 @@ function openWindow(filePath) {
     };
     xhr.send();
 }
+
