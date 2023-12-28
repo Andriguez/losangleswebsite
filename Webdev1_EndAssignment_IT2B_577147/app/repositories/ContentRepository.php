@@ -170,6 +170,22 @@ class ContentRepository extends Repository
     }
 
     //media
+    public function createMediaInfo($filename, $mediaType, $pathId){
+        $query = "INSERT INTO `media`(`media_filename`, `media_type`, `media_path`) VALUES (?,?,?)";
+
+        try {
+            $statement = $this->content_db->prepare($query);
+            $statement->execute(array(
+                $this->sanitizeText($filename),
+                $this->sanitizeText($mediaType),
+                $pathId,));
+
+            return $this->content_db->lastInsertId();
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
     public function getMediaInfoById($id){
         $query = "SELECT media_Id, media_filename, media_type, media_path FROM media WHERE media_Id = :id";
 
@@ -209,11 +225,25 @@ class ContentRepository extends Repository
     }
 
     //directory logs
+    public function createDirectory($type, $path){
+        $query = "INSERT INTO `file_directory`(`type`, `path`) VALUES (?,?)";
+
+        try {
+            $statement = $this->getContentDB()->prepare($query);
+            $statement->execute(array(
+                $this->sanitizeText($type),
+                $this->sanitizeText($path),));
+
+            return $this->content_db->lastInsertId();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
     public function getDirectoryLogById($id){
         $query = "SELECT `path_Id`, `type`, `path` FROM `file_directory` WHERE path_Id = :id";
 
         try{
-            $statement = $this->content_db->prepare($query);
+            $statement = $this->getContentDB()->prepare($query);
             $statement->bindParam(':id', $id);
             $statement->execute();
 
@@ -233,7 +263,7 @@ class ContentRepository extends Repository
         $query = "SELECT path_Id FROM file_directory";
 
         try{
-            $statement = $this->content_db->prepare($query);
+            $statement = $this->getContentDB()->prepare($query);
             $statement->execute();
 
             while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
@@ -244,5 +274,10 @@ class ContentRepository extends Repository
 
             return $directoryLogs;
         }catch (\PDOException $e){echo $e;}
+    }
+
+    private function sanitizeText($input):string{
+        return htmlspecialchars($input);
+
     }
 }

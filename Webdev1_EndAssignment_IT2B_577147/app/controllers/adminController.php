@@ -1,7 +1,7 @@
 <?php
 namespace controllers;
 
-use repositories\UserRepository;
+use services\ContentService;
 use services\UserService;
 
 if (session_status() == PHP_SESSION_NONE) {
@@ -10,91 +10,97 @@ if (session_status() == PHP_SESSION_NONE) {
 
 require __DIR__ . '/Controller.php';
 require __DIR__ . '/../services/UserService.php';
+require __DIR__ . '/../services/ContentService.php';
 require_once __DIR__.'/../models/User.php';
+require_once __DIR__ . '/UserAuth.php';
 
 
 class adminController extends Controller
 {
     protected UserService $userService;
+    protected ContentService $contentService;
+    private UserAuth $userAuth;
 
     public function __construct()
     {
         $this->userService = new UserService();
+        $this->contentService = new ContentService();
+        $this->userAuth = new UserAuth();
     }
 
     public function index(){
-        if ($this->allowAccess())
+        if ($this->userAuth->allowAdminAccess())
             $this->userService = new UserService();
             require __DIR__ . '/../views/admin/index.php';
 
     }
 
     public function manageHomepageLogo(){
-        if($this->allowAccess())
+        if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/content/homepage/manageLogo.php';
     }
     public function manageArtistDetails(){
-        if($this->allowAccess())
+        if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/content/artistspage/manageArtistDetails.php';
     }
     public function viewDisciplines(){
-        if($this->allowAccess())
+        if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/content/artistspage/viewDisciplines.php';
     }
     public function manageDiscipline(){
-        if($this->allowAccess())
+        if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/content/artistspage/manageDiscipline.php';
     }
     public function viewEvents(){
-        if($this->allowAccess())
+        if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/content/eventspage/viewEvents.php';
     }
     public function manageEvent(){
-        if($this->allowAccess())
+        if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/content/eventspage/manageEvent.php';
     }
     public function viewLocations(){
-        if($this->allowAccess())
+        if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/content/eventspage/viewLocations.php';
     }
     public function manageLocation(){
-        if($this->allowAccess())
+        if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/content/eventspage/manageLocation.php';
     }
     public function viewTypes(){
-        if($this->allowAccess())
+        if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/content/eventspage/viewTypes.php';
     }
     public function manageType(){
-        if($this->allowAccess())
+        if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/content/eventspage/manageType.php';
     }
     public function manageAdminDetails(){
-        if($this->allowAccess())
+        if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/content/aboutpage/manageAngleDetails.php';
     }
     public function manageDescription(){
-        if($this->allowAccess())
+        if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/content/aboutpage/manageDescription.php';
     }
     public function viewApplications(){
-        if($this->allowAccess())
+        if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/applications/viewApplications.php';
     }
     public function manageApplication(){
-        if($this->allowAccess())
+        if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/applications/manageApplication.php';
     }
     public function viewTopics(){
-        if($this->allowAccess())
+        if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/feed/viewTopics.php';
     }
     public function manageTopic(){
-        if($this->allowAccess())
+        if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/feed/manageTopic.php';
     }
     public function viewUsers(){
-        if($this->allowAccess()){
+        if($this->userAuth->allowAdminAccess()){
             $users = $this->userService->getAllUsers();
             $userTypes = $this->userService->getAllTypes();
             require __DIR__ . '/../views/admin/windows/users/viewUsers.php';
@@ -102,46 +108,71 @@ class adminController extends Controller
         }
     }
     public function manageUser($userId = null){
-        if($this->allowAccess())
+        if($this->userAuth->allowAdminAccess())
             if(!empty($userId)){$user = $this->userService->getUserById($userId);}
             $userTypes = $this->userService->getAllTypes();
             require __DIR__ . '/../views/admin/windows/users/manageUser.php';
     }
 
     public function createUser(){
-        if($this->allowAccess()){
+        if($this->userAuth->allowAdminAccess()){
             if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
-                if ($_FILES['profilepicture']['error'] == UPLOAD_ERR_OK) {
-                    // Access file details
-                    $fileName = $_FILES['profilepicture']['name'];}
-                echo $_POST['email'];
-                echo $_POST['password'];
-                echo $_POST['usertype'];
-                echo $_POST['pronouns'];
-                echo $fileName;
+                $userId = rand(999, 9999);
+                $firstname = $_POST['firstname'];
+                $lastname = $_POST['lastname'];
+                $email = $_POST['email'];
+                $usertype = $_POST['usertype'];
+                $pronouns = $_POST['pronouns'];
+                //$password = $this->userAuth->hashPassword($_POST['password']);
+                $password = $_POST['password'];
+
+                if(isset($_FILES['userpicture'])){
+                    $picture = $this->uploadPicture('users/','userpicture');
+                    unset($_FILES['userpicture']);
+                    $this->userService->createUser($userId, $firstname, $lastname, $email, $pronouns, $usertype, $password, $picture);
+                } else{
+                    $this->userService->createUser($userId, $firstname, $lastname, $email, $pronouns, $usertype, $password);
+                }
             }
             //$this->index();
         }
 
     }
+    public function uploadPicture($mediaDirectory, $mediaType){
+        if ($_FILES['userpicture']['error'] == UPLOAD_ERR_OK) {
+
+            $fileName = $_FILES['userpicture']['name'];
+            $tempName = $_FILES['userpicture']['tmp_name'];
+
+            $defaultDir = 'media/';
+            $path = $defaultDir.$mediaDirectory.$fileName;
+            move_uploaded_file($tempName, $path);
+
+            $directoryId = $this->contentService->createDirectory('media', $defaultDir.$mediaDirectory);
+
+            return $this->contentService->createMediaInfo($fileName, $mediaType, $directoryId);
+        }
+    }
     public function manageCollaboratorInfo(){
-        if($this->allowAccess())
+        if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/users/manageCollaboratorInfo.php';
     }
 
-    private function allowAccess(){
+    /*public function hashtest(){
+        $costs = [10, 11, 12, 13, 14];
+        $password = 'test_password';
 
-        if (!isset($_SESSION['user_id'])) {
-            $_SESSION['redirect_url'] = $_SERVER['REQUEST_URI'];
-            header("Location: /login");
-            exit;
-        } else if ($_SESSION['user_type'] === 'developer' || $_SESSION['user_type'] === 'admin'){
-            return true;
-        } else {
-            header("Location: /");
+        foreach ($costs as $cost) {
+            $start = microtime(true);
+
+            // Adjust the algorithm and options accordingly (PASSWORD_BCRYPT or PASSWORD_ARGON2I)
+            password_hash($password, PASSWORD_BCRYPT, ['cost' => $cost]);
+
+            $end = microtime(true);
+            $time = ($end - $start) * 1000; // Convert to milliseconds
+
+            echo "Cost $cost: $time ms\n";
         }
-
-        return false;
-    }
+    }*/
 }

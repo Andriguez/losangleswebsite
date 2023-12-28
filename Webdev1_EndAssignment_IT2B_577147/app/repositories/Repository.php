@@ -5,9 +5,9 @@ require_once __DIR__.'/../config/dbconfig.php';
 
 class Repository
 {
-    public DB $content_db;
-    public DB $users_db;
-    public DB $feed_db;
+    protected DB $content_db;
+    protected DB $users_db;
+    protected DB $feed_db;
 
     private array $configs;
 

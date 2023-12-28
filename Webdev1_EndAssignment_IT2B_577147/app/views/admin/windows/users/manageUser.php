@@ -5,8 +5,9 @@
             <strong>Profile Picture</strong>
     <div id="img-container" class="d-flex flex-column align-items-center">
         <img src="<?php echo (!isset($user))? '/media/placeholders/user-picture-placeholder.png' : $user->getPictureSrc()?>" width="200px" height="200px">
+        <span><?php echo (!isset($user))? '/media/placeholders/user-picture-placeholder.png' : $user->getPictureSrc()?></span>
         <div class="input-group mt-3">
-        <input type="file" class="form-control" name="profilepicture" id="profile-picture" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+        <input type="file" class="form-control" name="userpicture" id="profile-picture" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
         </div>
     </div>
     </div>

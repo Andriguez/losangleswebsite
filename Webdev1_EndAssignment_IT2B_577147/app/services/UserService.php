@@ -31,4 +31,11 @@ class UserService
     public function getUserByEmail($email){
         return $this->userRepo->getUserByEmail($email);
     }
+    public function createUser($userId, $firstname, $lastname, $email, $pronouns, $userType, $password, $pictureId = null){
+        $this->userRepo->createUser($userId, $firstname, $lastname, $email, $pronouns, $userType, $password, $pictureId = null);
+    }
+    public function updateUserPicture($pictureId, $userId)
+    {
+        $this->updateUserPicture($pictureId, $userId);
+    }
 }

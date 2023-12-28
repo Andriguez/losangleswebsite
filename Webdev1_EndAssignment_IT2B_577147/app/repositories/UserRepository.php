@@ -12,6 +12,45 @@ require __DIR__ . '/../repositories/ContentRepository.php';
 class UserRepository extends Repository
 {
     //users table
+    public function createUser($userId, $firstname, $lastname, $email, $pronouns, $userType, $password, $pictureId = null){
+        $query = "INSERT INTO `users`(`user_Id`, `user_firstname`, `user_lastname`, `user_email`, `user_pronouns`,
+                    `user_type`, `user_password`) VALUES (?,?,?,?,?,?,?)";
+
+        try {
+            $statement = $this->getusersDB()->prepare($query);
+            $statement->execute(array(
+                $userId,
+                $this->sanitizeText($firstname),
+                $this->sanitizeText($lastname),
+                $this->sanitizeText($email),
+                $this->sanitizeText($pronouns),
+                $userType,
+                $this->sanitizeText($password),));
+
+            if(isset($picture)){
+                $this->updateUserPicture($pictureId, $userId);
+            }
+
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+
+    }
+    public function updateUserPicture($pictureId, $userId){
+        $query = "UPDATE `users` SET `user_picture`=- :picturId WHERE user_Id = :userId";
+
+        try{
+            $statement = $this->getusersDB()->prepare($query);
+
+            $statement->bindParam(':pictureId', $pictureId, \PDO::PARAM_INT);
+            $statement->bindParam(':userId', $userId, \PDO::PARAM_INT);
+
+            $statement->execute();
+
+        }catch(\PDOException $e){
+            echo $e->getMessage();
+        }
+    }
     public function getUserById($id){
         $query = "SELECT user_Id, user_firstname, user_lastname, user_email, user_pronouns, user_picture, user_type,
        user_password FROM users WHERE user_Id = :id";
@@ -44,6 +83,21 @@ class UserRepository extends Repository
 
             return $user ?? null;
 
+        } catch (\PDOException $e){echo $e;}
+    }
+
+    public function getUserByEmail($email){
+        $query = "SELECT user_Id FROM users WHERE user_email = :email";
+        $sanitizedEmail = $this->sanitizeText($email);
+
+        try{
+            $statement = $this->getusersDB()->prepare($query);
+            $statement->bindParam(':email', $sanitizedEmail);
+
+
+            $statement->execute();
+
+            return $this->getUserById($statement->fetchColumn());
         } catch (\PDOException $e){echo $e;}
     }
 
@@ -116,21 +170,6 @@ class UserRepository extends Repository
 
             return $allUserTypes;
         }catch (\PDOException $e){echo $e;}
-    }
-
-    public function getUserByEmail($email){
-        $query = "SELECT user_Id FROM users WHERE user_email = :email";
-        $sanitizedEmail = $this->sanitizeText($email);
-
-        try{
-            $statement = $this->getusersDB()->prepare($query);
-            $statement->bindParam(':email', $sanitizedEmail);
-
-
-            $statement->execute();
-
-            return $this->getUserById($statement->fetchColumn());
-        } catch (\PDOException $e){echo $e;}
     }
 
     private function sanitizeText($input):string{

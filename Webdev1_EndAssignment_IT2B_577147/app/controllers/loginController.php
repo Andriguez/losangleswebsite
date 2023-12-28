@@ -5,22 +5,18 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 require __DIR__ . '/Controller.php';
-require __DIR__ . '/../services/UserService.php';
 require_once __DIR__.'/../models/User.php';
+require_once __DIR__ . '/UserAuth.php';
 
 use JetBrains\PhpStorm\NoReturn;
-use services\UserService;
-
 class loginController extends Controller
 {
-    protected UserService $userService;
+    private UserAuth $userAuth;
     public function index(){
         if(isset($_SESSION['user_id'])){
             $this->redirectPage();
         }
-
         require __DIR__ . '/../views/loginView.php';
-
     }
 
     public function access(){
@@ -28,27 +24,16 @@ class loginController extends Controller
             $_POST = filter_input_array(INPUT_POST);
             $email = $_POST['email'];
             $password = $_POST['password'];
-            $this->validateAccess($email, $password);
 
+            $this->userAuth = new UserAuth();
+            $result =$this->userAuth->userLogin($email, $password);
+            if(!$result[0]){
+                $this->loginError($result[1]);
+            } else{
+                $this->redirectPage();
+            }
         }
     }
-
-    private function validateAccess($email, $password){
-        $this->userService = new UserService();
-        $user = $this->userService->getUserByEmail($email);
-
-        if (is_null($user)){
-            $this->loginError('email');
-        }
-        else if ($user->getPassword() !== $password) {
-            $this->loginError('password');}
-        else{
-            $_SESSION['user_id'] = $user->getUserId();
-            $_SESSION['user_type'] = $user->getUserType()->getUserType();
-
-            $this->redirectPage();
-    } }
-
     private function loginError($error){
 
         $message = match ($error) {
