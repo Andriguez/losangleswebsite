@@ -12,9 +12,14 @@ require __DIR__ . '/../repositories/ContentRepository.php';
 class UserRepository extends Repository
 {
     //users table
-    public function createUser($userId, $firstname, $lastname, $email, $pronouns, $userType, $password, $pictureId = null){
+    public function createUser($userId, $firstname, $lastname, $email, $pronouns, $userType, $password, $pictureId){
         $query = "INSERT INTO `users`(`user_Id`, `user_firstname`, `user_lastname`, `user_email`, `user_pronouns`,
-                    `user_type`, `user_password`) VALUES (?,?,?,?,?,?,?)";
+                    `user_type`, `user_password`, `user_picture`) VALUES (?,?,?,?,?,?,?,?)";
+
+
+        if (is_null($pictureId)){
+            $pictureId = 1;
+        }
 
         try {
             $statement = $this->getusersDB()->prepare($query);
@@ -25,20 +30,18 @@ class UserRepository extends Repository
                 $this->sanitizeText($email),
                 $this->sanitizeText($pronouns),
                 $userType,
-                $this->sanitizeText($password),));
-
-            if(isset($picture)){
-                $this->updateUserPicture($pictureId, $userId);
-            }
+                $this->sanitizeText($password),
+                $pictureId));
 
         } catch (\PDOException $e) {
+            error_log($e);
             echo $e->getMessage();
         }
 
     }
     public function updateUserPicture($pictureId, $userId){
-        $query = "UPDATE `users` SET `user_picture`=- :picturId WHERE user_Id = :userId";
-
+        $query = "UPDATE `users` SET `user_picture` = :pictureId WHERE user_Id = :userId";
+        var_dump($pictureId);
         try{
             $statement = $this->getusersDB()->prepare($query);
 
@@ -48,6 +51,7 @@ class UserRepository extends Repository
             $statement->execute();
 
         }catch(\PDOException $e){
+            error_log($e);
             echo $e->getMessage();
         }
     }

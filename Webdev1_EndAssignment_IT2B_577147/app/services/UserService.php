@@ -22,7 +22,7 @@ class UserService
     public function getAllUsersByType($typeId):array{
         return $this->userRepo->getUsersByType($typeId);
     }
-    public function getTypeById($typeId):UserType{
+    public function getTypeById($typeId){
         return $this->userRepo->getTypeById($typeId);
     }
     public function getAllTypes():array{
@@ -31,8 +31,8 @@ class UserService
     public function getUserByEmail($email){
         return $this->userRepo->getUserByEmail($email);
     }
-    public function createUser($userId, $firstname, $lastname, $email, $pronouns, $userType, $password, $pictureId = null){
-        $this->userRepo->createUser($userId, $firstname, $lastname, $email, $pronouns, $userType, $password, $pictureId = null);
+    public function createUser($userId, $firstname, $lastname, $email, $pronouns, $userType, $password, $pictureId){
+        $this->userRepo->createUser($userId, $firstname, $lastname, $email, $pronouns, $userType, $password, $pictureId);
     }
     public function updateUserPicture($pictureId, $userId)
     {

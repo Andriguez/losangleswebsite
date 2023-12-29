@@ -29,6 +29,7 @@ class adminController extends Controller
     }
 
     public function index(){
+
         if ($this->userAuth->allowAdminAccess())
             $this->userService = new UserService();
             require __DIR__ . '/../views/admin/index.php';
@@ -126,16 +127,15 @@ class adminController extends Controller
                 $pronouns = $_POST['pronouns'];
                 //$password = $this->userAuth->hashPassword($_POST['password']);
                 $password = $_POST['password'];
+                $picture = null;
 
                 if(isset($_FILES['userpicture'])){
                     $picture = $this->uploadPicture('users/','userpicture');
-                    unset($_FILES['userpicture']);
-                    $this->userService->createUser($userId, $firstname, $lastname, $email, $pronouns, $usertype, $password, $picture);
-                } else{
-                    $this->userService->createUser($userId, $firstname, $lastname, $email, $pronouns, $usertype, $password);
                 }
+
+                $this->userService->createUser($userId, $firstname, $lastname, $email, $pronouns, $usertype, $password, $picture);
             }
-            //$this->index();
+            header("Location: /admin");
         }
 
     }

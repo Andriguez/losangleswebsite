@@ -1,7 +1,7 @@
 const adminMainWindow = document.getElementById("main-window-content")
 
 function openWindow(filePath) {
-    var xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
     xhr.open('GET', filePath, true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -33,4 +33,61 @@ function togglePassword(){
         passwordInput.type = 'password';
         button.textContent = 'Show';
     }
+}
+/*
+function displayInputImg(fileInput) {
+
+    // Check if any file is selected
+    if (fileInput.files.length > 0) {
+        let file = fileInput.files[0];
+
+        if (fileInput.parentElement.children[0].nodeName == 'img'){
+            let imgElement = fileInput.parentElement.children[0];
+        }
+        // Check if the selected file is an image
+        if (file.type.startsWith('image/')) {
+            // Create a FileReader to read the file
+            let reader = new FileReader();
+
+            reader.onload = function (e) {
+                // Set the thumbnail preview source
+                imgElement.src = e.target.result;
+            };
+
+            // Read the file as a data URL
+            reader.readAsDataURL(file);
+
+            // Show the preview container
+        } else {
+            alert('Please select a valid image file.');
+        }
+    }
+}*/
+function previewImage(fileInput, imgId) {
+    let previewContainer = fileInput.parentElement.parentElement;
+    let thumbnailPreview = document.getElementById(imgId);
+
+    fileInput.addEventListener('change', function () {
+        // Check if any file is selected
+        if (fileInput.files.length > 0) {
+            var file = fileInput.files[0];
+
+            // Check if the selected file is an image
+            if (file.type.startsWith('image/')) {
+                // Create a FileReader to read the file
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    // Set the thumbnail preview source
+                    thumbnailPreview.src = e.target.result;
+                };
+
+                // Read the file as a data URL
+                reader.readAsDataURL(file);
+
+            } else {
+                alert('Please select a valid image file.');
+            }
+        }
+    });
 }

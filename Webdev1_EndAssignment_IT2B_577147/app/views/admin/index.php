@@ -41,7 +41,7 @@ session_start();} ?>
                                     <div class="accordion-body">
                                         <!--CHiLD ACCORDION HOME-PAGE OPTIONS-->
                                         <ul class="nav nav-pills flex-column mb-auto">
-                                            <li><a href="#" onClick="openWindow('/admin/managehomepagelogo')" class="nav-link text-reset">Logo</a></li>
+                                            <li><a onClick="openWindow('/admin/managehomepagelogo')" class="nav-link text-reset">Logo</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -57,8 +57,8 @@ session_start();} ?>
                                     <div class="accordion-body">
                                         <!--CHiLD ACCORDION ARTISTS-PAGE OPTIONS-->
                                         <ul class="nav nav-pills flex-column mb-auto">
-                                            <li><a href="#" onclick="openWindow('admin/manageartistdetails')" class="nav-link text-reset">artists details</a></li>
-                                            <li><a href="#" onclick="openWindow('admin/viewdisciplines')" class="nav-link text-reset">disciplines</a></li>
+                                            <li><a onclick="openWindow('admin/manageartistdetails')" class="nav-link text-reset">artists details</a></li>
+                                            <li><a onclick="openWindow('admin/viewdisciplines')" class="nav-link text-reset">disciplines</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -74,10 +74,10 @@ session_start();} ?>
                                     <div class="accordion-body">
                                         <!--CHiLD ACCORDION EVENTS-PAGE OPTIONS-->
                                         <ul class="nav nav-pills flex-column mb-auto">
-                                            <li><a href="#" onclick="openWindow('admin/viewevents')" class="nav-link text-reset">events</a></li>
+                                            <li><a onclick="openWindow('admin/viewevents')" class="nav-link text-reset">events</a></li>
                                             <!--<li><a href="#" class="nav-link text-reset">Manage dates</a></li>-->
-                                            <li><a href="#" onclick="openWindow('admin/viewlocations')" class="nav-link text-reset">locations</a></li>
-                                            <li><a href="#" class="nav-link text-reset" onclick="openWindow('admin/viewtypes')">types</a></li>
+                                            <li><a onclick="openWindow('admin/viewlocations')" class="nav-link text-reset">locations</a></li>
+                                            <li><a class="nav-link text-reset" onclick="openWindow('admin/viewtypes')">types</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -93,8 +93,8 @@ session_start();} ?>
                                     <div class="accordion-body">
                                         <!--CHiLD ACCORDION ABOUT-PAGE OPTIONS-->
                                         <ul class="nav nav-pills flex-column mb-auto">
-                                            <li><a href="#" onclick="openWindow('admin/managedescription')" class="nav-link text-reset">about description</a></li>
-                                            <li><a href="#" onclick="openWindow('admin/manageadmindetails')" class="nav-link text-reset">angles details</a></li>
+                                            <li><a onclick="openWindow('admin/managedescription')" class="nav-link text-reset">about description</a></li>
+                                            <li><a onclick="openWindow('admin/manageadmindetails')" class="nav-link text-reset">angles details</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -115,9 +115,9 @@ session_start();} ?>
                     <div class="accordion-body">
                         <!--USERS CHILD OPTIONS-->
                         <ul class="nav nav-pills flex-column mb-auto">
-                            <li><a href="#" onclick="openWindow('admin/viewusers')" class="nav-link text-reset">users</a></li>
-                            <li><a href="#" onclick="openWindow('admin/manageuser')" class="nav-link text-reset">create user</a></li>
-                            <li><a href="#" onclick="openWindow('admin/managecollaboratorinfo')" class="nav-link text-reset">collaborator details</a></li>
+                            <li><a onclick="openWindow('admin/viewusers')" class="nav-link text-reset">users</a></li>
+                            <li><a onclick="openWindow('admin/manageuser')" class="nav-link text-reset">create user</a></li>
+                            <li><a onclick="openWindow('admin/managecollaboratorinfo')" class="nav-link text-reset">collaborator details</a></li>
                         </ul>
                     </div>
                 </div>
@@ -151,7 +151,7 @@ session_start();} ?>
                     <div class="accordion-body">
                         <!--FEED CHILD OPTIONS-->
                         <ul class="nav nav-pills flex-column mb-auto">
-                            <li><a href="#" onclick="openWindow('admin/viewtopics')" class="nav-link text-reset">topics</a></li>
+                            <li><a onclick="openWindow('admin/viewtopics')" class="nav-link text-reset">topics</a></li>
                         </ul>
                     </div>
                 </div>

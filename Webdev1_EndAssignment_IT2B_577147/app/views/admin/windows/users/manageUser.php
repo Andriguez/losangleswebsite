@@ -4,10 +4,9 @@
         <div class="col-md-4">
             <strong>Profile Picture</strong>
     <div id="img-container" class="d-flex flex-column align-items-center">
-        <img src="<?php echo (!isset($user))? '/media/placeholders/user-picture-placeholder.png' : $user->getPictureSrc()?>" width="200px" height="200px">
-        <span><?php echo (!isset($user))? '/media/placeholders/user-picture-placeholder.png' : $user->getPictureSrc()?></span>
+        <img id="imgthumbnail" src="<?php echo (!isset($user))? '/media/placeholders/user-picture-placeholder.png' : $user->getPictureSrc()?>" width="200px" height="200px">
         <div class="input-group mt-3">
-        <input type="file" class="form-control" name="userpicture" id="profile-picture" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+        <input type="file" class="form-control" name="userpicture" id="profile-picture" aria-describedby="inputGroupFileAddon04" aria-label="Upload" onclick="previewImage(this, 'imgthumbnail')">
         </div>
     </div>
     </div>
