@@ -1,5 +1,7 @@
 <?php
 namespace repositories;
+use controllers\UserAuth;
+use models\ContentType;
 use models\DirectoryLog;
 use models\MediaInfo;
 use models\Page;
@@ -17,7 +19,7 @@ class ContentRepository extends Repository
 {
     //content
     public function getContentById($id){
-        $query = "SELECT `page_content_Id`, `page_content_text`, `page_content_type`,
+        $query = "SELECT `page_content_Id`, `element_Id`, `page_content_text`, `page_content_type`,
        `page_content_media`, `parent_page` FROM `page_content` WHERE page_content_Id = :id";
 
         try{
@@ -30,9 +32,12 @@ class ContentRepository extends Repository
                 $pageContent = new PageContent();
                 $pageContent->setElementId($row['page_content_Id']);
                 $pageContent->setText($row['page_content_text']);
-                $pageContent->setType($row['page_content_type']);
-                $pageContent->setMedia($row['page_content_media']);
-                $pageContent->setParentPage($row['parent_page']);
+                $pageContent->setType($this->getTypeById($row['page_content_type']));
+                $pageContent->setParentPage($this->getPageById($row['parent_page']));
+
+                if (!is_null($row['page_content_media'])){
+                    $pageContent->setMedia($this->getMediaInfoById($row['page_content_media']));
+                }
             }
 
             return $pageContent;
@@ -46,11 +51,41 @@ class ContentRepository extends Repository
     }
     public function getAllContentByPageId($pageId){
         $query = "SELECT page_content_Id FROM page_content WHERE parent_page = :pageId";
-        $params = [':pageId', $pageId];
+        $params = [':pageId' => $pageId];
 
         return $this->getContent($query, $params);
     }
+    public function getContentByElementId($elementId)
+    {
+        $query = "SELECT page_content_Id FROM page_content WHERE `element_Id` = :elementID";
 
+        try{
+            $statement = $this->getContentDB()->prepare($query);
+            $statement->bindParam(':elementID', $elementId);
+
+            $statement->execute();
+
+            return $this->getContentById($statement->fetchColumn());
+        } catch (\PDOException $e){echo $e;}
+    }
+
+    public function updateContentTextByElementId($elementId, $textInput){
+        $query = "UPDATE `page_content` SET `page_content_text`= :text WHERE `element_Id` = :elementId";
+
+        $text = $this->sanitizeText($textInput);
+        try{
+            $statement = $this->getContentDB()->prepare($query);
+
+            $statement->bindParam(':text', $text);
+            $statement->bindParam(':elementId', $elementId);
+
+            $statement->execute();
+
+        }catch(\PDOException $e){
+            echo $e->getMessage();
+        }
+
+    }
     private function getContent($query, $params = null) {
         try {
             $statement = $this->getContentDB()->prepare($query);
@@ -62,13 +97,15 @@ class ContentRepository extends Repository
             }
 
             $statement->execute();
+            $allContent = [];
 
-            while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+            while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
                 $content = $this->getContentById($row['page_content_Id']);
                 $allContent[] = $content;
             }
             return $allContent;
         } catch (\PDOException $e){echo $e;}
+
     }
 
 
@@ -78,7 +115,7 @@ class ContentRepository extends Repository
        `page_directory`, `page_inNavbar` FROM `pages` WHERE page_Id = :Id";
 
         try{
-            $statement = $this->content_db->prepare($query);
+            $statement = $this->getContentDB()->prepare($query);
             $statement->bindParam(':Id', $id);
             $statement->execute();
 
@@ -89,9 +126,8 @@ class ContentRepository extends Repository
                 $page->setTitle($row['page_title']);
                 $page->setDisplayname($row['page_displayname']);
                 $page->setUrl($row['page_url']);
-                $page->setDirectoryPath($this->getLogById($row['page_directory']));
+                $page->setDirectoryPath($this->getDirectoryLogById($row['page_directory']));
                 $page->setInNavbar($row['page_inNavbar']);
-                $page->setContent($this->getAllContentByPageId($id));
             }
 
             return $page;
@@ -103,7 +139,7 @@ class ContentRepository extends Repository
         $query = "SELECT page_Id FROM pages";
 
         try{
-            $statement = $this->content_db->prepare($query);
+            $statement = $this->getContentDB()->prepare($query);
             $statement->execute();
 
             while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
@@ -122,7 +158,7 @@ class ContentRepository extends Repository
        `navbar_content_text`, `navbar_content_url` FROM `navbar_content` WHERE navbar_content_Id = :id";
 
         try{
-            $statement = $this->content_db->prepare($query);
+            $statement = $this->getContentDB()->prepare($query);
             $statement->bindParam(':id', $id);
             $statement->execute();
 
@@ -136,7 +172,7 @@ class ContentRepository extends Repository
         $query = "SELECT navbar_content_Id FROM navbar_content";
 
         try{
-            $statement = $this->content_db->prepare($query);
+            $statement = $this->getContentDB()->prepare($query);
             $statement->execute();
 
             while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
@@ -154,12 +190,17 @@ class ContentRepository extends Repository
         $query = "SELECT `content_type_Id`, `content_type_name` FROM `content_types` WHERE content_type_Id = :id";
 
         try{
-            $statement = $this->content_db->prepare($query);
-            $statement->bindParam(':id', $id);
+            $statement = $this->getContentDB()->prepare($query);
+            $statement->bindParam(':id', $id, \PDO::PARAM_INT);
             $statement->execute();
 
-            $statement->setFetchMode(\PDO::FETCH_CLASS, 'ContentType');
-            return $statement->fetch();
+            while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+                $contentType = new ContentType();
+                $contentType->setTypeId($row['content_type_Id']);
+                $contentType->setName($row['content_type_name']);
+            }
+
+            return $contentType;
 
         } catch (\PDOException $e){echo $e;}
     }
@@ -168,7 +209,7 @@ class ContentRepository extends Repository
         $query = "SELECT content_type_Id FROM content_types";
 
         try{
-            $statement = $this->content_db->prepare($query);
+            $statement = $this->getContentDB()->prepare($query);
             $statement->execute();
 
             while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
@@ -186,15 +227,15 @@ class ContentRepository extends Repository
         $query = "INSERT INTO `media`(`media_filename`, `media_type`, `media_path`) VALUES (?,?,?)";
 
         try {
-            $statement = $this->content_db->prepare($query);
+            $statement = $this->getContentDB()->prepare($query);
             $statement->execute(array(
                 $this->sanitizeText($filename),
                 $this->sanitizeText($mediaType),
                 $pathId,));
 
-            return $this->content_db->lastInsertId();
+            return $this->getContentDB()->lastInsertId();
 
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             echo $e->getMessage();
         }
     }

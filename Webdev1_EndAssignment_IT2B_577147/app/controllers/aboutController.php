@@ -15,7 +15,9 @@ class aboutController extends Controller
     public function index(){
         $content = $this->contentService->getAllContentByPageId(4);
         require __DIR__ . '/../views/about/index2.php';
+    }
 
-
+    public function getContentByElementId($elementId){
+        return $this->contentService->getContentByElementId($elementId)->getText();
     }
 }

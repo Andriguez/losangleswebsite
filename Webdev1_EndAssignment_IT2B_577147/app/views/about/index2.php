@@ -9,9 +9,9 @@
         <div class="row about-row">
             <div class="col about-col">
                 <div class="text-container">
-                    <a id="title-link" href="https://www.instagram.com/losanglescollective/"><span id="title-text" class="title"><?php echo $content['title-text']?></span></a>
-                    <span id="about-description" class="description">Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id.</span>
-                    <a id="contact-link" href="#"><span id="contact-text">Reach us</span></a>
+                    <a id="title-link" href="<?php echo $this->getContentByElementId('title-link')?>"><span id="title-text" class="title"><?php echo $this->getContentByElementId('title-text')?></span></a>
+                    <span id="about-description" class="description"><?php echo $this->getContentByElementId('about-description')?></span>
+                    <a id="footer-link" href="<?php echo $this->getContentByElementId('footer-link')?>"><span id="footer-text"><?php echo $this->getContentByElementId('footer-text')?></span></a>
                 </div>
             </div>
         </div>

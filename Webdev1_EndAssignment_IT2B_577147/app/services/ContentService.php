@@ -20,6 +20,9 @@ class ContentService
     public function getContentById($contentId):PageContent{
         return $this->contentRepo->getContentById($contentId);
     }
+    public function getContentByElementId($elementId){
+        return $this->contentRepo->getContentByElementId($elementId);
+    }
     public function getAllContent():array{
         return $this->contentRepo->getAllContent();
     }
@@ -62,4 +65,7 @@ class ContentService
     public function createMediaInfo($filename, $mediaType, $pathId){
         return $this->contentRepo->createMediaInfo($filename, $mediaType, $pathId);
     }
+    public function updateContentTextByElementId($elementId, $text){
+        $this->contentRepo->updateContentTextByElementId($elementId, $text);
+}
 }

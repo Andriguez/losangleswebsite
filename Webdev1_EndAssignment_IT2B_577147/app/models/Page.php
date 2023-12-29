@@ -6,7 +6,6 @@ class Page
 {
     private int $page_Id;
     private string $page_title, $page_displayname, $page_url;
-    private array $page_content = [];
     private DirectoryLog $page_directory;
     private bool $page_inNavbar;
 
@@ -15,7 +14,6 @@ class Page
     public function setTitle($title){$this->page_title = $title;}
     public function setDisplayname($name){$this->page_displayname = $name;}
     public function setUrl($url){$this->page_url = $url;}
-    public function setContent($table){$this->page_content = $table;}
     public function setDirectoryPath($path){$this->page_directory = $path;}
     public function setInNavbar($bit){$this->page_inNavbar = $bit;}
 
@@ -24,7 +22,6 @@ class Page
     public function getTitle():string{return $this->page_title;}
     public function getDisplayname():string{return $this->page_displayname;}
     public function getUrl():string{return $this->page_url;}
-    public function getContent():array{return $this->page_content;}
     public function getDirectoryPath():DirectoryLog{return $this->page_directory;}
     public function getInNavbar():bool{return $this->page_inNavbar;}
 

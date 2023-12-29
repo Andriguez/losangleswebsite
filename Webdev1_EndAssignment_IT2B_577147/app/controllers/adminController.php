@@ -82,9 +82,30 @@ class adminController extends Controller
     }
     public function manageDescription(){
         if($this->userAuth->allowAdminAccess()){
-            $content = $this->contentService->getAllContentByPageId(4);
             require __DIR__ . '/../views/admin/windows/content/aboutpage/manageDescription.php';
         }
+    }
+    public function updateAboutContent(){
+        if($this->userAuth->allowAdminAccess()){
+            if($_SERVER['REQUEST_METHOD'] === 'POST'){
+
+                $title = $_POST['title-text'];
+                $titlelink = $_POST['title-link'];
+                $description = $_POST['about-description'];
+                $footer = $_POST['footer-text'];
+                $footerlink = $_POST['footer-link'];
+
+                $this->contentService->updateContentTextByElementId('title-text', $title);
+                $this->contentService->updateContentTextByElementId('title-link', $titlelink);
+                $this->contentService->updateContentTextByElementId('about-description', $description);
+                $this->contentService->updateContentTextByElementId('footer-text', $footer);
+                $this->contentService->updateContentTextByElementId('footer-link', $footerlink);
+            }
+            header("Location: /admin");
+        }
+    }
+    public function getElementContent($elementId){
+        return $this->contentService->getContentByElementId($elementId)->getText();
     }
     public function viewApplications(){
         if($this->userAuth->allowAdminAccess())
