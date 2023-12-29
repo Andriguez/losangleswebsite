@@ -7,6 +7,8 @@ use models\NavbarElement;
 use models\PageContent;
 use repositories\ContentRepository;
 use models\Page;
+
+require_once __DIR__.'/../repositories/ContentRepository.php';
 class ContentService
 {
     private ContentRepository $contentRepo;

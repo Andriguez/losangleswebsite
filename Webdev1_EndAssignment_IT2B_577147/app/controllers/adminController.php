@@ -81,8 +81,10 @@ class adminController extends Controller
             require __DIR__ . '/../views/admin/windows/content/aboutpage/manageAngleDetails.php';
     }
     public function manageDescription(){
-        if($this->userAuth->allowAdminAccess())
+        if($this->userAuth->allowAdminAccess()){
+            $content = $this->contentService->getAllContentByPageId(4);
             require __DIR__ . '/../views/admin/windows/content/aboutpage/manageDescription.php';
+        }
     }
     public function viewApplications(){
         if($this->userAuth->allowAdminAccess())

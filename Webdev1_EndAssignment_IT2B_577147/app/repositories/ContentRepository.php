@@ -3,27 +3,39 @@ namespace repositories;
 use models\DirectoryLog;
 use models\MediaInfo;
 use models\Page;
+use models\PageContent;
+
 require_once __DIR__.'/../models/DirectoryLog.php';
 require_once __DIR__.'/../models/Page.php';
 require_once __DIR__.'/../models/PageContent.php';
 require_once __DIR__.'/../models/ContentType.php';
 require_once __DIR__.'/../models/MediaInfo.php';
 require_once __DIR__.'/../models/NavbarElement.php';
+require_once __DIR__.'/../repositories/Repository.php';
 
 class ContentRepository extends Repository
 {
     //content
     public function getContentById($id){
-        $query = "SELECT `page_content_Id`, `page_content_name`, `page_content_text`, `page_content_type`,
+        $query = "SELECT `page_content_Id`, `page_content_text`, `page_content_type`,
        `page_content_media`, `parent_page` FROM `page_content` WHERE page_content_Id = :id";
 
         try{
-            $statement = $this->content_db->prepare($query);
-            $statement->bindParam(':id', $id);
+            $statement = $this->getContentDB()->prepare($query);
+            $statement->bindParam(':id', $id, \PDO::PARAM_INT);
             $statement->execute();
 
-            $statement->setFetchMode(\PDO::FETCH_CLASS, 'PageContent');
-            return $statement->fetch();
+            while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+
+                $pageContent = new PageContent();
+                $pageContent->setElementId($row['page_content_Id']);
+                $pageContent->setText($row['page_content_text']);
+                $pageContent->setType($row['page_content_type']);
+                $pageContent->setMedia($row['page_content_media']);
+                $pageContent->setParentPage($row['parent_page']);
+            }
+
+            return $pageContent;
 
         } catch (\PDOException $e){echo $e;}
     }
@@ -41,7 +53,7 @@ class ContentRepository extends Repository
 
     private function getContent($query, $params = null) {
         try {
-            $statement = $this->content_db->prepare($query);
+            $statement = $this->getContentDB()->prepare($query);
 
             if (isset($params)) {
                 foreach ($params as $pname => $pvalue) {

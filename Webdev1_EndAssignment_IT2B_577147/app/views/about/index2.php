@@ -9,9 +9,9 @@
         <div class="row about-row">
             <div class="col about-col">
                 <div class="text-container">
-                    <a href="https://www.instagram.com/losanglescollective/"><span class="title">Meet Los Angles</span></a>
-                    <span class="description">Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id.</span>
-                    <a href="#"><span>Reach us</span></a>
+                    <a id="title-link" href="https://www.instagram.com/losanglescollective/"><span id="title-text" class="title"><?php echo $content['title-text']?></span></a>
+                    <span id="about-description" class="description">Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id.</span>
+                    <a id="contact-link" href="#"><span id="contact-text">Reach us</span></a>
                 </div>
             </div>
         </div>

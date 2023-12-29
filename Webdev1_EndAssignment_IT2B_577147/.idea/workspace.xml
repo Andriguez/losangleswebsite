@@ -5,27 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/public/media/users/IMG_4747.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/media/users/place-holder-angle.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/aboutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/aboutController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/adminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/js/adminscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/js/adminscript.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/media/users/Logo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/media/users/WhatsApp Image 2023-11-26 at 22.03.38_b74b40ca.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/media/users/artist2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/media/users/artist3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/media/users/artist4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/media/users/artist5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/media/users/event1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/media/users/event2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/media/users/event4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/media/users/event5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/media/users/logo-specifications.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/media/users/logoplaceholder.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/UserService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/users/manageUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/users/manageUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/users/viewUsers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/users/viewUsers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/PageContent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/PageContent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/users/IMG_4747.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/users/place-holder-angle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/ContentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/ContentRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/ContentService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/ContentService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/about/index2.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/about/index2.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +116,7 @@
       <workItem from="1703610332816" duration="2300000" />
       <workItem from="1703634191947" duration="22790000" />
       <workItem from="1703691724733" duration="27439000" />
-      <workItem from="1703794238399" duration="11585000" />
+      <workItem from="1703794238399" duration="14520000" />
     </task>
     <servers />
   </component>
