@@ -1,6 +1,6 @@
 <div id="manageuser">
     <h1><?php echo (!isset($user))? 'Create New User' : 'Edit User'?></h1>
-    <form action="/admin/createuser" method="POST" class="container row" enctype="multipart/form-data">
+    <form action="<?php echo (!isset($user))? '/admin/createuser' : '/admin/updateuserinfo/'.$user->getUserId();?>" method="POST" class="container row" enctype="multipart/form-data">
         <div class="col-md-4">
             <strong>Profile Picture</strong>
     <div id="img-container" class="d-flex flex-column align-items-center">

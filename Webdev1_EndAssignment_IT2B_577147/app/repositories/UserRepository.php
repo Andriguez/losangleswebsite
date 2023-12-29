@@ -37,11 +37,33 @@ class UserRepository extends Repository
             error_log($e);
             echo $e->getMessage();
         }
+    }
 
+    public function updateUserInfo($userId, $firstname, $lastname, $email, $pronouns, $userType, $password){
+        $query = "UPDATE `users` SET `user_firstname`= :firstname ,`user_lastname`= :lastname,`user_email`= :email,
+                   `user_pronouns`= :pronouns,`user_type`= :usertype,`user_password`= :password WHERE user_Id = :userId";
+
+        try{
+            $statement = $this->getusersDB()->prepare($query);
+
+            $statement->bindParam(':userId', $userId, \PDO::PARAM_INT);
+            $statement->bindParam(':firstname', $firstname);
+            $statement->bindParam(':lastname', $lastname);
+            $statement->bindParam(':email', $email);
+            $statement->bindParam(':pronouns', $pronouns);
+            $statement->bindParam(':usertype', $userType);
+            $statement->bindParam(':password', $password);
+
+            $statement->execute();
+
+        }catch(\PDOException $e){
+            error_log($e);
+            echo $e->getMessage();
+        }
     }
     public function updateUserPicture($pictureId, $userId){
         $query = "UPDATE `users` SET `user_picture` = :pictureId WHERE user_Id = :userId";
-        var_dump($pictureId);
+
         try{
             $statement = $this->getusersDB()->prepare($query);
 
@@ -51,7 +73,19 @@ class UserRepository extends Repository
             $statement->execute();
 
         }catch(\PDOException $e){
-            error_log($e);
+            echo $e->getMessage();
+        }
+    }
+    public function deleteUser($userId){
+        $query = "DELETE FROM `users` WHERE user_Id = :userId";
+
+        try{
+            $statement = $this->getusersDB()->prepare($query);
+
+            $statement->bindParam(':userId', $userId, \PDO::PARAM_INT);
+            $statement->execute();
+
+        }catch(\PDOException $e){
             echo $e->getMessage();
         }
     }

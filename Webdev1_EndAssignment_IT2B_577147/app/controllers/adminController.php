@@ -137,7 +137,6 @@ class adminController extends Controller
             }
             header("Location: /admin");
         }
-
     }
     public function uploadPicture($mediaDirectory, $mediaType){
         if ($_FILES['userpicture']['error'] == UPLOAD_ERR_OK) {
@@ -153,6 +152,36 @@ class adminController extends Controller
 
             return $this->contentService->createMediaInfo($fileName, $mediaType, $directoryId);
         }
+    }
+
+    public function updateUserInfo($userId){
+        if($this->userAuth->allowAdminAccess()){
+            if($_SERVER['REQUEST_METHOD'] === 'POST'){
+
+                $firstname = $_POST['firstname'];
+                $lastname = $_POST['lastname'];
+                $email = $_POST['email'];
+                $usertype = $_POST['usertype'];
+                $pronouns = $_POST['pronouns'];
+                //$password = $this->userAuth->hashPassword($_POST['password']);
+                $password = $_POST['password'];
+
+                if(isset($_FILES['userpicture'])){
+                    $picture = $this->uploadPicture('users/','userpicture');
+                    $this->userService->updateUserPicture($picture, $userId);
+                }
+
+                $this->userService->updateUserInfo($userId, $firstname, $lastname, $email, $pronouns, $usertype, $password);
+            }
+            header("Location: /admin");
+        }
+    }
+
+    public function deleteUSer($userId){
+        if($this->userAuth->allowAdminAccess()){
+            $this->userService->deleteUser($userId);
+        }
+        header("Location: /admin");
     }
     public function manageCollaboratorInfo(){
         if($this->userAuth->allowAdminAccess())

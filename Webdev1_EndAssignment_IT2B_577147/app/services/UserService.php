@@ -34,8 +34,14 @@ class UserService
     public function createUser($userId, $firstname, $lastname, $email, $pronouns, $userType, $password, $pictureId){
         $this->userRepo->createUser($userId, $firstname, $lastname, $email, $pronouns, $userType, $password, $pictureId);
     }
+    public function updateUserInfo($userId, $firstname, $lastname, $email, $pronouns, $userType, $password){
+        $this->userRepo->updateUserInfo($userId, $firstname, $lastname, $email, $pronouns, $userType, $password);
+    }
     public function updateUserPicture($pictureId, $userId)
     {
-        $this->updateUserPicture($pictureId, $userId);
+        $this->userRepo->updateUserPicture($pictureId, $userId);
+    }
+    public function deleteUser($userId){
+        $this->userRepo->deleteUser($userId);
     }
 }

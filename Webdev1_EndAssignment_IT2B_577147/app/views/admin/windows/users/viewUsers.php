@@ -39,7 +39,7 @@
 
 
 <div id="button-container">
-        <button type="button" class="btn btn-danger">Delete</button>
-        <button class="btn btn-primary" type="button" id="editSelectedUserBtn" onclick="editSelectedUser()">Edit</button>
+        <button type="button" class="btn btn-danger" onclick="selectedUserAction('deleteuser', true)">Delete</button>
+        <button class="btn btn-primary" type="button" id="editSelectedUserBtn" onclick="selectedUserAction('manageuser', false)">Edit</button>
     </div>
 </div>
