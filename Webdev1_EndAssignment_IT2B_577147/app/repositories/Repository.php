@@ -5,9 +5,9 @@ require_once __DIR__.'/../config/dbconfig.php';
 
 class Repository
 {
-    protected DB $content_db;
-    protected DB $users_db;
-    protected DB $feed_db;
+    private DB $content_db;
+    private DB $users_db;
+    private DB $feed_db;
 
     private array $configs;
 
@@ -26,10 +26,10 @@ class Repository
     }
     function getusersDB(){
         DB::switchDatabase($this->configs[1]);
-        return $this->content_db = DB::getInstance($this->configs[1]);
+        return $this->users_db = DB::getInstance($this->configs[1]);
     }
     function getfeedDB(){
         DB::switchDatabase($this->configs[2]);
-        return $this->content_db = DB::getInstance($this->configs[2]);
+        return $this->feed_db = DB::getInstance($this->configs[2]);
     }
 }

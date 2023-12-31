@@ -4,7 +4,6 @@ namespace models;
 
 class ArtistContent
 {
-    private Artist $artist_Id;
     private string $artist_stagename, $artist_extralink, $artist_email,
         $artist_location, $artist_description, $artist_socialmedia, $artist_soundcloud_url;
     private ArtistDiscipline $artist_discipline;
@@ -12,7 +11,6 @@ class ArtistContent
 
 
     //setters
-    public function setArtist($artist){$this->artist_Id = $artist;}
     public function setStagename($stagename){$this->artist_stagename = $stagename;}
     public function setExtraLink($extralink){$this->artist_extralink = $extralink;}
     public function setEmail($email){$this->artist_email = $email;}
@@ -24,7 +22,6 @@ class ArtistContent
     public function setPicture($media){$this->artist_picture = $media;}
 
     //getters
-    public function getArtist():Artist{return $this->artist_Id;}
     public function getStagename():string{return $this->artist_stagename;}
     public function getExtraLink():string{return $this->artist_extralink;}
     public function getEmail():string{return $this->artist_email;}

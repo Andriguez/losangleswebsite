@@ -1,6 +1,8 @@
 <?php
 namespace repositories;
 use controllers\UserAuth;
+use models\AdminContent;
+use models\ArtistContent;
 use models\ContentType;
 use models\DirectoryLog;
 use models\MediaInfo;
@@ -13,11 +15,57 @@ require_once __DIR__.'/../models/PageContent.php';
 require_once __DIR__.'/../models/ContentType.php';
 require_once __DIR__.'/../models/MediaInfo.php';
 require_once __DIR__.'/../models/NavbarElement.php';
+require_once __DIR__.'/../models/AdminContent.php';
 require_once __DIR__.'/../repositories/Repository.php';
 
 class ContentRepository extends Repository
 {
     //content
+    public function getAdminContentById($adminId){
+        $query = "SELECT `admin_name_link`, `admin_titles`, `admin_description`, `admin_picture` FROM `admin_content` WHERE `admin_Id` = :adminId";
+
+        try{
+            $statement = $this->getContentDB()->prepare($query);
+            $statement->bindParam(':adminId', $adminId, \PDO::PARAM_INT);
+            $statement->execute();
+
+            while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+
+                $adminContent = new AdminContent();
+                $adminContent->setNameLink($row['admin_name_link']);
+                $adminContent->setTitles($row['admin_titles']);
+                $adminContent->setDescription($row['admin_description']);
+
+                if (!is_null($row['admin_picture'])){
+                    $adminContent->setPicture($this->getMediaInfoById($row['admin_picture']));
+                }
+            }
+
+            return $adminContent ?? null;
+
+        } catch (\PDOException $e){echo $e;}
+    }
+    public function getCollaboratorContentById($adminId){
+    $query = "";
+
+    try{
+        $statement = $this->getContentDB()->prepare($query);
+        $statement->bindParam(':adminId', $adminId, \PDO::PARAM_INT);
+        $statement->execute();
+
+        while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+
+            $adminContent = new AdminContent();
+            $adminContent->setNameLink($row['admin_name_link']);
+            $adminContent->setTitles($row['admin_titles']);
+            $adminContent->setDescription($row['admin_description']);
+            $adminContent->setPicture($this->getMediaInfoById($row['admin_picture']));
+        }
+
+        return $adminContent ?? null;
+
+    } catch (\PDOException $e){echo $e;}
+}
     public function getContentById($id){
         $query = "SELECT `page_content_Id`, `element_Id`, `page_content_text`, `page_content_type`,
        `page_content_media`, `parent_page` FROM `page_content` WHERE page_content_Id = :id";
@@ -264,7 +312,7 @@ class ContentRepository extends Repository
         $query = "SELECT media_Id FROM media";
 
         try{
-            $statement = $this->content_db->prepare($query);
+            $statement = $this->getContentDB()->prepare($query);
             $statement->execute();
 
             while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
@@ -287,7 +335,7 @@ class ContentRepository extends Repository
                 $this->sanitizeText($type),
                 $this->sanitizeText($path),));
 
-            return $this->content_db->lastInsertId();
+            return $this->getContentDB()->lastInsertId();
         } catch (PDOException $e) {
             echo $e->getMessage();
         }

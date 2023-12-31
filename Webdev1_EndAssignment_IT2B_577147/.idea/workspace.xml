@@ -5,15 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/models/CollaboratorContent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/51cfa111-f852-4349-9f6f-ece595806c11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/51cfa111-f852-4349-9f6f-ece595806c11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/abb37cc5-b258-4574-a5ed-09fb19a58ae0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/abb37cc5-b258-4574-a5ed-09fb19a58ae0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e0c6b955-f3ce-46fe-a946-bbf3f938ffa8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e0c6b955-f3ce-46fe-a946-bbf3f938ffa8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/aboutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/aboutController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/adminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Page.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Page.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/PageContent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/PageContent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/AdminContent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/AdminContent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Artist.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Artist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/ArtistContent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ArtistContent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Collaborator.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Collaborator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/js/adminscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/js/adminscript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/style/adminstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/style/adminstyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/ArtistRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/ArtistRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/repositories/ContentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/ContentRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/ContentService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/ContentService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/about/index2.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/about/index2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/content/aboutpage/manageDescription.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/content/aboutpage/manageDescription.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/Repository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/Repository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/content/aboutpage/manageAngleDetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/content/aboutpage/manageAngleDetails.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +127,8 @@
       <workItem from="1703634191947" duration="22790000" />
       <workItem from="1703691724733" duration="27439000" />
       <workItem from="1703794238399" duration="14520000" />
-      <workItem from="1703850735531" duration="13920000" />
+      <workItem from="1703850735531" duration="14205000" />
+      <workItem from="1703980102991" duration="10217000" />
     </task>
     <servers />
   </component>

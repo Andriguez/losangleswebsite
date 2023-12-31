@@ -76,31 +76,36 @@ class adminController extends Controller
         if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/content/eventspage/manageType.php';
     }
-    public function manageAdminDetails(){
+    public function manageAdminDetails($adminId = null){
         if($this->userAuth->allowAdminAccess())
+            $users = $this->userService->getAllUsersByType(2);
+            if(isset($adminId)){
+                $selectedAdmin = $this->userService->getUserById($adminId);
+                $adminContent = $selectedAdmin->getAdminContent();
+
+            }
             require __DIR__ . '/../views/admin/windows/content/aboutpage/manageAngleDetails.php';
     }
+
     public function manageDescription(){
         if($this->userAuth->allowAdminAccess()){
             require __DIR__ . '/../views/admin/windows/content/aboutpage/manageDescription.php';
         }
     }
-    public function updateAboutContent(){
-        if($this->userAuth->allowAdminAccess()){
-            if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    public function updateAboutContent() {
+        if ($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'POST') {
+            $elements = [
+                'title-text' => $_POST['title-text'],
+                'title-link' => $_POST['title-link'],
+                'about-description' => $_POST['about-description'],
+                'footer-text' => $_POST['footer-text'],
+                'footer-link' => $_POST['footer-link'],
+            ];
 
-                $title = $_POST['title-text'];
-                $titlelink = $_POST['title-link'];
-                $description = $_POST['about-description'];
-                $footer = $_POST['footer-text'];
-                $footerlink = $_POST['footer-link'];
-
-                $this->contentService->updateContentTextByElementId('title-text', $title);
-                $this->contentService->updateContentTextByElementId('title-link', $titlelink);
-                $this->contentService->updateContentTextByElementId('about-description', $description);
-                $this->contentService->updateContentTextByElementId('footer-text', $footer);
-                $this->contentService->updateContentTextByElementId('footer-link', $footerlink);
+            foreach ($elements as $elementId => $input) {
+                $this->contentService->updateContentTextByElementId($elementId, $input);
             }
+
             header("Location: /admin");
         }
     }

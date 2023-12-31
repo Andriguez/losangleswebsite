@@ -1131,7 +1131,7 @@ developmentdb|schema||developer||UPDATE|G</Grants>
     </schema>
     <schema id="327" parent="1" name="losangles_feed">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2023-12-26.17:13:12</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2023-12-31.01:30:58</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="328" parent="1" name="losangles_users">

@@ -4,12 +4,12 @@ namespace models;
 
 class Admin extends User
 {
-    protected AdminContent $admin_content;
+    protected ?AdminContent $admin_content;
 
     //setters
-    public function setAdminInfo($adminInfo){$this->admin_content = $adminInfo;}
+    public function setAdminContent($adminInfo){$this->admin_content = $adminInfo;}
 
     //getters
-    public function getAdminInfo():AdminContent{return $this->admin_content;}
+    public function getAdminContent():AdminContent{return $this->admin_content;}
 
 }

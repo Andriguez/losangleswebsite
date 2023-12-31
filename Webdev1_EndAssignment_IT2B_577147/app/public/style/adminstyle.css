@@ -223,7 +223,18 @@ body{
             width: 500px;
             button{
                 float: right;
-            } } }}
+            }
+        }
+        #img-container{
+            background-color: lightgrey;
+            border: 2px black solid;
+            padding: 5px;
+
+            img{
+                max-width: 200px !important;
+                max-height: 200px !important;
+            }
+        }}}
 
 /*VIEW USERS*/
 #viewusers{

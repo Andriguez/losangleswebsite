@@ -40,6 +40,12 @@ function selectedUserAction(action, reload){
     }
 }
 
+function displaySelectedUserDetails(selectElement, functionName){
+    userId = selectElement.value;
+    let filepath = 'admin/'+functionName+'/'+userId;
+
+    openWindow(filepath)
+}
 function togglePassword(){
     const passwordInput = document.getElementById('inputPassword');
     const button = document.getElementById('togglePasswordbtn');

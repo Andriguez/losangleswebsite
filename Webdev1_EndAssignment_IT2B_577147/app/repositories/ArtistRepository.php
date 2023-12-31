@@ -1,6 +1,8 @@
 <?php
 namespace repositories;
 use models\Artist;
+use models\ArtistContent;
+
 require __DIR__.'/../models/Artist.php';
 require __DIR__.'/../models/ArtistDiscipline.php';
 require __DIR__.'/../models/ArtistContent.php';
@@ -10,42 +12,11 @@ require __DIR__.'/../models/MediaInfo.php';
 class ArtistRepository extends Repository
 {
     //artists
-    public function getArtistById(int $id){
-        $query = "SELECT  `user_firstname`, `user_lastname`, `user_email`, `user_pronouns`,`user_picture`,
-        `user_type`, `user_password` FROM `users` WHERE user_Id = :Id";
-
-        try{
-            $statement = $this->users_db->prepare($query);
-            $statement->bindParam(':Id', $id);
-            $statement->execute();
-
-            $userRepo = new UserRepository();
-            $mediaRepo = new MediaInfoRepository();
-
-            while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
-
-                $artist = new Artist();
-                $artist->setUserId($id);
-                $artist->setFirstName($row['user_firstname']);
-                $artist->setLastName($row['user_lastname']);
-                $artist->setEmail($row['user_email']);
-                $artist->setPronouns($row['user_pronouns']);
-                $artist->setPassword($row['user_password']);
-                $artist->setUserType($userRepo->getUserTypeById($row['user_type']));
-                $artist->setMediaInfo($mediaRepo->getMediaInfoById($row['user_picture']));
-                $artist->setDetailPage($this->getArtistContentById($row['user_Id']));
-                }
-
-            return $artist;
-
-        }catch(PDOException $e){echo $e;}
-    }
-
     public function getAllArtists(){
         $query = "SELECT artist_Id FROM artist_content";
 
         try{
-            $statement = $this->content_db->prepare($query);
+            $statement = $this->getContentDB()->prepare($query);
             $statement->execute();
 
             while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
@@ -59,18 +30,33 @@ class ArtistRepository extends Repository
     }
 
     //content
-    public function getArtistContentById($id){
-        $query = "SELECT `artist_Id`, `artist_name`, `artist_description`, `artist_discipline`, `artist_pronouns`,
-       `artist_email`, `artist_soundcloud_url`, `artist_socialmedia`, `artist_stagename`, `artist_picture`,
-       `artist_location` FROM `artist_content` WHERE artist_Id = :id";
+    public function getArtistContentById($artistId){
+        $query = "SELECT `artist_description`, `artist_discipline`, `artist_extralink`, `artist_email`,
+       `artist_soundcloud_url`, `artist_socialmedia`, `artist_stagename`, `artist_picture`, `artist_location` 
+       FROM `artist_content` WHERE artist_Id = :artistId";
 
         try{
-            $statement = $this->content_db->prepare($query);
-            $statement->bindParam(':id', $id);
+            $statement = $this->getContentDB()->prepare($query);
+            $statement->bindParam(':$artistId', $artistId, \PDO::PARAM_INT);
             $statement->execute();
 
-            $statement->setFetchMode(\PDO::FETCH_CLASS, 'ArtistContent');
-            return $statement->fetch();
+            while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+
+                $artistContent = new ArtistContent();
+                $artistContent->setDescription($row['artist_description']);
+                $artistContent->setDiscipline($this->getDisciplineById(['artist_discipline']));
+                $artistContent->setExtraLink($row['artist_extralink']);
+                $artistContent->setEmail($row['artist_email']);
+                $artistContent->setSoundcloudUrl($row['artist_soundcloud_url']);
+                $artistContent->setSocials($row['artist_socialmedia']);
+                $artistContent->setStagename($row['artist_stagename']);
+                $artistContent->setLocation($row['artist_location']);
+
+                $contentRepo = new ContentRepository();
+                $artistContent->setDescription($contentRepo->getMediaInfoById($row['artist_picture']));
+            }
+
+            return $artistContent ?? null;
 
         } catch (\PDOException $e){echo $e;}
     }
@@ -88,7 +74,7 @@ class ArtistRepository extends Repository
 
     private function getContent($query, $params = null) {
         try {
-            $statement = $this->content_db->prepare($query);
+            $statement = $this->getContentDB()->prepare($query);
 
             if (isset($params)) {
                 foreach ($params as $pname => $pvalue) {
@@ -111,7 +97,7 @@ class ArtistRepository extends Repository
         `artist_disciplines` WHERE artist_discipline_Id = :id";
 
         try{
-            $statement = $this->content_db->prepare($query);
+            $statement = $this->getContentDB()->prepare($query);
             $statement->bindParam(':id', $id);
             $statement->execute();
 
@@ -125,7 +111,7 @@ class ArtistRepository extends Repository
         $query = "SELECT artist_discipline_Id FROM artist_disciplines";
 
         try{
-            $statement = $this->content_db->prepare($query);
+            $statement = $this->getContentDB()->prepare($query);
             $statement->execute();
 
             while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {

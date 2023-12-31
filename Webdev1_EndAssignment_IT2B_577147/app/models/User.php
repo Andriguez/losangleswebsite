@@ -36,7 +36,7 @@ class User implements JsonSerializable
     public function getMediaInfo():MediaInfo{return $this->user_picture;}
     public function getUserType():UserType{return $this->user_type;}
     public function getPictureSrc():string{return $this->getMediaInfo()->getMediaPath()->getPath().$this->getMediaInfo()->getMediaFilename();}
-
+    public function getFullName():string{return $this->getFirstName().' '.$this->getLastName();}
     //constructor
     public function __construct(){
 

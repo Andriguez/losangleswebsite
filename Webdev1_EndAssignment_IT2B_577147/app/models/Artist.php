@@ -4,7 +4,7 @@ namespace models;
 
 class Artist extends User
 {
-    protected ArtistContent $artist_content;
+    protected ?ArtistContent $artist_content;
 
     //constructor
     public function __construct()
@@ -12,9 +12,9 @@ class Artist extends User
     }
 
     //setters
-    public function setDetailPage($detailPage){$this->artist_content = $detailPage;}
+    public function setArtistContent($artistContent){$this->artist_content = $artistContent;}
 
     //getters
-    public function getDetailPage():ArtistContent{return $this->artist_content;}
+    public function getArtistContent():ArtistContent{return $this->artist_content;}
 
 }

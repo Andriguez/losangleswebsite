@@ -1134,7 +1134,7 @@ developmentdb|schema||developer||UPDATE|G</Grants>
     </schema>
     <schema id="328" parent="1" name="losangles_users">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2023-12-26.17:13:26</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2023-12-31.01:31:02</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="329" parent="1" name="mysql">
@@ -1311,6 +1311,8 @@ developmentdb|schema||developer||UPDATE|G</Grants>
     </column>
     <column id="367" parent="338" name="user_picture">
       <DasType>int(11)|0s</DasType>
+      <DefaultExpression>1</DefaultExpression>
+      <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
     <foreign-key id="368" parent="338" name="usertype_FK">

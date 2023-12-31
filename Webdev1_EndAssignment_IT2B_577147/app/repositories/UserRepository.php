@@ -1,9 +1,15 @@
 <?php
 namespace repositories;
+use models\Admin;
+use models\Artist;
+use models\Collaborator;
 use models\User;
 use models\UserType;
 
 require_once __DIR__.'/../models/User.php';
+require_once __DIR__.'/../models/Admin.php';
+require_once __DIR__.'/../models/Collaborator.php';
+require_once __DIR__.'/../models/Artist.php';
 require_once __DIR__.'/../models/UserType.php';
 require_once __DIR__.'/../models/MediaInfo.php';
 require __DIR__ . '/../repositories/Repository.php';
@@ -98,25 +104,41 @@ class UserRepository extends Repository
             $statement->bindParam(':id', $id, \PDO::PARAM_INT);
             $statement->execute();
 
-            //$statement->setFetchMode(\PDO::FETCH_CLASS, 'models\User');
-            //return $statement->fetch();
-
             while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
 
-                $user = new User();
-                $user->setUserId($row['user_Id']);
+                $userType = $this->getTypeById($row['user_type']);
+                $userId = $row['user_Id'];
+                $contentRepo = new ContentRepository();
+
+                switch ($userType->getUserType()){
+                    case 'admin':
+                        $user = new Admin();
+                        $user->setAdminContent($contentRepo->getAdminContentById($userId));
+                        break;
+                    case 'artists':
+                        $artistRepo = new ArtistRepository();
+                        $user = new Artist();
+                        $user->setArtistContent($artistRepo->getArtistContentById($userId));
+                        break;
+                    case 'collaborator':
+                        $user = new Collaborator();
+                        $user->setCollaboratorContent($contentRepo->getCollaboratorContentById($userId));
+                        break;
+                    default:
+                        $user = new User;
+                }
+
+                $user->setUserId($userId);
                 $user->setFirstName($row['user_firstname']);
                 $user->setEmail($row['user_email']);
                 $user->setLastName($row['user_lastname']);
                 $user->setPronouns($row['user_pronouns']);
                 $user->setPassword($row['user_password']);
-                $user->setUserType($this->getTypeById($row['user_type']));
+                $user->setUserType($this->getTypeById($userType->getUserTypeId()));
 
                 if(!is_null($row['user_picture'])){
-                    $contentRepo = new ContentRepository();
                     $user->setMediaInfo($contentRepo->getMediaInfoById($row['user_picture']));
                 }
-
             }
 
             return $user ?? null;
@@ -159,11 +181,11 @@ class UserRepository extends Repository
         $query = "SELECT user_Id FROM users WHERE user_type = :usertype";
 
         try{
-            $statement = $this->users_db->prepare($query);
+            $statement = $this->getusersDB()->prepare($query);
             $statement->bindParam(':usertype', $usertype);
             $statement->execute();
 
-            while($row = $statement->fetchColumn()) {
+            while($row = $statement->fetch()) {
 
                 $user = $this->getUserById($row['user_Id']);
                 $allUsers[] = $user;
