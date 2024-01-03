@@ -17,7 +17,7 @@ services:
             - ./app:/app
 
     mysql:
-        image: mariadb:latest
+        image: mariadb:10.6.5
         env_file: env/mariadb.env
         volumes:
             - mysqldata:/var/lib/mysql

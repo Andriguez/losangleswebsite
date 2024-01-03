@@ -29,6 +29,8 @@ class ContentRepository extends Repository
             $statement->bindParam(':adminId', $adminId, \PDO::PARAM_INT);
             $statement->execute();
 
+            $adminContent = null;
+
             while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
 
                 $adminContent = new AdminContent();

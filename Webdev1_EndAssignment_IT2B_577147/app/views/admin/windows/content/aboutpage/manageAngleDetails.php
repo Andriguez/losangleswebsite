@@ -25,7 +25,7 @@
             <form class="row g-3">
                 <div class="col-md-6">
                     <label for="inputfirstname" class="form-label"><strong>name</strong></label>
-                    <input type="text" class="form-control" id="inputfirstname" value="<?php echo( isset($selectedAdmin))? $selectedAdmin->getFullName() : '';?>">
+                    <input type="text" class="form-control" id="inputfirstname" value="<?php echo(isset($adminContent))? $selectedAdmin->getFullName() : '';?>">
                 </div>
                 <div class="col-md-6">
                     <label for="inputfirstname" class="form-label"><strong>name link</strong></label>

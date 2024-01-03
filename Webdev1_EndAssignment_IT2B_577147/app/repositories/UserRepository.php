@@ -12,8 +12,8 @@ require_once __DIR__.'/../models/Collaborator.php';
 require_once __DIR__.'/../models/Artist.php';
 require_once __DIR__.'/../models/UserType.php';
 require_once __DIR__.'/../models/MediaInfo.php';
-require __DIR__ . '/../repositories/Repository.php';
-require __DIR__ . '/../repositories/ContentRepository.php';
+require_once __DIR__ . '/../repositories/Repository.php';
+require_once __DIR__ . '/../repositories/ContentRepository.php';
 
 class UserRepository extends Repository
 {

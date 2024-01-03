@@ -82,7 +82,6 @@ class adminController extends Controller
             if(isset($adminId)){
                 $selectedAdmin = $this->userService->getUserById($adminId);
                 $adminContent = $selectedAdmin->getAdminContent();
-
             }
             require __DIR__ . '/../views/admin/windows/content/aboutpage/manageAngleDetails.php';
     }

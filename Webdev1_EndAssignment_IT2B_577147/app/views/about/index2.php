@@ -40,11 +40,11 @@
 
             <div class="col about-col">
                 <div class="name-container">
-                    <a class="name-link" href="#" data-image-src="/media/artist2.png"><span class="title">Val Dechev</span></a>
+                    <a class="name-link" href="#" data-image-src="/media/artist2.png"><span class="title"><?php echo $admin->getFullName();?></span></a>
                     <img alt="angle" id="angle-3">
                 </div>
                 <div class="description-container">
-                    <span class="description">Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam.</span>
+                    <span class="description"><?php echo $admin->getAdminContent()->getDescription();?></span>
                 </div>
                 </div>
             </div>
