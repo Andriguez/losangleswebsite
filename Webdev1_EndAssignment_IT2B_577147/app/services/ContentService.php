@@ -67,5 +67,8 @@ class ContentService
     }
     public function updateContentTextByElementId($elementId, $text){
         $this->contentRepo->updateContentTextByElementId($elementId, $text);
-}
+    }
+    public function storeAdminContent($adminId, $link, $titles, $description, $pictureId){
+        $this->contentRepo->storeAdminContent($adminId, $link, $titles, $description, $pictureId);
+    }
 }

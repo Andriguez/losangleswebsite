@@ -86,6 +86,14 @@ class adminController extends Controller
             require __DIR__ . '/../views/admin/windows/content/aboutpage/manageAngleDetails.php';
     }
 
+    public function storeAdminContent(){
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'POST'){
+
+            if(isset($_FILES['userpicture'])){
+                $picture = $this->uploadPicture('users/','userpicture');
+            }
+        }
+    }
     public function manageDescription(){
         if($this->userAuth->allowAdminAccess()){
             require __DIR__ . '/../views/admin/windows/content/aboutpage/manageDescription.php';
@@ -143,8 +151,7 @@ class adminController extends Controller
     }
 
     public function createUser(){
-        if($this->userAuth->allowAdminAccess()){
-            if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'POST'){
 
                 $userId = rand(999, 9999);
                 $firstname = $_POST['firstname'];
@@ -161,7 +168,7 @@ class adminController extends Controller
                 }
 
                 $this->userService->createUser($userId, $firstname, $lastname, $email, $pronouns, $usertype, $password, $picture);
-            }
+
             header("Location: /admin");
         }
     }

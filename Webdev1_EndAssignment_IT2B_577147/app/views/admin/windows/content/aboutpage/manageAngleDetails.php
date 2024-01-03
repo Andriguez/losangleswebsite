@@ -15,7 +15,7 @@
         <div class="col-md-4">
             <strong>Angle Picture</strong>
             <div id="img-container" class="d-flex flex-column align-items-center">
-                <img src="<?php echo (!isset($selectedAdmin))? '/media/placeholders/user-picture-placeholder.png' : $selectedAdmin->getAdminContent()->getPictureSrc()?>">
+                <img src="<?php echo (!isset($adminContent))? '/media/placeholders/user-picture-placeholder.png' : $selectedAdmin->getAdminContent()->getPictureSrc()?>">
                 <div class="input-group mt-3">
                     <input type="file" class="form-control" id="upload-primary-navbar-logo" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                 </div>
@@ -25,19 +25,19 @@
             <form class="row g-3">
                 <div class="col-md-6">
                     <label for="inputfirstname" class="form-label"><strong>name</strong></label>
-                    <input type="text" class="form-control" id="inputfirstname" value="<?php echo(isset($adminContent))? $selectedAdmin->getFullName() : '';?>">
+                    <input type="text" class="form-control" id="inputname" value="<?php echo(isset($adminContent))? $selectedAdmin->getFullName() : '';?>">
                 </div>
                 <div class="col-md-6">
                     <label for="inputfirstname" class="form-label"><strong>name link</strong></label>
-                    <input type="text" class="form-control" id="inputfirstname" value="<?php echo( isset($adminContent))? $selectedAdmin->getAdminContent()->getNameLink() : ''?>">
+                    <input type="text" class="form-control" id="inputfirstname" value="<?php echo(isset($adminContent))? $selectedAdmin->getAdminContent()->getNameLink() : ''?>">
                 </div>
                 <div class="col-md-6">
                     <label for="inputpronouns" class="form-label"><strong>title(s)</strong></label>
-                    <input type="text" class="form-control" id="inputpronouns" value="<?php echo( isset($selectedAdmin))? $selectedAdmin->getAdminContent()->getTitles() : ''?>">
+                    <input type="text" class="form-control" id="inputpronouns" value="<?php echo(isset($adminContent))? $selectedAdmin->getAdminContent()->getTitles() : ''?>">
                 </div>
                 <div class="col-md-12">
                     <label for="inputlastname" class="form-label"><strong>description</strong></label>
-                    <textarea rows="4" class="form-control" id="inputlastname"><?php echo( isset($selectedAdmin))? $selectedAdmin->getAdminContent()->getDescription() : ''?></textarea>
+                    <textarea rows="4" class="form-control" id="inputlastname"><?php echo(isset($adminContent))? $selectedAdmin->getAdminContent()->getDescription() : ''?></textarea>
                 </div>
 
                 <div class="col-12">

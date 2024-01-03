@@ -21,15 +21,41 @@ require_once __DIR__.'/../repositories/Repository.php';
 class ContentRepository extends Repository
 {
     //content
+    public function storeAdminContent($adminId, $link, $titles, $description, $pictureId){
+
+        $query = "INSERT INTO `admin_content` 
+        (`admin_Id`, `admin_name_link`, `admin_titles`, `admin_description`, `admin_picture`)
+        VALUES (:adminId, :nameLink, :titles, :description, :picture)
+        ON DUPLICATE KEY UPDATE
+        `admin_name_link` = VALUES(`admin_name_link`),
+        `admin_titles` = VALUES(`admin_titles`),
+        `admin_description` = VALUES(`admin_description`),
+        `admin_picture` = VALUES(`admin_picture`)";
+
+        try{
+            if (is_null($pictureId)){
+                $pictureId = 1;
+            }
+
+            $statement = $this->getContentDB()->prepare($query);
+            $statement->execute(array(
+                $adminId,
+                $this->sanitizeText($link),
+                $this->sanitizeText($titles),
+                $this->sanitizeText($description),
+                $pictureId
+            ));
+        } catch(\PDOException $e){echo $e;}
+}
+
     public function getAdminContentById($adminId){
-        $query = "SELECT `admin_name_link`, `admin_titles`, `admin_description`, `admin_picture` FROM `admin_content` WHERE `admin_Id` = :adminId";
+        $query = "SELECT `admin_name_link`, `admin_titles`, `admin_description`, `admin_picture` 
+                    FROM `admin_content` WHERE `admin_Id` = :adminId";
 
         try{
             $statement = $this->getContentDB()->prepare($query);
             $statement->bindParam(':adminId', $adminId, \PDO::PARAM_INT);
             $statement->execute();
-
-            $adminContent = null;
 
             while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
 
