@@ -26,24 +26,20 @@ class ContentRepository extends Repository
         $query = "INSERT INTO `admin_content` 
         (`admin_Id`, `admin_name_link`, `admin_titles`, `admin_description`, `admin_picture`)
         VALUES (:adminId, :nameLink, :titles, :description, :picture)
-        ON DUPLICATE KEY UPDATE
+        ON DUPLICATE KEY UPDATE           
         `admin_name_link` = VALUES(`admin_name_link`),
         `admin_titles` = VALUES(`admin_titles`),
         `admin_description` = VALUES(`admin_description`),
         `admin_picture` = VALUES(`admin_picture`)";
 
         try{
-            if (is_null($pictureId)){
-                $pictureId = 1;
-            }
-
             $statement = $this->getContentDB()->prepare($query);
             $statement->execute(array(
-                $adminId,
-                $this->sanitizeText($link),
-                $this->sanitizeText($titles),
-                $this->sanitizeText($description),
-                $pictureId
+                ':adminId' => $adminId,
+                ':nameLink' => $this->sanitizeText($link),
+                ':titles' => $this->sanitizeText($titles),
+                ':description' => $this->sanitizeText($description),
+                ':picture' => $pictureId
             ));
         } catch(\PDOException $e){echo $e;}
 }

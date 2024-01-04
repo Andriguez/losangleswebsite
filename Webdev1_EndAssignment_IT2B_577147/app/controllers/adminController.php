@@ -86,12 +86,20 @@ class adminController extends Controller
             require __DIR__ . '/../views/admin/windows/content/aboutpage/manageAngleDetails.php';
     }
 
-    public function storeAdminContent(){
+    public function storeAdminContent($adminId){
         if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'POST'){
+            $link = $_POST['link'];
+            $titles = $_POST['titles'];
+            $description = $_POST['description'];
 
-            if(isset($_FILES['userpicture'])){
-                $picture = $this->uploadPicture('users/','userpicture');
+            if(!isset($_FILES['picture']) || $_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE){
+                $adminContent = $this->contentService->getAdminContentById($adminId);
+                $picture = $adminContent->getMediaInfo()->getMediaId();
+            } else {
+                $picture = $this->uploadPicture('about/','anglepicture');
             }
+
+            $this->contentService->storeAdminContent($adminId, $link, $titles, $description, $picture);
         }
     }
     public function manageDescription(){
@@ -150,10 +158,10 @@ class adminController extends Controller
             require __DIR__ . '/../views/admin/windows/users/manageUser.php';
     }
 
-    public function createUser(){
+    public function storeUser($userId = null){
         if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'POST'){
 
-                $userId = rand(999, 9999);
+                if(!isset($userId)){    $userId = rand(999, 9999);  }
                 $firstname = $_POST['firstname'];
                 $lastname = $_POST['lastname'];
                 $email = $_POST['email'];
@@ -161,22 +169,25 @@ class adminController extends Controller
                 $pronouns = $_POST['pronouns'];
                 //$password = $this->userAuth->hashPassword($_POST['password']);
                 $password = $_POST['password'];
-                $picture = null;
 
-                if(isset($_FILES['userpicture'])){
-                    $picture = $this->uploadPicture('users/','userpicture');
-                }
+                if(!isset($_FILES['picture']) || $_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE && isset($userId)){
+                $user = $this->userService->getUserById($userId);
+                $picture = $user->getMediaInfo()->getMediaId();
 
-                $this->userService->createUser($userId, $firstname, $lastname, $email, $pronouns, $usertype, $password, $picture);
+                } else if(isset($_FILES['picture'])) {    $picture = $this->uploadPicture('users/','userpicture');
+                } else {    $picture = 1;   }
+
+
+                $this->userService->storeUser($userId, $firstname, $lastname, $email, $pronouns, $usertype, $password, $picture);
 
             header("Location: /admin");
         }
     }
     public function uploadPicture($mediaDirectory, $mediaType){
-        if ($_FILES['userpicture']['error'] == UPLOAD_ERR_OK) {
+        if ($_FILES['picture']['error'] == UPLOAD_ERR_OK) {
 
-            $fileName = $_FILES['userpicture']['name'];
-            $tempName = $_FILES['userpicture']['tmp_name'];
+            $fileName = $_FILES['picture']['name'];
+            $tempName = $_FILES['picture']['tmp_name'];
 
             $defaultDir = 'media/';
             $path = $defaultDir.$mediaDirectory.$fileName;
@@ -187,30 +198,6 @@ class adminController extends Controller
             return $this->contentService->createMediaInfo($fileName, $mediaType, $directoryId);
         }
     }
-
-    public function updateUserInfo($userId){
-        if($this->userAuth->allowAdminAccess()){
-            if($_SERVER['REQUEST_METHOD'] === 'POST'){
-
-                $firstname = $_POST['firstname'];
-                $lastname = $_POST['lastname'];
-                $email = $_POST['email'];
-                $usertype = $_POST['usertype'];
-                $pronouns = $_POST['pronouns'];
-                //$password = $this->userAuth->hashPassword($_POST['password']);
-                $password = $_POST['password'];
-
-                if(isset($_FILES['userpicture'])){
-                    $picture = $this->uploadPicture('users/','userpicture');
-                    $this->userService->updateUserPicture($picture, $userId);
-                }
-
-                $this->userService->updateUserInfo($userId, $firstname, $lastname, $email, $pronouns, $usertype, $password);
-            }
-            header("Location: /admin");
-        }
-    }
-
     public function deleteUSer($userId){
         if($this->userAuth->allowAdminAccess()){
             $this->userService->deleteUser($userId);

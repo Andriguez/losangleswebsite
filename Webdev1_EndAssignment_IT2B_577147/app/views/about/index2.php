@@ -40,7 +40,7 @@
 
             <div class="col about-col">
                 <div class="name-container">
-                    <a class="name-link" href="#" data-image-src="/media/artist2.png"><span class="title"><?php echo $admin->getFullName();?></span></a>
+                    <a class="name-link" href="#" data-image-src="<?php echo $admin->getAdminContent()->getPictureSrc();?>"><span class="title"><?php echo $admin->getFullName();?></span></a>
                     <img alt="angle" id="angle-3">
                 </div>
                 <div class="description-container">

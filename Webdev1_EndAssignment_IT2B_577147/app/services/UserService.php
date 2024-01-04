@@ -31,15 +31,8 @@ class UserService
     public function getUserByEmail($email){
         return $this->userRepo->getUserByEmail($email);
     }
-    public function createUser($userId, $firstname, $lastname, $email, $pronouns, $userType, $password, $pictureId){
-        $this->userRepo->createUser($userId, $firstname, $lastname, $email, $pronouns, $userType, $password, $pictureId);
-    }
-    public function updateUserInfo($userId, $firstname, $lastname, $email, $pronouns, $userType, $password){
-        $this->userRepo->updateUserInfo($userId, $firstname, $lastname, $email, $pronouns, $userType, $password);
-    }
-    public function updateUserPicture($pictureId, $userId)
-    {
-        $this->userRepo->updateUserPicture($pictureId, $userId);
+    public function storeUser($userId, $firstname, $lastname, $email, $pronouns, $userType, $password, $pictureId){
+        $this->userRepo->storeUser($userId, $firstname, $lastname, $email, $pronouns, $userType, $password, $pictureId);
     }
     public function deleteUser($userId){
         $this->userRepo->deleteUser($userId);

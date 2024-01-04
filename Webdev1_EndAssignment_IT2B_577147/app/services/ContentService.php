@@ -71,4 +71,7 @@ class ContentService
     public function storeAdminContent($adminId, $link, $titles, $description, $pictureId){
         $this->contentRepo->storeAdminContent($adminId, $link, $titles, $description, $pictureId);
     }
+    public function getAdminContentById($adminId){
+        return $this->contentRepo->getAdminContentById($adminId);
+    }
 }

@@ -18,26 +18,31 @@ require_once __DIR__ . '/../repositories/ContentRepository.php';
 class UserRepository extends Repository
 {
     //users table
-    public function createUser($userId, $firstname, $lastname, $email, $pronouns, $userType, $password, $pictureId){
-        $query = "INSERT INTO `users`(`user_Id`, `user_firstname`, `user_lastname`, `user_email`, `user_pronouns`,
-                    `user_type`, `user_password`, `user_picture`) VALUES (?,?,?,?,?,?,?,?)";
+    public function storeUser($userId, $firstname, $lastname, $email, $pronouns, $userType, $password, $pictureId){
 
-
-        if (is_null($pictureId)){
-            $pictureId = 1;
-        }
+        $query = "INSERT INTO `users` 
+        (`user_Id`, `user_firstname`, `user_lastname`, `user_email`, `user_pronouns`, `user_type`, `user_password`, `user_picture`)
+        VALUES (:userId, :firstname, :lastname, :email, :pronouns, :type, :password, :picture)
+        ON DUPLICATE KEY UPDATE           
+        `user_firstname` = VALUES(`user_firstname`),
+        `user_lastname` = VALUES(`user_lastname`),
+        `user_email` = VALUES(`user_email`),
+        `user_pronouns` = VALUES(`user_pronouns`),
+        `user_type` = VALUES(`user_type`),
+        `user_password` = VALUES(`user_password`),
+        `user_picture` = VALUES(`user_picture`)";
 
         try {
             $statement = $this->getusersDB()->prepare($query);
             $statement->execute(array(
-                $userId,
-                $this->sanitizeText($firstname),
-                $this->sanitizeText($lastname),
-                $this->sanitizeText($email),
-                $this->sanitizeText($pronouns),
-                $userType,
-                $this->sanitizeText($password),
-                $pictureId));
+                ':userId' => $userId,
+                ':firstname' => $this->sanitizeText($firstname),
+                ':lastname' => $this->sanitizeText($lastname),
+                ':email' => $this->sanitizeText($email),
+                ':pronouns' => $this->sanitizeText($pronouns),
+                ':type' => $userType,
+                ':password' => $this->sanitizeText($password),
+                ':picture' => $pictureId));
 
         } catch (\PDOException $e) {
             error_log($e);
@@ -45,28 +50,6 @@ class UserRepository extends Repository
         }
     }
 
-    public function updateUserInfo($userId, $firstname, $lastname, $email, $pronouns, $userType, $password){
-        $query = "UPDATE `users` SET `user_firstname`= :firstname ,`user_lastname`= :lastname,`user_email`= :email,
-                   `user_pronouns`= :pronouns,`user_type`= :usertype,`user_password`= :password WHERE user_Id = :userId";
-
-        try{
-            $statement = $this->getusersDB()->prepare($query);
-
-            $statement->bindParam(':userId', $userId, \PDO::PARAM_INT);
-            $statement->bindParam(':firstname', $firstname);
-            $statement->bindParam(':lastname', $lastname);
-            $statement->bindParam(':email', $email);
-            $statement->bindParam(':pronouns', $pronouns);
-            $statement->bindParam(':usertype', $userType);
-            $statement->bindParam(':password', $password);
-
-            $statement->execute();
-
-        }catch(\PDOException $e){
-            error_log($e);
-            echo $e->getMessage();
-        }
-    }
     public function updateUserPicture($pictureId, $userId){
         $query = "UPDATE `users` SET `user_picture` = :pictureId WHERE user_Id = :userId";
 

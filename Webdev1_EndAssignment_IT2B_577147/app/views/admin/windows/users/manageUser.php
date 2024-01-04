@@ -1,12 +1,12 @@
 <div id="manageuser">
     <h1><?php echo (!isset($user))? 'Create New User' : 'Edit User'?></h1>
-    <form action="<?php echo (!isset($user))? '/admin/createuser' : '/admin/updateuserinfo/'.$user->getUserId();?>" method="POST" class="container row" enctype="multipart/form-data">
+    <form action="<?php echo (!isset($user))? '/admin/storeuser' : '/admin/storeuser/'.$user->getUserId();?>" method="POST" class="container row" enctype="multipart/form-data">
         <div class="col-md-4">
             <strong>Profile Picture</strong>
     <div id="img-container" class="d-flex flex-column align-items-center">
         <img id="imgthumbnail" src="<?php echo (!isset($user))? '/media/placeholders/user-picture-placeholder.png' : $user->getPictureSrc()?>" width="200px" height="200px">
         <div class="input-group mt-3">
-        <input type="file" class="form-control" name="userpicture" id="profile-picture" aria-describedby="inputGroupFileAddon04" aria-label="Upload" onclick="previewImage(this, 'imgthumbnail')">
+        <input type="file" class="form-control" name="picture" id="profile-picture" aria-describedby="inputGroupFileAddon04" aria-label="Upload" onclick="previewImage(this, 'imgthumbnail')">
         </div>
     </div>
     </div>
