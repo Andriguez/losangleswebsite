@@ -1,6 +1,7 @@
 <?php
 namespace controllers;
 
+use services\ArtistService;
 use services\ContentService;
 use services\UserService;
 
@@ -11,6 +12,7 @@ if (session_status() == PHP_SESSION_NONE) {
 require __DIR__ . '/Controller.php';
 require __DIR__ . '/../services/UserService.php';
 require __DIR__ . '/../services/ContentService.php';
+require __DIR__ . '/../services/ArtistService.php';
 require_once __DIR__.'/../models/User.php';
 require_once __DIR__ . '/UserAuth.php';
 
@@ -19,6 +21,7 @@ class adminController extends Controller
 {
     protected UserService $userService;
     protected ContentService $contentService;
+    protected ArtistService $artistService;
     private UserAuth $userAuth;
 
     public function __construct()
@@ -26,6 +29,8 @@ class adminController extends Controller
         $this->userService = new UserService();
         $this->contentService = new ContentService();
         $this->userAuth = new UserAuth();
+        $this->artistService = new ArtistService();
+
     }
 
     public function index(){
@@ -40,17 +45,32 @@ class adminController extends Controller
         if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/content/homepage/manageLogo.php';
     }
-    public function manageArtistDetails(){
-        if($this->userAuth->allowAdminAccess())
+    public function manageArtistDetails($artistId = null){
+        if($this->userAuth->allowAdminAccess()){
+            if(isset($artistId)){ $artist = $this->userService->getUserById($artistId);}
             require __DIR__ . '/../views/admin/windows/content/artistspage/manageArtistDetails.php';
+        }
     }
     public function viewDisciplines(){
         if($this->userAuth->allowAdminAccess())
+            $disciplines = $this->artistService->getAllDisciplines();
             require __DIR__ . '/../views/admin/windows/content/artistspage/viewDisciplines.php';
     }
     public function manageDiscipline(){
         if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/content/artistspage/manageDiscipline.php';
+    }
+    public function createDiscipline(){
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'POST'){
+            $this->artistService->createDiscipline($_POST['disciplineName']);
+        }
+        $this->reloadPage();
+    }
+    public function deleteDiscipline($disciplineid){
+        if($this->userAuth->allowAdminAccess()){
+            $this->artistService->deleteDiscipline($disciplineid);
+        }
+        $this->reloadPage();
     }
     public function viewEvents(){
         if($this->userAuth->allowAdminAccess())
@@ -101,6 +121,7 @@ class adminController extends Controller
 
             $this->contentService->storeAdminContent($adminId, $link, $titles, $description, $picture);
         }
+        $this->reloadPage();
     }
     public function manageDescription(){
         if($this->userAuth->allowAdminAccess()){
@@ -121,7 +142,7 @@ class adminController extends Controller
                 $this->contentService->updateContentTextByElementId($elementId, $input);
             }
 
-            header("Location: /admin");
+            $this->reloadPage();
         }
     }
     public function getElementContent($elementId){
@@ -180,7 +201,7 @@ class adminController extends Controller
 
                 $this->userService->storeUser($userId, $firstname, $lastname, $email, $pronouns, $usertype, $password, $picture);
 
-            header("Location: /admin");
+            $this->reloadPage();
         }
     }
     public function uploadPicture($mediaDirectory, $mediaType){
@@ -202,13 +223,15 @@ class adminController extends Controller
         if($this->userAuth->allowAdminAccess()){
             $this->userService->deleteUser($userId);
         }
-        header("Location: /admin");
+        $this->reloadPage();
     }
     public function manageCollaboratorInfo(){
         if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/users/manageCollaboratorInfo.php';
     }
-
+    private function reloadPage(){
+        header("Location: /admin");
+    }
     /*public function hashtest(){
         $costs = [10, 11, 12, 13, 14];
         $password = 'test_password';

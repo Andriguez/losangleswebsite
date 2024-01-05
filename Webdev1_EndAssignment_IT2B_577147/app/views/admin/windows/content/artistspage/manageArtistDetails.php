@@ -22,9 +22,8 @@
         </div>
         <div class="col-md-8">
             <form class="row g-3">
-                <div class="col-md-6">
-                    <label for="inputfirstname" class="form-label"><strong>name</strong></label>
-                    <input type="text" class="form-control" id="inputfirstname">
+                <div id="nameCol"class="col-md-6">
+                    <span id="selectedAdminName"><?php echo(isset($artist))? $artist->getFullName() : '';?></span>
                 </div>
                 <div class="col-md-5">
                     <label for="inputfirstname" class="form-label"><strong>stage name</strong></label>

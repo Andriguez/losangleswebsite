@@ -9,26 +9,20 @@
             </tr>
             </thead>
             <tbody>
+            <?php if (isset($disciplines)){foreach ($disciplines as $discipline){?>
             <tr>
-                <td><input type="checkbox" name="row1"></td>
-                <th scope="row">Djs</th>
+                <td><input class="radioBtn" type="checkbox" name="row1" id="<?php echo $discipline->getDisciplineId();?>"></td>
+                <th scope="row"><?php echo $discipline->getName()?></th>
             </tr>
-            <tr>
-                <td><input type="checkbox" name="row1"></td>
-                <th scope="row">Performers</th>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="row1"></td>
-                <th scope="row">Visual Artists</th>
-            </tr>
+            <?php }} ?>
+
             </tbody>
         </table>
     </div>
 
 
     <div id="button-container">
-        <button type="button" class="btn btn-danger">Delete</button>
-        <button class="btn btn-primary" type="button">Edit</button>
+        <button type="button" class="btn btn-danger" onclick="selectedRadioAction('deletediscipline', true)">Delete</button>
         <button class="btn btn-success" onclick="openWindow('admin/managediscipline')" type="button">Create new</button>
 
     </div>

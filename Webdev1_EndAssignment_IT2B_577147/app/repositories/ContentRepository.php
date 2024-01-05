@@ -351,15 +351,22 @@ class ContentRepository extends Repository
 
     //directory logs
     public function createDirectory($type, $path){
-        $query = "INSERT INTO `file_directory`(`type`, `path`) VALUES (?,?)";
+        $query = "INSERT IGNORE INTO `file_directory`(`type`, `path`) VALUES (?,?)";
 
         try {
             $statement = $this->getContentDB()->prepare($query);
             $statement->execute(array(
                 $this->sanitizeText($type),
-                $this->sanitizeText($path),));
+                $this->sanitizeText($path)));
 
-            return $this->getContentDB()->lastInsertId();
+            $directoryId = $this->getContentDB()->lastInsertId();
+
+            if ($directoryId === "0") {
+                return $this->getExistingDirectoryLogId($type, $path);
+            }
+
+            return $directoryId;
+
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -382,6 +389,22 @@ class ContentRepository extends Repository
                 return $directory;
 
             } catch (\PDOException $e){echo $e;}
+    }
+    private function getExistingDirectoryLogId($type, $path) {
+        $query = "SELECT `path_Id` FROM `file_directory` WHERE `type` = :type AND `path` = :path";
+
+        try {
+            $statement = $this->getContentDB()->prepare($query);
+            $statement->bindParam(':type', $type);
+            $statement->bindParam(':path', $path);
+            $statement->execute();
+
+            return $statement->fetchColumn();
+
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+            return null;
+        }
     }
 
     public function getAllDirectoryEntries(){

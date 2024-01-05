@@ -2,12 +2,14 @@
 namespace repositories;
 use models\Artist;
 use models\ArtistContent;
+use models\ArtistDiscipline;
+use mysql_xdevapi\Exception;
 
-require __DIR__.'/../models/Artist.php';
-require __DIR__.'/../models/ArtistDiscipline.php';
-require __DIR__.'/../models/ArtistContent.php';
-require __DIR__.'/UserRepository.php';
-require __DIR__.'/../models/MediaInfo.php';
+require_once __DIR__.'/../models/Artist.php';
+require_once __DIR__.'/../models/ArtistDiscipline.php';
+require_once __DIR__.'/../models/ArtistContent.php';
+require_once __DIR__.'/UserRepository.php';
+require_once __DIR__.'/../models/MediaInfo.php';
 
 class ArtistRepository extends Repository
 {
@@ -92,6 +94,32 @@ class ArtistRepository extends Repository
     }
 
     //disciplines
+    public function createDiscipline($name){
+        $query = "INSERT INTO `artist_disciplines`(`artist_discipline_name`) VALUES (?)";
+
+        try{
+                $statement = $this->getContentDB()->prepare($query);
+                $statement->execute([$this->sanitizeText($name)]);
+
+        } catch (\PDOException $e){
+            echo $e;
+        }
+
+    }
+
+    public function deleteDiscipline($disciplineId){
+        $query = "DELETE FROM `artist_disciplines` WHERE artist_discipline_Id = :disciplineId";
+
+        try{
+            $statement = $this->getContentDB()->prepare($query);
+
+            $statement->bindParam(':disciplineId', $disciplineId, \PDO::PARAM_INT);
+            $statement->execute();
+
+        }catch(\PDOException $e){
+            echo $e->getMessage();
+        }
+    }
     public function getDisciplineById($id){
         $query = "SELECT `artist_discipline_Id`, `artist_discipline_name` FROM
         `artist_disciplines` WHERE artist_discipline_Id = :id";
@@ -101,8 +129,14 @@ class ArtistRepository extends Repository
             $statement->bindParam(':id', $id);
             $statement->execute();
 
-            $statement->setFetchMode(\PDO::FETCH_CLASS, 'ArtistDiscipline');
-            return $statement->fetch();
+            while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+
+                $discipline = new ArtistDiscipline();
+                $discipline->setDisciplineId($row['artist_discipline_Id']);
+                $discipline->setName($row['artist_discipline_name']);
+            }
+            return $discipline;
+
 
         } catch (\PDOException $e){echo $e;}
     }
@@ -120,7 +154,12 @@ class ArtistRepository extends Repository
                 $allDisciplines[] = $discipline;
             }
 
-            return $allDisciplines;
+            return $allDisciplines ?? null;
         }catch (\PDOException $e){echo $e;}
+    }
+
+    private function sanitizeText($input):string{
+        return htmlspecialchars($input);
+
     }
 }

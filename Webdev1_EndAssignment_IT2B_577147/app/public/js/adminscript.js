@@ -22,12 +22,12 @@ function editSelectedUser(){
     }
 }
 
-function selectedUserAction(action, reload){
-    let userRadios = document.querySelectorAll('.userRadio:checked');
+function selectedRadioAction(action, reload){
+    let radios = document.querySelectorAll('.radioBtn:checked');
 
-    if (userRadios.length > 0) {
-        let userId = userRadios[0].id;
-        let filepath = 'admin/'+action+'/'+userId;
+    if (radios.length > 0) {
+        let id = radios[0].id;
+        let filepath = 'admin/'+action+'/'+id;
 
         if(!reload){
             openWindow(filepath);

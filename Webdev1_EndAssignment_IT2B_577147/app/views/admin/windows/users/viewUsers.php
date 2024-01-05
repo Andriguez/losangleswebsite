@@ -23,7 +23,7 @@
         <tbody>
         <?php foreach ($users as $user){?>
         <tr>
-            <td><input class="form-check-input userRadio" type="radio" name="radioButton" id="<?php echo $user->getUserId();?>"></td>
+            <td><input class="form-check-input radioBtn" type="radio" name="radioButton" id="<?php echo $user->getUserId();?>"></td>
             <th scope="row"><?php echo $user->getUserId(); ?></th>
             <td><?php echo $user->getFirstName(); ?></td>
             <td><?php echo $user->getLastName(); ?></td>
@@ -39,7 +39,7 @@
 
 
 <div id="button-container">
-        <button type="button" class="btn btn-danger" onclick="selectedUserAction('deleteuser', true)">Delete</button>
+        <button type="button" class="btn btn-danger" onclick="selectedRadioAction('deleteuser', true)">Delete</button>
         <button class="btn btn-primary" type="button" id="editSelectedUserBtn" onclick="selectedUserAction('manageuser', false)">Edit</button>
     </div>
 </div>
