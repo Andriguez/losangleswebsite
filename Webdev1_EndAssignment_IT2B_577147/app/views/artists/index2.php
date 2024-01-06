@@ -20,22 +20,22 @@
         <label class="type-label">djs</label>
         <div id="target-row" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
             <div id="artist-1" class="col">
-                <a  class="artist-name" href="#"><span>Kenza Badi<img src="/media/triangle-icon.svg"></span></a>
+                <a  class="artist-name" href="#"><span>Kenza Badi</span></a>
             </div>
             <div id="artist-2" class="col">
-                <a class="artist-name" href="#"><span>Amir<img src="/media/triangle-icon.svg"></span></a>
+                <a class="artist-name" href="#"><span>Amir</span></a>
             </div>
             <div id="artist-3" class="col">
-                <a class="artist-name" href="#"><span>Ada M. Patterson<img src="/media/triangle-icon.svg"></span></a>
+                <a class="artist-name" href="#"><span>Ada M. Patterson</span></a>
             </div>
             <div id="artist-4" class="col">
-                <a  class="artist-name" href="#"><span>Smother<img src="/media/triangle-icon.svg"></span></a>
+                <a  class="artist-name" href="#"><span>Smother</span></a>
             </div>
             <div id="artist-5" class="col">
-                <a  class="artist-name" href="#"><span>younggwoman<img src="/media/triangle-icon.svg"></span></a>
+                <a  class="artist-name" href="#"><span>younggwoman</span></a>
             </div>
             <div id="artist-6" class="col">
-                <a class="artist-name" href="#"><span>Diora<img src="/media/triangle-icon.svg"></span></a>
+                <a class="artist-name" href="#"><span>Diora</span></a>
             </div>
             <div id="zobayda" class="col">
                 <a class="artist-name" href="#" onclick="toggleDiv('zobayda')"><span>Zobayda<img src="/media/triangle-icon.svg"></span></a>

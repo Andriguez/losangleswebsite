@@ -16,10 +16,10 @@ class UserService
     public function getUserById($userId){
         return $this->userRepo->getUserById($userId);
     }
-    public function getAllUsers():array{
+    public function getAllUsers(){
         return $this->userRepo->getAllUsers();
     }
-    public function getAllUsersByType($typeId):array{
+    public function getAllUsersByType($typeId){
         return $this->userRepo->getUsersByType($typeId);
     }
     public function getTypeById($typeId){

@@ -40,8 +40,9 @@
 
             <div class="col about-col">
                 <div class="name-container">
-                    <a class="name-link" href="#" data-image-src="<?php echo $admin->getAdminContent()->getPictureSrc();?>"><span class="title"><?php echo $admin->getFullName();?></span></a>
+                    <a class="name-link" href="<?php echo $admin->getAdminContent()->getNameLink();?>" data-image-src="<?php echo $admin->getAdminContent()->getPictureSrc();?>"><span class="title"><?php echo $admin->getFullName();?></span></a>
                     <img alt="angle" id="angle-3">
+                    <label><?php echo $admin->getPronouns()?>▶<?php echo $admin->getAdminContent()->getTitles()?></label>
                 </div>
                 <div class="description-container">
                     <span class="description"><?php echo $admin->getAdminContent()->getDescription();?></span>

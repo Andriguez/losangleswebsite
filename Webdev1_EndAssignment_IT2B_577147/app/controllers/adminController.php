@@ -14,6 +14,8 @@ require __DIR__ . '/../services/UserService.php';
 require __DIR__ . '/../services/ContentService.php';
 require __DIR__ . '/../services/ArtistService.php';
 require_once __DIR__.'/../models/User.php';
+require_once __DIR__.'/../models/Artist.php';
+require_once __DIR__.'/../models/ArtistContent.php';
 require_once __DIR__ . '/UserAuth.php';
 
 
@@ -47,7 +49,12 @@ class adminController extends Controller
     }
     public function manageArtistDetails($artistId = null){
         if($this->userAuth->allowAdminAccess()){
-            if(isset($artistId)){ $artist = $this->userService->getUserById($artistId);}
+            $artists = $this->userService->getAllUsersByType(3);
+            $disciplines = $this->artistService->getAllDisciplines();
+            if(isset($artistId)){
+                $selectedArtist = $this->userService->getUserById($artistId);
+                $artistContent = $selectedArtist->getArtistContent();
+            }
             require __DIR__ . '/../views/admin/windows/content/artistspage/manageArtistDetails.php';
         }
     }
@@ -190,13 +197,14 @@ class adminController extends Controller
                 $pronouns = $_POST['pronouns'];
                 //$password = $this->userAuth->hashPassword($_POST['password']);
                 $password = $_POST['password'];
-
-                if(!isset($_FILES['picture']) || $_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE && isset($userId)){
+                $picture = 1;
                 $user = $this->userService->getUserById($userId);
+
+            if(!isset($_FILES['picture']) || $_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE && isset($user)){
                 $picture = $user->getMediaInfo()->getMediaId();
 
-                } else if(isset($_FILES['picture'])) {    $picture = $this->uploadPicture('users/','userpicture');
-                } else {    $picture = 1;   }
+            } else if(isset($_FILES['picture']) & isset($user)) {
+                    $picture = $this->uploadPicture('users/','userpicture');    }
 
 
                 $this->userService->storeUser($userId, $firstname, $lastname, $email, $pronouns, $usertype, $password, $picture);

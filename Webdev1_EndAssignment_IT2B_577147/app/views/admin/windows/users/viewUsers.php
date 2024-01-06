@@ -40,6 +40,7 @@
 
 <div id="button-container">
         <button type="button" class="btn btn-danger" onclick="selectedRadioAction('deleteuser', true)">Delete</button>
-        <button class="btn btn-primary" type="button" id="editSelectedUserBtn" onclick="selectedUserAction('manageuser', false)">Edit</button>
+        <button class="btn btn-primary" type="button" id="editSelectedUserBtn" onclick="selectedRadioAction('manageuser', false)">Edit</button>
+        <button class="btn btn-success" type="button" onclick="openWindow('admin/manageuser')">Create User</button>
     </div>
 </div>

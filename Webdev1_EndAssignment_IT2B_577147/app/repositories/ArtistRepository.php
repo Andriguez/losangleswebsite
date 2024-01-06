@@ -13,24 +13,6 @@ require_once __DIR__.'/../models/MediaInfo.php';
 
 class ArtistRepository extends Repository
 {
-    //artists
-    public function getAllArtists(){
-        $query = "SELECT artist_Id FROM artist_content";
-
-        try{
-            $statement = $this->getContentDB()->prepare($query);
-            $statement->execute();
-
-            while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
-
-                $artist = $this->getArtistById($row['artist_Id']);
-                $allArtist[] = $artist;
-            }
-
-            return $allArtist;
-        }catch (\PDOException $e){echo $e;}
-    }
-
     //content
     public function getArtistContentById($artistId){
         $query = "SELECT `artist_description`, `artist_discipline`, `artist_extralink`, `artist_email`,

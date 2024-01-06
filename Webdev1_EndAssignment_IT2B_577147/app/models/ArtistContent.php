@@ -29,7 +29,9 @@ class ArtistContent
     public function getDescription():string{return $this->artist_description;}
     public function getSocials():string{return $this->artist_socialmedia;}
     public function getSoundcloudUrl():string{return $this->artist_soundcloud_url;}
-    public function getDiscipline():ArtistDiscipline{return $this->artist_discipline;}
-    public function getPicture():MediaInfo{return $this->artist_picture;}
+    public function getDiscipline(){return $this->artist_discipline;}
+    public function getPicture(){return $this->artist_picture;}
+    public function getPictureSrc():string{return $this->getPicture()->getMediaPath()->getPath().$this->getPicture()->getMediaFilename();}
+
 
 }

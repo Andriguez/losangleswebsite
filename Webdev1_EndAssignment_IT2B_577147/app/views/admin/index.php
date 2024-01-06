@@ -116,7 +116,6 @@ session_start();} ?>
                         <!--USERS CHILD OPTIONS-->
                         <ul class="nav nav-pills flex-column mb-auto">
                             <li><a onclick="openWindow('admin/viewusers')" class="nav-link text-reset">users</a></li>
-                            <li><a onclick="openWindow('admin/manageuser')" class="nav-link text-reset">create user</a></li>
                             <li><a onclick="openWindow('admin/managecollaboratorinfo')" class="nav-link text-reset">collaborator details</a></li>
                         </ul>
                     </div>

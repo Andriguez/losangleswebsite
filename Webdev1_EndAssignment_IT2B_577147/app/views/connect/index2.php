@@ -154,7 +154,7 @@
                 <a href="#">3 replies</a>
             </div>
 
-        <div class="children-comments">
+        <!--<div class="children-comments">
         <div class="child-comment">
             <span class="poster-name">poster name</span>
             <img src="/media/triangle-icon.svg">
@@ -170,7 +170,7 @@
             <img src="/media/triangle-icon.svg">
             <span>this is a comment in the comment section</span>
         </div>
-        </div>
+        </div>-->
         </div>
         <div class="comment">
             <div class="name-section">
@@ -194,7 +194,7 @@
                 <a href="#">reply</a>
                 <a href="#">1 replies</a>
             </div>
-        <div class="children-comments">
+        <!--<div class="children-comments">
         <div class="child-comment">
             <span class="poster-name">poster name</span>
             <img src="/media/triangle-icon.svg">
@@ -205,7 +205,7 @@
         <img src="/media/triangle-icon.svg">
         <span>this is a comment in the comment section</span>
     </div>
-        </div>
+        </div>-->
         </div>
     </div>
         <form class="comment-submit">

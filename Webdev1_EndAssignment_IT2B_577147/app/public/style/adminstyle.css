@@ -92,6 +92,16 @@ body{
 #manage-artist-details{
     padding: 10px;
 
+    #nameCol{
+        text-align: center;
+        padding-top: 25px;
+    }
+    #selectedAdminName{
+        margin-top: 20px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
     #select-artist-container{
         width: 200px;
         margin: 20px;
@@ -105,7 +115,16 @@ body{
                 float: right;
             }
         }
-    }}
+        #img-container{
+            background-color: lightgrey;
+            border: 2px black solid;
+            padding: 5px;
+
+            img{
+                max-width: 200px !important;
+                max-height: 200px !important;
+            }
+    }}}
 /*VIEW ARTISTS DISCIPLINES*/
 #view-disciplines{
     padding: 20px;
@@ -118,9 +137,7 @@ body{
     #button-container{
         float: right;
         margin: 10px;
-
-
-    } }
+    }}
 /*MANAGE ARTISTS DISCIPLINE*/
 #manage-discipline{
 
