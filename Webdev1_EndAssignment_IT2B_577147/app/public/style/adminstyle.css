@@ -21,7 +21,7 @@ body{
             margin: 15% auto auto auto;
             display: block;
         }
-        #closingq{
+        #closing{
             rotate: 180deg;
         }
     }
@@ -218,9 +218,10 @@ body{
 #managedescription{
     .container{
         margin: 50px 20px 20px 20px;
+        padding: 40px;
 
         form{
-            width: 500px;
+            width: 800px;
             button{
                 float: right;
             }

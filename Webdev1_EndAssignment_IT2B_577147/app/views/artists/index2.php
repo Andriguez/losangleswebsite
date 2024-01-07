@@ -5,15 +5,13 @@
 </head>
 <body>
 <?php include_once __DIR__.'/../navbar.php'?>
-<div class="dropdown mt-1 mb-2 ms-5">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="filerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-        discipline
-    </button>
-    <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else</a></li>
-    </ul>
+<div class="mt-1 mb-2 ms-5">
+    <select id="disciplineFilter" class="form-select">
+        <option selected>discipline</option>
+        <?php foreach ($disciplines as $discipline){ ?>
+            <option value="<?php echo $discipline->getDisciplineId();?>"><?php echo $discipline->getName();?></option>
+        <?php }?>
+    </select>
 </div>
 <div class="album pt-1 pb-3">
     <div id="djs" class="artists-container">
@@ -38,10 +36,10 @@
                 <a class="artist-name" href="#"><span>Diora</span></a>
             </div>
             <div id="zobayda" class="col">
-                <a class="artist-name" href="#" onclick="toggleDiv('zobayda')"><span>Zobayda<img src="/media/triangle-icon.svg"></span></a>
+                <a class="artist-name" href="#" onclick="toggleDiv('zobayda')"><span>Zobayda</span></a>
             </div>
             <div id="artist-8" class="col">
-                <a class="artist-name" href="#"><span>Andy Rodriguez<img src="/media/triangle-icon.svg"></span></a>
+                <a class="artist-name" href="#"><span>Andy Rodriguez</span></a>
             </div>
             <div id="artist-9" class="col">
                 <a class="artist-name" href="#"><span>hi.asl<img src="/media/triangle-icon.svg"></span></a>
@@ -73,7 +71,7 @@
         </div>
     </div>
 
-    <div class="artists-container">
+    <div id="performers" class="artists-container">
         <label class="type-label">performers</label>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
             <div class="col">
@@ -127,6 +125,19 @@
                 <a class="artist-name" href="#"><span>Ada M. Patterson▶</span></a>
             </div>
         </div></div>
+
+    <?php foreach ($disciplines as $discipline){ ?>
+    <div id="<?php echo $discipline->getDisciplineId()?>" class="artists-container">
+        <label class="type-label"><?php echo $discipline->getName()?>s</label>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+            <?php foreach ($allArtists[$discipline->getDisciplineId()] as $artist) { ?>
+                <div class="col">
+                    <a class="artist-name" href="#"><span><?php echo $artist->getArtistContent()->getStageName(); ?></span></a>
+                </div>
+            <?php } ?>
+        </div></div>
+    <?php } ?>
+
 </div>
 <script>
     let isMerged = true;
@@ -331,20 +342,19 @@
         color: dimgrey;
         margin-bottom: 10px;
     }
-    .dropdown-menu{
+    option{
         border-width: 3px !important;
         border-radius: 0 !important;
         border-color: black !important;
         font-family: angles ;
         font-size: 10px;
+        padding: 5px;
 
     }
-    .dropdown-item:hover {
-        background-color: black !important;
-        border-color: white !important;
-        color: white !important;
+    option:hover {
+       filter: invert(100);
     }
-    button{
+    select{
         border-radius: 0 !important;
         border-color: black !important;
         border-width: 4px !important;
@@ -352,11 +362,14 @@
         color: black !important;
         font-family: angles !important;
         font-size: 12px !important;
+        width: 200px !important;
+        text-transform: uppercase;
     }
-    button:hover {
+    select:hover {
         background-color: black !important;
         border-color: white !important;
         color: white !important;
+        cursor: pointer;
     }
     .artist-name{
         color: black;

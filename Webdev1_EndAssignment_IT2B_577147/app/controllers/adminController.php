@@ -58,6 +58,33 @@ class adminController extends Controller
             require __DIR__ . '/../views/admin/windows/content/artistspage/manageArtistDetails.php';
         }
     }
+
+    public function storeArtistDetails($artistId){
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'POST'){
+            $stagename = $_POST['stagename'];
+            $discipline = $_POST['discipline'];
+            $location = $_POST['location'];
+            $email = $_POST['email'];
+            $description = $_POST['description'];
+            $socialslink = $_POST['socialslink'];
+            $soundcloudlink = $_POST['soundcloudlink'];
+            $extralink = $_POST['extralink'];
+
+            if(!isset($_FILES['picture']) || $_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE){
+                $artistContent = $this->artistService->getArtistContentById($artistId);
+
+                if(!isset($artistContent)){     $picture = 1;   }
+                else{
+                    $picture = $artistContent->getPicture()->getMediaId(); }
+
+            } else {
+                $picture = $this->uploadPicture('artists/','artistpicture');
+            }
+
+            $this->artistService->storeArtistContent($artistId, $description, $extralink, $discipline, $email, $soundcloudlink, $socialslink, $stagename, $picture, $location);
+        }
+        $this->reloadPage();
+    }
     public function viewDisciplines(){
         if($this->userAuth->allowAdminAccess())
             $disciplines = $this->artistService->getAllDisciplines();

@@ -21,14 +21,14 @@ class ArtistRepository extends Repository
 
         try{
             $statement = $this->getContentDB()->prepare($query);
-            $statement->bindParam(':$artistId', $artistId, \PDO::PARAM_INT);
+            $statement->bindParam(':artistId', $artistId, \PDO::PARAM_INT);
             $statement->execute();
 
             while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
 
                 $artistContent = new ArtistContent();
                 $artistContent->setDescription($row['artist_description']);
-                $artistContent->setDiscipline($this->getDisciplineById(['artist_discipline']));
+                $artistContent->setDiscipline($this->getDisciplineById($row['artist_discipline']));
                 $artistContent->setExtraLink($row['artist_extralink']);
                 $artistContent->setEmail($row['artist_email']);
                 $artistContent->setSoundcloudUrl($row['artist_soundcloud_url']);
@@ -37,7 +37,7 @@ class ArtistRepository extends Repository
                 $artistContent->setLocation($row['artist_location']);
 
                 $contentRepo = new ContentRepository();
-                $artistContent->setDescription($contentRepo->getMediaInfoById($row['artist_picture']));
+                $artistContent->setPicture($contentRepo->getMediaInfoById($row['artist_picture']));
             }
 
             return $artistContent ?? null;
@@ -45,6 +45,59 @@ class ArtistRepository extends Repository
         } catch (\PDOException $e){echo $e;}
     }
 
+    public function storeArtistContent($artistId, $description, $link, $disciplineId, $email, $soundcloud, $socialmedia, $stagename, $pictureId, $location){
+        $query = "INSERT INTO `artist_content`(`artist_Id`, `artist_description`, `artist_extralink`, `artist_discipline`,
+        `artist_email`, `artist_soundcloud_url`, `artist_socialmedia`, `artist_stagename`, `artist_picture`, `artist_location`)
+        VALUES (:artistId, :description, :link, :discipline,:email, :soundcloud, :socialmedia, :stagename, :picture, :location)
+        ON DUPLICATE KEY UPDATE           
+        `artist_description` = VALUES(`artist_description`),
+        `artist_extralink` = VALUES(`artist_extralink`),
+        `artist_discipline` = VALUES(`artist_discipline`),
+        `artist_email` = VALUES(`artist_email`),
+        `artist_soundcloud_url` = VALUES(`artist_soundcloud_url`),
+        `artist_socialmedia` = VALUES(`artist_socialmedia`),
+        `artist_stagename` = VALUES(`artist_stagename`),
+        `artist_picture` = VALUES(`artist_picture`),
+        `artist_location` = VALUES(`artist_location`)";
+
+        try{
+            $statement = $this->getContentDB()->prepare($query);
+            $statement->execute(array(
+                ':artistId' => $artistId,
+                ':description' => $this->sanitizeText($description),
+                ':link' => $this->sanitizeText($link),
+                ':discipline' => $disciplineId,
+                ':email' => $this->sanitizeText($email),
+                ':soundcloud' => $this->sanitizeText($soundcloud),
+                ':socialmedia' => $this->sanitizeText($socialmedia),
+                ':stagename' => $this->sanitizeText($stagename),
+                ':picture' => $pictureId,
+                ':location' => $this->sanitizeText($location)
+            ));
+        } catch(\PDOException $e){echo $e;}
+    }
+
+    public function getAllArtistsByDiscipline($discipline){
+        $query = "SELECT artist_Id FROM artist_content WHERE artist_discipline = :discipline";
+
+        try{
+            $statement = $this->getContentDB()->prepare($query);
+            $statement->bindParam(':discipline', $discipline);
+            $statement->execute();
+
+            $userRepo = new UserRepository();
+            while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+
+                $artist = $userRepo->getUserById($row['artist_Id']);
+                $allArtists[] = $artist;
+            }
+
+            return $allArtists ?? null;
+
+
+        } catch (\PDOException $e){echo $e;}
+
+    }
     public function getAllArtistContent(){
         $query = "SELECT artist_Id FROM artist_content";
         return $this->getContent($query);

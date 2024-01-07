@@ -98,7 +98,7 @@ class UserRepository extends Repository
                         $user = new Admin();
                         $user->setAdminContent($contentRepo->getAdminContentById($userId));
                         break;
-                    case 'artists':
+                    case 'artist':
                         $artistRepo = new ArtistRepository();
                         $user = new Artist();
                         $user->setArtistContent($artistRepo->getArtistContentById($userId));

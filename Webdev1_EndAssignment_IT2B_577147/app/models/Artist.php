@@ -15,6 +15,6 @@ class Artist extends User
     public function setArtistContent($artistContent){$this->artist_content = $artistContent;}
 
     //getters
-    public function getArtistContent():ArtistContent{return $this->artist_content;}
+    public function getArtistContent(){return $this->artist_content;}
 
 }
