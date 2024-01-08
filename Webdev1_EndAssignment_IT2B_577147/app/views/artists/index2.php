@@ -318,6 +318,21 @@
 
         return link;
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Read the category parameter from PHP
+        const categoryParam = '<?php echo (isset($targetDiscipline)) ? $targetDiscipline->getDisciplineId() : ''; ?>';
+
+        if (categoryParam) {
+            // Identify the corresponding category element
+            const categoryElement = document.getElementById(categoryParam);
+
+            if (categoryElement) {
+                // Scroll to the identified category
+                categoryElement.scrollIntoView({ behavior: 'smooth', block: "center"});
+            }
+        }
+    });
 </script>
 </body>
 </html>

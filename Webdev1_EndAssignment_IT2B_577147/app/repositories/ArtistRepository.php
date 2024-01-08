@@ -161,7 +161,30 @@ class ArtistRepository extends Repository
 
         try{
             $statement = $this->getContentDB()->prepare($query);
-            $statement->bindParam(':id', $id);
+            $statement->bindParam(':id', $id, \PDO::PARAM_INT);
+            $statement->execute();
+
+            while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+
+                $discipline = new ArtistDiscipline();
+                $discipline->setDisciplineId($row['artist_discipline_Id']);
+                $discipline->setName($row['artist_discipline_name']);
+            }
+            return $discipline;
+
+
+        } catch (\PDOException $e){echo $e;}
+    }
+
+    public function getDisciplineByName($name){
+        $query = "SELECT `artist_discipline_Id`, `artist_discipline_name` FROM
+        `artist_disciplines` WHERE artist_discipline_name = :name";
+
+        $sanitizedName = $this->sanitizeText($name);
+
+        try{
+            $statement = $this->getContentDB()->prepare($query);
+            $statement->bindParam(':name', $sanitizedName);
             $statement->execute();
 
             while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {

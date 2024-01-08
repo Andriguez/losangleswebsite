@@ -29,7 +29,9 @@ class Router
             $this->handleParameters($route);
 
             try {
-                if ($this->matchRoute($route, $requestedPath)) {
+                $matchResult = $this->matchRoute($route, $requestedPath);
+
+                if ($matchResult['result']) {
                     $this->checkRequestMethod($route);
 
                     if ($route->getPattern() !== null && str_starts_with($route->getPattern(), '/^\/admin(?:\/')) {
@@ -70,9 +72,13 @@ class Router
     {
         if ($route->getPattern() !== null) {
             ob_start();
-            return preg_match($route->getPattern(), $requestedPath, $matches);
+            $result =  preg_match($route->getPattern(), $requestedPath, $matches);
+            return ['result' => $result, 'matches' => $matches];
+
+
         } elseif ($route->getString() !== null) {
-            return $route->getString() === $requestedPath;
+            $result = ($route->getString() === $requestedPath);
+            return ['result' => $result, 'matches' => []];
         }
 
         throw new Exception("Missing required parameter (string or pattern) in route.");
@@ -100,12 +106,18 @@ class Router
 
         // Extract parameters based on the pattern
         if ($route->getPattern()) {
-            $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-            preg_match($route->getPattern(), $url, $matches);
+            $parsedUrl = parse_url($_SERVER['REQUEST_URI']);
+            $requestedPath = $parsedUrl['path'];
+
+            $result = $this->matchRoute($route, $requestedPath);
 
             // The first element in $matches will contain the entire match,
-            // and subsequent elements will contain the captured groups.
-            $parameters = array_slice($matches, 1);
+            $parameters = array_slice($result['matches'], 1);
+
+            if (isset($parameters[0])) {
+                $parameters[0] = str_replace('-', ' ', $parameters[0]);
+            }
+            
         } else {
             $parameters = []; // No pattern, set parameters to an empty array
         }

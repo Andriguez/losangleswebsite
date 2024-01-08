@@ -31,7 +31,33 @@ class artistsController extends Controller
         }
         require __DIR__ . '/../views/artists/index2.php';
     }
-    public function displayArtistDetails($discipline, $artistName){
-        echo $discipline.' has '.$artistName;
+    public function displayRequest($disciplineName, $artistsName = null){
+
+        $display = 'error no parameters given';
+
+        $targetDiscipline = $this->artistService->getDisciplineByName($disciplineName);
+
+        if (isset($artistsName)){
+            $this->displayArtistDetails($targetDiscipline, $artistsName);
+        } else if(isset($targetDiscipline)){
+            $this->displayDiscipline($targetDiscipline);
+        }
+
+    }
+    private function displayArtistDetails($discipline, $artistName){
+        echo 'displaying:  '.$artistName.' from '.$discipline;
+    }
+    private function displayDiscipline($discipline){
+
+        $targetDiscipline = $discipline;
+
+        $disciplines = $this->artistService->getAllDisciplines();
+        foreach ($disciplines as $discipline){
+
+            $artists = $this->artistService->getAllArtistsByDiscipline($discipline->getDisciplineId());
+            $allArtists[$discipline->getDisciplineId()] = $artists;
+        }
+
+        require __DIR__ . '/../views/artists/index2.php';
     }
 }

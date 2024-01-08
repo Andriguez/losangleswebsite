@@ -26,4 +26,5 @@ class ArtistService
         $this->artistRepo->storeArtistContent($artistId, $description, $link, $disciplineId, $email, $soundcloud, $socialmedia, $stagename, $pictureId, $location);
     }
     public function getAllArtistsByDiscipline($discipline){   return $this->artistRepo->getAllArtistsByDiscipline($discipline);  }
+    public function getDisciplineByName($name){ return $this->artistRepo->getDisciplineByName($name);    }
     }
