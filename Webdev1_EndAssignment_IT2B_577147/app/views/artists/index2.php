@@ -131,7 +131,7 @@
         <label class="type-label"><?php echo $discipline->getName()?>s</label>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
             <?php foreach ($allArtists[$discipline->getDisciplineId()] as $artist) { ?>
-                <div class="col">
+                <div id="<?php echo $artist->getUserId?>" class="col">
                     <a class="artist-name" href="#"><span><?php echo $artist->getArtistContent()->getStageName(); ?></span></a>
                 </div>
             <?php } ?>

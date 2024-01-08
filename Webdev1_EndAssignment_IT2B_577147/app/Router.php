@@ -98,12 +98,22 @@ class Router
             $this->respondNotFound();
         }
 
+        // Extract parameters based on the pattern
+        if ($route->getPattern()) {
+            $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+            preg_match($route->getPattern(), $url, $matches);
+
+            // The first element in $matches will contain the entire match,
+            // and subsequent elements will contain the captured groups.
+            $parameters = array_slice($matches, 1);
+        } else {
+            $parameters = []; // No pattern, set parameters to an empty array
+        }
+
         // dynamically call relevant controller method
         try {
-            //$reflectionClass = new ReflectionClass($controller);
-            //$controllerObj = $reflectionClass->newInstance();
             $controllerObj = new $controllerName;
-            $controllerObj->{$route->getFunction()}();
+            $controllerObj->{$route->getFunction()}(...$parameters);
             $content = ob_get_clean();
             Router::getInstance()->respond(200, $content);
 

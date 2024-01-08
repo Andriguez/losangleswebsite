@@ -31,4 +31,7 @@ class artistsController extends Controller
         }
         require __DIR__ . '/../views/artists/index2.php';
     }
+    public function displayArtistDetails($discipline, $artistName){
+        echo $discipline.' has '.$artistName;
+    }
 }
