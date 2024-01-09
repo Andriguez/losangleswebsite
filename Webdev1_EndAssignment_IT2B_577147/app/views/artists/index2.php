@@ -145,6 +145,7 @@
     div1.id = 'firstHalf';
     let div2 = document.createElement('div');
     div2.id = 'secondHalf';
+    let lastClickedElementId = null;
 
     function toggleDiv(clickedElementId){
         //let targetDiv = document.getElementById(targetDivId);
@@ -154,20 +155,29 @@
             let targetDiv = element.parentElement;
             splitDivFromElement(targetDiv, element, div1, div2);
             isMerged = false
-        } else {
-            element.style.backgroundColor = 'white';
+        } else if (!isMerged || clickedElementId !== lastClickedElementId) {
+            changeNamesBackgroundColor('white');
             let parentDiv = element.parentElement;
             let mergedDiv = mergeDivs(div1, div2);
             parentDiv.innerHTML = '';
             parentDiv.parentNode.appendChild(mergedDiv)
             let artistDetails = document.getElementById('artistDetails');
-            parentDiv.parentNode.removeChild(div2);
-            parentDiv.parentNode.removeChild(artistDetails);
-            parentDiv.parentNode.removeChild(div1);
+            div2.remove();
+            artistDetails.remove();
+            div1.remove();
             isMerged = true;
         }
+
+        lastClickedElementId = clickedElementId;
     }
 
+    function changeNamesBackgroundColor(color){
+        let elements = document.getElementsByClassName('col');
+
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].style.backgroundColor = color;
+        }
+    }
 
     function splitDivFromElement(targetDiv, clickedElement, div1, div2) {
         // Get the target div and the split element
@@ -350,74 +360,6 @@
     .artists-container .col{
         width: auto;
         margin-top: 7px;
-    }
-
-    .artist-details{
-
-        width: 100% !important;
-        background-color: black !important;
-        color: white !important;
-        display: flex;
-        height: 280px;
-
-        img{
-            height: 250px !important;
-            width: 250px !important;
-        }
-        .artist-name{
-            margin-top: ;
-            display: block;
-        }
-
-        .img-container{
-            margin: auto;
-        }
-        .text-container{
-            max-width: 420px;
-            height: 80%;
-            margin: auto;
-            padding: 5px;
-            justify-content: center;
-            overflow-y: auto;
-            font-family: "Agency FB";
-
-
-
-        span{
-                color: white;
-                margin-bottom: 2px;
-            }
-            p{
-                margin: 25px 30px 12px 5px;
-                font-size: 20px;
-            }
-        }
-
-        .media-container {
-        margin: auto auto 10px auto;
-    .icon-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 30px;
-
-    img {
-        width: 55px !important;
-        height: 55px !important;
-        margin: 20px;
-        border-radius: 30%;
-    }
-
-    img:hover{
-        background-color: black;
-        filter: invert(100%);
-    }
-
-    .soundcloud-container{
-        margin-right: 10px;
-        margin-top: 50px !important;
-    }
-    }  }
     }
     .artists-container .row{
         padding: 3px;
