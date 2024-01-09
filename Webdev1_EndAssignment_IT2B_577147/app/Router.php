@@ -49,6 +49,28 @@ class Router
         $this->respondNotFound();
     }
 
+    /*public function getCurrentRoute()
+    {
+        $parsedUrl = parse_url($_SERVER['REQUEST_URI']);
+        $requestedPath = $parsedUrl['path'];
+
+        foreach ($this->routes as $route) {
+            $matchResult = $this->matchRoute($route, $requestedPath);
+
+            if ($matchResult['result']) {
+                $string = $route->getString();
+                if(isset($string)){
+                    return $string;
+                }
+
+                return $route->getPattern();
+            }
+        }
+
+        return null;
+    }*/
+
+
     private function handleParameters($route)
     {
         if ($route->getGetParams() !== null) {
