@@ -157,7 +157,7 @@
             isMerged = false
         } else if (!isMerged || clickedElementId !== lastClickedElementId) {
             changeNamesBackgroundColor('white');
-            let parentDiv = element.parentElement;
+            let parentDiv = document.getElementById(lastClickedElementId).parentElement;
             let mergedDiv = mergeDivs(div1, div2);
             parentDiv.innerHTML = '';
             parentDiv.parentNode.appendChild(mergedDiv)
