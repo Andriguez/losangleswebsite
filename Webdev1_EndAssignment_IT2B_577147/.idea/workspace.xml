@@ -9,8 +9,8 @@
       <change beforePath="$PROJECT_DIR$/app/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Router.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/artistsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/artistsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/ArtistRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/ArtistRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/ArtistService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/ArtistService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/trialController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/trialController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/artists/detailpage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/artists/detailpage.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/artists/index2.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/artists/index2.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,7 +121,7 @@
       <workItem from="1704382092105" duration="21581000" />
       <workItem from="1704463875009" duration="6717000" />
       <workItem from="1704553195124" duration="15106000" />
-      <workItem from="1704730070111" duration="12435000" />
+      <workItem from="1704730070111" duration="17247000" />
     </task>
     <servers />
   </component>

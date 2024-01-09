@@ -9,7 +9,7 @@
     <select id="disciplineFilter" class="form-select">
         <option selected>discipline</option>
         <?php foreach ($disciplines as $discipline){ ?>
-            <option value="<?php echo $discipline->getDisciplineId();?>"><?php echo $discipline->getName();?></option>
+            <option value="<?php echo $discipline->getName();?>"><?php echo $discipline->getName();?></option>
         <?php }?>
     </select>
 </div>
@@ -54,7 +54,7 @@
                 <a class="artist-name" href="#"><span>Amir<img src="/media/triangle-icon.svg"></span></a>
             </div>
             <div id="artist-14" class="col">
-                <a class="artist-name" href="#"><span>Ada M. Patterson<img src="/media/triangle-icon.svg"></span></a>
+                <a class="artist-name" href="#" onclick="toggleDiv('artist-14')"><span>Ada M. Patterson<img src="/media/triangle-icon.svg"></span></a>
             </div>
             <div id="artist-15" class="col">
                 <a class="artist-name" href="#"><span>angelboy<img src="/media/triangle-icon.svg"></span></a>
@@ -192,7 +192,11 @@
             }
         }
 
-        let artistDetails = addZobaydaDetails();
+        let artistDetails = document.createElement('div');
+        artistDetails.id = 'artistDetails';
+        artistDetails.classList.add('artist-details');
+
+        displayArtistDetails('/artists/dj/zobayda');
 
         // Insert the new divs after the original target div
         targetDiv.parentNode.insertBefore(div1, targetDiv);
@@ -227,112 +231,39 @@
         return combinedDiv;
     }
 
-    function addZobaydaDetails() {
-        const zobaydaDetailsDiv = document.createElement('div');
-        zobaydaDetailsDiv.id = 'zobayda-details';
-        zobaydaDetailsDiv.classList.add('artist-details');
-
-        // Create the img-container
-        const imgContainerDiv = document.createElement('div');
-        imgContainerDiv.classList.add('img-container');
-
-        // Create the image
-        const artistImage = document.createElement('img');
-        artistImage.src = '/media/artist1.png';
-        artistImage.alt = 'Artist Image';
-
-        // Append the image to img-container
-        imgContainerDiv.appendChild(artistImage);
-
-        // Create the text-container
-        const textContainerDiv = document.createElement('div');
-        textContainerDiv.classList.add('text-container');
-
-        const name = document.createElement('span');
-        name.textContent = 'Zobayda';
-        name.classList.add('artist-name');
-
-        // Create label
-        const label = document.createElement('label');
-        label.textContent = 'some labels/pronouns/artistic tags idk';
-
-        // Create paragraph
-        const paragraph = document.createElement('p');
-        paragraph.textContent = 'Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur erat nam.';
-
-        // Append label and paragraph to text-container
-        textContainerDiv.appendChild(name);
-        textContainerDiv.appendChild(label);
-        textContainerDiv.appendChild(paragraph);
-
-        // Create the media-container
-        const mediaContainerDiv = document.createElement('div');
-        mediaContainerDiv.classList.add('media-container');
-
-        // Create the icon-container
-        const iconContainerDiv = document.createElement('div');
-        iconContainerDiv.classList.add('icon-container');
-
-        // Create Instagram icon
-        const instagramIcon = createIcon('/media/instagram.svg', '#');
-
-        // Create Mail icon
-        const mailIcon = createIcon('/media/mail.svg', '#');
-
-        // Create Triangle icon
-        const triangleIcon = createIcon('/media/triangle.svg', '#');
-
-        // Append icons to icon-container
-        iconContainerDiv.appendChild(instagramIcon);
-        iconContainerDiv.appendChild(mailIcon);
-        iconContainerDiv.appendChild(triangleIcon);
-
-        // Append icon-container to media-container
-        mediaContainerDiv.appendChild(iconContainerDiv);
-
-        // Create the soundcloud-container
-        const soundcloudContainerDiv = document.createElement('div');
-        soundcloudContainerDiv.classList.add('soundcloud-container');
-
-        // Add your SoundCloud embed code here
-        soundcloudContainerDiv.innerHTML = '<iframe width="350px" height="100px" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1642138038&color=%230c402a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe> <div style="font-size: 10px; color: #cccccc; line-break: anywhere; word-break: normal; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif; font-weight: 100;"><a href="https://soundcloud.com/admiredarkness" title="ADMIRE DARKNESS" target="_blank" style="color: #cccccc; text-decoration: none;">ADMIRE DARKNESS</a> · <a href="https://soundcloud.com/admiredarkness/bunt-voila-techno1" title="BUNT. - Voila (TECHNO)" target="_blank" style="color: #cccccc; text-decoration: none;">BUNT. - Voila (TECHNO)</a> </div>';
-
-        // Append soundcloud-container to media-container
-        mediaContainerDiv.appendChild(soundcloudContainerDiv);
-
-        // Append img-container, text-container, and media-container to zobayda-details
-        zobaydaDetailsDiv.appendChild(imgContainerDiv);
-        zobaydaDetailsDiv.appendChild(textContainerDiv);
-        zobaydaDetailsDiv.appendChild(mediaContainerDiv);
-
-        return zobaydaDetailsDiv;
-    }
-
-    function createIcon(src, href) {
-        const link = document.createElement('a');
-        link.href = href;
-        const icon = document.createElement('img');
-        icon.src = src;
-
-        link.appendChild(icon);
-
-        return link;
+    function displayArtistDetails(filePath) {
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', filePath, true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                document.getElementById('artistDetails').innerHTML = xhr.responseText;
+            }
+        };
+        xhr.send();
     }
 
     document.addEventListener('DOMContentLoaded', function() {
         // Read the category parameter from PHP
-        const categoryParam = '<?php echo (isset($targetDiscipline)) ? $targetDiscipline->getDisciplineId() : ''; ?>';
+        const disciplineParam = '<?php echo (isset($targetDiscipline)) ? $targetDiscipline->getDisciplineId() : ''; ?>';
 
-        if (categoryParam) {
+        if (disciplineParam) {
             // Identify the corresponding category element
-            const categoryElement = document.getElementById(categoryParam);
+            const disciplineDiv = document.getElementById(disciplineParam);
 
-            if (categoryElement) {
+            if (disciplineDiv) {
                 // Scroll to the identified category
-                categoryElement.scrollIntoView({ behavior: 'smooth', block: "center"});
+                disciplineDiv.scrollIntoView({ behavior: 'smooth', block: "center"});
             }
         }
     });
+
+    document.getElementById('disciplineFilter').onchange = function() {
+        // Get the selected option value
+        let selectedOption = this.value;
+
+        // Update the window location to the desired URL
+        window.location.href = '/artists/' + selectedOption.replace(/ /g, "-");
+    };
 </script>
 </body>
 </html>

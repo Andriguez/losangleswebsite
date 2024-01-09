@@ -117,7 +117,7 @@ class Router
             if (isset($parameters[0])) {
                 $parameters[0] = str_replace('-', ' ', $parameters[0]);
             }
-            
+
         } else {
             $parameters = []; // No pattern, set parameters to an empty array
         }

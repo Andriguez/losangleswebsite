@@ -45,7 +45,7 @@ class artistsController extends Controller
 
     }
     private function displayArtistDetails($discipline, $artistName){
-        echo 'displaying:  '.$artistName.' from '.$discipline;
+        require __DIR__ . '/../views/artists/detailpage.php';
     }
     private function displayDiscipline($discipline){
 
