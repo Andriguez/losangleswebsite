@@ -132,7 +132,7 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
             <?php foreach ($allArtists[$discipline->getDisciplineId()] as $artist) { ?>
                 <div id="<?php echo $artist->getUserId()?>" class="col">
-                    <a class="artist-name" href="#" onclick="toggleDiv(<?php echo $artist->getUserId()?>)"><span><?php echo $artist->getArtistContent()->getStageName(); ?></span></a>
+                    <a class="artist-name" onclick="toggleDiv(<?php echo $artist->getUserId()?>)"><span><?php echo $artist->getArtistContent()->getStageName(); ?></span></a>
                 </div>
             <?php } ?>
         </div></div>
@@ -222,7 +222,7 @@
 
         // Remove the original target div
         targetDiv.parentNode.removeChild(targetDiv);
-        artistDetails.scrollIntoView({behavior: 'smooth', block: 'start'});
+        clickedElement.scrollIntoView({behavior: 'smooth', block: 'start'});
     }
 
     function mergeDivs(div1, div2){
@@ -339,6 +339,7 @@
         font-size: 20px;
         font-family: angles;
         text-transform: uppercase;
+        cursor: pointer;
     }
     span img{
         height: .8rem;

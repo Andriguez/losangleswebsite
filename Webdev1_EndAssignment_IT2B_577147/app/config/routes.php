@@ -3,8 +3,8 @@ require_once __DIR__.'/../config/Route.php';
 $routes = [
     new Route(['GET','HEAD'],'connectController', null,'/^\/feed(?:\/([a-z0-1_-]+))?$/'),
     new Route(['GET','HEAD'],'homeController', null,null, '/'),
-    new Route(['GET','HEAD'],'artistsController',  null,'/^\/artists(?:\/(?:|index))?\/?#?$/i', '/artists'),
-    new Route(['GET','HEAD'],'artistsController',  'displayRequest','/^\/artists(?:\/([a-z0-9_.-]+)(?:\/(\w+))?)?\/?$/i'),
+    new Route(['GET','HEAD'],'artistsController',  null,'/^\/artists(?:\/(?:|index|([a-z0-9_-]+)(?:\/(\w+))?)?)?\/?#?$/i', '/artists'),
+    //new Route(['GET','HEAD'],'artistsController',  'displayRequest','/^\/artists(?:\/([a-z0-9_.-]+)(?:\/(\w+))?)?\/?$/i'),
     //alternative joint pattern : /^\/artists(?:\/(?:|index|([a-z0-9_-]+)(?:\/(\w+))?)?)?\/?#?$/i
     new Route(['GET','HEAD'],'eventsController',  null,'/^\/events(?:\/([a-z0-1_-]+))?$/'),
     new Route(['GET','HEAD'],'aboutController',  null,'/^\/about(?:\/([a-z0-1_-]+))?$/'),

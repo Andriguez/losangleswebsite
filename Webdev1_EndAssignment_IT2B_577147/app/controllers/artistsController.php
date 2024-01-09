@@ -21,8 +21,16 @@ class artistsController extends Controller
         $this->userService = new UserService();
         $this->artistService = new ArtistService();
     }
-    public function index(){
+    public function index($disciplineName = null, $artistName = null){
         $disciplines = $this->artistService->getAllDisciplines();
+
+        if(isset($disciplineName)){
+            $targetDiscipline = $this->artistService->getDisciplineByName($disciplineName);
+
+            if(isset($artistName)){
+                $this->displayArtistDetails($artistName, $targetDiscipline); exit;
+            }
+        }
 
         foreach ($disciplines as $discipline){
 
@@ -31,35 +39,12 @@ class artistsController extends Controller
         }
         require __DIR__ . '/../views/artists/index2.php';
     }
-    public function displayRequest($disciplineName, $artistsName = null){
-
-        $display = 'error no parameters given';
-
-        $targetDiscipline = $this->artistService->getDisciplineByName($disciplineName);
-
-        if (isset($artistsName)){
-            $this->displayArtistDetails($artistsName);
-        } else if(isset($targetDiscipline)){
-            $this->displayDiscipline($targetDiscipline);
-        }
-
-    }
-    private function displayArtistDetails($artistName){
+    private function displayArtistDetails($artistName, $discipline){
         $artist = $this->artistService->getArtistByStageName($artistName);
 
-        require __DIR__ . '/../views/artists/detailpage.php';
-    }
-    private function displayDiscipline($discipline){
+        if($artist->getArtistContent()->getDiscipline() == $discipline){
+            require __DIR__ . '/../views/artists/detailpage.php';
+        } else {\Router::getInstance()->respond(404, "artist: {$artist->getArtistContent()->getStagename()} not found in category: {$discipline->getName()}!");}
 
-        $targetDiscipline = $discipline;
-
-        $disciplines = $this->artistService->getAllDisciplines();
-        foreach ($disciplines as $discipline){
-
-            $artists = $this->artistService->getAllArtistsByDiscipline($discipline->getDisciplineId());
-            $allArtists[$discipline->getDisciplineId()] = $artists;
-        }
-
-        require __DIR__ . '/../views/artists/index2.php';
     }
 }
