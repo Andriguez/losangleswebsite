@@ -31,7 +31,7 @@ class ArtistRepository extends Repository
                 $artistContent->setDiscipline($this->getDisciplineById($row['artist_discipline']));
                 $artistContent->setExtraLink($row['artist_extralink']);
                 $artistContent->setEmail($row['artist_email']);
-                $artistContent->setSoundcloudUrl($row['artist_soundcloud_url']);
+                $artistContent->setSoundcloudUrl(htmlspecialchars_decode($row['artist_soundcloud_url']));
                 $artistContent->setSocials($row['artist_socialmedia']);
                 $artistContent->setStagename($row['artist_stagename']);
                 $artistContent->setLocation($row['artist_location']);
@@ -93,6 +93,28 @@ class ArtistRepository extends Repository
             }
 
             return $allArtists ?? null;
+
+
+        } catch (\PDOException $e){echo $e;}
+
+    }
+
+    public function getArtistByStageName($stagename){
+        $query = "SELECT artist_Id FROM artist_content WHERE artist_stagename = :stagename";
+
+        try{
+            $statement = $this->getContentDB()->prepare($query);
+            $statement->bindParam(':stagename', $stagename);
+            $statement->execute();
+
+            $userRepo = new UserRepository();
+            while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+
+                $artist = $userRepo->getUserById($row['artist_Id']);
+
+            }
+
+            return $artist ?? null;
 
 
         } catch (\PDOException $e){echo $e;}

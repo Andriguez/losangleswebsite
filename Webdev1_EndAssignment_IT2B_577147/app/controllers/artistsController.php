@@ -38,13 +38,15 @@ class artistsController extends Controller
         $targetDiscipline = $this->artistService->getDisciplineByName($disciplineName);
 
         if (isset($artistsName)){
-            $this->displayArtistDetails($targetDiscipline, $artistsName);
+            $this->displayArtistDetails($artistsName);
         } else if(isset($targetDiscipline)){
             $this->displayDiscipline($targetDiscipline);
         }
 
     }
-    private function displayArtistDetails($discipline, $artistName){
+    private function displayArtistDetails($artistName){
+        $artist = $this->artistService->getArtistByStageName($artistName);
+
         require __DIR__ . '/../views/artists/detailpage.php';
     }
     private function displayDiscipline($discipline){
