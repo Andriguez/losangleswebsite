@@ -20,5 +20,5 @@ class AdminContent
     public function getTitles():string{return $this->admin_titles;}
     public function getDescription():string{return $this->admin_description;}
     public function getMediaInfo():MediaInfo{return $this->admin_picture;}
-    public function getPictureSrc():string{return $this->getMediaInfo()->getMediaPath()->getPath().$this->getMediaInfo()->getMediaFilename();}
+    public function getPictureSrc():string{return '/'.$this->getMediaInfo()->getMediaPath()->getPath().$this->getMediaInfo()->getMediaFilename();}
 }

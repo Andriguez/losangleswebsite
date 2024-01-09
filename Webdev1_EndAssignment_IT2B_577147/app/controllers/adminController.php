@@ -245,7 +245,7 @@ class adminController extends Controller
             $fileName = $_FILES['picture']['name'];
             $tempName = $_FILES['picture']['tmp_name'];
 
-            $defaultDir = '/media/';
+            $defaultDir = 'media/';
             $path = $defaultDir.$mediaDirectory.$fileName;
             move_uploaded_file($tempName, $path);
 

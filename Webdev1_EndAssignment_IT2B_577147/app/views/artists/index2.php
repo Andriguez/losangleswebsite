@@ -131,8 +131,8 @@
         <label class="type-label"><?php echo $discipline->getName()?>s</label>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
             <?php foreach ($allArtists[$discipline->getDisciplineId()] as $artist) { ?>
-                <div id="<?php echo $artist->getUserId?>" class="col">
-                    <a class="artist-name" href="#"><span><?php echo $artist->getArtistContent()->getStageName(); ?></span></a>
+                <div id="<?php echo $artist->getUserId()?>" class="col">
+                    <a class="artist-name" href="#" onclick="toggleDiv(<?php echo $artist->getUserId()?>)"><span><?php echo $artist->getArtistContent()->getStageName(); ?></span></a>
                 </div>
             <?php } ?>
         </div></div>
@@ -142,31 +142,38 @@
 <script>
     let isMerged = true;
     let div1 = document.createElement('div');
+    div1.id = 'firstHalf';
     let div2 = document.createElement('div');
+    div2.id = 'secondHalf';
 
     function toggleDiv(clickedElementId){
         //let targetDiv = document.getElementById(targetDivId);
         let element = document.getElementById(clickedElementId)
 
         if(isMerged){
-            let targetDiv1 = element.parentElement;
-            splitDivFromElement(targetDiv1.id, element.id, div1, div2);
+            let targetDiv = element.parentElement;
+            splitDivFromElement(targetDiv, element, div1, div2);
             isMerged = false
         } else {
             element.style.backgroundColor = 'white';
-            let parentDiv = element.parentElement.parentElement;
+            let parentDiv = element.parentElement;
             let mergedDiv = mergeDivs(div1, div2);
-            parentDiv.innerHTML = '<label class="type-label">djs</label>';
-            parentDiv.appendChild(mergedDiv)
+            parentDiv.innerHTML = '';
+            parentDiv.parentNode.appendChild(mergedDiv)
+            let artistDetails = document.getElementById('artistDetails');
+            parentDiv.parentNode.removeChild(div2);
+            parentDiv.parentNode.removeChild(artistDetails);
+            parentDiv.parentNode.removeChild(div1);
             isMerged = true;
         }
     }
 
 
-    function splitDivFromElement(targetDivId, clickedElementId, div1, div2) {
+    function splitDivFromElement(targetDiv, clickedElement, div1, div2) {
         // Get the target div and the split element
-        let targetDiv = document.getElementById(targetDivId);
-        let clickedElement = document.getElementById(clickedElementId);
+        //let targetDiv = document.getElementById(targetDivId);
+        //let clickedElement = document.getElementById(clickedElementId);
+        let artistName = clickedElement.innerText;
 
         div1.classList.add('row', 'row-cols-1', 'row-cols-sm-2', 'row-cols-md-3', 'g-4');
         div2.classList.add('row', 'row-cols-1', 'row-cols-sm-2', 'row-cols-md-3', 'g-4');
@@ -194,9 +201,8 @@
 
         let artistDetails = document.createElement('div');
         artistDetails.id = 'artistDetails';
-        artistDetails.classList.add('artist-details');
 
-        displayArtistDetails('/artists/dj/zobayda');
+        displayArtistDetails('/artists/dj/'+artistName);
 
         // Insert the new divs after the original target div
         targetDiv.parentNode.insertBefore(div1, targetDiv);
@@ -206,7 +212,7 @@
 
         // Remove the original target div
         targetDiv.parentNode.removeChild(targetDiv);
-        artistDetails.scrollIntoView({behavior: 'smooth', block: "center"});
+        artistDetails.scrollIntoView({behavior: 'smooth', block: 'start'});
     }
 
     function mergeDivs(div1, div2){
@@ -252,7 +258,7 @@
 
             if (disciplineDiv) {
                 // Scroll to the identified category
-                disciplineDiv.scrollIntoView({ behavior: 'smooth', block: "center"});
+                disciplineDiv.scrollIntoView({ behavior: 'smooth', block: 'start'});
             }
         }
     });
