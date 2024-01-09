@@ -15,7 +15,7 @@ function editSelectedUser(){
 
     if (userRadios.length > 0) {
         let userId = userRadios[0].id;
-        let filepath = 'admin/manageuser/'+userId;
+        let filepath = `admin/manageuser/${userId}`;
         openWindow(filepath);
     } else {
         console.log("No user selected.");
@@ -27,7 +27,7 @@ function selectedRadioAction(action, reload){
 
     if (radios.length > 0) {
         let id = radios[0].id;
-        let filepath = 'admin/'+action+'/'+id;
+        let filepath = `admin/${action}/${id}`;
 
         if(!reload){
             openWindow(filepath);
@@ -41,8 +41,8 @@ function selectedRadioAction(action, reload){
 }
 
 function displaySelectedUserDetails(selectElement, functionName){
-    userId = selectElement.value;
-    let filepath = 'admin/'+functionName+'/'+userId;
+    let userId = selectElement.value;
+    let filepath = `admin/${functionName}/${userId}`;
 
     openWindow(filepath)
 }
@@ -65,12 +65,12 @@ function previewImage(fileInput, imgId) {
     fileInput.addEventListener('change', function () {
         // Check if any file is selected
         if (fileInput.files.length > 0) {
-            var file = fileInput.files[0];
+            let file = fileInput.files[0];
 
             // Check if the selected file is an image
             if (file.type.startsWith('image/')) {
                 // Create a FileReader to read the file
-                var reader = new FileReader();
+                const reader = new FileReader();
 
                 reader.onload = function (e) {
                     // Set the thumbnail preview source

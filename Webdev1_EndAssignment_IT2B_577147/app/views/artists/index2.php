@@ -127,7 +127,7 @@
         </div></div>
 
     <?php foreach ($disciplines as $discipline){ ?>
-    <div id="<?php echo $discipline->getDisciplineId()?>" class="artists-container">
+    <div id="<?php echo $discipline->getDisciplineId()?>" data-custom-data="<?php echo $discipline->getName()?>" class="artists-container">
         <label class="type-label"><?php echo $discipline->getName()?>s</label>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
             <?php foreach ($allArtists[$discipline->getDisciplineId()] as $artist) { ?>
@@ -161,9 +161,8 @@
             let mergedDiv = mergeDivs(div1, div2);
             parentDiv.innerHTML = '';
             parentDiv.parentNode.appendChild(mergedDiv)
-            let artistDetails = document.getElementById('artistDetails');
             div2.remove();
-            artistDetails.remove();
+            document.getElementById('artistDetails').remove();
             div1.remove();
             isMerged = true;
         }
@@ -180,16 +179,15 @@
     }
 
     function splitDivFromElement(targetDiv, clickedElement, div1, div2) {
-        // Get the target div and the split element
-        //let targetDiv = document.getElementById(targetDivId);
-        //let clickedElement = document.getElementById(clickedElementId);
-        let artistName = clickedElement.innerText;
+        let artistName = clickedElement.innerText.replace(/ /g, "-");
+        let disciplineName = clickedElement.parentElement.parentElement.getAttribute('data-custom-data').replace(/ /g, "-");
 
         div1.classList.add('row', 'row-cols-1', 'row-cols-sm-2', 'row-cols-md-3', 'g-4');
         div2.classList.add('row', 'row-cols-1', 'row-cols-sm-2', 'row-cols-md-3', 'g-4');
 
-
         let isAfterSplitElement = false;
+        let fragment1 = document.createDocumentFragment();
+        let fragment2 = document.createDocumentFragment();
 
         // Move the children of the target div to the new divs
         while (targetDiv.firstChild) {
@@ -197,32 +195,49 @@
 
             // Check if the current child is the split element
             if (child === clickedElement) {
-                div1.appendChild(clickedElement);
+                fragment1.appendChild(clickedElement);
                 isAfterSplitElement = true;
             }
 
             // Move the children to the new divs based on the split condition
             if (isAfterSplitElement && child !== clickedElement) {
-                div2.appendChild(child);
+                fragment2.appendChild(child);
             } else {
-                div1.appendChild(child);
+                fragment1.appendChild(child);
             }
         }
 
         let artistDetails = document.createElement('div');
         artistDetails.id = 'artistDetails';
 
-        displayArtistDetails('/artists/dj/'+artistName);
+        displayArtistDetails(`/artists/${disciplineName}/${artistName}`);
 
-        // Insert the new divs after the original target div
-        targetDiv.parentNode.insertBefore(div1, targetDiv);
+        targetDiv.replaceWith(div1, artistDetails, div2);
+        div1.appendChild(fragment1);
+        div2.appendChild(fragment2);
+
         clickedElement.style.backgroundColor = 'black';
-        targetDiv.parentNode.insertBefore(artistDetails, targetDiv.nextSibling);
-        targetDiv.parentNode.insertBefore(div2, targetDiv.nextSibling.nextSibling);
+        clickedElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 
-        // Remove the original target div
-        targetDiv.parentNode.removeChild(targetDiv);
-        clickedElement.scrollIntoView({behavior: 'smooth', block: 'start'});
+    function displayArtistDetails(filePath) {
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', filePath, true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                document.getElementById('artistDetails').innerHTML = xhr.responseText;
+            }
+        };
+        xhr.send();
+
+        //fetch(filePath)
+            //.then(response => response.json())
+            //.then(data => {
+               // document.getElementById('artistDetails').innerHTML = data;
+            //})
+            //.catch(error => {
+                //console.error('Error fetching artist details:', error);
+            //});
     }
 
     function mergeDivs(div1, div2){
@@ -245,17 +260,6 @@
         }
 
         return combinedDiv;
-    }
-
-    function displayArtistDetails(filePath) {
-        let xhr = new XMLHttpRequest();
-        xhr.open('GET', filePath, true);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                document.getElementById('artistDetails').innerHTML = xhr.responseText;
-            }
-        };
-        xhr.send();
     }
 
     document.addEventListener('DOMContentLoaded', function() {
