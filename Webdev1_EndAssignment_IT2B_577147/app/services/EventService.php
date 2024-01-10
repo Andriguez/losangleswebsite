@@ -14,10 +14,10 @@ class EventService
         $this->eventRepo = new EventRepository();
     }
 
-    public function getEventById($eventId):Event{ return $this->eventRepo->getEventById($eventId); }
-    public function getAllEvents():array{ return $this->eventRepo->getAllEvents(); }
-    public function getAllEventsByType($eventType):array{ return $this->eventRepo->getEventsByType($eventType); }
-    public function getAllEventsByDate($datetime):array{ return $this->eventRepo->getEventsByDate($datetime); }
+    public function getEventById($eventId){ return $this->eventRepo->getEventById($eventId); }
+    public function getAllEvents(){ return $this->eventRepo->getAllEvents(); }
+    public function getAllEventsByType($eventType){ return $this->eventRepo->getEventsByType($eventType); }
+    public function getAllEventsByDate($datetime){ return $this->eventRepo->getEventsByDate($datetime); }
     public function getLineupById($lineupId):EventLineup{ return $this->eventRepo->getLineupById($lineupId); }
     public function getLineupByEvent($eventId):EventLineup{ return $this->eventRepo->getLineupByEvent($eventId); }
     public function getAllLineups(){ return $this->eventRepo->getAllLineups(); }

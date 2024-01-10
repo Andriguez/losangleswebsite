@@ -110,12 +110,24 @@ class adminController extends Controller
         $this->reloadPage();
     }
     public function viewEvents(){
-        if($this->userAuth->allowAdminAccess())
+        if($this->userAuth->allowAdminAccess()){
+            $events = $this->eventService->getAllEvents();
             require __DIR__ . '/../views/admin/windows/content/eventspage/viewEvents.php';
+        }
     }
     public function manageEvent(){
         if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/content/eventspage/manageEvent.php';
+    }
+    public function viewLineups(){
+        if($this->userAuth->allowAdminAccess()){
+            require __DIR__ . '/../views/admin/windows/content/eventspage/viewEventLineups.php';
+        }
+    }
+    public function manageLineups(){
+        if($this->userAuth->allowAdminAccess()){
+            require __DIR__ . '/../views/admin/windows/content/eventspage/manageEventLineUp.php';
+        }
     }
     public function viewLocations(){
         if($this->userAuth->allowAdminAccess()){

@@ -75,7 +75,7 @@ session_start();} ?>
                                         <!--CHiLD ACCORDION EVENTS-PAGE OPTIONS-->
                                         <ul class="nav nav-pills flex-column mb-auto">
                                             <li><a onclick="openWindow('admin/viewevents')" class="nav-link text-reset">events</a></li>
-                                            <!--<li><a href="#" class="nav-link text-reset">Manage dates</a></li>-->
+                                            <li><a onclick="openWindow('admin/viewlineups')" class="nav-link text-reset">Lineups</a></li>
                                             <li><a onclick="openWindow('admin/viewlocations')" class="nav-link text-reset">locations</a></li>
                                             <li><a class="nav-link text-reset" onclick="openWindow('admin/vieweventtypes')">types</a></li>
                                         </ul>

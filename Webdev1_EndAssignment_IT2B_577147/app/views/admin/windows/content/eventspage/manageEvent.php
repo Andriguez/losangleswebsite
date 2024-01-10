@@ -43,10 +43,6 @@
                     <label for="inputlastname" class="form-label"><strong>Description</strong></label>
                     <textarea rows="4" class="form-control" id="inputlastname"></textarea>
                 </div>
-                <div class="col-md-12">
-                    <label for="inputlastname" class="form-label"><strong>Line up</strong></label>
-                    <textarea rows="2" class="form-control" id="inputlastname"></textarea>
-                </div>
                 <div class="col-md-6">
                     <label for="inputName" class="form-label"><strong>Button text</strong></label>
                     <input type="text" class="form-control" id="inputName">

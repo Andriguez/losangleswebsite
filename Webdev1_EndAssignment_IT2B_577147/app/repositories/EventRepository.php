@@ -67,7 +67,7 @@ class EventRepository extends Repository
                 $event = $this->getEventById($row['event_Id']);
                 $allEvents[] = $event;
             }
-            return $allEvents;
+            return $allEvents ?? null;
         } catch (\PDOException $e){echo $e;}
     }
 

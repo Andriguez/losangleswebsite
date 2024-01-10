@@ -13,11 +13,9 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Last Name</th>
+            <th scope="col">Full Name</th>
             <th scope="col">Email</th>
             <th scope="col">Type</th>
-            <th scope="col">Has Content</th>
         </tr>
         </thead>
         <tbody>
@@ -25,11 +23,9 @@
         <tr>
             <td><input class="form-check-input radioBtn" type="radio" name="radioButton" id="<?php echo $user->getUserId();?>"></td>
             <th scope="row"><?php echo $user->getUserId(); ?></th>
-            <td><?php echo $user->getFirstName(); ?></td>
-            <td><?php echo $user->getLastName(); ?></td>
+            <td><?php echo $user->getFullName(); ?></td>
             <td><?php echo $user->getEmail(); ?></td>
             <td><?php echo $user->getUserType()->getUserType(); ?></td>
-            <td>no</td> <!-- <td><a href="usercontentpage">yes</a></td>-->
 
         </tr>
         <?php } ?>

@@ -13,24 +13,10 @@
             </thead>
             <tbody>
             <tr>
-                <td><input type="checkbox" name="row1"></td>
+                <td><input class="form-check-input radioBtn" type="radio" name="radioButton"></td>
                 <th scope="row">139 Angles</th>
                 <td>14 oct 2023</td>
                 <td>Kaanal 40</td>
-                <td>club night</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="row2"></td>
-                <th scope="row">Parish</th>
-                <td>15 dec 2023</td>
-                <td>Pip den haag</td>
-                <td>club night</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="row3"></td>
-                <th scope="row">Poing Pride</th>
-                <td>2 jun 2023</td>
-                <td>Poing</td>
                 <td>club night</td>
             </tr>
             </tbody>
