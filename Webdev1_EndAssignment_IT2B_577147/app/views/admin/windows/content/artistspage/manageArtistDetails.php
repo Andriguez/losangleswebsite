@@ -9,7 +9,7 @@
         <?php }?>
     </select>
     </div>
-    <form method="POST" action="/admin/storeartistdetails/<?php echo (isset($selectedArtist))? $selectedArtist->getUserId() : '';?>" enctype="multipart/form-data">
+    <form enctype="multipart/form-data">
     <div class="container row">
         <div class="col-md-4">
             <strong>Artist Picture</strong>

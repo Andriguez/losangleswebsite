@@ -241,20 +241,27 @@ class adminController extends Controller
         }
     }
     public function updateAboutContent() {
-        if ($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'POST') {
-            $elements = [
-                'title-text' => $_POST['title-text'],
-                'title-link' => $_POST['title-link'],
-                'about-description' => $_POST['about-description'],
-                'footer-text' => $_POST['footer-text'],
-                'footer-link' => $_POST['footer-link'],
-            ];
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
+            $data = json_decode(file_get_contents("php://input"), true);
 
-            foreach ($elements as $elementId => $input) {
-                $this->contentService->updateContentTextByElementId($elementId, $input);
-            }
+            if(isset($data)){
+                $elements = [
+                    'title-text' => $data['title-text'],
+                    'title-link' => $data['title-link'],
+                    'about-description' => $data['about-description'],
+                    'footer-text' => $data['footer-text'],
+                    'footer-link' => $data['footer-link'],
+                ];
 
-            $this->reloadPage();
+                foreach ($elements as $elementId => $input) {
+                    $this->contentService->updateContentTextByElementId($elementId, $input);
+                }
+
+                $result = "The details in the About page were successfully updated";
+                header('Content-Type: application/json;');
+                echo json_encode($result);
+
+            }  else {echo json_encode("No details input has been found!");}
         }
     }
     public function getElementContent($elementId){

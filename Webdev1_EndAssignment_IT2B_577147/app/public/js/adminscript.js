@@ -13,14 +13,14 @@ function openWindow(filePath) {
 
 function storeData(data, functionName, redirect){
 
-    let hasData = data.has('picture')
+    let hasPicture = ('picture' in data);
     let fetchOptions = { method: 'POST', headers:{ "Content-Type": "application/json"}}
 
-    if(hasData){
+    if(hasPicture){
         fetchOptions.headers = {};
         fetchOptions.body = data;
     } else{
-        fetchOptions.body = JSON.stringify(Object.fromEntries(data));
+        fetchOptions.body = JSON.stringify(Object.fromEntries(Object.entries(data)));
     }
 
     fetch(`/admin/${functionName}`, fetchOptions)
@@ -158,4 +158,20 @@ function storeArtistDetails(){
     const redirect = `manageartistdetails/${artistId}`;
 
     storeData(formData, functionName, redirect);
+}
+
+//ABOUT DETAILS
+
+function storeAboutDetails(){
+    let title = document.getElementById('inputtitle').value;
+    let titleLink = document.getElementById('inputtitlelink').value;
+    let description = document.getElementById('inputdescription').value;
+    let footer = document.getElementById('inputfooter').value;
+    let footerLink = document.getElementById('inputfooterlink').value;
+
+    const data = {"title-text": title, "title-link": titleLink, "about-description": description, "footer-text": footer, "footer-link": footerLink}
+    const functionName = 'updateaboutcontent';
+    const redirect = 'managedescription';
+
+    storeData(data, functionName, redirect);
 }
