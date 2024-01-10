@@ -1,4 +1,4 @@
-<html>
+<!DOCTYPE html>
 <head>
     <title>about us</title>
     <link rel="icon" href="/media/onlytb.png" type="image/png">
@@ -158,7 +158,7 @@
             border: black solid 3px;
         }
         .title{
-            font-family: angles;
+            font-family: angles !important;
             text-transform: uppercase;
             display: block;
             font-size: 18px!important;

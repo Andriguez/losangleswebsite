@@ -98,16 +98,34 @@ class adminController extends Controller
             require __DIR__ . '/../views/admin/windows/content/artistspage/manageDiscipline.php';
     }
     public function createDiscipline(){
-        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'POST'){
-            $this->artistService->createDiscipline($_POST['disciplineName']);
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
+            $data = json_decode(file_get_contents("php://input"), true);
+
+            if(isset($data['disciplineName'])){
+                $disciplineName = $data['disciplineName'];
+                $this->artistService->createDiscipline($disciplineName);
+
+                $result = "discipline $disciplineName was successfully created";
+                header('Content-Type: application/json;');
+                echo json_encode($result);
+
+            }  else {echo json_encode("No discipline input has been found!");}
         }
-        $this->reloadPage();
     }
     public function deleteDiscipline($disciplineid){
-        if($this->userAuth->allowAdminAccess()){
-            $this->artistService->deleteDiscipline($disciplineid);
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'GET'){
+
+            if(isset($disciplineid)){
+                $this->artistService->deleteDiscipline($disciplineid);
+
+                $result = 'discipline has been succesfully deleted';
+
+            } else { $result = 'no discipline has been selected'; }
+
+            header('Content-Type: application/json;');
+            echo json_encode($result);
+
         }
-        $this->reloadPage();
     }
     public function viewEvents(){
         if($this->userAuth->allowAdminAccess()){

@@ -10,33 +10,59 @@ function openWindow(filePath) {
     };
     xhr.send();
 }
-function editSelectedUser(){
-    let userRadios = document.querySelectorAll('.userRadio:checked');
 
-    if (userRadios.length > 0) {
-        let userId = userRadios[0].id;
-        let filepath = `admin/manageuser/${userId}`;
-        openWindow(filepath);
-    } else {
-        console.log("No user selected.");
-    }
+function storeData(data, functionName, redirect){
+
+    fetch(`/admin/${functionName}`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    })
+        .then(response => response.json())
+        .then(data => {
+            openWindow(`/admin/${redirect}`);
+            alert(data);})
+        .catch(error => console.error(error));
 }
 
-function selectedRadioAction(action, reload){
+function selectedIdAction(selectedId, functionName, redirect){
+    fetch(`/admin/${functionName}/${selectedId}`, {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+        .then(response => response.json())
+        .then(data => {
+            alert(data);
+            openWindow(`/admin/${redirect}`);
+        })
+        .catch(error => console.error(error));
+}
+
+//function editSelectedUser(){
+  //  let userRadios = document.querySelectorAll('.userRadio:checked');
+
+    //if (userRadios.length > 0) {
+      //  let userId = userRadios[0].id;
+        //let filepath = `admin/manageuser/${userId}`;
+        //openWindow(filepath);
+    //} else {
+      //  console.log("No user selected.");
+    //}
+//}
+
+function selectedRadioAction(functionName, redirect){
     let radios = document.querySelectorAll('.radioBtn:checked');
 
     if (radios.length > 0) {
         let id = radios[0].id;
-        let filepath = `admin/${action}/${id}`;
-
-        if(!reload){
-            openWindow(filepath);
-        }else {
-            window.location.replace(filepath);
-        }
+        selectedIdAction(id, functionName, redirect)
 
     } else {
-        console.log("No user selected.");
+        alert("No id selected.");
     }
 }
 
@@ -85,4 +111,15 @@ function previewImage(fileInput, imgId) {
             }
         }
     });
+}
+
+//DISCIPLINE
+
+function storeDiscipline(){
+    let disciplineName = document.getElementById('inputName').value;
+    const data = {"disciplineName": disciplineName}
+    const functionName = 'creatediscipline';
+    const redirect = 'viewdisciplines';
+
+    storeData(data, functionName, redirect);
 }

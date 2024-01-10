@@ -11,7 +11,7 @@
             <tbody>
             <?php if (isset($disciplines)){foreach ($disciplines as $discipline){?>
             <tr>
-                <td><input class="radioBtn" type="checkbox" name="row1" id="<?php echo $discipline->getDisciplineId();?>"></td>
+                <td><input class="form-check-input radioBtn" type="radio" name="radioButton" id="<?php echo $discipline->getDisciplineId();?>"></td>
                 <th scope="row"><?php echo $discipline->getName()?></th>
             </tr>
             <?php }} ?>
@@ -22,8 +22,7 @@
 
 
     <div id="button-container">
-        <button type="button" class="btn btn-danger" onclick="selectedRadioAction('deletediscipline', true)">Delete</button>
+        <button type="button" class="btn btn-danger" onclick="selectedRadioAction('deletediscipline', 'viewdisciplines')">Delete</button>
         <button class="btn btn-success" onclick="openWindow('admin/managediscipline')" type="button">Create new</button>
-
     </div>
 </div>

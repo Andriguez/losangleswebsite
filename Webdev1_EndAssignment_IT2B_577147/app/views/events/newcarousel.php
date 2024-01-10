@@ -15,8 +15,7 @@
             <div class="item-back text-center">
                 <span class="event-name">139 angles</span>
 
-                <span class="event-date">14 Oct</span>
-                <img src="/media/triangle-icon.svg">
+                <span class="event-date">14 Oct▶</span>
                 <span class="event-location">Kanaal 40</span>
                 <span class="subtitle">description</span>
                 <span class="event-type">Art exhibition - club night</span>

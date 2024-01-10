@@ -5,16 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/viewEventLineups.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/adminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/EventRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/EventRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/EventService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/EventService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/manageDate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/manageEventLineup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/manageEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/manageEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/viewEvents.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/viewEvents.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/users/viewUsers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/users/viewUsers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/js/adminscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/js/adminscript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/about/index2.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/about/index2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/content/artistspage/manageDiscipline.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/content/artistspage/manageDiscipline.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/content/artistspage/viewDisciplines.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/content/artistspage/viewDisciplines.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/events/newcarousel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/newcarousel.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +122,8 @@
       <workItem from="1704463875009" duration="6717000" />
       <workItem from="1704553195124" duration="15106000" />
       <workItem from="1704730070111" duration="21186000" />
-      <workItem from="1704802127223" duration="30202000" />
+      <workItem from="1704802127223" duration="31323000" />
+      <workItem from="1704888679267" duration="7374000" />
     </task>
     <servers />
   </component>
