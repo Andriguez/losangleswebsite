@@ -13,10 +13,10 @@ function openWindow(filePath) {
 
 function storeData(data, functionName, redirect){
 
-    let hasPicture = ('picture' in data);
+    let isFormData = data instanceof FormData;
     let fetchOptions = { method: 'POST', headers:{ "Content-Type": "application/json"}}
 
-    if(hasPicture){
+    if(isFormData){
         fetchOptions.headers = {};
         fetchOptions.body = data;
     } else{
@@ -174,4 +174,28 @@ function storeAboutDetails(){
     const redirect = 'managedescription';
 
     storeData(data, functionName, redirect);
+}
+
+//ADMIN DETAILS
+
+function storeAdminDetails(){
+    let adminId = document.getElementById('inputAdmin').value;
+    let nameLink = document.getElementById('inputlink').value;
+    let titles = document.getElementById('inputtitles').value;
+    let description = document.getElementById('inputdescription').value;
+
+    let fileInput = document.getElementById('admin-picture');
+    let file = fileInput.files[0];
+
+    const formData = new FormData();
+    formData.append('link', nameLink);
+    formData.append('titles', titles);
+    formData.append('description', description);
+    formData.append('picture', file);
+
+    const functionName = `storeadmincontent/${adminId}`;
+    const redirect = `manageadmindetails/${adminId}`;
+
+    console.log(formData);
+    storeData(formData, functionName, redirect);
 }

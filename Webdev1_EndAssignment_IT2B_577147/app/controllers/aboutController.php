@@ -18,13 +18,9 @@ class aboutController extends Controller
         $this->userService = new UserService();
     }
     public function index(){
-        $content = $this->contentService->getAllContentByPageId(1);
+        $aboutContent = $this->contentService->getAllContentByPageId(1);
         $admin = $this->userService->getUserById(1002);
 
         require __DIR__ . '/../views/about/index2.php';
-    }
-
-    public function getContentByElementId($elementId){
-        return $this->contentService->getContentByElementId($elementId)->getText();
     }
 }

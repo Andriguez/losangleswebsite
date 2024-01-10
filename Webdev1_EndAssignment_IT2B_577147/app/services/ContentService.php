@@ -20,9 +20,6 @@ class ContentService
     public function getContentById($contentId):PageContent{
         return $this->contentRepo->getContentById($contentId);
     }
-    public function getContentByElementId($elementId){
-        return $this->contentRepo->getContentByElementId($elementId);
-    }
     public function getAllContent():array{
         return $this->contentRepo->getAllContent();
     }

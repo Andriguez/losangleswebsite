@@ -93,8 +93,8 @@ session_start();} ?>
                                     <div class="accordion-body">
                                         <!--CHiLD ACCORDION ABOUT-PAGE OPTIONS-->
                                         <ul class="nav nav-pills flex-column mb-auto">
-                                            <li><a onclick="openWindow('admin/managedescription')" class="nav-link text-reset">about description</a></li>
-                                            <li><a onclick="openWindow('admin/manageadmindetails')" class="nav-link text-reset">angles details</a></li>
+                                            <li><a onclick="openWindow('admin/managedescription')" class="nav-link text-reset">about details</a></li>
+                                            <li><a onclick="openWindow('admin/manageadmindetails')" class="nav-link text-reset">admin details</a></li>
                                         </ul>
                                     </div>
                                 </div>

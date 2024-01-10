@@ -2,15 +2,15 @@
 <div id="manageadmindetails">
     <h1>Angles</h1>
     <div id="select-artist-container">
-        <label for="inputType" class="form-label"><strong>Select Angle</strong></label>
-        <select id="inputType" class="form-select" onchange="displaySelectedUserDetails(this, 'manageAdminDetails')">
-            <option selected><?php echo isset($selectedAdmin)? $selectedAdmin->getFirstName():'Choose...'?></option>
+        <label for="inputAdmin" class="form-label"><strong>Select Angle</strong></label>
+        <select id="inputAdmin" class="form-select" onchange="displaySelectedUserDetails(this, 'manageAdminDetails')">
+            <option selected value="<?php echo isset($selectedAdmin)? $selectedAdmin->getUserId():''?>"><?php echo isset($selectedAdmin)? $selectedAdmin->getFirstName():'Choose...'?></option>
             <?php foreach ($users as $user){ ?>
                 <option value="<?php echo $user->getUserId();?>"><?php echo $user->getFirstName();?></option>
             <?php }?>
         </select>
     </div>
-    <form method="POST" action="/admin/storeadmincontent/<?php echo (isset($selectedAdmin))? $selectedAdmin->getUserId(): '';?>" enctype="multipart/form-data">
+    <form enctype="multipart/form-data">
     <div class="container row">
         <div class="col-md-4">
             <strong>Angle Picture</strong>
@@ -38,12 +38,12 @@
                     <label for="inputdescription" class="form-label"><strong>description</strong></label>
                     <textarea rows="4" class="form-control" name="description" id="inputdescription"><?php echo(isset($adminContent))? $selectedAdmin->getAdminContent()->getDescription() : ''?></textarea>
                 </div>
-
-                <div class="col-12">
-                    <button type="submit" class="btn btn-success">Save</button>
-                </div>
-            </div></div></form>
-
+            </div>
+        </div>
+    </form>
+    <div class="col-12">
+        <button type="button" class="btn btn-success" onclick="storeAdminDetails()">Save</button>
+    </div>
 
     </div>
 </div>

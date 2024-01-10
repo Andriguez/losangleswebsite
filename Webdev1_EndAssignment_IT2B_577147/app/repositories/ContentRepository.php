@@ -118,27 +118,14 @@ class ContentRepository extends Repository
     }
 
     public function getAllContent(){
-        $query = "SELECT page_content_Id FROM page_content";
+        $query = "SELECT page_content_Id, element_Id FROM page_content";
         return $this->getContent($query);
     }
     public function getAllContentByPageId($pageId){
-        $query = "SELECT page_content_Id FROM page_content WHERE parent_page = :pageId";
+        $query = "SELECT page_content_Id, element_Id  FROM page_content WHERE parent_page = :pageId";
         $params = [':pageId' => $pageId];
 
         return $this->getContent($query, $params);
-    }
-    public function getContentByElementId($elementId)
-    {
-        $query = "SELECT page_content_Id FROM page_content WHERE `element_Id` = :elementID";
-
-        try{
-            $statement = $this->getContentDB()->prepare($query);
-            $statement->bindParam(':elementID', $elementId);
-
-            $statement->execute();
-
-            return $this->getContentById($statement->fetchColumn());
-        } catch (\PDOException $e){echo $e;}
     }
 
     public function updateContentTextByElementId($elementId, $textInput){
@@ -173,7 +160,7 @@ class ContentRepository extends Repository
 
             while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
                 $content = $this->getContentById($row['page_content_Id']);
-                $allContent[] = $content;
+                $allContent[$row['element_Id']] = $content;
             }
             return $allContent;
         } catch (\PDOException $e){echo $e;}

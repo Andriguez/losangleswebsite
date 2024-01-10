@@ -9,9 +9,9 @@
         <div class="row about-row">
             <div class="col about-col">
                 <div class="text-container">
-                    <a id="title-link" href="<?php echo $this->getContentByElementId('title-link')?>"><span id="title-text" class="title"><?php echo $this->getContentByElementId('title-text')?></span></a>
-                    <span id="about-description" class="description"><?php echo $this->getContentByElementId('about-description')?></span>
-                    <a id="footer-link" href="<?php echo $this->getContentByElementId('footer-link')?>"><span id="footer-text"><?php echo $this->getContentByElementId('footer-text')?></span></a>
+                    <a id="title-link" href="<?php echo (isset($aboutContent)) ? $aboutContent['title-link']->getText() : '#'?>"><span id="title-text" class="title"><?php echo (isset($aboutContent)) ? $aboutContent['title-text']->getText() : ''?></span></a>
+                    <span id="about-description" class="description"><?php echo (isset($aboutContent)) ? $aboutContent['about-description']->getText() : ''?></span>
+                    <a id="footer-link" href="<?php echo (isset($aboutContent)) ? $aboutContent['footer-link']->getText() : '#'?>"><span id="footer-text"><?php echo (isset($aboutContent)) ? $aboutContent['footer-text']->getText() : ''?></span></a>
                 </div>
             </div>
         </div>

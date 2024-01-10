@@ -92,7 +92,7 @@ class adminController extends Controller
                 header('Content-Type: application/json;');
                 echo json_encode($result);
 
-            }  else {echo json_encode("No artist details have been added!");}
+            }  else {   echo json_encode("No artist details have been added!"); }
         }
     }
     public function viewDisciplines(){
@@ -116,7 +116,7 @@ class adminController extends Controller
                 header('Content-Type: application/json;');
                 echo json_encode($result);
 
-            }  else {echo json_encode("No discipline input has been found!");}
+            }  else {   echo json_encode("No discipline input has been found!");    }
         }
     }
     public function deleteDiscipline($disciplineid){
@@ -219,24 +219,38 @@ class adminController extends Controller
     }
 
     public function storeAdminContent($adminId){
-        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'POST'){
-            $link = $_POST['link'];
-            $titles = $_POST['titles'];
-            $description = $_POST['description'];
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
+            if(isset($adminId)){
 
-            if(!isset($_FILES['picture']) || $_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE){
-                $adminContent = $this->contentService->getAdminContentById($adminId);
-                $picture = $adminContent->getMediaInfo()->getMediaId();
-            } else {
-                $picture = $this->uploadPicture('about/','anglepicture');
-            }
+                $link = $_POST['link'];
+                $titles = $_POST['titles'];
+                $description = $_POST['description'];
 
-            $this->contentService->storeAdminContent($adminId, $link, $titles, $description, $picture);
+                if(!isset($_FILES['picture']) || $_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE){
+                    $adminContent = $this->contentService->getAdminContentById($adminId);
+
+                    if(!isset($adminContent)){     $picture = 1;   }
+                    else{
+                        $picture = $adminContent->getMediaInfo()->getMediaId(); }
+
+                } else {
+                    $picture = $this->uploadPicture('about/','anglepicture');
+                }
+
+                $this->contentService->storeAdminContent($adminId, $link, $titles, $description, $picture);
+
+                $adminName = $this->userService->getUserById($adminId)->getFullName();
+
+                $result = "details for admin: $adminName were successfully added";
+                header('Content-Type: application/json;');
+                echo json_encode($result);
+
+            }  else {   echo json_encode("No admin details have been added!");  }
         }
-        $this->reloadPage();
     }
     public function manageDescription(){
         if($this->userAuth->allowAdminAccess()){
+            $aboutContent = $this->contentService->getAllContentByPageId(1);
             require __DIR__ . '/../views/admin/windows/content/aboutpage/manageDescription.php';
         }
     }
@@ -263,9 +277,6 @@ class adminController extends Controller
 
             }  else {echo json_encode("No details input has been found!");}
         }
-    }
-    public function getElementContent($elementId){
-        return $this->contentService->getContentByElementId($elementId)->getText();
     }
     public function viewApplications(){
         if($this->userAuth->allowAdminAccess())
