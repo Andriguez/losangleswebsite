@@ -193,9 +193,10 @@ class UserRepository extends Repository
                 $userType->setUserTypeId($row['usertype_Id']);
                 $userType->setUserType($row['usertype_name']);
             }
-            return $userType;
 
         } catch (\PDOException $e){echo $e;}
+
+        return $userType;
     }
 
     public function getAllTypes(){

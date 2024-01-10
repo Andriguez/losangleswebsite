@@ -2,7 +2,7 @@
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="PS-233.13135.108">
     <data-source name="losangles_content@localhost" uuid="51cfa111-f852-4349-9f6f-ece595806c11">
-      <database-info product="MariaDB" version="10.9.4-MariaDB-1:10.9.4+maria~ubu2204" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="3.0.7" dbms="MARIADB" exact-version="10.9.4" exact-driver-version="3.0">
+      <database-info product="MariaDB" version="10.6.5-MariaDB-1:10.6.5+maria~focal" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="3.0.7" dbms="MARIADB" exact-version="10.6.5" exact-driver-version="3.0">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>

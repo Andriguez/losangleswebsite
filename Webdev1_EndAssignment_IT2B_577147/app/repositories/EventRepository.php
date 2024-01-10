@@ -1,5 +1,8 @@
 <?php
 namespace repositories;
+use models\EventLocation;
+use models\EventType;
+
 require __DIR__.'/../models/Event.php';
 require __DIR__.'/../models/EventLineup.php';
 require __DIR__.'/../models/EventLocation.php';
@@ -14,7 +17,7 @@ class EventRepository extends Repository
         FROM `events` WHERE event_Id = :id";
 
         try{
-            $statement = $this->content_db->prepare($query);
+            $statement = $this->getContentDB()->prepare($query);
             $statement->bindParam(':id', $id);
             $statement->execute();
 
@@ -51,7 +54,7 @@ class EventRepository extends Repository
     //}
     private function getEvents($query, $params = null) {
         try {
-            $statement = $this->content_db->prepare($query);
+            $statement = $this->getContentDB()->prepare($query);
 
             if (isset($params)) {
                 foreach ($params as $pname => $pvalue) {
@@ -74,7 +77,7 @@ class EventRepository extends Repository
        `non_artist_name` FROM `event_lineups` WHERE lineup_Id = :id";
 
         try{
-            $statement = $this->content_db->prepare($query);
+            $statement = $this->getContentDB()->prepare($query);
             $statement->bindParam(':id', $id);
             $statement->execute();
 
@@ -89,7 +92,7 @@ class EventRepository extends Repository
        `non_artist_name` FROM `event_lineups` WHERE lineup_event = :id";
 
         try{
-            $statement = $this->content_db->prepare($query);
+            $statement = $this->getContentDB()->prepare($query);
             $statement->bindParam(':id', $id);
             $statement->execute();
 
@@ -103,7 +106,7 @@ class EventRepository extends Repository
         $query = "SELECT lineup_Id FROM event_lineups";
 
         try{
-            $statement = $this->content_db->prepare($query);
+            $statement = $this->getContentDB()->prepare($query);
             $statement->execute();
 
             while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
@@ -117,67 +120,147 @@ class EventRepository extends Repository
     }
 
     //locations
-    public function getLocationById($id){
-        $query = "SELECT `location_Id`, `location_name`, `location_address`, `location_city`, `location_country`,
-       `location_website`, `location_map_url` FROM `event_locations` WHERE location_Id = :id";
+    public function storeLocation($name, $address, $city, $country, $mapURL){
+        $query = "INSERT INTO `event_locations`(`location_name`, `location_address`, `location_city`, `location_country`,
+        `location_map_url`)
+        VALUES (:name, :address, :city, :country,:mapUrl)
+        ON DUPLICATE KEY UPDATE           
+        `location_name` = VALUES(`location_name`),
+        `location_address` = VALUES(`location_address`),
+        `location_city` = VALUES(`location_city`),
+        `location_country` = VALUES(`location_country`),
+        `location_map_url` = VALUES(`location_map_url`)";
 
         try{
-            $statement = $this->content_db->prepare($query);
-            $statement->bindParam(':id', $id);
+            $statement = $this->getContentDB()->prepare($query);
+            $statement->execute(array(
+                ':name' => $this->sanitizeText($name),
+                ':address' => $this->sanitizeText($address),
+                ':city' => $this->sanitizeText($city),
+                ':country' => $this->sanitizeText($country),
+                ':mapUrl' => $this->sanitizeText($mapURL)
+            ));
+        } catch(\PDOException $e){echo $e;}
+    }
+    public function deleteLocation($locationId){
+        $query = "DELETE FROM `event_locations` WHERE location_Id = :locationId";
+
+        try{
+            $statement = $this->getContentDB()->prepare($query);
+
+            $statement->bindParam(':locationId', $locationId, \PDO::PARAM_INT);
             $statement->execute();
 
-            $statement->setFetchMode(\PDO::FETCH_CLASS, 'EventLocation');
-            return $statement->fetch();
+        }catch(\PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+    public function getLocationById($id){
+        $query = "SELECT `location_Id`, `location_name`, `location_address`, `location_city`, `location_country`,
+        `location_map_url` FROM `event_locations` WHERE location_Id = :id";
+
+        try{
+            $statement = $this->getContentDB()->prepare($query);
+            $statement->bindParam(':id', $id, \PDO::PARAM_INT);
+            $statement->execute();
+
+            while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+
+                $eventLocation = new EventLocation();
+                $eventLocation->setLocationId($row['location_Id']);
+                $eventLocation->setName($row['location_name']);
+                $eventLocation->setAddress($row['location_address']);
+                $eventLocation->setCity($row['location_city']);
+                $eventLocation->setCountry($row['location_country']);
+                $eventLocation->setMap($row['location_map_url']);
+            }
 
         } catch (\PDOException $e){echo $e;}
+
+        return $eventLocation;
     }
 
     public function getAllLocations(){
         $query = "SELECT location_Id FROM event_locations";
 
         try{
-            $statement = $this->content_db->prepare($query);
+            $statement = $this->getContentDB()->prepare($query);
             $statement->execute();
 
-            while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+            while($row = $statement->fetch()) {
 
                 $location = $this->getLocationById($row['location_Id']);
                 $allLocations[] = $location;
             }
-            return $allLocations;
 
         }catch (\PDOException $e){echo $e;}
+        return $allLocations ?? null;
     }
 
     //types
+    public function createEventType($name){
+        $query = "INSERT INTO `event_types`(`event_type_name`) VALUES (?)";
+
+        try{
+            $statement = $this->getContentDB()->prepare($query);
+            $statement->execute([$this->sanitizeText($name)]);
+
+        } catch (\PDOException $e){
+            echo $e;
+        }
+    }
+    public function deleteEventType($typeId){
+        $query = "DELETE FROM `event_types` WHERE event_type_Id = :typeId";
+
+        try{
+            $statement = $this->getContentDB()->prepare($query);
+
+            $statement->bindParam(':typeId', $typeId, \PDO::PARAM_INT);
+            $statement->execute();
+
+        }catch(\PDOException $e){
+            echo $e->getMessage();
+        }
+    }
     public function getTypeById($id){
         $query = "SELECT `event_type_Id`, `event_type_name` FROM `event_types` WHERE event_type_Id = :id";
 
         try{
-            $statement = $this->content_db->prepare($query);
+            $statement = $this->getContentDB()->prepare($query);
             $statement->bindParam(':id', $id);
             $statement->execute();
 
-            $statement->setFetchMode(\PDO::FETCH_CLASS, 'EventType');
-            return $statement->fetch();
+            while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+
+                $eventType = new EventType();
+                $eventType->setTypeId($row['event_type_Id']);
+                $eventType->setTypeName($row['event_type_name']);
+            }
 
         } catch (\PDOException $e){echo $e;}
+
+        return $eventType;
     }
 
     public function getAllTypes(){
         $query = "SELECT event_type_Id FROM event_types";
 
         try{
-            $statement = $this->content_db->prepare($query);
+            $statement = $this->getContentDB()->prepare($query);
             $statement->execute();
 
-            while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+            while($row = $statement->fetch()) {
 
                 $type = $this->getTypeById($row['event_type_Id']);
                 $allTypes[] = $type;
             }
-            return $allTypes;
-
         }catch (\PDOException $e){echo $e;}
+
+        return $allTypes ?? null;
+    }
+
+    private function sanitizeText($input):string{
+        return htmlspecialchars($input);
+
     }
 }

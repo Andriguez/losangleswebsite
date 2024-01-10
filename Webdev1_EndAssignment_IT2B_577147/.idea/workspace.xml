@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/views/artists/index2.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/artists/index2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/51cfa111-f852-4349-9f6f-ece595806c11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/51cfa111-f852-4349-9f6f-ece595806c11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/51cfa111-f852-4349-9f6f-ece595806c11/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/51cfa111-f852-4349-9f6f-ece595806c11/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/51cfa111-f852-4349-9f6f-ece595806c11/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/51cfa111-f852-4349-9f6f-ece595806c11/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/adminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/EventLocation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/EventLocation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/style/adminstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/style/adminstyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/EventRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/EventRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/EventService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/EventService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/manageLocation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/manageLocation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/manageType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/manageType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/viewLocations.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/viewLocations.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/viewTypes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/viewTypes.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +131,7 @@
       <workItem from="1704463875009" duration="6717000" />
       <workItem from="1704553195124" duration="15106000" />
       <workItem from="1704730070111" duration="21186000" />
-      <workItem from="1704802127223" duration="18331000" />
+      <workItem from="1704802127223" duration="27622000" />
     </task>
     <servers />
   </component>

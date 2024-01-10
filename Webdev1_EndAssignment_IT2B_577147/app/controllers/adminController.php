@@ -3,6 +3,7 @@ namespace controllers;
 
 use services\ArtistService;
 use services\ContentService;
+use services\EventService;
 use services\UserService;
 
 if (session_status() == PHP_SESSION_NONE) {
@@ -13,6 +14,7 @@ require __DIR__ . '/Controller.php';
 require __DIR__ . '/../services/UserService.php';
 require __DIR__ . '/../services/ContentService.php';
 require __DIR__ . '/../services/ArtistService.php';
+require __DIR__ . '/../services/EventService.php';
 require_once __DIR__.'/../models/User.php';
 require_once __DIR__.'/../models/Artist.php';
 require_once __DIR__.'/../models/ArtistContent.php';
@@ -24,6 +26,7 @@ class adminController extends Controller
     protected UserService $userService;
     protected ContentService $contentService;
     protected ArtistService $artistService;
+    protected EventService $eventService;
     private UserAuth $userAuth;
 
     public function __construct()
@@ -32,7 +35,7 @@ class adminController extends Controller
         $this->contentService = new ContentService();
         $this->userAuth = new UserAuth();
         $this->artistService = new ArtistService();
-
+        $this->eventService = new EventService();
     }
 
     public function index(){
@@ -115,20 +118,58 @@ class adminController extends Controller
             require __DIR__ . '/../views/admin/windows/content/eventspage/manageEvent.php';
     }
     public function viewLocations(){
-        if($this->userAuth->allowAdminAccess())
+        if($this->userAuth->allowAdminAccess()){
+            $eventLocations = $this->eventService->getAllLocations();
             require __DIR__ . '/../views/admin/windows/content/eventspage/viewLocations.php';
+        }
     }
-    public function manageLocation(){
-        if($this->userAuth->allowAdminAccess())
+    public function manageLocation($locationId = null){
+        if($this->userAuth->allowAdminAccess()){
+            if(isset($locationId)){ $selectedLocation = $this->eventService->getLocationById($locationId);}
             require __DIR__ . '/../views/admin/windows/content/eventspage/manageLocation.php';
+        }
     }
-    public function viewTypes(){
-        if($this->userAuth->allowAdminAccess())
+    public function deleteLocation($locationId){
+        if($this->userAuth->allowAdminAccess()){
+            $this->eventService->deleteLocation($locationId);
+        }
+        $this->reloadPage();
+    }
+
+    public function storeLocation(){
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'POST'){
+            $name = $_POST['name'];
+            $address = $_POST['address'];
+            $city = $_POST['city'];
+            $country = $_POST['country'];
+            $mapUrl = $_POST['mapurl'];
+
+            $this->eventService->storeLocation($name, $address, $city, $country, $mapUrl);
+        }
+        $this->reloadPage();
+    }
+    public function viewEventTypes(){
+        if($this->userAuth->allowAdminAccess()){
+            $eventTypes = $this->eventService->getAllTypes();
             require __DIR__ . '/../views/admin/windows/content/eventspage/viewTypes.php';
+        }
     }
-    public function manageType(){
-        if($this->userAuth->allowAdminAccess())
+    public function manageEventType(){
+        if($this->userAuth->allowAdminAccess()){
             require __DIR__ . '/../views/admin/windows/content/eventspage/manageType.php';
+        }
+    }
+    public function createEventType(){
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'POST'){
+            $this->eventService->createEventType($_POST['eventTypeName']);
+        }
+        $this->reloadPage();
+    }
+    public function deleteEventType($typeId){
+        if($this->userAuth->allowAdminAccess()){
+            $this->eventService->deleteEventType($typeId);
+        }
+        $this->reloadPage();
     }
     public function manageAdminDetails($adminId = null){
         if($this->userAuth->allowAdminAccess())

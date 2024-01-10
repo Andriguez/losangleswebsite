@@ -77,7 +77,7 @@ session_start();} ?>
                                             <li><a onclick="openWindow('admin/viewevents')" class="nav-link text-reset">events</a></li>
                                             <!--<li><a href="#" class="nav-link text-reset">Manage dates</a></li>-->
                                             <li><a onclick="openWindow('admin/viewlocations')" class="nav-link text-reset">locations</a></li>
-                                            <li><a class="nav-link text-reset" onclick="openWindow('admin/viewtypes')">types</a></li>
+                                            <li><a class="nav-link text-reset" onclick="openWindow('admin/vieweventtypes')">types</a></li>
                                         </ul>
                                     </div>
                                 </div>
