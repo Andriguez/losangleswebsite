@@ -8,10 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/adminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/public/js/adminscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/js/adminscript.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/about/index2.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/about/index2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/content/artistspage/manageDiscipline.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/content/artistspage/manageDiscipline.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/content/artistspage/viewDisciplines.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/content/artistspage/viewDisciplines.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/events/newcarousel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/newcarousel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/content/artistspage/manageArtistDetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/content/artistspage/manageArtistDetails.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +120,7 @@
       <workItem from="1704553195124" duration="15106000" />
       <workItem from="1704730070111" duration="21186000" />
       <workItem from="1704802127223" duration="31323000" />
-      <workItem from="1704888679267" duration="7374000" />
+      <workItem from="1704888679267" duration="13307000" />
     </task>
     <servers />
   </component>

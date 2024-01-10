@@ -63,30 +63,37 @@ class adminController extends Controller
     }
 
     public function storeArtistDetails($artistId){
-        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'POST'){
-            $stagename = $_POST['stagename'];
-            $discipline = $_POST['discipline'];
-            $location = $_POST['location'];
-            $email = $_POST['email'];
-            $description = $_POST['description'];
-            $socialslink = $_POST['socialslink'];
-            $soundcloudlink = $_POST['soundcloudlink'];
-            $extralink = $_POST['extralink'];
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
 
-            if(!isset($_FILES['picture']) || $_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE){
-                $artistContent = $this->artistService->getArtistContentById($artistId);
+            if(isset($artistId)){
+                $stagename = $_POST['stageName'];
+                $discipline = $_POST['discipline'];
+                $location = $_POST['location'];
+                $email = $_POST['email'];
+                $description = $_POST['description'];
+                $socialslink = $_POST['socials'];
+                $soundcloudlink = $_POST['soundcloud'];
+                $extralink = $_POST['extraLink'];
 
-                if(!isset($artistContent)){     $picture = 1;   }
-                else{
-                    $picture = $artistContent->getPicture()->getMediaId(); }
+                if(!isset($_FILES['picture']) || $_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE){
+                    $artistContent = $this->artistService->getArtistContentById($artistId);
 
-            } else {
-                $picture = $this->uploadPicture('artists/','artistpicture');
-            }
+                    if(!isset($artistContent)){     $picture = 1;   }
+                    else{
+                        $picture = $artistContent->getPicture()->getMediaId(); }
 
-            $this->artistService->storeArtistContent($artistId, $description, $extralink, $discipline, $email, $soundcloudlink, $socialslink, $stagename, $picture, $location);
+                } else {
+                    $picture = $this->uploadPicture('artists/','artistpicture');
+                }
+
+                $this->artistService->storeArtistContent($artistId, $description, $extralink, $discipline, $email, $soundcloudlink, $socialslink, $stagename, $picture, $location);
+
+                $result = "details for artist: $stagename were successfully added";
+                header('Content-Type: application/json;');
+                echo json_encode($result);
+
+            }  else {echo json_encode("No artist details have been added!");}
         }
-        $this->reloadPage();
     }
     public function viewDisciplines(){
         if($this->userAuth->allowAdminAccess())

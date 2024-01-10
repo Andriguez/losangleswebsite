@@ -13,13 +13,17 @@ function openWindow(filePath) {
 
 function storeData(data, functionName, redirect){
 
-    fetch(`/admin/${functionName}`, {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-    })
+    let hasData = data.has('picture')
+    let fetchOptions = { method: 'POST', headers:{ "Content-Type": "application/json"}}
+
+    if(hasData){
+        fetchOptions.headers = {};
+        fetchOptions.body = data;
+    } else{
+        fetchOptions.body = JSON.stringify(Object.fromEntries(data));
+    }
+
+    fetch(`/admin/${functionName}`, fetchOptions)
         .then(response => response.json())
         .then(data => {
             openWindow(`/admin/${redirect}`);
@@ -122,4 +126,36 @@ function storeDiscipline(){
     const redirect = 'viewdisciplines';
 
     storeData(data, functionName, redirect);
+}
+
+//ARTIST DETAILS
+function storeArtistDetails(){
+    let artistId = document.getElementById('inputArtist').value;
+    let stageName = document.getElementById('inputstagename').value;
+    let discipline = document.getElementById('inputDiscipline').value;
+    let location = document.getElementById('inputlocation').value;
+    let email = document.getElementById('inputEmail').value;
+    let description = document.getElementById('inputdescription').value;
+    let socials = document.getElementById('inputsocials').value;
+    let soundcloud = document.getElementById('inputsoundcloud').value;
+    let extraLink = document.getElementById('inputlink').value;
+
+    let fileInput = document.getElementById('upload-artist-details-picture');
+    let file = fileInput.files[0];
+
+    const formData = new FormData();
+    formData.append('stageName', stageName);
+    formData.append('discipline', discipline);
+    formData.append('location', location);
+    formData.append('email', email);
+    formData.append('description', description);
+    formData.append('socials', socials);
+    formData.append('soundcloud', soundcloud);
+    formData.append('extraLink', extraLink);
+    formData.append('picture', file);
+
+    const functionName = `storeartistdetails/${artistId}`;
+    const redirect = `manageartistdetails/${artistId}`;
+
+    storeData(formData, functionName, redirect);
 }

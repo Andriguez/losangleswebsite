@@ -1,9 +1,9 @@
 <div id="manage-artist-details">
     <h1>Artists</h1>
     <div id="select-artist-container">
-    <label for="inputType" class="form-label"><strong>Select Artist</strong></label>
-    <select id="inputType" class="form-select" onchange="displaySelectedUserDetails(this, 'manageArtistDetails')">
-        <option selected><?php echo isset($selectedArtist)? $selectedArtist->getFirstName():'Choose...'?></option>
+    <label for="inputArtist" class="form-label"><strong>Select Artist</strong></label>
+    <select id="inputArtist" class="form-select" onchange="displaySelectedUserDetails(this, 'manageArtistDetails')">
+        <option selected value="<?php echo isset($selectedArtist)? $selectedArtist->getUserId():''?>"><?php echo isset($selectedArtist)? $selectedArtist->getFirstName():'Choose...'?></option>
         <?php foreach ($artists as $artist){ ?>
             <option value="<?php echo $artist->getUserId();?>"><?php echo $artist->getFirstName();?></option>
         <?php }?>
@@ -16,22 +16,22 @@
             <div id="img-container" class="d-flex flex-column align-items-center">
                 <img id="imgthumbnail" src="<?php echo (!isset($artistContent))? '/media/placeholders/user-picture-placeholder.png' : $artistContent->getPictureSrc()?>">
                 <div class="input-group mt-3">
-                    <input type="file" class="form-control" name="picture" id="upload-primary-navbar-logo" aria-describedby="inputGroupFileAddon04" aria-label="Upload" onclick="previewImage(this, 'imgthumbnail')">
+                    <input type="file" class="form-control" name="picture" id="upload-artist-details-picture" aria-describedby="inputGroupFileAddon04" aria-label="Upload" onclick="previewImage(this, 'imgthumbnail')">
                 </div>
             </div>
         </div>
         <div class="col-md-8">
             <div class="row g-3">
                 <div id="nameCol" class="col-md-6">
-                    <span id="selectedAdminName"><?php echo(isset($selectedArtist))? $selectedArtist->getFullName() : '';?></span>
+                    <span id="selectedArtistName"><?php echo(isset($selectedArtist))? $selectedArtist->getFullName() : '';?></span>
                 </div>
                 <div class="col-md-5">
                     <label for="inputstagename" class="form-label"><strong>stage name</strong></label>
                     <input type="text" class="form-control" name="stagename" id="inputstagename" value="<?php echo (isset($artistContent))? $artistContent->getStagename():''?>">
                 </div>
                 <div class="col-md-5">
-                    <label for="inputType" class="form-label"><strong>discipline</strong></label>
-                    <select id="inputType" class="form-select" name="discipline">
+                    <label for="inputDiscipline" class="form-label"><strong>discipline</strong></label>
+                    <select id="inputDiscipline" class="form-select" name="discipline">
                         <option selected value="<?php echo isset($artistContent)? $artistContent->getDiscipline()->getDisciplineId():'0'?>"><?php echo (isset($artistContent))? $artistContent->getDiscipline()->getName():'Choose...'?></option>
                         <?php foreach ($disciplines as $discipline){ ?>
                             <option value="<?php echo $discipline->getDisciplineId();?>"><?php echo $discipline->getName();?></option>
@@ -62,11 +62,11 @@
                     <label for="inputlink" class="form-label"><strong>extra link</strong></label>
                     <input type="text" class="form-control" name="extralink" id="inputlink" value="<?php echo (isset($artistContent))? $artistContent->getExtraLink():''?>">
                 </div>
-                <div class="col-11">
-                    <button type="submit" class="btn btn-success">Save</button>
-                </div>
             </div></div>
     </div>
     </form>
+    <div class="col-11">
+        <button type="button" class="btn btn-success" onclick="storeArtistDetails()">Save</button>
+    </div>
 </div>
 
