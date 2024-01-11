@@ -93,10 +93,9 @@ class EventRepository extends Repository
 
 
             }
-
+            return $event;
         } catch (\PDOException $e){echo $e;}
 
-        return $event;
     }
 
     public function getAllEvents(){
@@ -143,6 +142,37 @@ class EventRepository extends Repository
         } catch (\PDOException $e){echo $e;}
     }
 
+    public function getEventsYears(){
+        $query = "SELECT DISTINCT YEAR(`event_datetime`) AS year FROM events ORDER BY year";
+
+        try{
+            $statement = $this->getContentDB()->prepare($query);
+            $statement->execute();
+
+            $years = $statement->fetchAll(\PDO::FETCH_COLUMN);
+
+        } catch (\PDOException $e){ echo $e;}
+
+        return $years ?? null;
+    }
+
+    public function getEventMonthsByYear($year){
+        $query = "SELECT DISTINCT MONTH(`event_datetime`) AS monthId, DATE_FORMAT(`event_datetime`, '%b') AS month FROM events WHERE YEAR(`event_datetime`) = :year ORDER BY `month`;";
+
+        try{
+            $statement = $this->getContentDB()->prepare($query);
+            $statement->bindParam(':year', $year, \PDO::PARAM_INT);
+            $statement->execute();
+
+            while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+
+                $months[$row['monthId']] = $row['month'] ;
+            }
+
+        } catch (\PDOException $e){ echo $e;}
+
+        return $months ?? null;
+    }
     //lineups
     public function storeLineup($eventId, $category, $artists){
         $query = "INSERT INTO `event_lineups`(`lineup_event`, `lineup_category`, `lineup_artists`)

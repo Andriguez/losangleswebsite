@@ -17,6 +17,10 @@ class eventsController extends Controller
         $event = $this->eventService->getEventById(2);
         $lineups = $this->eventService->getAllLineupsByEvent(2);
 
+        $yFilters = $this->eventService->getEventsYears();
+        $mFilters = $this->eventService->getEventsMonthsByYear(2024);
+
+
         require __DIR__ . '/../views/events/newcarousel.php';
     }
 }

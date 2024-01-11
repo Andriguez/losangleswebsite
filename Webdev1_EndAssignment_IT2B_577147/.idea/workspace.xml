@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/adminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/eventsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/eventsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/repositories/EventRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/EventRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/manageEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/manageEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/EventService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/EventService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/events/newcarousel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/newcarousel.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,7 +123,7 @@
       <workItem from="1704730070111" duration="21186000" />
       <workItem from="1704802127223" duration="31323000" />
       <workItem from="1704888679267" duration="33961000" />
-      <workItem from="1704977912512" duration="18871000" />
+      <workItem from="1704977912512" duration="23379000" />
     </task>
     <servers />
   </component>

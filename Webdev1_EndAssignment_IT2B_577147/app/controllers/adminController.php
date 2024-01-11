@@ -160,7 +160,7 @@ class adminController extends Controller
                 $btnLink = $_POST['btnLink'];
 
                 if(!isset($_FILES['picture']) || $_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE){
-                    $event = $this->eventService->getEventById($eventId);
+                    if (isset($eventId) && $eventId !=0 ){$event = $this->eventService->getEventById($eventId);}
 
                     if(!isset($event)){     $eventPoster = 1;   }
                     else{

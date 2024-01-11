@@ -96,22 +96,14 @@
     </div>
     <div id="date-filter-container">
         <div id="year-container">
-            <a href="#"><span>2023▶</span></a>
-            <a href="#"><span>2024▶</span></a>
+            <?php if(isset($yFilters)){ foreach ($yFilters as $index => $year){ ?>
+            <a href="events/<?php echo $year ?>"><span><?php echo $year ?>▶</span></a>
+            <?php }} ?>
         </div>
         <div id="month-container">
-            <a href="#"><span>jan▶</span></a>
-            <a href="#"><span>feb▶</span></a>
-            <a href="#"><span>mar▶</span></a>
-            <a href="#"><span>apr▶</span></a>
-            <a href="#"><span>may▶</span></a>
-            <a href="#"><span>jun<img src="/media/triangle-icon.svg"></span></a>
-            <a href="#"><span>jul<img src="/media/triangle-icon.svg"></span></a>
-            <a href="#"><span>aug<img src="/media/triangle-icon.svg"></span></a>
-            <a href="#"><span>sep<img src="/media/triangle-icon.svg"></span></a>
-            <a href="#"><span>oct<img src="/media/triangle-icon.svg"></span></a>
-            <a href="#"><span>nov<img src="/media/triangle-icon.svg"></span></a>
-            <a href="#"><span>dec<img src="/media/triangle-icon.svg"></span></a>
+            <?php if(isset($mFilters)){ foreach ($mFilters as $index => $month){ ?>
+                <a href="events/2024/<?php echo $index ?>"><span><?php echo $month ?>▶</span></a>
+            <?php }} ?>
         </div>
     </div>
 </div>
