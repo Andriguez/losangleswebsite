@@ -1088,7 +1088,7 @@ losangles_users|schema||developer||UPDATE|G</Grants>
     </schema>
     <schema id="326" parent="1" name="losangles_content">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2024-01-10.00:12:48</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-01-11.13:18:11</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="327" parent="1" name="losangles_feed">
@@ -1292,7 +1292,7 @@ losangles_users|schema||developer||UPDATE|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="371" parent="332" name="artist_discipline_Id">
-      <AutoIncrement>13</AutoIncrement>
+      <AutoIncrement>28</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1344,12 +1344,14 @@ losangles_users|schema||developer||UPDATE|G</Grants>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="381" parent="334" name="lineup_artist">
-      <DasType>int(11)|0s</DasType>
+    <column id="381" parent="334" name="lineup_category">
+      <DasType>varchar(20)|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="382" parent="334" name="non_artist_name">
-      <DasType>varchar(25)|0s</DasType>
+    <column id="382" parent="334" name="lineup_artists">
+      <DasType>text|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
     <foreign-key id="383" parent="334" name="event_FK">
@@ -1359,75 +1361,71 @@ losangles_users|schema||developer||UPDATE|G</Grants>
       <RefColNames>event_Id</RefColNames>
       <RefTableName>events</RefTableName>
     </foreign-key>
-    <foreign-key id="384" parent="334" name="artist_lineupFK">
-      <ColNames>lineup_artist</ColNames>
-      <OnDelete>set-null</OnDelete>
-      <OnUpdate>cascade</OnUpdate>
-      <RefColNames>user_Id</RefColNames>
-      <RefTableName>users</RefTableName>
-      <RefTableParentName>losangles_users</RefTableParentName>
-    </foreign-key>
-    <index id="385" parent="334" name="PRIMARY">
+    <index id="384" parent="334" name="PRIMARY">
       <ColNames>lineup_Id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="386" parent="334" name="event_FK">
+    <index id="385" parent="334" name="event_FK">
       <ColNames>lineup_event</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="387" parent="334" name="artist_lineupFK">
-      <ColNames>lineup_artist</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="388" parent="334" name="PRIMARY">
+    <key id="386" parent="334" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="389" parent="335" name="location_Id">
-      <AutoIncrement>1</AutoIncrement>
+    <column id="387" parent="335" name="location_Id">
+      <AutoIncrement>8</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="390" parent="335" name="location_name">
+    <column id="388" parent="335" name="location_name">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="391" parent="335" name="location_address">
+    <column id="389" parent="335" name="location_address">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="392" parent="335" name="location_city">
+    <column id="390" parent="335" name="location_city">
       <DasType>varchar(25)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="393" parent="335" name="location_country">
+    <column id="391" parent="335" name="location_country">
       <DasType>varchar(25)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="394" parent="335" name="location_map_url">
+    <column id="392" parent="335" name="location_map_url">
       <DasType>varchar(250)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <index id="395" parent="335" name="PRIMARY">
+    <index id="393" parent="335" name="PRIMARY">
       <ColNames>location_Id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="396" parent="335" name="PRIMARY">
+    <index id="394" parent="335" name="location_name">
+      <ColNames>location_name</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="395" parent="335" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
+    <key id="396" parent="335" name="location_name">
+      <UnderlyingIndexName>location_name</UnderlyingIndexName>
+    </key>
     <column id="397" parent="336" name="event_type_Id">
-      <AutoIncrement>4</AutoIncrement>
+      <AutoIncrement>5</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1479,7 +1477,6 @@ losangles_users|schema||developer||UPDATE|G</Grants>
     </column>
     <column id="407" parent="337" name="event_lineup">
       <DasType>int(11)|0s</DasType>
-      <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
     <column id="408" parent="337" name="event_description">
@@ -1548,7 +1545,7 @@ losangles_users|schema||developer||UPDATE|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="421" parent="338" name="path_Id">
-      <AutoIncrement>33</AutoIncrement>
+      <AutoIncrement>36</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1583,7 +1580,7 @@ path</ColNames>
       <UnderlyingIndexName>unique_type_path</UnderlyingIndexName>
     </key>
     <column id="428" parent="339" name="media_Id">
-      <AutoIncrement>30</AutoIncrement>
+      <AutoIncrement>33</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>

@@ -12,21 +12,23 @@
             </tr>
             </thead>
             <tbody>
+            <?php if (isset($events)){ foreach ($events as $event){?>
             <tr>
-                <td><input class="form-check-input radioBtn" type="radio" name="radioButton"></td>
-                <th scope="row">139 Angles</th>
-                <td>14 oct 2023</td>
-                <td>Kaanal 40</td>
-                <td>club night</td>
+                <th scope="row"><input class="form-check-input radioBtn" type="radio" name="radioButton" id="<?php echo $event->getEventId()?>"></th>
+                <td><?php echo $event->getName()?></td>
+                <td><?php echo $event->getDateTimeString()?></td>
+                <td><?php echo $event->getLocation()->getName()?></td>
+                <td><?php echo $event->getEventType()->getTypeName()?></td>
             </tr>
+            <?php }}?>
             </tbody>
         </table>
     </div>
 
     <div id="button-container">
-        <button type="button" class="btn btn-danger">Delete</button>
-        <button class="btn btn-primary" type="button">Edit</button>
-        <button class="btn btn-primary" onclick="openWindow('manageevent')" type="button">Create Event</button>
+        <button type="button" class="btn btn-danger" onclick="selectedRadioBtnAction('deleteevent', 'viewevents')">Delete</button>
+        <button class="btn btn-primary" type="button" onclick="selectedRadioBtnOpenWindow('manageevent')">Edit</button>
+        <button class="btn btn-success" onclick="openWindow('manageevent')" type="button">Create Event</button>
 
     </div>
 </div>

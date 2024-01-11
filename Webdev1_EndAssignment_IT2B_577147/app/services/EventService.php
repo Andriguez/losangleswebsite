@@ -14,12 +14,20 @@ class EventService
         $this->eventRepo = new EventRepository();
     }
 
+    public function storeEvent($name, $type, $datetime, $location, $description, $btnText, $btnLink, $poster, $eventId = null){
+        $this->eventRepo->storeEvent($name, $type, $datetime, $location, $description,$btnText, $btnLink, $poster, $eventId);
+    }
+    public function deleteEvent($eventId){
+        $this->eventRepo->deleteEvent($eventId);
+    }
     public function getEventById($eventId){ return $this->eventRepo->getEventById($eventId); }
     public function getAllEvents(){ return $this->eventRepo->getAllEvents(); }
     public function getAllEventsByType($eventType){ return $this->eventRepo->getEventsByType($eventType); }
     public function getAllEventsByDate($datetime){ return $this->eventRepo->getEventsByDate($datetime); }
-    public function getLineupById($lineupId):EventLineup{ return $this->eventRepo->getLineupById($lineupId); }
-    public function getLineupByEvent($eventId):EventLineup{ return $this->eventRepo->getLineupByEvent($eventId); }
+    public function storeLineup($event, $category, $artists){ $this->eventRepo->storeLineup($event, $category, $artists); }
+    public function deleteLineup($lineupId){ $this->eventRepo->deleteLineup($lineupId); }
+    public function getLineupById($lineupId){ return $this->eventRepo->getLineupById($lineupId); }
+    public function getAllLineupsByEvent($eventId){ return $this->eventRepo->getAllLineupsByEvent($eventId); }
     public function getAllLineups(){ return $this->eventRepo->getAllLineups(); }
     public function storeLocation($name, $address, $city, $country, $mapURL){ $this->eventRepo->storeLocation($name, $address, $city, $country, $mapURL);}
     public function deleteLocation($locationId){ $this->eventRepo->deleteLocation($locationId);}

@@ -11,7 +11,6 @@ class Event
     private EventLocation $event_location;
     private EventType $event_type;
     private MediaInfo $event_poster;
-    private EventLineup $event_lineup;
 
     //setters
     public function setEventId($id){$this->event_Id = $id;}
@@ -23,7 +22,6 @@ class Event
     public function setLocation($location){$this->event_location = $location;}
     public function setEventType($type){$this->event_type = $type;}
     public function setEventPoster($poster){$this->event_poster = $poster;}
-    public function setLineup($lineup){$this->event_lineup = $lineup;}
 
     //setters
     public function getEventId():int{return $this->event_Id;}
@@ -31,18 +29,11 @@ class Event
     public function getDescription():string{return $this->event_description;}
     public function getTicketBtnText():string{return $this->event_ticketbtn_text;}
     public function getTicketUrl():string{return $this->event_ticketbtn_url;}
-    public function getDateTime():\DateTime{return $this->event_datetime;}
-    public function getLocation():EventLocation{return $this->event_location;}
-    public function getEventType():EventType{return $this->event_type;}
-    public function getEventPoster():MediaInfo{return $this->event_poster;}
-    public function getLineup():EventLineup{return $this->event_lineup;}
-
-
-
-
-
-
-
-
+    public function getDateTime(){return $this->event_datetime;}
+    public function getDateTimeString(){return $this->event_datetime->format('d/m/y H:i');}
+    public function getLocation(){return $this->event_location;}
+    public function getEventType(){return $this->event_type;}
+    public function getEventPoster(){return $this->event_poster;}
+    public function getPosterSrc():string{return '/'.$this->getEventPoster()->getMediaPath()->getPath().$this->getEventPoster()->getMediaFilename();}
 
 }

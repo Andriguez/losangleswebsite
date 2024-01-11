@@ -1,5 +1,7 @@
 <?php
 namespace repositories;
+use models\Event;
+use models\EventLineup;
 use models\EventLocation;
 use models\EventType;
 
@@ -11,20 +13,87 @@ require __DIR__.'/../models/EventType.php';
 class EventRepository extends Repository
 {
     //events
+    public function storeEvent($name, $type, $datetime, $location, $description, $btnText, $btnLink, $poster, $eventId = null){
+        $insertQuery = "INSERT INTO `events`(`event_name`, `event_datetime`, `event_location`, `event_type`,
+                     `event_poster`, `event_description`, `event_ticketbtn_text`, `event_ticketbtn_url`)
+                    VALUES (:name,:datetime,:location,:type,:poster,:description,:btntext,:btnlink)";
+
+        $updateQuery = "UPDATE `events` SET `event_name`=:name,`event_datetime`=:datetime,
+                    `event_location`=:location,`event_type`=:type,`event_poster`=:poster,
+                    `event_description`=:description,`event_ticketbtn_text`=:btntext,`event_ticketbtn_url`=:btnlink 
+                        WHERE `event_Id`= :id ";
+
+        if(isset($eventId)){ $query = $updateQuery; } else { $query = $insertQuery; }
+
+        try{
+            $statement = $this->getContentDB()->prepare($query);
+
+            $params = array(
+                ':name' => $this->sanitizeText($name),
+                ':datetime' => $datetime,
+                ':location' => $location,
+                ':type' => $type,
+                ':poster' => $poster,
+                ':description' => $this->sanitizeText($description),
+                ':btntext' => $this->sanitizeText($btnText),
+                ':btnlink' => $this->sanitizeText($btnLink),
+            );
+
+            if (isset($eventId)) {
+                $params[':id'] = $eventId;
+            }
+
+            $statement->execute($params);
+        } catch(\PDOException $e){echo $e;}
+    }
+
+    public function deleteEvent($eventId){
+        $query = "DELETE FROM `events` WHERE event_Id = :id";
+
+        try{
+            $statement = $this->getContentDB()->prepare($query);
+
+            $statement->bindParam(':id', $eventId, \PDO::PARAM_INT);
+            $statement->execute();
+
+        }catch(\PDOException $e){
+            echo $e->getMessage();
+        }
+    }
     public function getEventById($id){
         $query = "SELECT `event_Id`, `event_name`, `event_datetime`, `event_location`, `event_type`, `event_poster`,
-       `event_lineup`, `event_description`, `event_ticketbtn_text`, `event_ticketbtn_url`
+       `event_description`, `event_ticketbtn_text`, `event_ticketbtn_url`
         FROM `events` WHERE event_Id = :id";
 
         try{
             $statement = $this->getContentDB()->prepare($query);
-            $statement->bindParam(':id', $id);
+            $statement->bindParam(':id', $id, \PDO::PARAM_INT);
             $statement->execute();
 
-            $statement->setFetchMode(\PDO::FETCH_CLASS, 'Event');
-            return $statement->fetch();
+            while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+
+                $event = new Event();
+                $event->setEventId($row['event_Id']);
+                $event->setName($row['event_name']);
+                $event->setLocation($this->getLocationById($row['event_location']));
+                $event->setEventType($this->getTypeById($row['event_type']));
+                $event->setDescription($row['event_description']);
+                $event->setTicketBtnText($row['event_ticketbtn_text']);
+                $event->setTicketUrl($row['event_ticketbtn_url']);
+
+                $contentRepo = new ContentRepository();
+                $event->setEventPoster($contentRepo->getMediaInfoById($row['event_poster']));
+
+                $dateTime_string = $row['event_datetime'];
+                $dateTime = \DateTime::createFromFormat('Y-m-d H:i:s', $dateTime_string);
+                $event->setDateTime($dateTime);
+
+
+            }
 
         } catch (\PDOException $e){echo $e;}
+
+        return $event;
     }
 
     public function getAllEvents(){
@@ -72,32 +141,72 @@ class EventRepository extends Repository
     }
 
     //lineups
-    public function getLineupById($id){
-        $query = "SELECT `lineup_Id`, `lineup_event`, `lineup_artist`,
-       `non_artist_name` FROM `event_lineups` WHERE lineup_Id = :id";
+    public function storeLineup($eventId, $category, $artists){
+        $query = "INSERT INTO `event_lineups`(`lineup_event`, `lineup_category`, `lineup_artists`)
+        VALUES (:event, :category, :artists)
+        ON DUPLICATE KEY UPDATE           
+        `lineup_event` = VALUES(`lineup_event`),
+        `lineup_category` = VALUES(`lineup_category`),
+        `lineup_artists` = VALUES(`lineup_artists`)";
 
         try{
             $statement = $this->getContentDB()->prepare($query);
-            $statement->bindParam(':id', $id);
+            $statement->execute(array(
+                ':event' => $this->sanitizeText($eventId),
+                ':category' => $this->sanitizeText($category),
+                ':artists' => $this->sanitizeText($artists)
+            ));
+        } catch(\PDOException $e){echo $e;}
+    }
+    public function deleteLineup($lineupId){
+        $query = "DELETE FROM `event_lineups` WHERE lineup_Id = :lineupId";
+
+        try{
+            $statement = $this->getContentDB()->prepare($query);
+
+            $statement->bindParam(':lineupId', $lineupId, \PDO::PARAM_INT);
             $statement->execute();
 
-            $statement->setFetchMode(\PDO::FETCH_CLASS, 'EventLineup');
-            return $statement->fetch();
+        }catch(\PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+    public function getLineupById($id){
+        $query = "SELECT `lineup_Id`, `lineup_event`, `lineup_category`, `lineup_artists` FROM `event_lineups` WHERE lineup_Id = :id";
+
+        try{
+            $statement = $this->getContentDB()->prepare($query);
+            $statement->bindParam(':id', $id, \PDO::PARAM_INT);
+            $statement->execute();
+
+            while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+
+                $eventLineup = new EventLineup();
+                $eventLineup->setLineupId($row['lineup_Id']);
+                $eventLineup->setEvent($this->getEventById($row['lineup_event']));
+                $eventLineup->setCategory($row['lineup_category']);
+                $eventLineup->setArtists($row['lineup_artists']);
+            }
 
         } catch (\PDOException $e){echo $e;}
+
+        return $eventLineup;
     }
 
-    public function getLineupByEvent($id){
-        $query = "SELECT `lineup_Id`, `lineup_event`, `lineup_artist`,
-       `non_artist_name` FROM `event_lineups` WHERE lineup_event = :id";
+    public function getAllLineupsByEvent($eventId){
+        $query = "SELECT `lineup_Id` FROM `event_lineups` WHERE lineup_event = :id";
 
         try{
             $statement = $this->getContentDB()->prepare($query);
-            $statement->bindParam(':id', $id);
+            $statement->bindParam(':id', $eventId);
             $statement->execute();
 
-            $statement->setFetchMode(\PDO::FETCH_CLASS, 'EventLineup');
-            return $statement->fetch();
+            while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+
+                $lineup = $this->getLineupById($row['lineup_Id']);
+                $allLineups[] = $lineup;
+            }
+            return $allLineups ?? null;
 
         } catch (\PDOException $e){echo $e;}
     }

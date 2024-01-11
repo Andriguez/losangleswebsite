@@ -265,3 +265,47 @@ function storeEventLocation(){
 
     storeData(data, functionName, redirect);
 }
+
+//EVENTS
+
+function storeEvent(eventId){
+    let name = document.getElementById('inputName').value;
+    let type = document.getElementById('inputType').value;
+    let datetime = document.getElementById('inputDatetime').value;
+    let location = document.getElementById('inputLocation').value;
+    let description = document.getElementById('inputDescription').value;
+    let btnText = document.getElementById('inputBtnTxt').value;
+    let btnLink = document.getElementById('inputBtnLink').value;
+
+    let fileInput = document.getElementById('upload-event-picture');
+    let file = fileInput.files[0];
+
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('type', type);
+    formData.append('datetime', datetime);
+    formData.append('location', location);
+    formData.append('description', description);
+    formData.append('btnText', btnText);
+    formData.append('btnLink', btnLink);
+    formData.append('picture', file);
+
+    const functionName = 'storeEvent/'+eventId;
+    const redirect = `viewEvents`;
+
+    storeData(formData, functionName, redirect);
+}
+
+//EVENT LINE UP
+
+function storeEventLineUp(){
+    let event = document.getElementById('inputEvent').value;
+    let category = document.getElementById('inputCategory').value;
+    let artists = document.getElementById('inputArtist').value;
+
+    const data = {"event": event, "category": category, "artists": artists}
+    const functionName = 'storelineup';
+    const redirect = 'viewlineups';
+
+    storeData(data, functionName, redirect);
+}

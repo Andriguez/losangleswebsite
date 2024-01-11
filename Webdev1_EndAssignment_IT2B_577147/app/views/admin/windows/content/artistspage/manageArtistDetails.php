@@ -9,6 +9,7 @@
         <?php }?>
     </select>
     </div>
+    <?php if(isset($selectedArtist)){?>
     <form enctype="multipart/form-data">
     <div class="container row">
         <div class="col-md-4">
@@ -68,5 +69,6 @@
     <div class="col-11">
         <button type="button" class="btn btn-success" onclick="storeArtistDetails()">Save</button>
     </div>
+    <?php } ?>
 </div>
 

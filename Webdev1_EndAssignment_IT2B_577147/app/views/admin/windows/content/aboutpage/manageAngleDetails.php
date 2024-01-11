@@ -10,6 +10,7 @@
             <?php }?>
         </select>
     </div>
+    <?php if(isset($selectedAdmin)){ ?>
     <form enctype="multipart/form-data">
     <div class="container row">
         <div class="col-md-4">
@@ -40,10 +41,11 @@
                 </div>
             </div>
         </div>
+    </div>
     </form>
     <div class="col-12">
         <button type="button" class="btn btn-success" onclick="storeAdminDetails()">Save</button>
     </div>
-    </div>
+    <?php } ?>
 </div>
 

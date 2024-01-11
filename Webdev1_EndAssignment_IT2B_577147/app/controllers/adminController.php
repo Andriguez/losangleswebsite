@@ -139,18 +139,112 @@ class adminController extends Controller
             require __DIR__ . '/../views/admin/windows/content/eventspage/viewEvents.php';
         }
     }
-    public function manageEvent(){
-        if($this->userAuth->allowAdminAccess())
-            require __DIR__ . '/../views/admin/windows/content/eventspage/manageEvent.php';
-    }
-    public function viewLineups(){
+    public function manageEvent($selectedEventId = null){
         if($this->userAuth->allowAdminAccess()){
+            if(isset($selectedEventId)){ $selectedEvent = $this->eventService->getEventById($selectedEventId);}
+            $eventTypes = $this->eventService->getAllTypes();
+            $eventLocations = $this->eventService->getAllLocations();
+            require __DIR__ . '/../views/admin/windows/content/eventspage/manageEvent.php';
+        }
+    }
+    public function storeEvent($eventId = null){
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
+            if(isset($eventId)){
+
+                $name =  $_POST['name'];
+                $type = $_POST['type'];
+                $dateTime = $_POST['datetime'];
+                $location = $_POST['location'];
+                $description = $_POST['description'];
+                $btnText = $_POST['btnText'];
+                $btnLink = $_POST['btnLink'];
+
+                if(!isset($_FILES['picture']) || $_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE){
+                    $event = $this->eventService->getEventById($eventId);
+
+                    if(!isset($event)){     $eventPoster = 1;   }
+                    else{
+                        $eventPoster = $event->getEventPoster()->getMediaId(); }
+
+                } else {
+                    $eventPoster = $this->uploadPicture('events/','eventposter');
+                }
+
+                if($eventId == 0){
+                    $this->eventService->storeEvent($name, $type, $dateTime, $location, $description, $btnText, $btnLink, $eventPoster);
+                } else{
+                    $this->eventService->storeEvent($name, $type, $dateTime, $location, $description, $btnText, $btnLink, $eventPoster, $eventId);
+                }
+
+                $result = "details for event: $name were successfully added";
+                header('Content-Type: application/json;');
+                echo json_encode($result);
+
+            }  else {   echo json_encode("No event details have been added!");  }
+        }
+    }
+    public function deleteEvent($eventId){
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'GET'){
+            if(isset($eventId)){
+                $this->eventService->deleteEvent($eventId);
+
+                $result = 'Event has been successfully deleted';
+
+            } else { $result = 'no Event has been selected'; }
+
+            header('Content-Type: application/json;');
+            echo json_encode($result);
+
+        }
+    }
+    public function viewLineups($selectedEventId){
+        if($this->userAuth->allowAdminAccess()){
+            $events = $this->eventService->getAllEvents();
+            if(isset($selectedEventId)){
+                $selectedEvent = $this->eventService->getEventById($selectedEventId);
+                $lineups = $this->eventService->getAllLineupsByEvent($selectedEventId); }
             require __DIR__ . '/../views/admin/windows/content/eventspage/viewEventLineups.php';
         }
     }
-    public function manageLineups(){
+    public function manageLineup($lineupId = null){
         if($this->userAuth->allowAdminAccess()){
+            if(isset($lineupId)){$selectedLineup = $this->eventService->getLineupById($lineupId);}
+            $events = $this->eventService->getAllEvents();
+
             require __DIR__ . '/../views/admin/windows/content/eventspage/manageEventLineUp.php';
+        }
+    }
+    public function storeLineUp(){
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
+            $data = json_decode(file_get_contents("php://input"), true);
+
+            if(isset($data['event'])){
+                $event = $data['event'];
+                $category = $data['category'];
+                $artists = $data['artists'];
+
+                $this->eventService->storeLineup($event, $category, $artists);
+
+                $result = "Event $category Lineup  was successfully created";
+                header('Content-Type: application/json;');
+                echo json_encode($result);
+
+            }  else {   echo json_encode("No Event Lineup input has been found!");    }
+        }
+    }
+    public function deleteLineup($lineupId){
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'GET'){
+
+            if(isset($lineupId)){
+                $this->eventService->deleteLineup($lineupId);
+
+                $result = 'Event Lineup has been successfully deleted';
+
+            } else { $result = 'no Event Lineup has been selected'; }
+
+            header('Content-Type: application/json;');
+            echo json_encode($result);
+
         }
     }
     public function viewLocations(){

@@ -168,6 +168,16 @@ body{
         form{
             width: 500px;
         }
+        #img-container{
+            background-color: lightgrey;
+            border: 2px black solid;
+            padding: 5px;
+
+            img{
+                max-width: 200px !important;
+                max-height: 200px !important;
+            }
+        }
     }}
 /*VIEW LOCATIONS*/
 #view-locations{
@@ -362,3 +372,11 @@ body{
             width: 500px;
         }
     }}
+
+/*VIEW LINEUPS */
+#view-lineups{
+    #select-event-container{
+        width: 200px !important;
+        margin: 20px;
+    }
+}
