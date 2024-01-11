@@ -4,11 +4,14 @@ use models\Event;
 use models\EventLineup;
 use models\EventLocation;
 use models\EventType;
+use repositories\Repository;
 
 require __DIR__.'/../models/Event.php';
 require __DIR__.'/../models/EventLineup.php';
 require __DIR__.'/../models/EventLocation.php';
 require __DIR__.'/../models/EventType.php';
+require_once __DIR__.'/../repositories/ContentRepository.php';
+
 
 class EventRepository extends Repository
 {

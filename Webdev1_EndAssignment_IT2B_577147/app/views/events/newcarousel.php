@@ -62,10 +62,27 @@
         </div>
         <div class="gallery-item gallery-item-4">
             <div class="item-front">
-                <img class="picture" src="/media/event4.png" data-index="4">
+                <img class="picture" src="<?php echo $event->getPosterSrc()?>" data-index="4">
             </div>
             <div class="item-back text-center">
-                <h6 class="mx-3">this is a all the information about the event</h6>
+                <span class="event-name"><?php echo $event->getName()?></span>
+
+                <span class="event-date"><?php echo $event->getDateTime()->format('D d M')?>▶</span>
+                <span class="event-location"><?php echo $event->getLocation()->getName()?></span>
+                <span class="subtitle">description</span>
+                <span class="event-type"><?php echo $event->getEventType()->getTypeName()?></span>
+                <span class="event-description"><?php echo $event->getDescription()?></span>
+                <span class="subtitle">line-up</span>
+                <div class="lineup-container">
+                    <?php if(isset($lineups)){foreach ($lineups as $lineup){?>
+                    <div class="type-group">
+                        <span class="lineup-type"><?php echo $lineup->getCategory()?></span>
+                        <?php $artists = $lineup->getArtists(); ?>
+                        <span class="lineup-artist"><?php if (isset($artists)) foreach ($artists as $index => $artist){ echo $artist.'▶ ';} else echo ''?></span>
+                    </div>
+                    <?php }}?>
+                </div>
+                <button type="button" class="tickets-btn" onclick="toggleButton('<?php echo $event->getTicketUrl()?>')"><?php echo $event->getTicketBtnText()?></button>
             </div>
         </div> <div class="gallery-item gallery-item-5">
             <div class="item-front">
@@ -75,19 +92,6 @@
                 <h6 class="mx-3">this is a all the information about the event</h6>
             </div>
         </div>
-
-        <!--<img class="gallery-item gallery-item-1" src="/media/event1.png" data-index="1">
-        <img class="gallery-item gallery-item-2" src="/media/event2.png" data-index="2">
-        <img class="gallery-item gallery-item-3" src="/media/event3.png" data-index="3">
-        <img class="gallery-item gallery-item-4" src="/media/event4.png" data-index="4">
-        <img class="gallery-item gallery-item-5" src="/media/event5.png" data-index="5">
-        <img class="gallery-item gallery-item-6" src="/media/event5.png" data-index="6">
--->
-
-    </div>
-    <div class="gallery-controls">
-        <!--<div class="gallery-controls-previous" id="left"><img src="/media/arrow_left.svg" alt=""></div>
-        <div class="gallery-controls-next" id="right"><img src="/media/arrow_right.svg" alt=""></div><-->
 
     </div>
     <div id="date-filter-container">
@@ -150,30 +154,7 @@ class Carousel {
         this.updateGallery()
     }
 
-    setControls() {
-        this.carouselControls.forEach(control => {
-            galleryControlsContainer.appendChild(document.createElement('button')).className = `gallery-controls-${control}`;
-            document.querySelector(`.gallery-controls-${control}`).innerText = control;
-
-        });
-    }
-
     useControls() {
-        /*this.carouselContainer.addEventListener('click', e => {
-            const rect = this.carouselContainer.getBoundingClientRect();
-            const clickX = e.clientX - rect.left;
-
-            if (clickX < rect.width / 3) {
-                // Clicked on the left side of the carousel
-                this.setCurrentState('previous');
-            } else if (clickX > (rect.width / 3) * 2){
-                // Clicked on the right side of the carousel
-                this.setCurrentState('next');
-            }
-            else{
-                this.toggleCard();
-             }
-        });*/
 
         this.carouselContainer.addEventListener('click', (e) => {
             const centerIndex = 2;
@@ -217,9 +198,9 @@ class Carousel {
 }
      const carousel = new Carousel(galleryContainer, galleryItems, galleryControls);
     carousel.useControls()
-    function toggleButton(){
-    const body = document.getElementById('gallery');
-    body.style.backgroundColor = 'red';
+
+    function toggleButton(url){
+        window.location.href = url;
 }
 </script>
 </body>
