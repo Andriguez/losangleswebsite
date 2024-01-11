@@ -1,6 +1,7 @@
 const adminMainWindow = document.getElementById("main-window-content")
 
-function openWindow(filePath) {
+function openWindow(functionName) {
+    const filePath = `/admin/${functionName}`
     let xhr = new XMLHttpRequest();
     xhr.open('GET', filePath, true);
     xhr.onreadystatechange = function () {
@@ -26,7 +27,7 @@ function storeData(data, functionName, redirect){
     fetch(`/admin/${functionName}`, fetchOptions)
         .then(response => response.json())
         .then(data => {
-            openWindow(`/admin/${redirect}`);
+            openWindow(redirect);
             alert(data);})
         .catch(error => console.error(error));
 }
@@ -41,7 +42,7 @@ function selectedIdAction(selectedId, functionName, redirect){
         .then(response => response.json())
         .then(data => {
             alert(data);
-            openWindow(`/admin/${redirect}`);
+            openWindow(redirect);
         })
         .catch(error => console.error(error));
 }
@@ -58,7 +59,7 @@ function selectedIdAction(selectedId, functionName, redirect){
     //}
 //}
 
-function selectedRadioAction(functionName, redirect){
+function selectedRadioBtnAction(functionName, redirect){
     let radios = document.querySelectorAll('.radioBtn:checked');
 
     if (radios.length > 0) {
@@ -70,9 +71,22 @@ function selectedRadioAction(functionName, redirect){
     }
 }
 
-function displaySelectedUserDetails(selectElement, functionName){
-    let userId = selectElement.value;
-    let filepath = `admin/${functionName}/${userId}`;
+function selectedRadioBtnOpenWindow(functionName){
+    let radios = document.querySelectorAll('.radioBtn:checked');
+
+    if (radios.length > 0) {
+        let id = radios[0].id;
+        let redirect = `${functionName}/${id}`
+        openWindow(redirect)
+
+    } else {
+        alert("No id selected.");
+    }
+}
+
+function displaySelectedIdAction(selectElement, functionName){
+    let selectedId = selectElement.value;
+    let filepath = `${functionName}/${selectedId}`;
 
     openWindow(filepath)
 }
@@ -196,6 +210,32 @@ function storeAdminDetails(){
     const functionName = `storeadmincontent/${adminId}`;
     const redirect = `manageadmindetails/${adminId}`;
 
-    console.log(formData);
+    storeData(formData, functionName, redirect);
+}
+
+//USER INFO
+function storeUserInfo(userId){
+    let email = document.getElementById('inputEmail').value;
+    let password = document.getElementById('inputPassword').value;
+    let pronouns = document.getElementById('inputpronouns').value;
+    let firstname = document.getElementById('inputfirstname').value;
+    let lastname = document.getElementById('inputlastname').value;
+    let usertype = document.getElementById('inputType').value;
+
+    let fileInput = document.getElementById('user-profile-picture');
+    let file = fileInput.files[0];
+
+    const formData = new FormData();
+    formData.append('firstname', firstname);
+    formData.append('lastname', lastname);
+    formData.append('email', email);
+    formData.append('usertype', usertype);
+    formData.append('pronouns', pronouns);
+    formData.append('password', password);
+    formData.append('picture', file);
+
+    const functionName = 'storeUser/'+userId;
+    const redirect = `viewusers`;
+
     storeData(formData, functionName, redirect);
 }

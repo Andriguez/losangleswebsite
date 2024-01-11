@@ -105,7 +105,7 @@ class UserRepository extends Repository
                         break;
                     case 'collaborator':
                         $user = new Collaborator();
-                        $user->setCollaboratorContent($contentRepo->getCollaboratorContentById($userId));
+                        //$user->setCollaboratorContent($contentRepo->getCollaboratorContentById($userId));
                         break;
                     default:
                         $user = new User;
@@ -174,7 +174,7 @@ class UserRepository extends Repository
                 $allUsers[] = $user;
             }
 
-            return $allUsers;
+            return $allUsers ?? null;
         }catch (\PDOException $e){echo $e;}
     }
 

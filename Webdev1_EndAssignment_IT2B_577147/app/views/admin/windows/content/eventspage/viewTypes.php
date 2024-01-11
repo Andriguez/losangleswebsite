@@ -21,7 +21,7 @@
 
 
     <div id="button-container">
-        <button type="button" class="btn btn-danger" onclick="selectedRadioAction('deleteeventtype', true)">Delete</button>
-        <button class="btn btn-success" onclick="openWindow('admin/manageeventtype')" type="button">Create New Type</button>
+        <button type="button" class="btn btn-danger" onclick="selectedRadioAction('deleteeventtype', 'viewtypes')">Delete</button>
+        <button class="btn btn-success" onclick="openWindow('manageeventtype')" type="button">Create New Type</button>
     </div>
 </div>

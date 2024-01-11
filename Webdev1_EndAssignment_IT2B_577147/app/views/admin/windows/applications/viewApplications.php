@@ -49,7 +49,7 @@
     <div id="button-container">
         <button type="button" class="btn btn-danger">Delete</button>
         <button class="btn btn-primary" type="button">Edit</button>
-        <button type="button" onclick="openWindow('admin/manageapplication')" class="btn btn-info">Create User</button>
+        <button type="button" onclick="openWindow('manageapplication')" class="btn btn-info">Create User</button>
         <button type="button" class="btn btn-success">Download Applications</button>
     </div>
 </div>

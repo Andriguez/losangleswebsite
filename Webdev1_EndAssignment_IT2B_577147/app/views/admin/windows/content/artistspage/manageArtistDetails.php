@@ -2,7 +2,7 @@
     <h1>Artists</h1>
     <div id="select-artist-container">
     <label for="inputArtist" class="form-label"><strong>Select Artist</strong></label>
-    <select id="inputArtist" class="form-select" onchange="displaySelectedUserDetails(this, 'manageArtistDetails')">
+    <select id="inputArtist" class="form-select" onchange="displaySelectedIdAction(this, 'manageArtistDetails')">
         <option selected value="<?php echo isset($selectedArtist)? $selectedArtist->getUserId():''?>"><?php echo isset($selectedArtist)? $selectedArtist->getFirstName():'Choose...'?></option>
         <?php foreach ($artists as $artist){ ?>
             <option value="<?php echo $artist->getUserId();?>"><?php echo $artist->getFirstName();?></option>

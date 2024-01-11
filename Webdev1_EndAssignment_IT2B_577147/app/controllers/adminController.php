@@ -170,7 +170,6 @@ class adminController extends Controller
         if($this->userAuth->allowAdminAccess()){
             $this->eventService->deleteLocation($locationId);
         }
-        $this->reloadPage();
     }
 
     public function storeLocation(){
@@ -200,13 +199,11 @@ class adminController extends Controller
         if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'POST'){
             $this->eventService->createEventType($_POST['eventTypeName']);
         }
-        $this->reloadPage();
     }
     public function deleteEventType($typeId){
         if($this->userAuth->allowAdminAccess()){
             $this->eventService->deleteEventType($typeId);
         }
-        $this->reloadPage();
     }
     public function manageAdminDetails($adminId = null){
         if($this->userAuth->allowAdminAccess())
@@ -294,10 +291,16 @@ class adminController extends Controller
         if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/feed/manageTopic.php';
     }
-    public function viewUsers(){
+    public function viewUsers($selectedUserTypeId = null){
         if($this->userAuth->allowAdminAccess()){
-            $users = $this->userService->getAllUsers();
+
+            if(isset($selectedUserTypeId) && $selectedUserTypeId != 0){
+                $users = $this->userService->getAllUsersByType($selectedUserTypeId);
+                $selectedUserType = $this->userService->getTypeById($selectedUserTypeId);
+            } else {$users = $this->userService->getAllUsers(); }
+
             $userTypes = $this->userService->getAllTypes();
+
             require __DIR__ . '/../views/admin/windows/users/viewUsers.php';
 
         }
@@ -310,9 +313,10 @@ class adminController extends Controller
     }
 
     public function storeUser($userId = null){
-        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'POST'){
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
+            if(!isset($userId) | $userId == 0){    $userId = rand(999, 9999);  }
+            if(isset($_POST)){
 
-                if(!isset($userId)){    $userId = rand(999, 9999);  }
                 $firstname = $_POST['firstname'];
                 $lastname = $_POST['lastname'];
                 $email = $_POST['email'];
@@ -320,22 +324,38 @@ class adminController extends Controller
                 $pronouns = $_POST['pronouns'];
                 //$password = $this->userAuth->hashPassword($_POST['password']);
                 $password = $_POST['password'];
-                $picture = 1;
-                $user = $this->userService->getUserById($userId);
 
-            if(!isset($_FILES['picture']) || $_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE && isset($user)){
-                $picture = $user->getMediaInfo()->getMediaId();
+                if(!isset($_FILES['picture']) || $_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE){
+                    $user = $this->userService->getUserById($userId);
 
-            } else if(isset($_FILES['picture']) & isset($user)) {
-                    $picture = $this->uploadPicture('users/','userpicture');    }
+                    if(!isset($user)){ $picture = 1; } else { $picture = $user->getMediaInfo()->getMediaId(); }
 
+                } else {    $picture = $this->uploadPicture('users/','userpicture');    }
 
                 $this->userService->storeUser($userId, $firstname, $lastname, $email, $pronouns, $usertype, $password, $picture);
 
-            $this->reloadPage();
+                $result = "the information of user: $firstname $lastname was successfully added";
+                header('Content-Type: application/json;');
+                echo json_encode($result);
+
+            }  else {   echo json_encode("No user info has been added!");  }
         }
     }
-    public function uploadPicture($mediaDirectory, $mediaType){
+    public function deleteUSer($userId){
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'GET'){
+
+            if(isset($userId)){
+                $this->userService->deleteUser($userId);
+
+                $result = 'user has been successfully deleted';
+
+            } else { $result = 'no user has been selected'; }
+
+            header('Content-Type: application/json;');
+            echo json_encode($result);
+        }
+    }
+    private function uploadPicture($mediaDirectory, $mediaType){
         if ($_FILES['picture']['error'] == UPLOAD_ERR_OK) {
 
             $fileName = $_FILES['picture']['name'];
@@ -350,13 +370,7 @@ class adminController extends Controller
             return $this->contentService->createMediaInfo($fileName, $mediaType, $directoryId);
         }
     }
-    public function deleteUSer($userId){
-        if($this->userAuth->allowAdminAccess()){
-            $this->userService->deleteUser($userId);
-        }
-        $this->reloadPage();
-    }
-    public function manageCollaboratorInfo(){
+    public function manageCollaboratorDetails(){
         if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/users/manageCollaboratorInfo.php';
     }

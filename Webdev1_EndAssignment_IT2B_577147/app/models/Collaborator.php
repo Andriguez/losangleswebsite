@@ -14,6 +14,6 @@ class Collaborator extends User
     public function setCollaboratorContent($content){$this->collaboratorContent = $content;}
 
     //getters
-    public function getCollaboratorContent():CollaboratorContent{return $this->collaboratorContent;}
+    public function getCollaboratorContent(){return $this->collaboratorContent;}
 
 }

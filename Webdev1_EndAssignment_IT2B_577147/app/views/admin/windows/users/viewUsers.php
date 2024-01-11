@@ -1,10 +1,11 @@
 <div id="viewusers">
 <h1>Users</h1>
-    <select id="selectType" class="form-select">
-        <option selected>Choose...</option>
+    <select id="selectType" class="form-select" onchange="displaySelectedIdAction(this, 'viewUsers')">
+        <option selected value="<?php echo isset($selectedUserType) ? $selectedUserType->getUserTypeId() : ''?>"><?php echo isset($selectedUserType) ? $selectedUserType->getUserType() : 'Choose..'?></option>
         <?php foreach ($userTypes as $type){ ?>
             <option value="<?php echo $type->getUserTypeId();?>"><?php echo $type->getUserType();?></option>
         <?php }?>
+        <option value="0">All Users</option>
     </select>
 
     <div id="table-container">
@@ -19,7 +20,7 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($users as $user){?>
+        <?php if(isset($users))foreach ($users as $user){?>
         <tr>
             <td><input class="form-check-input radioBtn" type="radio" name="radioButton" id="<?php echo $user->getUserId();?>"></td>
             <th scope="row"><?php echo $user->getUserId(); ?></th>
@@ -35,8 +36,8 @@
 
 
 <div id="button-container">
-        <button type="button" class="btn btn-danger" onclick="selectedRadioAction('deleteuser', true)">Delete</button>
-        <button class="btn btn-primary" type="button" id="editSelectedUserBtn" onclick="selectedRadioAction('manageuser', false)">Edit</button>
-        <button class="btn btn-success" type="button" onclick="openWindow('admin/manageuser')">Create User</button>
+        <button type="button" class="btn btn-danger" onclick="selectedRadioBtnAction('deleteuser', 'viewusers')">Delete</button>
+        <button class="btn btn-primary" type="button" id="editSelectedUserBtn" onclick="selectedRadioBtnOpenWindow('manageUser')">Edit</button>
+        <button class="btn btn-success" type="button" onclick="openWindow('manageuser')">Create User</button>
     </div>
 </div>

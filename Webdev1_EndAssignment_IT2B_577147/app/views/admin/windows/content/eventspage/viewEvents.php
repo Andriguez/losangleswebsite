@@ -26,7 +26,7 @@
     <div id="button-container">
         <button type="button" class="btn btn-danger">Delete</button>
         <button class="btn btn-primary" type="button">Edit</button>
-        <button class="btn btn-primary" onclick="openWindow('/admin/manageevent')" type="button">Create Event</button>
+        <button class="btn btn-primary" onclick="openWindow('manageevent')" type="button">Create Event</button>
 
     </div>
 </div>
