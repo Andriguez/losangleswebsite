@@ -3,7 +3,7 @@
     <h1>Angles</h1>
     <div id="select-artist-container">
         <label for="inputAdmin" class="form-label"><strong>Select Angle</strong></label>
-        <select id="inputAdmin" class="form-select" onchange="displaySelectedIdAction(this, 'manageAdminDetails')">
+        <select id="inputAdmin" class="form-select" onchange="displaySelectIdAction(this, 'manageAdminDetails')">
             <option selected value="<?php echo isset($selectedAdmin)? $selectedAdmin->getUserId():''?>"><?php echo isset($selectedAdmin)? $selectedAdmin->getFirstName():'Choose...'?></option>
             <?php foreach ($users as $user){ ?>
                 <option value="<?php echo $user->getUserId();?>"><?php echo $user->getFirstName();?></option>

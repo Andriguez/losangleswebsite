@@ -39,11 +39,10 @@ class adminController extends Controller
     }
 
     public function index(){
-
-        if ($this->userAuth->allowAdminAccess())
+        if ($this->userAuth->allowAdminAccess()){
             $this->userService = new UserService();
             require __DIR__ . '/../views/admin/index.php';
-
+        }
     }
 
     public function manageHomepageLogo(){
@@ -96,9 +95,10 @@ class adminController extends Controller
         }
     }
     public function viewDisciplines(){
-        if($this->userAuth->allowAdminAccess())
+        if($this->userAuth->allowAdminAccess()){
             $disciplines = $this->artistService->getAllDisciplines();
             require __DIR__ . '/../views/admin/windows/content/artistspage/viewDisciplines.php';
+        }
     }
     public function manageDiscipline(){
         if($this->userAuth->allowAdminAccess())
@@ -131,7 +131,6 @@ class adminController extends Controller
 
             header('Content-Type: application/json;');
             echo json_encode($result);
-
         }
     }
     public function viewEvents(){
@@ -166,23 +165,41 @@ class adminController extends Controller
             require __DIR__ . '/../views/admin/windows/content/eventspage/manageLocation.php';
         }
     }
-    public function deleteLocation($locationId){
-        if($this->userAuth->allowAdminAccess()){
-            $this->eventService->deleteLocation($locationId);
-        }
-    }
 
     public function storeLocation(){
-        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'POST'){
-            $name = $_POST['name'];
-            $address = $_POST['address'];
-            $city = $_POST['city'];
-            $country = $_POST['country'];
-            $mapUrl = $_POST['mapurl'];
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
+            $data = json_decode(file_get_contents("php://input"), true);
 
-            $this->eventService->storeLocation($name, $address, $city, $country, $mapUrl);
+            if(isset($data['name'])){
+                $name = $data['name'];
+                $address = $data['address'];
+                $city = $data['city'];
+                $country = $data['country'];
+                $mapUrl = $data['mapurl'];
+
+                $this->eventService->storeLocation($name, $address, $city, $country, $mapUrl);
+
+                $result = "Event Location: $name was successfully created";
+                header('Content-Type: application/json;');
+                echo json_encode($result);
+
+            }  else {   echo json_encode("No Event Location input has been found!");    }
         }
-        $this->reloadPage();
+    }
+    public function deleteLocation($locationId){
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'GET'){
+
+            if(isset($locationId)){
+                $this->eventService->deleteLocation($locationId);
+
+                $result = 'Event Location has been successfully deleted';
+
+            } else { $result = 'no Event Location has been selected'; }
+
+            header('Content-Type: application/json;');
+            echo json_encode($result);
+
+        }
     }
     public function viewEventTypes(){
         if($this->userAuth->allowAdminAccess()){
@@ -196,13 +213,33 @@ class adminController extends Controller
         }
     }
     public function createEventType(){
-        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'POST'){
-            $this->eventService->createEventType($_POST['eventTypeName']);
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
+            $data = json_decode(file_get_contents("php://input"), true);
+
+            if(isset($data['eventTypeName'])){
+                $typeName = $data['eventTypeName'];
+                $this->eventService->createEventType($typeName);
+
+                $result = "Event Type $typeName was successfully created";
+                header('Content-Type: application/json;');
+                echo json_encode($result);
+
+            }  else {   echo json_encode("No Event Type input has been found!");    }
         }
     }
     public function deleteEventType($typeId){
-        if($this->userAuth->allowAdminAccess()){
-            $this->eventService->deleteEventType($typeId);
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'GET'){
+
+            if(isset($typeId)){
+                $this->eventService->deleteEventType($typeId);
+
+                $result = 'Event Type has been successfully deleted';
+
+            } else { $result = 'no Event Type has been selected'; }
+
+            header('Content-Type: application/json;');
+            echo json_encode($result);
+
         }
     }
     public function manageAdminDetails($adminId = null){
@@ -374,9 +411,7 @@ class adminController extends Controller
         if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/users/manageCollaboratorInfo.php';
     }
-    private function reloadPage(){
-        header("Location: /admin");
-    }
+
     /*public function hashtest(){
         $costs = [10, 11, 12, 13, 14];
         $password = 'test_password';

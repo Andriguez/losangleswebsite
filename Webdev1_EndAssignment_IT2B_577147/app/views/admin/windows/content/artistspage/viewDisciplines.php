@@ -22,7 +22,7 @@
 
 
     <div id="button-container">
-        <button type="button" class="btn btn-danger" onclick="selectedRadioAction('deletediscipline', 'viewdisciplines')">Delete</button>
+        <button type="button" class="btn btn-danger" onclick="selectedRadioBtnAction('deletediscipline', 'viewdisciplines')">Delete</button>
         <button class="btn btn-success" onclick="openWindow('managediscipline')" type="button">Create new</button>
     </div>
 </div>

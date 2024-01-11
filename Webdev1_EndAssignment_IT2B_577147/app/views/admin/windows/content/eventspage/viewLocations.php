@@ -26,8 +26,8 @@
     </div>
 
     <div id="button-container">
-        <button type="button" class="btn btn-danger" onclick="selectedRadioAction('deletelocation', 'viewlocations')">Delete</button>
-        <button class="btn btn-primary" type="button" onclick="selectedRadioAction('managelocation', 'managelocation')">Edit</button>
+        <button type="button" class="btn btn-danger" onclick="selectedRadioBtnAction('deletelocation', 'viewlocations')">Delete</button>
+        <button class="btn btn-primary" type="button" onclick="selectedRadioBtnOpenWindow('managelocation')">Edit</button>
         <button class="btn btn-success" onclick="openWindow('managelocation')" type="button">Create Location</button>
     </div>
 </div>

@@ -2,7 +2,7 @@
     <h1><?php echo (isset($selectedLocation)) ? 'Edit Location' : 'Create Location'?></h1>
     <div class="container row">
         <div class="col-md-12">
-            <form method="post" action="/admin/storelocation" class="row g-3">
+            <form class="row g-3">
                 <div class="col-md-6">
                     <label for="inputName" class="form-label"><strong>Name</strong></label>
                     <input type="text" name="name" class="form-control" id="inputName" value="<?php echo (isset($selectedLocation)) ? $selectedLocation->getName() : ''?>">
@@ -23,12 +23,10 @@
                     <label for="inputUrl" class="form-label"><strong>map's url</strong></label>
                     <input type="text" name="mapurl" class="form-control" id="inputUrl" value="<?php echo (isset($selectedLocation)) ? $selectedLocation->getMap() : ''?>">
                 </div>
-
-                <div class="col-12">
-                    <button type="submit" class="btn btn-success">Save</button>
-                </div>
-
-            </form></div>
+            </form>
+            <div class="col-12">
+                <button type="button" class="btn btn-success" onclick="storeEventLocation()">Save</button>
+            </div>
+        </div>
     </div>
 </div>
-

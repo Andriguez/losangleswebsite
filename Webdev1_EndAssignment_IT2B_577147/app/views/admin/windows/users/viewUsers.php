@@ -1,6 +1,6 @@
 <div id="viewusers">
 <h1>Users</h1>
-    <select id="selectType" class="form-select" onchange="displaySelectedIdAction(this, 'viewUsers')">
+    <select id="selectType" class="form-select" onchange="displaySelectIdAction(this, 'viewUsers')">
         <option selected value="<?php echo isset($selectedUserType) ? $selectedUserType->getUserTypeId() : ''?>"><?php echo isset($selectedUserType) ? $selectedUserType->getUserType() : 'Choose..'?></option>
         <?php foreach ($userTypes as $type){ ?>
             <option value="<?php echo $type->getUserTypeId();?>"><?php echo $type->getUserType();?></option>

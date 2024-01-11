@@ -84,7 +84,7 @@ function selectedRadioBtnOpenWindow(functionName){
     }
 }
 
-function displaySelectedIdAction(selectElement, functionName){
+function displaySelectIdAction(selectElement, functionName){
     let selectedId = selectElement.value;
     let filepath = `${functionName}/${selectedId}`;
 
@@ -238,4 +238,30 @@ function storeUserInfo(userId){
     const redirect = `viewusers`;
 
     storeData(formData, functionName, redirect);
+}
+
+//EVENT TYPE
+function storeEventType(){
+    let typeName = document.getElementById('inputEventTypeName').value;
+    const data = {"eventTypeName": typeName}
+    const functionName = 'createeventtype';
+    const redirect = 'vieweventtypes';
+
+    storeData(data, functionName, redirect);
+}
+
+//EVENT LOCATION
+
+function storeEventLocation(){
+    let name = document.getElementById('inputName').value;
+    let address = document.getElementById('inputAddress').value;
+    let city = document.getElementById('inputCity').value;
+    let country = document.getElementById('inputCountry').value;
+    let mapurl = document.getElementById('inputUrl').value;
+
+    const data = {"name": name, "address": address, "city": city, "country": country, "mapurl": mapurl}
+    const functionName = 'storelocation';
+    const redirect = 'viewlocations';
+
+    storeData(data, functionName, redirect);
 }
