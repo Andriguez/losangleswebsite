@@ -32,7 +32,7 @@
     class Carousel {
         constructor(container) {
             this.carouselContainer = container;
-            this.carouselItems = []
+            this.carouselItems = [];
             //this.carouselControls = controls;
             this.back = false;
         }
@@ -50,6 +50,16 @@
         createGalleryItem(index, item) {
             const galleryItem = document.createElement('div');
             galleryItem.classList.add('gallery-item');
+
+            let itemIndex = index +1;
+
+            if (this.carouselItems.length < 5 && itemIndex === this.carouselItems.length -1) {
+                galleryItem.classList.add('gallery-item-3');
+            } else {
+                galleryItem.classList.add(`gallery-item-${index + 1}`);
+            }
+
+
             galleryItem.classList.add(`gallery-item-${index + 1}`);
 
             const itemFront = document.createElement('div');
@@ -77,46 +87,46 @@
         }
 
         updateGallery() {
-            this.carouselItems.forEach(el => {
-                for (let i = 1; i <= this.carouselItems.length; i++) {
-                    el.classList.remove(`gallery-item-${i}`);
-                }
-            });
-
-            // Add classes based on the current state
-            const centerIndex = 2;
             const totalItems = this.carouselItems.length;
+            const centerIndex = Math.floor(totalItems / 2);
+
 
             this.carouselItems.forEach((el, i) => {
-                let newIndex = (i - centerIndex + totalItems) % totalItems + 1;
-                el.classList.add(`gallery-item-${newIndex}`);
+                const newIndex = (i - centerIndex + totalItems) % totalItems;
+                el.classList.remove(...Array.from({length: totalItems}, (_, j) => `gallery-item-${j + 1}`));
+                el.classList.add(`gallery-item-${newIndex + 1}`);
             });
+
         }
 
         setCurrentState(direction) {
-            if (direction == 'previous') {
-                this.carouselItems.unshift(this.carouselItems.pop())
-            } else if (direction == 'next') {
-                this.carouselItems.push(this.carouselItems.shift())
+            if (direction === 'previous') {
+                this.carouselItems.unshift(this.carouselItems.pop());
+            } else if (direction === 'next') {
+                this.carouselItems.push(this.carouselItems.shift());
             }
-            this.updateGallery()
+            this.updateGallery();
         }
 
         useControls() {
 
             this.carouselContainer.addEventListener('click', (e) => {
-                const centerIndex = 2;
+                const centerIndex = Math.floor(this.carouselItems.length / 2);
 
-                const clickedIndex = Array.from(this.carouselItems).indexOf(e.target.closest('.gallery-item'));
-
-                if (clickedIndex < centerIndex) {
+                if (e.target.classList.contains('previous-control')) {
                     this.setCurrentState('previous');
-                }
-                else if (clickedIndex > centerIndex) {
+                } else if (e.target.classList.contains('next-control')) {
                     this.setCurrentState('next');
-                }
-                else {
-                    this.toggleCard();
+                } else {
+                    const clickedIndex = Array.from(this.carouselItems).indexOf(e.target.closest('.gallery-item'));
+
+                    if (clickedIndex < centerIndex) {
+                        this.setCurrentState('previous');
+                    } else if (clickedIndex > centerIndex) {
+                        this.setCurrentState('next');
+                    } else {
+                        this.toggleCard();
+                    }
                 }
             });
         }
