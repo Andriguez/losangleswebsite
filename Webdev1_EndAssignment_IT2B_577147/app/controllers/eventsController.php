@@ -20,8 +20,8 @@ class eventsController extends Controller
         $yFilters = $this->eventService->getEventsYears();
         $mFilters = $this->eventService->getEventsMonthsByYear(2024);
 
-        //$selectedYear = 2024;
-        //$selectedMonth = 3;
+        $selectedYear = $selectedYear ?? date('Y');
+        $selectedMonth = $selectedMonth ?? date('n');
 
         require __DIR__ . '/../views/events/newcarousel.php';
     }
