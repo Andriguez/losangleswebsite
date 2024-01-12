@@ -97,12 +97,12 @@
     <div id="date-filter-container">
         <div id="year-container">
             <?php if(isset($yFilters)){ foreach ($yFilters as $index => $year){ ?>
-            <a href="events/<?php echo $year ?>"><span><?php echo $year ?>▶</span></a>
+            <a class="<?php echo ($selectedYear == $year) ? 'selectedFilter': ''?>" href="events/<?php echo $year ?>"><span><?php echo $year ?>▶</span></a>
             <?php }} ?>
         </div>
         <div id="month-container">
             <?php if(isset($mFilters)){ foreach ($mFilters as $index => $month){ ?>
-                <a href="events/2024/<?php echo $index ?>"><span><?php echo $month ?>▶</span></a>
+                <a class="<?php echo ($selectedMonth == $index) ? 'selectedFilter': ''?>" href="events/2024/<?php echo $index ?>"><span><?php echo $month ?>▶</span></a>
             <?php }} ?>
         </div>
     </div>
@@ -199,6 +199,14 @@ class Carousel {
 </html>
 <style>
     #events-link {
+        color: white !important; /* New text color on hover */
+        text-shadow:
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000000 !important;
+    }
+    .selectedFilter{
         color: white !important; /* New text color on hover */
         text-shadow:
                 -1px -1px 0 #000,

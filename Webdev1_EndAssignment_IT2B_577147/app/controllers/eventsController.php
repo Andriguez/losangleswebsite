@@ -13,13 +13,15 @@ class eventsController extends Controller
     {
         $this->eventService = new EventService();
     }
-    public function index(){
+    public function index($selectedYear = null, $selectedMonth = null){
         $event = $this->eventService->getEventById(2);
         $lineups = $this->eventService->getAllLineupsByEvent(2);
 
         $yFilters = $this->eventService->getEventsYears();
         $mFilters = $this->eventService->getEventsMonthsByYear(2024);
 
+        //$selectedYear = 2024;
+        //$selectedMonth = 3;
 
         require __DIR__ . '/../views/events/newcarousel.php';
     }
