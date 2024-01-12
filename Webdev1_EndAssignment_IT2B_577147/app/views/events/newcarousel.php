@@ -13,35 +13,7 @@
                 <img class="picture" src="/media/event1.png" data-index="1">
            </div>
             <div class="item-back text-center">
-                <span class="event-name">139 angles</span>
-
-                <span class="event-date">14 Oct▶</span>
-                <span class="event-location">Kanaal 40</span>
-                <span class="subtitle">description</span>
-                <span class="event-type">Art exhibition - club night</span>
-                <span class="event-description">Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. </span>
-                <span class="subtitle">line-up</span>
-                <div class="lineup-container">
-                    <div class="type-group">
-                <span class="lineup-type">djs</span>
-                    <span class="lineup-artist">larasati<img src="/media/triangle-icon.svg"></span>
-                    <span class="lineup-artist">NA-AH<img src="/media/triangle-icon.svg"></span>
-                    <span class="lineup-artist">Dr. dickey<img src="/media/triangle-icon.svg"></span>
-                    <span class="lineup-artist">slimfit b2b ???<img src="/media/triangle-icon.svg"></span>
-                    </div>
-                    <div class="type-group">
-                <span class="lineup-type">exhibits</span>
-                        <span class="lineup-artist">Siofra Augusteijn<img src="/media/triangle-icon.svg"></span>
-                        <span class="lineup-artist">Zazi Creijghton<img src="/media/triangle-icon.svg"></span>
-                        <span class="lineup-artist">Tild Greene<img src="/media/triangle-icon.svg"></span>
-                        <span class="lineup-artist">Linus van der Mass<img src="/media/triangle-icon.svg"></span>
-                    </div>
-                    <div class="type-group">
-                        <span class="lineup-type">performers</span>
-                        <span class="lineup-artist">Monika Joakim<img src="/media/triangle-icon.svg"></span>
-                    </div>
-                </div>
-                <button type="button" class="tickets-btn" onclick="toggleButton()" href="#">BUY TICKETS</button>
+                <h6 class="mx-3">this is a all the information about the event</h6>
             </div>
         </div>
         <div class="gallery-item gallery-item-2">
@@ -102,7 +74,7 @@
         </div>
         <div id="month-container">
             <?php if(isset($mFilters)){ foreach ($mFilters as $index => $month){ ?>
-                <a class="<?php echo ($selectedMonth == $index) ? 'selectedFilter': ''?>" href="/events/2024/<?php echo $index ?>"><span><?php echo $month ?>▶</span></a>
+                <a class="<?php echo ($selectedMonth == $index) ? 'selectedFilter': ''?>" href="/events/<?php echo $selectedYear.'/'.$index ?>"><span><?php echo $month ?>▶</span></a>
             <?php }} ?>
         </div>
     </div>

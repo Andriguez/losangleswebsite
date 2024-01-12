@@ -21,7 +21,8 @@ class eventsController extends Controller
         $mFilters = $this->eventService->getEventsMonthsByYear($selectedYear);
 
         $selectedYear = $selectedYear ?? date('Y');
-        $selectedMonth = $selectedMonth ?? date('n');
+        if(isset($selectedYear)){ $selectedMonth = $selectedMonth ?? date('n'); }
+
 
         $events = $this->eventService->getAllEventsByDate($selectedYear, $selectedMonth);
 
