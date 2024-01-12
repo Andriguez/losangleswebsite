@@ -104,17 +104,28 @@ class EventRepository extends Repository
     }
     public function getEventsByType($type){
         $query = "SELECT event_Id FROM events WHERE event_type = :type";
-        $params = [':type', $type];
+        $params[':type'] = $type;
 
         return $this->getEvents($query, $params);
     }
 
-    public function getEventsByDate($datetime){
-        $query = "SELECT event_Id FROM events WHERE event_datetime = :datetime";
-        $params = [':datetime',$datetime];
+    public function getEventsByDate($year, $month){
+        $query = "SELECT event_Id, event_datetime AS result_date FROM events WHERE 
+        (YEAR(event_datetime) = :year AND MONTH(event_datetime) = :month)
+        OR (YEAR(event_datetime) = :year)
+        ORDER BY ABS(MONTH(NOW()) - MONTH(event_datetime))
+        LIMIT 5";
+
+        $params[':year'] = $year;
+        $params[':month'] = $month;
 
         return $this->getEvents($query,$params);
     }
+    //    SELECT event_Id
+    //    FROM events
+    //    WHERE YEAR(event_datetime) = 2024 AND MONTH(event_datetime) = 3
+    //       OR YEAR(event_datetime) = 2024
+    //       OR MONTH(event_datetime) = 3;
 
     //private function getEvents2($row){
       //  while($row) {
@@ -129,7 +140,7 @@ class EventRepository extends Repository
 
             if (isset($params)) {
                 foreach ($params as $pname => $pvalue) {
-                    $statement->bindParam($pname, $pvalue);}
+                    $statement->bindValue($pname, $pvalue);}
             }
 
             $statement->execute();

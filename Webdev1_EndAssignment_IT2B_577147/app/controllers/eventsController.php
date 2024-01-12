@@ -18,10 +18,12 @@ class eventsController extends Controller
         $lineups = $this->eventService->getAllLineupsByEvent(2);
 
         $yFilters = $this->eventService->getEventsYears();
-        $mFilters = $this->eventService->getEventsMonthsByYear(2024);
+        $mFilters = $this->eventService->getEventsMonthsByYear($selectedYear);
 
         $selectedYear = $selectedYear ?? date('Y');
         $selectedMonth = $selectedMonth ?? date('n');
+
+        $events = $this->eventService->getAllEventsByDate($selectedYear, $selectedMonth);
 
         require __DIR__ . '/../views/events/newcarousel.php';
     }

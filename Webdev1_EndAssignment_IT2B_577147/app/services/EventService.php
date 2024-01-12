@@ -23,7 +23,7 @@ class EventService
     public function getEventById($eventId){ return $this->eventRepo->getEventById($eventId); }
     public function getAllEvents(){ return $this->eventRepo->getAllEvents(); }
     public function getAllEventsByType($eventType){ return $this->eventRepo->getEventsByType($eventType); }
-    public function getAllEventsByDate($datetime){ return $this->eventRepo->getEventsByDate($datetime); }
+    public function getAllEventsByDate($year, $month){ return $this->eventRepo->getEventsByDate($year, $month); }
     public function getEventsYears(){ return $this->eventRepo->getEventsYears(); }
     public function getEventsMonthsByYear($year){ return $this->eventRepo->getEventMonthsByYear($year); }
     public function storeLineup($event, $category, $artists){ $this->eventRepo->storeLineup($event, $category, $artists); }
