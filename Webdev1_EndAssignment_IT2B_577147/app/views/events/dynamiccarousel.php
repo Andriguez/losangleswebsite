@@ -53,14 +53,11 @@
 
             let itemIndex = index +1;
 
-            if (this.carouselItems.length < 5 && itemIndex === this.carouselItems.length -1) {
+            if (this.carouselItems.length < 5 && index === this.carouselItems.length) {
                 galleryItem.classList.add('gallery-item-3');
             } else {
-                galleryItem.classList.add(`gallery-item-${index + 1}`);
+                galleryItem.classList.add(`gallery-item-${itemIndex}`);
             }
-
-
-            galleryItem.classList.add(`gallery-item-${index + 1}`);
 
             const itemFront = document.createElement('div');
             itemFront.classList.add('item-front');
