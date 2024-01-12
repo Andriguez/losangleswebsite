@@ -2,10 +2,17 @@
 
 namespace models;
 
-class DirectoryLog
+use ReturnTypeWillChange;
+
+class DirectoryLog implements \JsonSerializable
 {
     private int $path_Id;
     private string $type, $path;
+
+    #[ReturnTypeWillChange]
+    public function jsonSerialize(){
+        return get_object_vars($this);
+    }
 
     //setters
     public function setPathId($id){$this->path_Id = $id;}

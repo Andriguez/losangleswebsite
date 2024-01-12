@@ -2,12 +2,19 @@
 
 namespace models;
 
-class EventLineup
+use ReturnTypeWillChange;
+
+class EventLineup implements \JsonSerializable
 {
     private int $lineup_Id;
     private Event $lineup_event;
     private array $lineup_artists;
     private string $lineup_category;
+
+    #[ReturnTypeWillChange]
+    public function jsonSerialize(){
+        return get_object_vars($this);
+    }
 
     //setters
     public function setLineupId($id){   $this->lineup_Id = $id;}

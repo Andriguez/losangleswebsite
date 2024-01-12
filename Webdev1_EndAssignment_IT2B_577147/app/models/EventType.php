@@ -2,10 +2,17 @@
 
 namespace models;
 
-class EventType
+use ReturnTypeWillChange;
+
+class EventType implements \JsonSerializable
 {
     private int $event_type_Id;
     private string $event_type_name;
+
+    #[ReturnTypeWillChange]
+    public function jsonSerialize(){
+        return get_object_vars($this);
+    }
 
     //setters
     public function setTypeId($id){$this->event_type_Id = $id;}

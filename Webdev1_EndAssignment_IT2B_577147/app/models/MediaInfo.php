@@ -2,11 +2,18 @@
 
 namespace models;
 
-class MediaInfo
+use ReturnTypeWillChange;
+
+class MediaInfo implements \JsonSerializable
 {
     private int $media_Id;
     private string $media_filename, $media_type;
     private DirectoryLog $media_path;
+
+    #[ReturnTypeWillChange]
+    public function jsonSerialize(){
+        return get_object_vars($this);
+    }
 
     //setters
     public function setMediaId($id){$this->media_Id = $id;}

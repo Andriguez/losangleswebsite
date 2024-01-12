@@ -2,10 +2,17 @@
 
 namespace models;
 
-class EventLocation
+use ReturnTypeWillChange;
+
+class EventLocation implements \JsonSerializable
 {
     private int $location_Id;
     private string $location_name, $location_address, $location_city,$location_country, $location_map_url;
+
+    #[ReturnTypeWillChange]
+    public function jsonSerialize(){
+        return get_object_vars($this);
+    }
 
     //setters
     public function setLocationId($id){$this->location_Id = $id;}

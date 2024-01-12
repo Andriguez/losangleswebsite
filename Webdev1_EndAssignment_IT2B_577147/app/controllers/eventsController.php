@@ -26,6 +26,8 @@ class eventsController extends Controller
 
         $events = $this->eventService->getAllEventsByDate($selectedYear, $selectedMonth);
 
-        require __DIR__ . '/../views/events/newcarousel.php';
+        //echo json_encode($events);
+
+        require __DIR__ . '/../views/events/dynamiccarousel.php';
     }
 }
