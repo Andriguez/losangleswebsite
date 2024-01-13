@@ -14,10 +14,23 @@ class Event implements \JsonSerializable
     private EventType $event_type;
     private MediaInfo $event_poster;
     private string $posterSrc = "";
+    private array $lineups = [];
 
     #[ReturnTypeWillChange]
     public function jsonSerialize(){
-        return get_object_vars($this);
+        return [
+            'event_Id' => $this->event_Id,
+            'event_name' => $this->event_name,
+            'event_description' => $this->event_description,
+            'event_ticketbtn_text' => $this->event_ticketbtn_text,
+            'event_ticketbtn_url' => $this->event_ticketbtn_url,
+            'event_location' => $this->event_location,
+            'event_type' => $this->event_type,
+            'posterSrc' => $this->posterSrc,
+            'lineups' => $this->lineups,
+            'event_datetime' => $this->event_datetime
+
+        ];
     }
 
     //setters
@@ -35,6 +48,7 @@ class Event implements \JsonSerializable
         $this->setPosterSrc($src);
     }
     public function setPosterSrc($src){$this->posterSrc = $src;}
+    public function setLineups($lineups){$this->lineups = $lineups;}
 
     //setters
     public function getEventId():int{return $this->event_Id;}
@@ -48,5 +62,7 @@ class Event implements \JsonSerializable
     public function getEventType(){return $this->event_type;}
     public function getEventPoster(){return $this->event_poster;}
     public function getPosterSrc():string{return $this->posterSrc;}
+    public function getLineups(){return $this->lineups;}
+
 
 }

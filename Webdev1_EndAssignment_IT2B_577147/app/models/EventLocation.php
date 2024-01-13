@@ -11,7 +11,12 @@ class EventLocation implements \JsonSerializable
 
     #[ReturnTypeWillChange]
     public function jsonSerialize(){
-        return get_object_vars($this);
+        return [
+            'location_Id' => $this->location_Id,
+            'location_name' => $this->location_name,
+            'location_city' => $this->location_city,
+            'location_map_url' => $this->location_map_url,
+        ];
     }
 
     //setters

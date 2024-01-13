@@ -15,7 +15,7 @@ class eventsController extends Controller
     }
     public function index($selectedYear = null, $selectedMonth = null){
         $event = $this->eventService->getEventById(2);
-        $lineups = $this->eventService->getAllLineupsByEvent(2);
+        //$lineups = $this->eventService->getAllLineupsByEvent(2);
 
         $yFilters = $this->eventService->getEventsYears();
         $mFilters = $this->eventService->getEventsMonthsByYear($selectedYear);
@@ -25,6 +25,13 @@ class eventsController extends Controller
 
 
         $events = $this->eventService->getAllEventsByDate($selectedYear, $selectedMonth);
+
+        foreach ($events as $event){
+            $eLineups = $this->eventService->getAllLineupsByEvent($event->getEventId());
+            if (isset($eLineups)){
+                $event->setLineups($eLineups);
+            }
+        }
 
         //echo json_encode($events);
 

@@ -113,8 +113,7 @@ class EventRepository extends Repository
         $query = "SELECT event_Id, event_datetime AS result_date FROM events WHERE 
         (YEAR(event_datetime) = :year AND MONTH(event_datetime) = :month)
         OR (YEAR(event_datetime) = :year)
-        ORDER BY ABS(MONTH(NOW()) - MONTH(event_datetime))
-        LIMIT 5";
+        ORDER BY ABS(MONTH(NOW()) - MONTH(event_datetime))";
 
         $params[':year'] = $year;
         $params[':month'] = $month;

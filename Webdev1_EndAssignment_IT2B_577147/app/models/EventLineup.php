@@ -13,8 +13,12 @@ class EventLineup implements \JsonSerializable
 
     #[ReturnTypeWillChange]
     public function jsonSerialize(){
-        return get_object_vars($this);
-    }
+        return [
+            'lineup_Id' => $this->lineup_Id,
+            'artists' => $this->lineup_artists,
+            'category' => $this->lineup_category,
+
+        ];    }
 
     //setters
     public function setLineupId($id){   $this->lineup_Id = $id;}
