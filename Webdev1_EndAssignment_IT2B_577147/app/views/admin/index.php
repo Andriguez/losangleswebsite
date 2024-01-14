@@ -116,7 +116,7 @@ session_start();} ?>
                         <!--USERS CHILD OPTIONS-->
                         <ul class="nav nav-pills flex-column mb-auto">
                             <li><a onclick="openWindow('viewusers')" class="nav-link text-reset">users</a></li>
-                            <li><a onclick="openWindow('managecollaboratordetails')" class="nav-link text-reset">collaborator details</a></li>
+                            <!--<li><a onclick="openWindow('managecollaboratordetails')" class="nav-link text-reset">collaborator details</a></li>-->
                         </ul>
                     </div>
                 </div>

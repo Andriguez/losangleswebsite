@@ -20,15 +20,15 @@ class Repository
         //$this->users_db = DB::getInstance($configs[1]);
         //$this->feed_db = DB::getInstance($configs[2]);
     }
-    function getContentDB(){
+    protected function getContentDB(){
         DB::switchDatabase($this->configs[0]);
         return $this->content_db = DB::getInstance($this->configs[0]);
     }
-    function getusersDB(){
+    protected function getusersDB(){
         DB::switchDatabase($this->configs[1]);
         return $this->users_db = DB::getInstance($this->configs[1]);
     }
-    function getfeedDB(){
+    protected function getfeedDB(){
         DB::switchDatabase($this->configs[2]);
         return $this->feed_db = DB::getInstance($this->configs[2]);
     }

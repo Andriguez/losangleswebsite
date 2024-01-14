@@ -1,12 +1,17 @@
 <?php
 namespace repositories;
 use models\FeedComment;
+use models\FeedPost;
+use models\FeedTopic;
+use services\ContentService;
+use services\UserService;
 
 require __DIR__.'/../models/FeedTopic.php';
 require __DIR__.'/../models/FeedPost.php';
 require __DIR__.'/../models/FeedComment.php';
-require __DIR__.'/../models/MediaInfo.php';
-require __DIR__.'/UserRepository.php';
+require_once __DIR__.'/../models/MediaInfo.php';
+require_once __DIR__.'/../services/UserService.php';
+require_once __DIR__.'/../services/ContentService.php';
 
 class FeedRepository extends Repository
 {
@@ -16,12 +21,28 @@ class FeedRepository extends Repository
        `post_comments_amount`, `post_posted_at` FROM `feed_posts` WHERE post_Id = :id";
 
         try{
-            $statement = $this->feed_db->prepare($query);
+            $statement = $this->getfeedDB()->prepare($query);
             $statement->bindParam(':id', $id);
             $statement->execute();
 
-            $statement->setFetchMode(\PDO::FETCH_CLASS, 'FeedPost');
-            return $statement->fetch();
+            $userService = new UserService();
+            $contentService = new ContentService();
+
+            while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+                $post = new FeedPost();
+                $post->setPostId($row['post_Id']);
+                $post->setUser($userService->getUserById($row['post_user']));
+                $post->setTopic($this->getTopicById($row['post_topic']));
+                $post->setTextContent($row['post_text_content']);
+                $post->setCommentAmount($row['post_comments_amount']);
+                $post->setPostedAt($row['post_posted_at']);
+
+                if(is_null($row['post_picture'])){ $post->setPicture(null);}
+                else {$post->setPicture($contentService->getMediaInfoById($row['post_picture']));}
+
+            }
+
+            return $post ?? null;
 
         } catch (\PDOException $e){echo $e;}
     }
@@ -53,7 +74,7 @@ class FeedRepository extends Repository
     }
     private function getPosts($query, $params = null) {
         try {
-            $statement = $this->feed_db->prepare($query);
+            $statement = $this->getfeedDB()->prepare($query);
 
             if (isset($params)) {
                 foreach ($params as $pname => $pvalue) {
@@ -67,7 +88,7 @@ class FeedRepository extends Repository
                 $post = $this->getPostById($row['post_Id']);
                 $allPosts[] = $post;
             }
-            return $allPosts;
+            return $allPosts ?? null;
         } catch (\PDOException $e){echo $e;}
     }
 
@@ -80,59 +101,47 @@ class FeedRepository extends Repository
 
     //comments
     private function getCommentById($id){
-        $query = "SELECT `comment_Id`, `comment_user`, `comment_parentpost`, `comment_parentcomment`, 
-       `comment_text_content` FROM `feed_comments` WHERE comment_Id = :id";
+        $query = "SELECT `comment_Id`, `comment_user`, `comment_parentpost`, `comment_text_content`
+                    FROM `feed_comments` WHERE comment_Id = :id";
 
         try{
-            $statement = $this->feed_db->prepare($query);
+            $statement = $this->getfeedDB()->prepare($query);
             $statement->bindParam(':id', $id);
             $statement->execute();
 
-            $statement->setFetchMode(\PDO::FETCH_CLASS, 'FeedComment');
-            return $statement->fetch();
+            $userService = new UserService();
+            while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+                $comment = new FeedComment();
+                $comment->setCommentId($row['comment_Id']);
+                $comment->setUser($userService->getUserById($row['comment_user']));
+                $comment->setParentPost($this->getPostById($row['comment_parentpost']));
+                $comment->setContentText($row['comment_text_content']);
+
+            }
+
+            return $comment ?? null;
 
         } catch (\PDOException $e){echo $e;}
     }
-    public function getCommentsByParent($parent){
-        $query = "SELECT `comment_Id` FROM `feed_comments` 
-                    WHERE comment_parentpost = :parentId && comment_parentcomment IS NULL";
 
-        if($parent::class === FeedComment::class) {
-            $query = "SELECT `comment_Id` FROM `feed_comments` 
-                    WHERE comment_parentcomment = :parentId";}
+    public function getCommentsByParentPost($postId){
+        $query = "SELECT `comment_Id` FROM `feed_comments`
+                  WHERE comment_parentpost = :postId";
 
         try{
-            $statement = $this->feed_db->prepare($query);
-            $statement->bindParam(':parentId', $parent->getId());
+           $statement = $this->getfeedDB()->prepare($query);
+            $statement->bindParam(':postId', $postId);
             $statement->execute();
 
             while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
 
-                $comment = $this->getCommentById($row['comment_Id']);
+               $comment = $this->getCommentById($row['comment_Id']);
                 $comments[] = $comment;
             }
 
-            return $comments;
+            return $comments ?? null;
         }catch (\PDOException $e){echo $e;}
     }
-    //public function getCommentsByParentPost($postId){
-       // $query = "SELECT `comment_Id` FROM `feed_comments`
-         //           WHERE comment_parentpost = :postId && comment_parentcomment IS NULL";
-
-        //try{
-          //  $statement = $this->feed_db->prepare($query);
-            //$statement->bindParam(':postId', $postId);
-            //$statement->execute();
-
-            //while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
-
-              //  $comment = $this->getCommentById($row['comment_Id']);
-                //$comments[] = $comment;
-            //}
-
-            //return $comments;
-        //}catch (\PDOException $e){echo $e;}
-    //}
     //public function getCommentsByParentComment($commentId){
      //   $query = "SELECT `comment_Id` FROM `feed_comments`
        //             WHERE comment_parentcomment = :commentId";
@@ -153,16 +162,46 @@ class FeedRepository extends Repository
     //}
 
     //topics
+    public function createFeedTopic($name){
+        $query = "INSERT INTO `feed_topics`(`topic_name`) VALUES (?)";
+
+        try{
+            $statement = $this->getfeedDB()->prepare($query);
+            $statement->execute([$this->sanitizeText($name)]);
+
+        } catch (\PDOException $e){
+            echo $e;
+        }
+    }
+    public function deleteFeedTopic($topicId){
+        $query = "DELETE FROM `feed_topics` WHERE topic_Id = :topicId";
+
+        try{
+            $statement = $this->getfeedDB()->prepare($query);
+
+            $statement->bindParam(':topicId', $topicId, \PDO::PARAM_INT);
+            $statement->execute();
+
+        }catch(\PDOException $e){
+            echo $e->getMessage();
+        }
+    }
     public function getTopicById($id){
         $query = "SELECT `topic_Id`, `topic_name` FROM `feed_topics` WHERE topic_Id = :id";
 
         try{
-            $statement = $this->feed_db->prepare($query);
+            $statement = $this->getfeedDB()->prepare($query);
             $statement->bindParam(':id', $id);
             $statement->execute();
 
-            $statement->setFetchMode(\PDO::FETCH_CLASS, 'FeedTopic');
-            return $statement->fetch();
+            while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+                $topic = new FeedTopic();
+                $topic->setTopicId($row['topic_Id']);
+                $topic->setTopicName($row['topic_name']);
+
+            }
+
+            return $topic ?? null;
 
         } catch (\PDOException $e){echo $e;}
     }
@@ -171,7 +210,7 @@ class FeedRepository extends Repository
         $query = "SELECT topic_Id FROM feed_topics";
 
         try{
-            $statement = $this->feed_db->prepare($query);
+            $statement = $this->getfeedDB()->prepare($query);
             $statement->execute();
 
             while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
@@ -180,7 +219,12 @@ class FeedRepository extends Repository
                 $allTopics[] = $topic;
             }
 
-            return $allTopics;
+            return $allTopics ?? null;
         }catch (\PDOException $e){echo $e;}
+    }
+
+    private function sanitizeText($input):string{
+        return htmlspecialchars($input);
+
     }
 }

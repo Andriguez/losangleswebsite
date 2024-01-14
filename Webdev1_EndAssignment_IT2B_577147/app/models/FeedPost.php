@@ -6,7 +6,7 @@ class FeedPost
 {
     private int $post_Id, $post_comment_amount;
     private User $post_user;
-    private MediaInfo $post_picture;
+    private ?MediaInfo $post_picture = null;
     private string $post_text_content;
     private FeedTopic $post_topic;
     private \DateTime $post_posted_at;
@@ -18,6 +18,8 @@ class FeedPost
     public function setPicture($mediaInfo){$this->post_picture = $mediaInfo;}
     public function setTextContent($text){$this->post_text_content = $text;}
     public function setTopic($topic){$this->post_topic = $topic;}
+    public function setPostedAt($datetime){ $this->post_posted_at = $datetime;}
+
 
     //getters
     public function getId():int{return $this->post_Id;}

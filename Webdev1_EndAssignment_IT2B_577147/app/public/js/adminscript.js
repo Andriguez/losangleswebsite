@@ -12,15 +12,15 @@ function openWindow(functionName) {
     xhr.send();
 }
 
-function storeData(data, functionName, redirect){
+function storeData(data, functionName, redirect) {
 
     let isFormData = data instanceof FormData;
-    let fetchOptions = { method: 'POST', headers:{ "Content-Type": "application/json"}}
+    let fetchOptions = {method: 'POST', headers: {"Content-Type": "application/json"}}
 
-    if(isFormData){
+    if (isFormData) {
         fetchOptions.headers = {};
         fetchOptions.body = data;
-    } else{
+    } else {
         fetchOptions.body = JSON.stringify(Object.fromEntries(Object.entries(data)));
     }
 
@@ -28,11 +28,12 @@ function storeData(data, functionName, redirect){
         .then(response => response.json())
         .then(data => {
             openWindow(redirect);
-            alert(data);})
+            alert(data);
+        })
         .catch(error => console.error(error));
 }
 
-function selectedIdAction(selectedId, functionName, redirect){
+function selectedIdAction(selectedId, functionName, redirect) {
     fetch(`/admin/${functionName}/${selectedId}`, {
         method: 'GET',
         headers: {
@@ -48,18 +49,18 @@ function selectedIdAction(selectedId, functionName, redirect){
 }
 
 //function editSelectedUser(){
-  //  let userRadios = document.querySelectorAll('.userRadio:checked');
+//  let userRadios = document.querySelectorAll('.userRadio:checked');
 
-    //if (userRadios.length > 0) {
-      //  let userId = userRadios[0].id;
-        //let filepath = `admin/manageuser/${userId}`;
-        //openWindow(filepath);
-    //} else {
-      //  console.log("No user selected.");
-    //}
+//if (userRadios.length > 0) {
+//  let userId = userRadios[0].id;
+//let filepath = `admin/manageuser/${userId}`;
+//openWindow(filepath);
+//} else {
+//  console.log("No user selected.");
+//}
 //}
 
-function selectedRadioBtnAction(functionName, redirect){
+function selectedRadioBtnAction(functionName, redirect) {
     let radios = document.querySelectorAll('.radioBtn:checked');
 
     if (radios.length > 0) {
@@ -71,7 +72,7 @@ function selectedRadioBtnAction(functionName, redirect){
     }
 }
 
-function selectedRadioBtnOpenWindow(functionName){
+function selectedRadioBtnOpenWindow(functionName) {
     let radios = document.querySelectorAll('.radioBtn:checked');
 
     if (radios.length > 0) {
@@ -84,13 +85,14 @@ function selectedRadioBtnOpenWindow(functionName){
     }
 }
 
-function displaySelectIdAction(selectElement, functionName){
+function displaySelectIdAction(selectElement, functionName) {
     let selectedId = selectElement.value;
     let filepath = `${functionName}/${selectedId}`;
 
     openWindow(filepath)
 }
-function togglePassword(){
+
+function togglePassword() {
     const passwordInput = document.getElementById('inputPassword');
     const button = document.getElementById('togglePasswordbtn');
 
@@ -102,6 +104,7 @@ function togglePassword(){
         button.textContent = 'Show';
     }
 }
+
 function previewImage(fileInput, imgId) {
     let previewContainer = fileInput.parentElement.parentElement;
     let thumbnailPreview = document.getElementById(imgId);
@@ -133,7 +136,7 @@ function previewImage(fileInput, imgId) {
 
 //DISCIPLINE
 
-function storeDiscipline(){
+function storeDiscipline() {
     let disciplineName = document.getElementById('inputName').value;
     const data = {"disciplineName": disciplineName}
     const functionName = 'creatediscipline';
@@ -143,7 +146,7 @@ function storeDiscipline(){
 }
 
 //ARTIST DETAILS
-function storeArtistDetails(){
+function storeArtistDetails() {
     let artistId = document.getElementById('inputArtist').value;
     let stageName = document.getElementById('inputstagename').value;
     let discipline = document.getElementById('inputDiscipline').value;
@@ -176,14 +179,20 @@ function storeArtistDetails(){
 
 //ABOUT DETAILS
 
-function storeAboutDetails(){
+function storeAboutDetails() {
     let title = document.getElementById('inputtitle').value;
     let titleLink = document.getElementById('inputtitlelink').value;
     let description = document.getElementById('inputdescription').value;
     let footer = document.getElementById('inputfooter').value;
     let footerLink = document.getElementById('inputfooterlink').value;
 
-    const data = {"title-text": title, "title-link": titleLink, "about-description": description, "footer-text": footer, "footer-link": footerLink}
+    const data = {
+        "title-text": title,
+        "title-link": titleLink,
+        "about-description": description,
+        "footer-text": footer,
+        "footer-link": footerLink
+    }
     const functionName = 'updateaboutcontent';
     const redirect = 'managedescription';
 
@@ -192,7 +201,7 @@ function storeAboutDetails(){
 
 //ADMIN DETAILS
 
-function storeAdminDetails(){
+function storeAdminDetails() {
     let adminId = document.getElementById('inputAdmin').value;
     let nameLink = document.getElementById('inputlink').value;
     let titles = document.getElementById('inputtitles').value;
@@ -214,7 +223,7 @@ function storeAdminDetails(){
 }
 
 //USER INFO
-function storeUserInfo(userId){
+function storeUserInfo(userId) {
     let email = document.getElementById('inputEmail').value;
     let password = document.getElementById('inputPassword').value;
     let pronouns = document.getElementById('inputpronouns').value;
@@ -234,14 +243,14 @@ function storeUserInfo(userId){
     formData.append('password', password);
     formData.append('picture', file);
 
-    const functionName = 'storeUser/'+userId;
+    const functionName = 'storeUser/' + userId;
     const redirect = `viewusers`;
 
     storeData(formData, functionName, redirect);
 }
 
 //EVENT TYPE
-function storeEventType(){
+function storeEventType() {
     let typeName = document.getElementById('inputEventTypeName').value;
     const data = {"eventTypeName": typeName}
     const functionName = 'createeventtype';
@@ -252,7 +261,7 @@ function storeEventType(){
 
 //EVENT LOCATION
 
-function storeEventLocation(){
+function storeEventLocation() {
     let name = document.getElementById('inputName').value;
     let address = document.getElementById('inputAddress').value;
     let city = document.getElementById('inputCity').value;
@@ -268,7 +277,7 @@ function storeEventLocation(){
 
 //EVENTS
 
-function storeEvent(eventId){
+function storeEvent(eventId) {
     let name = document.getElementById('inputName').value;
     let type = document.getElementById('inputType').value;
     let datetime = document.getElementById('inputDatetime').value;
@@ -290,7 +299,7 @@ function storeEvent(eventId){
     formData.append('btnLink', btnLink);
     formData.append('picture', file);
 
-    const functionName = 'storeEvent/'+eventId;
+    const functionName = 'storeEvent/' + eventId;
     const redirect = `viewEvents`;
 
     storeData(formData, functionName, redirect);
@@ -298,7 +307,7 @@ function storeEvent(eventId){
 
 //EVENT LINE UP
 
-function storeEventLineUp(){
+function storeEventLineUp() {
     let event = document.getElementById('inputEvent').value;
     let category = document.getElementById('inputCategory').value;
     let artists = document.getElementById('inputArtist').value;
@@ -306,6 +315,17 @@ function storeEventLineUp(){
     const data = {"event": event, "category": category, "artists": artists}
     const functionName = 'storelineup';
     const redirect = 'viewlineups';
+
+    storeData(data, functionName, redirect);
+}
+
+//FEED TOPIC
+
+    function storeFeedTopic(){
+    let topicName = document.getElementById('inputTopicName').value;
+    const data = {"feedTopicName": topicName}
+    const functionName = 'createFeedTopic';
+    const redirect = 'viewtopics';
 
     storeData(data, functionName, redirect);
 }

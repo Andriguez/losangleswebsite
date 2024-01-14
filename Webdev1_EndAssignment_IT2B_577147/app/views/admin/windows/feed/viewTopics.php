@@ -9,27 +9,18 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td><input type="checkbox" name="row1"></td>
-                <th scope="row">General</th>
+            <tr><?php if(isset($topics)){ foreach ($topics as $topic){?>
+                <td><input class="form-check-input radioBtn" type="radio" name="radioButton" id="<?php echo $topic->getTopicId()?>"></td>
+                <th scope="row"><?php echo $topic->getTopicName()?></th>
             </tr>
-            <tr>
-                <td><input type="checkbox" name="row1"></td>
-                <th scope="row">HRT</th>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="row1"></td>
-                <th scope="row">Gigs</th>
-            </tr>
+            <?php }}?>
             </tbody>
         </table>
     </div>
 
 
     <div id="button-container">
-        <button type="button" class="btn btn-danger">Delete</button>
-        <button class="btn btn-primary" type="button">Edit</button>
-        <button onclick="openWindow('managetopic')" class="btn btn-success" type="button">Create new</button>
-
+        <button type="button" class="btn btn-danger" onclick="selectedRadioBtnAction('deleteFeedTopic', 'viewtopics')">Delete</button>
+        <button class="btn btn-success" onclick="openWindow('manageTopic')" type="button">Create New</button>
     </div>
 </div>

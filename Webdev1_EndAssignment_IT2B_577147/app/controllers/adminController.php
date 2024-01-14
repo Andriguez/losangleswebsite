@@ -4,6 +4,7 @@ namespace controllers;
 use services\ArtistService;
 use services\ContentService;
 use services\EventService;
+use services\FeedService;
 use services\UserService;
 
 if (session_status() == PHP_SESSION_NONE) {
@@ -15,6 +16,7 @@ require __DIR__ . '/../services/UserService.php';
 require __DIR__ . '/../services/ContentService.php';
 require __DIR__ . '/../services/ArtistService.php';
 require __DIR__ . '/../services/EventService.php';
+require __DIR__ . '/../services/FeedService.php';
 require_once __DIR__.'/../models/User.php';
 require_once __DIR__.'/../models/Artist.php';
 require_once __DIR__.'/../models/ArtistContent.php';
@@ -27,6 +29,7 @@ class adminController extends Controller
     protected ContentService $contentService;
     protected ArtistService $artistService;
     protected EventService $eventService;
+    protected FeedService $feedService;
     private UserAuth $userAuth;
 
     public function __construct()
@@ -36,6 +39,7 @@ class adminController extends Controller
         $this->userAuth = new UserAuth();
         $this->artistService = new ArtistService();
         $this->eventService = new EventService();
+        $this->feedService = new FeedService();
     }
 
     public function index(){
@@ -415,12 +419,44 @@ class adminController extends Controller
             require __DIR__ . '/../views/admin/windows/applications/manageApplication.php';
     }
     public function viewTopics(){
-        if($this->userAuth->allowAdminAccess())
+        if($this->userAuth->allowAdminAccess()){
+            $topics = $this->feedService->getAllTopics();
             require __DIR__ . '/../views/admin/windows/feed/viewTopics.php';
+        }
     }
-    public function manageTopic(){
+    public function manageTopic($topicId = null){
         if($this->userAuth->allowAdminAccess())
             require __DIR__ . '/../views/admin/windows/feed/manageTopic.php';
+    }
+    public function createFeedTopic(){
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
+            $data = json_decode(file_get_contents("php://input"), true);
+
+            if(isset($data['feedTopicName'])){
+                $topicName = $data['feedTopicName'];
+                $this->feedService->createFeedTopic($topicName);
+
+                $result = "Feed Topic: $topicName was successfully created";
+                header('Content-Type: application/json;');
+                echo json_encode($result);
+
+            }  else {   echo json_encode("No Feed Topic input has been found!");    }
+        }
+    }
+    public function deleteFeedTopic($topicId){
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'GET'){
+
+            if(isset($topicId)){
+                $this->feedService->deleteFeedTopic($topicId);
+
+                $result = 'Feed Topic has been successfully deleted';
+
+            } else { $result = 'no Feed Topic has been selected'; }
+
+            header('Content-Type: application/json;');
+            echo json_encode($result);
+
+        }
     }
     public function viewUsers($selectedUserTypeId = null){
         if($this->userAuth->allowAdminAccess()){
