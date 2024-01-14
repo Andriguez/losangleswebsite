@@ -90,7 +90,7 @@ if (session_status() == PHP_SESSION_NONE) {
         cursor: pointer;
     }
     a.nav-link{
-        color: black !important;
+        color: black;
         font-family: angles;
         font-size: 16px !important;
         /*font-size: 18px !important;*/

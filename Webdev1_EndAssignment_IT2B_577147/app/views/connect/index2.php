@@ -9,18 +9,11 @@
     <div id="topics-container" class="container my-4">
         <h5 id="topics-label">Topics</h5>
         <ul class="nav justify-content-center" id="topics-nav">
+            <?php if (isset($topics)){ foreach ($topics as $topic){?>
             <li class="nav-item">
-                <p><a class="nav-link active" aria-current="page" href="#">General</a></p>
+                <p><a class="active nav-link <?php echo ($selectedTopic->getTopicId() === $topic->getTopicId()) ? ' selected-topic' : ''?>" aria-current="page" href="/feed/<?php echo strtolower($topic->getTopicName())?>"><?php echo $topic->getTopicName()?></a></p>
             </li>
-            <li class="nav-item">
-                <p><a class="nav-link active" aria-current="page" href="#">HRT</a></p>
-            </li>
-            <li class="nav-item">
-                <p><a class="nav-link active" aria-current="page" href="#">Gigs</a></p>
-            </li>
-            <li class="nav-item">
-                <p><a class="nav-link active" aria-current="page" href="#">Other</a></p>
-            </li>
+            <?php }} ?>
         </ul>
     </div>
 
@@ -408,6 +401,19 @@
 
     #topics-nav{
         width: auto;
+    }
+
+    .selected-topic{
+        font-family: angles;
+        font-size: 16px !important;
+        /*font-size: 18px !important;*/
+        text-transform: uppercase;
+        color: white !important;
+        text-shadow:
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000000 !important;
     }
 
     #btns-container{

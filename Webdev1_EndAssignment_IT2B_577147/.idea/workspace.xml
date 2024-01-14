@@ -6,17 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/adminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/FeedComment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/FeedComment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/FeedPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/FeedPost.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/js/adminscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/js/adminscript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/connectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/connectController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/repositories/FeedRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/FeedRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/Repository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/Repository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/services/FeedService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/FeedService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/manageType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/content/eventspage/manageType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/feed/manageTopic.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/feed/manageTopic.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/feed/viewTopics.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/feed/viewTopics.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/connect/index2.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/connect/index2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/navbar.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +126,7 @@
       <workItem from="1704977912512" duration="28403000" />
       <workItem from="1705070284610" duration="10438000" />
       <workItem from="1705103518421" duration="16310000" />
-      <workItem from="1705227191165" duration="3282000" />
+      <workItem from="1705227191165" duration="6544000" />
     </task>
     <servers />
   </component>

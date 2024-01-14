@@ -59,7 +59,7 @@ class FeedRepository extends Repository
         //TODO : research into how to paginate posts
         //or how to load them in chunks
         $query = "SELECT post_Id FROM feed_posts WHERE post_user = :user";
-        $params = [':user', $userId];
+        $params['user'] = $userId;
 
         return $this->getPosts($query, $params);
     }
@@ -68,7 +68,7 @@ class FeedRepository extends Repository
     //TODO : research into how to paginate posts
     //or how to load them in chunks
         $query = "SELECT post_Id FROM feed_posts WHERE post_topic = :topic";
-        $params = [':topic', $topicId];
+        $params['topic'] = $topicId;
 
         return $this->getPosts($query, $params);
     }
@@ -202,6 +202,19 @@ class FeedRepository extends Repository
             }
 
             return $topic ?? null;
+
+        } catch (\PDOException $e){echo $e;}
+    }
+
+    public function getTopicByName($name){
+        $query = "SELECT `topic_Id` FROM `feed_topics` WHERE LOWER(topic_name) = LOWER(:name)";
+
+        try{
+            $statement = $this->getfeedDB()->prepare($query);
+            $statement->bindParam(':name', $name);
+            $statement->execute();
+
+            return $this->getTopicById($statement->fetchColumn()) ?? null;
 
         } catch (\PDOException $e){echo $e;}
     }

@@ -17,10 +17,10 @@ class FeedService
     public function getPostById($postId):FeedPost{
         return $this->feedRepo->getPostById($postId);
     }
-    public function getAllPosts():array{
+    public function getAllPosts(){
         return $this->feedRepo->getAllPosts();
     }
-    public function getALlPostsByUser($userId):array{
+    public function getALlPostsByUser($userId){
         return $this->feedRepo->getPostsByUser($userId);
     }
     public function getAllPostsByTopic($topicId){
@@ -37,6 +37,10 @@ class FeedService
     }
     public function deleteFeedTopic($topicId){
         $this->feedRepo->deleteFeedTopic($topicId);
+    }
+    public function getTopicByName($name)
+    {
+        return $this->feedRepo->getTopicByName($name);
     }
     public function getTopicById($topicId){
         return $this->feedRepo->getTopicById($topicId);
