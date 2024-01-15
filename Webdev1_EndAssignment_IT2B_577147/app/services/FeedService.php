@@ -53,4 +53,7 @@ class FeedService
     public function getAllTopics(){
         return $this->feedRepo->getAllTopics();
     }
+    public  function createComment($userId, $parentPost, $content){
+        $this->feedRepo->createComment($userId, $parentPost, $content);
+    }
 }

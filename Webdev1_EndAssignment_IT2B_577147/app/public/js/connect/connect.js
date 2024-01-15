@@ -33,3 +33,18 @@ function displayPopUp(filepath) {
     };
     xhr.send();
 }
+
+function storeComment(postId, topicName, inputId){
+    const inputComment = document.getElementById(inputId).value;
+    const data = {"inputComment": inputComment}
+console.log(inputId)
+    fetch(`/feed/${topicName}/comment/${postId}`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+        }, body: JSON.stringify(data)})
+        .then(response => displayComments(topicName, postId))
+        .catch(error => console.error(error));
+
+
+}

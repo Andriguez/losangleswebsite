@@ -19,35 +19,6 @@
         </ul>
     </div>
 
-    <div class="row">
-        <div class="col">
-            <div class="post-container">
-                <div class="post-card shadow-sm">
-                    <div class="card-body">
-                        <div class="profile-picture">
-                            <img class="picture" src="/media/artist1.png" role="img" width="90px" height="90px">
-                            <!--<img class="frame" src="/media/picture-frame.svg" role="img" width="90px"> -->
-                        </div>
-                        <h5 class="poster-name">Angle Name</h5>
-                        <h5 class="post-title">Here is the title</h5>
-                        <p class="post-content mx-3">Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id.</p>
-                        <div class="post-footer">
-                            <a class="card-link" onclick="displayComments('general', 1)">3 comments</a>
-                            <p>‣</p>
-                            <label>posted on <cite title="time stamp">09/12/23 at 17:45</cite></label>
-                        </div>
-                    </div>
-                </div>
-                <form action="">
-                    <div class="embed-submit-field">
-                        <input type="text" placeholder="Say something..."/>
-                        <button type="submit">comment</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
     <?php if(isset($posts)){foreach ($posts as $post){?>
     <div class="row">
         <div class="col">
@@ -64,16 +35,16 @@
                         <div class="post-footer">
                             <a class="card-link" onclick="displayComments('<?php echo $post->getTopic()->getTopicName()?>', <?php echo (int)$post->getId()?>)"><?php echo $post->getCommentAmount().' '?>comments</a>
                             <p>‣</p>
-                            <label>posted on<cite title="time stamp"><?php echo ' '.$post->getPostedAt()->format('d/m/y').' at '.$post->getPostedAt()->format('H:i')?></cite></label>
+                            <label>posted on<cite title="time stamp"><?php echo ' '.$post->getPostedAt()->format('D d/m/y').' at '.$post->getPostedAt()->format('H:i')?></cite></label>
                         </div>
                     </div>
                 </div>
-                <form action="">
+                <div class="comment-form">
                     <div class="embed-submit-field">
-                        <input type="text" placeholder="Say something..."/>
-                        <button type="submit">comment</button>
+                        <input id="<?php echo $post->getId()?>" type="text" placeholder="Say something..."/>
+                        <button type="button" onclick="storeComment(<?php echo $post->getId()?>, '<?php echo $post->getTopic()->getTopicName()?>', <?php echo $post->getId()?>)">comment</button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>

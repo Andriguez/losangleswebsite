@@ -73,7 +73,7 @@ class connectController extends Controller
                 $this->deletePost();
                 break;
             case 'comment':
-                $this->createComment();
+                $this->createComment($postId);
                 break;
             case 'deletecomment':
                 $this->deleteComment();
@@ -110,16 +110,22 @@ class connectController extends Controller
                 $this->feedService->createPost($this->loggedUser->getUserId(), $inputTitle, $inputContent, $inputTopic);
                 $this->selectedTopic = $this->feedService->getTopicById($inputTopic);
         }
-        //header("Location: /feed/{$this->selectedTopic->getTopicName()}");
-        //$this->index();
+        header("Location: /feed/{$this->selectedTopic->getTopicName()}");
     }
 
     private function deletePost(){
 
     }
 
-    private function createComment(){
+    private function createComment($postId){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $data = json_decode(file_get_contents("php://input"), true);
 
+            if(!empty($data['inputComment'])){
+                $commentInput = $data['inputComment'];
+                $this->feedService->createComment($this->loggedUser->getUserId(),$postId, $commentInput);
+            }
+        }
     }
 
     private function deleteComment(){

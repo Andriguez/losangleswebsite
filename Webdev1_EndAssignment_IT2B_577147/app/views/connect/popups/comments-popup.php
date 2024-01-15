@@ -11,48 +11,27 @@
             </div>
             <p id="parent-post-content" class="mx-3"><?php echo isset($post) ? $post->getTextContent() : ''?></p>
             <div class="post-footer">
-                <label>posted on<cite title="time stamp"><?php echo isset($post) ? ' '.$post->getPostedAt()->format('d/m/y').' at '.$post->getPostedAt()->format('H:i') : ''?></cite></label>
+                <label>posted on<cite title="time stamp"><?php echo isset($post) ? ' '.$post->getPostedAt()->format('D d/m/y').' at '.$post->getPostedAt()->format('H:i') : ''?></cite></label>
             </div>
         </div>
     </div>
-    <div class="comment">
+    <?php if (isset($comments)){ foreach ($comments as $comment){?>
+    <div id="<?php echo $comment->getId()?>" class="comment">
         <div class="name-section">
-            <span class="poster-name">poster name</span>
+            <span class="poster-name"><?php echo $comment->getUser()->getFullName()?></span>
         </div>
         <div class="content-section">
-            <span>this is a comment in the comment section</span>
+            <span><?php echo $comment->getContentText()?></span>
         </div>
         <div class="btns-section">
-            <a href="#">delete</a>
+            <label>commented on<cite title="time stamp"><?php echo ' '.$comment->getPostedAt()->format('D d/m/y').' at '.$comment->getPostedAt()->format('H:i')?></cite></label>
         </div>
     </div>
-    <div class="comment">
-        <div class="name-section">
-            <span class="poster-name">poster name</span>
-        </div>
-        <div class="content-section">
-            <span>this is a comment in the comment section</span>
-        </div>
-        <div class="btns-section">
-            <a href="#">reply</a>
-        </div>
-    </div>
-    <div class="comment">
-        <div class="name-section">
-            <span class="poster-name">poster name</span>
-        </div>
-        <div class="content-section">
-            <span>this is a comment in the comment section</span>
-        </div>
-        <div class="btns-section">
-            <a href="#">reply</a>
-        </div>
-    </div>
-
+    <?php }} ?>
 
     <div class="comment-submit">
-        <input type="text" placeholder="Say something..."/>
-        <button type="submit">comment</button>
+        <input Id="<?php echo $post->getId()?>-commentsection" type="text" placeholder="Say something..."/>
+        <button type="button" onclick="storeComment(<?php echo $post->getId()?>, '<?php echo $post->getTopic()->getTopicName()?>', '<?php echo $post->getId()?>-commentsection')">comment</button>
     </div>
 </div>
 </body>
@@ -102,6 +81,9 @@
                 margin: 5px;
                 font-weight: bold;
             }
+            label{
+                font-size: 14px;
+            }
         }
     }
 
@@ -142,6 +124,7 @@
                 height: 30px;
                 font-family: "Agency FB";
                 font-size: 18px;
+                border: 0 solid white;
 
 
             }

@@ -48,7 +48,7 @@ class FeedRepository extends Repository
     }
     public function getPostById($id){
         $query = "SELECT `post_Id`, `post_user`, `post_title`, `post_picture`, `post_text_content`, `post_topic`,
-       `post_comments_amount`, `post_posted_at` FROM `feed_posts` WHERE post_Id = :id";
+       `post_posted_at` FROM `feed_posts` WHERE post_Id = :id";
 
         try{
             $statement = $this->getfeedDB()->prepare($query);
@@ -64,14 +64,12 @@ class FeedRepository extends Repository
                 $post->setUser($userService->getUserById($row['post_user']));
                 $post->setTopic($this->getTopicById($row['post_topic']));
                 $post->setTextContent($row['post_text_content']);
-                $post->setCommentAmount($row['post_comments_amount']);
+                $post->setCommentAmount($this->getCommentAmountForPost($row['post_Id']));
                 $post->setPostTitle($row['post_title']);
 
                 $dateTime_string = $row['post_posted_at'];
                 $dateTime = \DateTime::createFromFormat('Y-m-d H:i:s', $dateTime_string);
-
                 $post->setPostedAt($dateTime);
-
 
                 if(is_null($row['post_picture'])){ $post->setPicture(null);}
                 else {$post->setPicture($contentService->getMediaInfoById($row['post_picture']));}
@@ -128,6 +126,7 @@ class FeedRepository extends Repository
         } catch (\PDOException $e){echo $e;}
     }
 
+
     //private function getPosts2($row){
       //  while($row) {
         //    $post = $this->getPostById($row['post_Id']);
@@ -136,8 +135,25 @@ class FeedRepository extends Repository
         //return $allPosts; }
 
     //comments
+    public  function createComment($userId, $parentPost, $content){
+        $query = "INSERT INTO `feed_comments`(`comment_user`, `comment_parentpost`, `comment_text_content`, `comment_posted_at`)
+                    VALUES (?,?,?,?)";
+
+        try {
+            $statement = $this->getfeedDB()->prepare($query);
+            $statement->execute(array(
+                $userId,
+                $parentPost,
+                $this->sanitizeText($content),
+                date("Y-m-d H:i:s")));
+
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+
+    }
     private function getCommentById($id){
-        $query = "SELECT `comment_Id`, `comment_user`, `comment_parentpost`, `comment_text_content`
+        $query = "SELECT `comment_Id`, `comment_user`, `comment_parentpost`, `comment_text_content`, `comment_posted_at`
                     FROM `feed_comments` WHERE comment_Id = :id";
 
         try{
@@ -153,6 +169,10 @@ class FeedRepository extends Repository
                 $comment->setParentPost($this->getPostById($row['comment_parentpost']));
                 $comment->setContentText($row['comment_text_content']);
 
+                $dateTime_string = $row['comment_posted_at'];
+                $dateTime = \DateTime::createFromFormat('Y-m-d H:i:s', $dateTime_string);
+                $comment->setPostedAt($dateTime);
+
             }
 
             return $comment ?? null;
@@ -161,8 +181,8 @@ class FeedRepository extends Repository
     }
 
     public function getCommentsByParentPost($postId){
-        $query = "SELECT `comment_Id` FROM `feed_comments`
-                  WHERE comment_parentpost = :postId";
+        $query = "SELECT `comment_Id`  FROM `feed_comments`
+                  WHERE comment_parentpost = :postId ORDER BY `comment_posted_at` DESC";
 
         try{
            $statement = $this->getfeedDB()->prepare($query);
@@ -176,6 +196,19 @@ class FeedRepository extends Repository
             }
 
             return $comments ?? null;
+        }catch (\PDOException $e){echo $e;}
+    }
+
+    public function getCommentAmountForPost($postId){
+        $query = "SELECT COUNT(*) FROM feed_comments WHERE comment_parentpost = :postId";
+
+        try{
+            $statement = $this->getfeedDB()->prepare($query);
+            $statement->bindParam(':postId', $postId);
+            $statement->execute();
+
+            return $statement->fetchColumn();
+
         }catch (\PDOException $e){echo $e;}
     }
     //public function getCommentsByParentComment($commentId){
