@@ -71,7 +71,7 @@
     </div>
     <div id="btns-container">
         <a type="button" id="text" onclick="displayPostText('general')"><img src="/media/text-icon.svg" alt=""></a>
-        <a type="button" id="more" onclick="openPopUp()"><img src="/media/more-icon.svg" alt=""></a>
+        <!--<a type="button" id="more" onclick="openPopUp()"><img src="/media/more-icon.svg" alt=""></a>-->
     </div>
 </div>
 
