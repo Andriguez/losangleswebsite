@@ -140,7 +140,6 @@ class Router
                 $parameters[0] = str_replace('-', ' ', $parameters[0]);
             }
 
-            var_dump($parameters);
         } else {
             $parameters = []; // No pattern, set parameters to an empty array
         }

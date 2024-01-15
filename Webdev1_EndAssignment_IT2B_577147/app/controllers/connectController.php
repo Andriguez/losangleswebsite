@@ -21,7 +21,6 @@ class connectController extends Controller
     private UserAuth $userAuth;
     private User $loggedUser;
     private FeedTopic $selectedTopic;
-    private ?FeedPost $selectedPost;
     public function __construct()
     {
         $this->feedService = new FeedService();
@@ -30,7 +29,6 @@ class connectController extends Controller
         $this->userAuth = new UserAuth();
         $this->loggedUser = $this->userAuth->loggedUser();
         $this->selectedTopic = $this->feedService->getTopicByName('general');
-        $this->selectedPost = null;
     }
     public function index($selectedTopicName = null, $action = null, $selectedPostId = null){
         if (isset($this->loggedUser)) {
@@ -48,25 +46,22 @@ class connectController extends Controller
 
         $posts = $this->feedService->getAllPostsByTopic($this->selectedTopic->getTopicId());
 
-        if (isset($action)) {
-            $this->proccessAction($action);
-        }
 
-            if(isset($selectedPostId)){
-                $this->selectedPost = $this->feedService->getPostById($selectedPostId);
+            if (isset($selectedPostId)) {
+
+                $this->proccessAction($action, $selectedPostId);
+        } else{
+                $this->proccessAction($action);
             }
-
-        require __DIR__ . '/../views/connect/index2.php';}
+            require __DIR__ . '/../views/connect/index2.php';
+        }
     }
 
-    private function proccessAction($action){
+    private function proccessAction($action, $postId = null){
         switch ($action){
             case 'viewpost':
-                if(!isset($this->selectedPost)){
+                    if(isset($postId)){ $this->displayComments($postId); }
                     exit;
-                } else {
-                    $postId = $this->selectedPost->getId();
-                    $this->displayComments($postId);}
                 break;
             case 'postbox':
                 $this->displayPostPopUp();
@@ -83,19 +78,16 @@ class connectController extends Controller
             case 'deletecomment':
                 $this->deleteComment();
                 break;
-            default:
-                echo 'idk what sshoould be the default';
-                break;
         }
     }
 
-    private function displayComments($post){
-        if(isset($post)){
-                //$comments = $this->feedService->getAllCommentsByParent($post->getId());
-            echo $post;
-            require __DIR__ . '/../views/connect/popups/comments-popup.php';
-            exit;
+    private function displayComments($postId){
+        if(isset($postId)){
+            $post = $this->feedService->getPostById($postId);
+            $comments = $this->feedService->getAllCommentsByParent($postId);
         }
+        require __DIR__ . '/../views/connect/popups/comments-popup.php';
+
     }
 
     private function displayPostPopUp(){
@@ -119,7 +111,7 @@ class connectController extends Controller
                 $this->selectedTopic = $this->feedService->getTopicById($inputTopic);
         }
         //header("Location: /feed/{$this->selectedTopic->getTopicName()}");
-        $this->index();
+        //$this->index();
     }
 
     private function deletePost(){

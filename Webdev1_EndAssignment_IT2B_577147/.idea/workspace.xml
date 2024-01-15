@@ -8,8 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Router.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/connectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/connectController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/FeedRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/FeedRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/FeedService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/FeedService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/connect/index2.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/connect/index2.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/connect/popups/comments-popup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/connect/popups/comments-popup.php" afterDir="false" />
     </list>
@@ -129,6 +127,7 @@
       <workItem from="1705103518421" duration="16310000" />
       <workItem from="1705227191165" duration="33648000" />
       <workItem from="1705311589021" duration="6568000" />
+      <workItem from="1705331970206" duration="2855000" />
     </task>
     <servers />
   </component>
