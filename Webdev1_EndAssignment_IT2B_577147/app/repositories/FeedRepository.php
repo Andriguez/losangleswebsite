@@ -86,7 +86,7 @@ class FeedRepository extends Repository
     public function getAllPosts(){
         //TODO : research into how to paginate posts
         //or how to load them in chunks
-        $query = "SELECT post_Id FROM feed_posts";
+        $query = "SELECT post_Id FROM feed_posts ORDER BY `post_posted_at` DESC";
 
         return $this->getPosts($query);
     }
@@ -103,7 +103,7 @@ class FeedRepository extends Repository
     public function getPostsByTopic($topicId){
     //TODO : research into how to paginate posts
     //or how to load them in chunks
-        $query = "SELECT post_Id FROM feed_posts WHERE post_topic = :topic";
+        $query = "SELECT post_Id FROM feed_posts WHERE post_topic = :topic ORDER BY `post_posted_at` DESC";
         $params['topic'] = $topicId;
 
         return $this->getPosts($query, $params);

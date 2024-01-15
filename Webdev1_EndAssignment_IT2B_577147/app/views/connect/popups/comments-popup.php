@@ -3,15 +3,15 @@
     <div id="parent-post">
         <div id="parent-post-body">
             <div id="parent-post-headers">
-                <img id="poster-picture" src="/media/artist1.png" role="img" width="50px" height="50px">
+                <img id="poster-picture" src="</?php echo isset($post) ? $post->getUser()->getPictureSrc() : ''?>" role="img" width="50px" height="50px">
                 <div id="parent-post-header-text">
-                    <h5 class="poster-name">Angle Name</h5>
-                    <h5 id="parent-post-title">Here is the title</h5>
+                    <h5 class="poster-name"><  ? php echo isset($post) ? $post->getUser()->getFullName() : ''?></h5>
+                    <h5 id="parent-post-title">< ? php echo isset($post) ? $post->getPostTitle() : ''?></h5>
                 </div>
             </div>
-            <p id="parent-post-content" class="mx-3">Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id.</p>
+            <p id="parent-post-content" class="mx-3">< ? php echo isset($post) ? $post->getTextContent() : ''?></p>
             <div class="post-footer">
-                <label>posted on <cite title="time stamp">09/12/23 at 17:45</cite></label>
+                <label>posted on<cite title="time stamp">< ? php echo isset($post) ? ' '.$post->getPostedAt()->format('d/m/y').' at '.$post->getPostedAt()->format('H:i') : ''?></cite></label>
             </div>
         </div>
     </div>

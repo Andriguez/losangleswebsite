@@ -35,7 +35,7 @@ class FeedService
       //  return $this->feedRepo->getCommentById($commentId);
     //}
     public function getAllCommentsByParent($parentId){
-        return $this->feedRepo->getCommentsByParent($parentId);
+        return $this->feedRepo->getCommentsByParentPost($parentId);
     }
     public function createFeedTopic($name){
         $this->feedRepo->createFeedTopic($name);

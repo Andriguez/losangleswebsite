@@ -1,5 +1,6 @@
 <?php
 namespace controllers;
+use models\FeedPost;
 use models\FeedTopic;
 use models\User;
 use services\ContentService;
@@ -20,6 +21,7 @@ class connectController extends Controller
     private UserAuth $userAuth;
     private User $loggedUser;
     private FeedTopic $selectedTopic;
+    private ?FeedPost $selectedPost;
     public function __construct()
     {
         $this->feedService = new FeedService();
@@ -28,6 +30,7 @@ class connectController extends Controller
         $this->userAuth = new UserAuth();
         $this->loggedUser = $this->userAuth->loggedUser();
         $this->selectedTopic = $this->feedService->getTopicByName('general');
+        $this->selectedPost = null;
     }
     public function index($selectedTopicName = null, $action = null, $selectedPostId = null){
         if (isset($this->loggedUser)) {
@@ -46,18 +49,24 @@ class connectController extends Controller
         $posts = $this->feedService->getAllPostsByTopic($this->selectedTopic->getTopicId());
 
         if (isset($action)) {
-            $this->proccessAction($action, $selectedPostId);
+            $this->proccessAction($action);
         }
+
+            if(isset($selectedPostId)){
+                $this->selectedPost = $this->feedService->getPostById($selectedPostId);
+            }
 
         require __DIR__ . '/../views/connect/index2.php';}
     }
 
-    private function proccessAction($action, $selectedPostId){
+    private function proccessAction($action){
         switch ($action){
             case 'viewpost':
-                if(isset($selectedPostId)){
-                    $this->displayComments($selectedPostId);
-                }
+                if(!isset($this->selectedPost)){
+                    exit;
+                } else {
+                    $postId = $this->selectedPost->getId();
+                    $this->displayComments($postId);}
                 break;
             case 'postbox':
                 $this->displayPostPopUp();
@@ -66,7 +75,7 @@ class connectController extends Controller
                 $this->createPost();
                 break;
             case 'deletepost':
-                $this->deletePost($selectedPostId);
+                $this->deletePost();
                 break;
             case 'comment':
                 $this->createComment();
@@ -80,12 +89,10 @@ class connectController extends Controller
         }
     }
 
-    private function displayComments($postId){
-        if(isset($postId)){
-            $post = $this->feedService->getPostById($postId);
-            if(isset($post)){
-                $comments = $this->feedService->getAllCommentsByParent($post->getId());
-            }
+    private function displayComments($post){
+        if(isset($post)){
+                //$comments = $this->feedService->getAllCommentsByParent($post->getId());
+            echo $post;
             require __DIR__ . '/../views/connect/popups/comments-popup.php';
             exit;
         }
@@ -115,7 +122,7 @@ class connectController extends Controller
         $this->index();
     }
 
-    private function deletePost($postId){
+    private function deletePost(){
 
     }
 

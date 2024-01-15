@@ -62,7 +62,7 @@
                         <h5 class="post-title"><?php $post->getPostTitle()?></h5>
                         <p class="post-content mx-3"><?php echo $post->getTextContent()?></p>
                         <div class="post-footer">
-                            <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><?php echo $post->getCommentAmount().' '?>comments</a>
+                            <a class="card-link" onclick="displayComments(<?php echo $post->getTopic()->getTopicName()?>, <?php echo $post->getId()?>)"><?php echo $post->getCommentAmount().' '?>comments</a>
                             <p>‣</p>
                             <label>posted on<cite title="time stamp"><?php echo ' '.$post->getPostedAt()->format('d/m/y').' at '.$post->getPostedAt()->format('H:i')?></cite></label>
                         </div>
