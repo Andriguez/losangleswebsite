@@ -111,7 +111,8 @@ class connectController extends Controller
                 $this->feedService->createPost($this->loggedUser->getUserId(), $inputTitle, $inputContent, $inputTopic);
                 $this->selectedTopic = $this->feedService->getTopicById($inputTopic);
         }
-        header("Location: /feed/{$this->selectedTopic->getTopicName()}");
+        //header("Location: /feed/{$this->selectedTopic->getTopicName()}");
+        $this->index();
     }
 
     private function deletePost($postId){
