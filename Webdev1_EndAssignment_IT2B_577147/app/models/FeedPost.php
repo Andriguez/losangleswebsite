@@ -7,7 +7,7 @@ class FeedPost
     private int $post_Id, $post_comment_amount;
     private User $post_user;
     private ?MediaInfo $post_picture = null;
-    private string $post_text_content;
+    private string $post_text_content, $post_title;
     private FeedTopic $post_topic;
     private \DateTime $post_posted_at;
 
@@ -19,17 +19,18 @@ class FeedPost
     public function setTextContent($text){$this->post_text_content = $text;}
     public function setTopic($topic){$this->post_topic = $topic;}
     public function setPostedAt($datetime){ $this->post_posted_at = $datetime;}
+    public function setPostTitle($title){$this->post_title = $title;}
 
 
     //getters
     public function getId():int{return $this->post_Id;}
     public function getCommentAmount():int{return $this->post_comment_amount;}
-    public function getUser():User{return $this->post_user;}
-    public function getPicture():MediaInfo{return $this->post_picture;}
-    public function getTextContent():string{return $this->post_text_content;}
-    public function getTopic():FeedTopic{return $this->post_topic;}
-    public function getPostedAt():\DateTime{return $this->post_posted_at;}
-
+    public function getUser(){return $this->post_user;}
+    public function getPicture(){return $this->post_picture;}
+    public function getTextContent(){return $this->post_text_content;}
+    public function getTopic(){return $this->post_topic;}
+    public function getPostedAt(){return $this->post_posted_at;}
+    public function getPostTitle(){return $this->post_title;}
 
 
 }

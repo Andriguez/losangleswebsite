@@ -158,7 +158,6 @@
 .selected-topic{
     font-family: angles;
     font-size: 16px !important;
-    /*font-size: 18px !important;*/
     text-transform: uppercase;
     color: white !important;
     text-shadow:
@@ -204,7 +203,7 @@ body{
     border: black solid 3px;
     display: none;
     position: fixed;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 9;
@@ -219,7 +218,22 @@ body{
         background-color: black;
         border-color: white;
         color: white;
-    }  }
+    }
+    #closing-btn{
+        cursor: pointer;
+        position: absolute;
+        z-index: 10;
+        right: 0;
+        top: 0;
+        img{
+            height: 30px;
+        }
+    }
+
+    #closing-btn:hover{
+        filter: invert(100%);
+    }
+}
 
 /* For WebKit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
@@ -238,153 +252,3 @@ body{
 ::-webkit-scrollbar-thumb:hover {
     background-color: silver; /* Color of the thumb on hover */
 }
-
-#comments-section{
-    overflow-y: scroll;
-    background-color: black;
-    width: 500px;
-    height: 400px;
-
-    .name-section{
-        margin-top: 5px;
-        margin-bottom: 2px;
-    }
-
-    a{
-        color: black;
-        font-family: "Agency FB";
-        font-size: 18px;
-    }
-    a:hover{
-        background-color: white;
-        filter: invert(100%);
-    }
-
-    .poster-name{
-        font-family: angles !important;
-        font-size: 11px;
-        text-transform: uppercase;
-    }
-    .comment{
-        border: white solid 2px;
-        color: black;
-        background-color: white;
-        padding: 5px;
-        margin-bottom: 5px;
-        overflow-y: scroll;
-        font-family: "Agency FB";
-        font-size: 20px;
-
-        .btns-section{
-            display: flex;
-            justify-content: flex-end;
-
-            a{
-                margin: 5px;
-                font-weight: bold;
-            }
-        }
-    }
-    .child-comment{
-        border: silver solid 2px;
-        width: 100%;
-        margin: auto;
-        color: white;
-        background-color: black;
-        padding: 5px;
-        font-family: "Agency FB";
-
-        img{
-            filter: invert(100%);
-            width: 7px;
-            height: 7px;
-        }
-    }
-    .children-comments{
-        margin-top: 7px;
-    }
-    .comment-submit{
-        width: 100%;
-        position: sticky;
-        bottom: 0;
-        margin: 0;
-    }
-    .comment-submit input{
-        width: 100%;
-        position: relative;
-
-    }
-    .comment-submit button {
-        position: absolute;
-        right: 0;
-        font-family: "Agency FB";
-        font-size: 18px;
-        font-weight: bold;
-    }
-    #closing-btn{
-        cursor: pointer;
-        position: sticky;
-        right: 0;
-        img{
-        }  }  }
-
-
-#post-text{
-    width: 400px;
-    height: 260px;
-    background-color: black;
-
-    .post-btn{
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        font-family: angles;
-    }
-    form{
-        margin: 0 !important;
-
-        .dropdown-toggle{
-            border-radius: 0 !important;
-            width: 30%;
-            font-family: angles;
-        }
-
-        .dropdown-menu{
-            border-width: 3px !important;
-            border-radius: 0 !important;
-            border-color: black !important;
-            font-family: angles;
-            font-size: 10px;
-
-        }
-        .dropdown-item:hover {
-            background-color: black !important;
-            border-color: white !important;
-            color: white !important;
-        }
-        input{
-            width: 60%;
-            font-family: "Agency FB";
-            font-size: 20px;
-        }
-
-        textarea{
-            width: 100%;
-            margin-top: 2px;
-            font-family: "Agency FB";
-            font-size: 20px;
-
-
-        }  }
-    #closing-btn{
-        cursor: pointer;
-        position: absolute;
-        right: 0;
-        top: 0;
-        img{
-            height: 30px;
-        }
-    }
-    #closing-btn:hover{
-        filter: invert(100%);
-    }  }

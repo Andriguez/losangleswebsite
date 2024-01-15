@@ -5,13 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/public/js/connect/connect.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/style/connect/connect.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/js/adminscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/js/admin/adminscript.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/style/adminstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/style/admin/adminstyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/UserAuth.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/UserAuth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/connectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/connectController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/loginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/loginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/FeedPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/FeedPost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/js/connect/connect.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/js/connect/connect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/style/connect/connect.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/style/connect/connect.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/FeedRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/FeedRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/FeedService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/FeedService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/connect/index2.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/connect/index2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/connect/popups/comments-popup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/connect/popups/comments-popup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/connect/popups/post-text-popup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/connect/popups/post-text-popup.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +135,7 @@
       <workItem from="1704977912512" duration="28403000" />
       <workItem from="1705070284610" duration="10438000" />
       <workItem from="1705103518421" duration="16310000" />
-      <workItem from="1705227191165" duration="8877000" />
+      <workItem from="1705227191165" duration="33383000" />
     </task>
     <servers />
   </component>

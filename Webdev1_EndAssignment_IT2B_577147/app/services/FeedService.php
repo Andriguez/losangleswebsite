@@ -13,8 +13,13 @@ class FeedService
     public function __construct(){
         $this->feedRepo = new FeedRepository();
     }
-
-    public function getPostById($postId):FeedPost{
+    public function createPost($userId, $title, $content, $topic){
+        $this->feedRepo->createPost($userId, $title, $content, $topic);
+    }
+    public function deletePost($postId){
+        $this->deletePost($postId);
+    }
+    public function getPostById($postId){
         return $this->feedRepo->getPostById($postId);
     }
     public function getAllPosts(){

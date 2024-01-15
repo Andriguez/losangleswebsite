@@ -2,7 +2,7 @@
 <head>
     <title>connect</title>
     <link rel="icon" href="/media/onlytb.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="style/connect/connect.css">
+    <link rel="stylesheet" type="text/css" href="/style/connect/connect.css">
 
 </head>
 <body>
@@ -13,7 +13,7 @@
         <ul class="nav justify-content-center" id="topics-nav">
             <?php if (isset($topics)){ foreach ($topics as $topic){?>
             <li class="nav-item">
-                <p><a class="active nav-link <?php echo ($selectedTopic->getTopicId() === $topic->getTopicId()) ? ' selected-topic' : ''?>" aria-current="page" href="/feed/<?php echo strtolower($topic->getTopicName())?>"><?php echo $topic->getTopicName()?></a></p>
+                <p><a class="active nav-link <?php echo ($this->selectedTopic->getTopicId() === $topic->getTopicId()) ? ' selected-topic' : ''?>" aria-current="page" href="/feed/<?php echo strtolower($topic->getTopicName())?>"><?php echo $topic->getTopicName()?></a></p>
             </li>
             <?php }} ?>
         </ul>
@@ -32,7 +32,7 @@
                         <h5 class="post-title">Here is the title</h5>
                         <p class="post-content mx-3">Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id.</p>
                         <div class="post-footer">
-                            <a href="#" class="card-link" onclick="openForm('comments-section')">3 comments</a>
+                            <a class="card-link" onclick="displayComments('general', 1)">3 comments</a>
                             <p>‣</p>
                             <label>posted on <cite title="time stamp">09/12/23 at 17:45</cite></label>
                         </div>
@@ -128,104 +128,17 @@
         </nav>
     </div>
     <div id="btns-container">
-        <a type="button" id="text" onclick="openForm('post-text')"><img src="/media/text-icon.svg" alt=""></a>
-        <a type="button" id="more" onclick="openForm('post-media')"><img src="/media/more-icon.svg" alt=""></a>
+        <a type="button" id="text" onclick="displayPostText('general')"><img src="/media/text-icon.svg" alt=""></a>
+        <a type="button" id="more" onclick="openPopUp()"><img src="/media/more-icon.svg" alt=""></a>
     </div>
 </div>
 
 
-<div class="box-popup" id="comments-section">
-    <a id="closing-btn" onclick="closeForm('post-text')"><img src="/media/x-icon.svg"></a>
-    <div id="comments">
-    <div class="comment">
-        <div class="name-section">
-                <span class="poster-name">poster name</span>
-            </div>
-            <div class="content-section">
-                <span>this is a comment in the comment section</span>
-            </div>
-            <div class="btns-section">
-                <a href="#">reply</a>
-                <a href="#">3 replies</a>
-            </div>
-
-        <!--<div class="children-comments">
-        <div class="child-comment">
-            <span class="poster-name">poster name</span>
-            <img src="/media/triangle-icon.svg">
-            <span>this is a comment in the comment section</span>
-        </div>
-        <div class="child-comment">
-            <span class="poster-name">poster name</span>
-            <img src="/media/triangle-icon.svg">
-            <span>this is a comment in the comment section</span>
-        </div>
-        <div class="child-comment">
-            <span class="poster-name">poster name</span>
-            <img src="/media/triangle-icon.svg">
-            <span>this is a comment in the comment section</span>
-        </div>
-        </div>-->
-        </div>
-        <div class="comment">
-            <div class="name-section">
-                <span class="poster-name">poster name</span>
-            </div>
-            <div class="content-section">
-                <span>this is a comment in the comment section</span>
-            </div>
-            <div class="btns-section">
-                <a href="#">reply</a>
-            </div>
-        </div>
-        <div class="comment">
-            <div class="name-section">
-                <span class="poster-name">poster name</span>
-            </div>
-            <div class="content-section">
-                <span>this is a comment in the comment section</span>
-            </div>
-            <div class="btns-section">
-                <a href="#">reply</a>
-                <a href="#">1 replies</a>
-            </div>
-        <!--<div class="children-comments">
-        <div class="child-comment">
-            <span class="poster-name">poster name</span>
-            <img src="/media/triangle-icon.svg">
-            <span>this is a comment in the comment section</span>
-        </div>
-    <div class="child-comment">
-        <span class="poster-name">poster name</span>
-        <img src="/media/triangle-icon.svg">
-        <span>this is a comment in the comment section</span>
-    </div>
-        </div>-->
-        </div>
-    </div>
-        <form class="comment-submit">
-            <input type="text" placeholder="Say something..."/>
-            <button type="submit">comment</button>
-        </form>
+<div class="box-popup" id="box-popup">
+    <a id="closing-btn" onclick="closePopUp()"><img src="/media/x-icon.svg"></a>
+    <div id="box-content"></div>
 </div>
 
-
-<div class="box-popup" id="post-text">
-    <form action="">
-        <button class="dropdown-toggle" type="button" id="filerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-            topic
-        </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">topic</a></li>
-            <li><a class="dropdown-item" href="#">topic</a></li>
-            <li><a class="dropdown-item" href="#">topic</a></li>
-        </ul>
-    <input type="text" placeholder="title">
-    <textarea rows="7" placeholder="content"></textarea>
-    <button class="post-btn" type="submit">POST</button>
-</form>
-    <a id="closing-btn" onclick="closeForm('post-text')"><img src="/media/x-icon.svg"></a>
-</div>
-<script src="js/connect/connect.js"></script>
+<script src="/js/connect/connect.js"></script>
 </body>
 </html>

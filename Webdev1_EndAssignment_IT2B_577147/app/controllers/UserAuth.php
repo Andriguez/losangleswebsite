@@ -36,6 +36,21 @@ class UserAuth
         }
     }
 
+    public function loggedUser()
+    {
+        return $this->getUserInSession();
+    }
+    private function getUserInSession(){
+        if (!isset($_SESSION['user_id'])) {
+            $_SESSION['redirect_url'] = $_SERVER['REQUEST_URI'];
+
+            header("Location: /login");
+            exit;
+        }
+
+        return $this->userService->getUserById($_SESSION['user_id']);
+    }
+
     public function allowAdminAccess(){
         return $this->allowAccess('admin');
     }

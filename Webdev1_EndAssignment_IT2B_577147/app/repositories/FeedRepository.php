@@ -16,8 +16,38 @@ require_once __DIR__.'/../services/ContentService.php';
 class FeedRepository extends Repository
 {
     //posts
+    public function createPost($userId, $title, $content, $topic){
+        $query = "INSERT INTO `feed_posts`(`post_user`, `post_title`, `post_text_content`, `post_topic`, post_posted_at) 
+            VALUES (?,?,?,?,?)";
+
+        try {
+            $statement = $this->getfeedDB()->prepare($query);
+            $statement->execute(array(
+                $userId,
+                $this->sanitizeText($title),
+                $this->sanitizeText($content),
+                $topic,
+                date("Y-m-d H:i:s")));
+
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+    public function deletePost($postId){
+        $query = "DELETE FROM `feed_posts` WHERE `post_Id` = :postId";
+
+        try{
+            $statement = $this->getfeedDB()->prepare($query);
+
+            $statement->bindParam(':postId', $postId, \PDO::PARAM_INT);
+            $statement->execute();
+
+        }catch(\PDOException $e){
+            echo $e->getMessage();
+        }
+    }
     public function getPostById($id){
-        $query = "SELECT `post_Id`, `post_user`, `post_picture`, `post_text_content`, `post_topic`,
+        $query = "SELECT `post_Id`, `post_user`, `post_title`, `post_picture`, `post_text_content`, `post_topic`,
        `post_comments_amount`, `post_posted_at` FROM `feed_posts` WHERE post_Id = :id";
 
         try{
@@ -35,7 +65,13 @@ class FeedRepository extends Repository
                 $post->setTopic($this->getTopicById($row['post_topic']));
                 $post->setTextContent($row['post_text_content']);
                 $post->setCommentAmount($row['post_comments_amount']);
-                $post->setPostedAt($row['post_posted_at']);
+                $post->setPostTitle($row['post_title']);
+
+                $dateTime_string = $row['post_posted_at'];
+                $dateTime = \DateTime::createFromFormat('Y-m-d H:i:s', $dateTime_string);
+
+                $post->setPostedAt($dateTime);
+
 
                 if(is_null($row['post_picture'])){ $post->setPicture(null);}
                 else {$post->setPicture($contentService->getMediaInfoById($row['post_picture']));}

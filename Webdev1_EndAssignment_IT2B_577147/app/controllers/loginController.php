@@ -20,6 +20,7 @@ class loginController extends Controller
     }
 
     public function access(){
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
         if(isset($_POST['email'])&&isset($_POST['password'])){
             $_POST = filter_input_array(INPUT_POST);
             $email = $_POST['email'];
@@ -32,7 +33,7 @@ class loginController extends Controller
             } else{
                 $this->redirectPage();
             }
-        }
+        }}
     }
     private function loginError($error){
 
