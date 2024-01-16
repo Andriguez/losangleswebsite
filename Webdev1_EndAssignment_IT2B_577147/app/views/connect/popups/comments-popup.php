@@ -125,9 +125,10 @@
                 font-family: "Agency FB";
                 font-size: 18px;
                 border: 0 solid white;
-
-
             }
+                input:focus{
+                    outline: none;
+                }
             button {
                 position: absolute;
                 right: 0;

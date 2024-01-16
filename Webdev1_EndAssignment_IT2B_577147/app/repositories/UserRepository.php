@@ -130,7 +130,7 @@ class UserRepository extends Repository
     }
 
     public function getUserByEmail($email){
-        $query = "SELECT user_Id FROM users WHERE user_email = :email";
+        $query = "SELECT user_Id FROM users WHERE LOWER(user_email) = LOWER(:email)";
         $sanitizedEmail = $this->sanitizeText($email);
 
         try{

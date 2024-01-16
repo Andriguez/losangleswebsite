@@ -4,7 +4,7 @@
         <table class="table table-hover">
             <thead>
             <tr>
-                <th scope="col">#</th>
+                <th scope="col"><input type="checkbox" name="row1"></th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Location</th>
@@ -14,33 +14,17 @@
             </tr>
             </thead>
             <tbody>
+            <?php if(isset($applications)){ $i=0; foreach ($applications as $application){?>
             <tr>
-                <th scope="row"><input type="checkbox" name="row1"></th>
-                <td>Andy Rodriguez</td>
-                <td>andhriguez@outlook.com</td>
-                <td>Amsterdam, NL</td>
-                <td>It girl</td>
-                <td>@brhiguez</td>
-                <td>26/12/2023</td>
+                <th scope="row"><input id="<?php echo $application->getApplicationId()?>" type="checkbox" name="row1"></th>
+                <td><?php echo $application->getName()?></td>
+                <td><?php echo $application->getEmail()?></td>
+                <td><?php echo $application->getLocation()?></td>
+                <td><?php echo $application->getDiscipline()?></td>
+                <td><?php echo $application->getSocialMedia()?></td>
+                <td><?php echo $application->getSubmissionDate()->format('d/m/Y')?></td>
             </tr>
-            <tr>
-                <th scope="row"><input type="checkbox" name="row1"></th>
-                <td>Andy</td>
-                <td>andhriguez@outlook.com</td>
-                <td>Amsterdam, NL</td>
-                <td>It girl</td>
-                <td>@brhiguez</td>
-                <td>26/12/2023</td>
-            </tr>
-            <tr>
-                <th scope="row"><input type="checkbox" name="row1"></th>
-                <td>Andy</td>
-                <td>andhriguez@outlook.com</td>
-                <td>Amsterdam, NL</td>
-                <td>It girl</td>
-                <td>@brhiguez</td>
-                <td>26/12/2023</td>
-            </tr>
+            <?php $i++;}} ?>
             </tbody>
         </table>
     </div>

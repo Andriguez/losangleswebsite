@@ -6,32 +6,37 @@
 <body>
 <?php include __DIR__.'/../navbar.php'?>
 <div class="form-container">
-    <form>
-        <h3 class="mb-4">Join us!</h3>
+    <form method="post" action="/register/submitregistration">
+        <?php if(isset($_SESSION['registerMessage'])){?>
+            <div id="output-message-container">
+                <span><?php echo $_SESSION['registerMessage']?></span>
+            </div>
+            <?php unset($_SESSION['registerMessage']); } else {?>
+        <span class="title mb-4">Join us!</span>
+        <?php }?>
         <div class="form-floating">
-            <input type="text" id="floatingInput" placeholder="name">
-            <input type="text" id="floatingInput" placeholder="stage name">
+            <input type="text" name="inputName" id="floatingNameInput" placeholder="name">
+            <input type="text"  name="inputStageName" id="floatingInput" placeholder="stage name">
         </div>
 
         <div class="form-floating">
-            <input type="text" id="pronouns" placeholder="pro/nouns">
-            <input type="text" id="gender" placeholder="gender">
+            <input type="text" name="inputPronouns" id="pronouns" placeholder="pro/nouns">
+            <input type="text" name="inputGender" id="gender" placeholder="gender">
         </div>
         <div class="form-floating">
-            <input type="text" id="location" placeholder="location city, CTY">
-            <input type="text" id="discipline" placeholder="discipline">
+            <input type="text" name="inputLocation" id="location" placeholder="location (city, country)">
+            <input type="text" name="inputDiscipline" id="discipline" placeholder="discipline">
         </div>
         <div class="form-floating">
-            <input type="email" id="floatingInput" placeholder="e-mail">
-            <input type="text" id="socials" placeholder="socials">
+            <input type="email" name="inputEmail" id="floatingEmailInput" placeholder="e-mail">
+            <input type="text" name="inputSocials" id="socials" placeholder="socials">
         </div>
         <div class="form-floating">
-            <textarea id="message" placeholder="100 words about you" rows="8"></textarea>
+            <textarea name="inputMessage" id="message" placeholder="100 words about you" rows="4"></textarea>
         </div>
         <div class="btn-group">
             <button type="submit">send</button>
         </div>
-
     </form>
 </div>
 </body>
@@ -53,8 +58,13 @@
         flex-direction: column;
         align-items: center;
         width: 600px;
-        font-family: angles;
-        font-size: 10px;
+        font-size: 18px;
+
+        .title{
+            font-family: angles;
+            text-transform: uppercase;
+            font-size: 18px;
+        }
     }
     input, textarea{
         border-radius: 0;
@@ -62,7 +72,8 @@
         border-left: none;
         border-right: none;
         border-bottom: black solid 4px;
-        margin: 5px;
+        margin: 4px 6px 6px 6px;
+        font-family: "Agency FB";
     }
     input:focus, textarea:focus{
         outline: none;
@@ -80,6 +91,7 @@
         text-align: center;
         font-size: 12px;
         text-transform: uppercase;
+        font-family: angles;
     }
     textarea{
         width: 300px;
@@ -100,5 +112,13 @@
     }
     #gender{
         max-width: 110px;
+    }
+
+    #output-message-container{
+        color: red;
+        font-family: "Agency FB";
+        font-size: 16px;
+        margin: auto;
+        width: 300px;
     }
 </style>

@@ -11,7 +11,7 @@
         <input required type="email" name="email" id="floatingInput" placeholder="e-mail">
     </div>
     <div class="form-floating">
-        <input id="passwordfield" name="password" type="password" style="-webkit-text-security: disc;" id="floatingPassword" placeholder="password">
+        <input name="password" type="password" id="floatingPassword" placeholder="password">
     </div>
     <div class="btn-group">
     <button type="submit">log in</button>
@@ -58,6 +58,7 @@
         border-right: none;
         border-bottom: black solid 4px;
         margin: 10px;
+        text-transform: uppercase !important;
     }
     input:focus{
         outline: none;
@@ -66,14 +67,14 @@
     }
     button{
         border-radius: 0 !important;
-        border-color: black !important;
-        border-width: 4px !important;
+        border: 4px solid black;
         background-color: white !important;
         color: black !important;
         font-weight: bold !important;
         margin: 2px;
         text-align: center;
-        font-size: 13px !important;
+        text-transform: uppercase;
+
     }
     button:hover {
         background-color: black !important;
@@ -91,6 +92,5 @@
         font-size: 16px;
         margin: auto;
         width: 300px;
-
     }
 </style>

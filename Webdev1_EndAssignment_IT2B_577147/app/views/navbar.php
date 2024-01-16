@@ -69,6 +69,7 @@ if (session_status() == PHP_SESSION_NONE) {
         border-color: black !important;
         font-family: angles;
         font-size: 10px;
+        text-transform: uppercase;
     }
     .dropdown-item:hover {
         background-color: black !important;

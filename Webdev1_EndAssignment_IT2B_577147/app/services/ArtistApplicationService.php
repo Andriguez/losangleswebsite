@@ -1,5 +1,7 @@
 <?php
 namespace services;
+require_once __DIR__ . '/../repositories/ArtistApplicationRepository.php';
+
 use repositories\ArtistApplicationRepository;
 
 class ArtistApplicationService
@@ -10,7 +12,9 @@ class ArtistApplicationService
     {
         $this->AaRepo = new ArtistApplicationRepository();
     }
-
+    public function storeApplication($name, $stagename, $email, $pronouns, $gender, $location, $discipline, $message, $socialmedia){
+        $this->AaRepo->storeApplication($name, $stagename, $email, $pronouns, $gender, $location, $discipline, $message, $socialmedia);
+    }
     public function getApplicationById($applicationId){
         return $this->AaRepo->getApplicationById($applicationId);
     }

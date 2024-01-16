@@ -21,18 +21,20 @@ class ArtistApplication
     public function setDiscipline($discipline){$this->applicant_discipline = $discipline;}
     public function setMessage($message){$this->applicant_message = $message;}
     public function setSocialMedia($socialmedia){$this->applicant_socialmedia = $socialmedia;}
+    public function setSubmissionDate($datetime){ $this->application_submissiondate = $datetime;}
+
 
     //getters
     public function getApplicationId():int{return $this->application_Id;}
-    public function getName():string{return $this->applicant_name;}
-    public function getStagename():string{return $this->applicant_stagename;}
-    public function getEmail():string{return $this->applicant_email;}
-    public function getPronouns():string{return $this->applicant_pronouns;}
-    public function getGender():string{return $this->applicant_gender;}
-    public function getLocation():string{return $this->applicant_location;}
-    public function getDiscipline():string{return $this->applicant_discipline;}
-    public function getMessage():string{return $this->applicant_message;}
-    public function getSocialMedia():string{return $this->applicant_socialmedia;}
+    public function getName(){return $this->applicant_name;}
+    public function getStagename(){return $this->applicant_stagename;}
+    public function getEmail(){return $this->applicant_email;}
+    public function getPronouns(){return $this->applicant_pronouns;}
+    public function getGender(){return $this->applicant_gender;}
+    public function getLocation(){return $this->applicant_location;}
+    public function getDiscipline(){return $this->applicant_discipline;}
+    public function getMessage(){return $this->applicant_message;}
+    public function getSocialMedia(){return $this->applicant_socialmedia;}
     public function getSubmissionDate():\DateTime{return $this->application_submissiondate;}
 
 }

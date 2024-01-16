@@ -5,10 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e0c6b955-f3ce-46fe-a946-bbf3f938ffa8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e0c6b955-f3ce-46fe-a946-bbf3f938ffa8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e0c6b955-f3ce-46fe-a946-bbf3f938ffa8/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e0c6b955-f3ce-46fe-a946-bbf3f938ffa8/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e0c6b955-f3ce-46fe-a946-bbf3f938ffa8/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e0c6b955-f3ce-46fe-a946-bbf3f938ffa8/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/connectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/connectController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/connect/index2.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/connect/index2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/connect/popups/posts-window.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/connect/popups/posts-window.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/adminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/loginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/loginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/registerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/registerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/ArtistApplication.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ArtistApplication.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/style/connect/connect.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/style/connect/connect.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/ArtistApplicationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/ArtistApplicationRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/ArtistApplicationService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/ArtistApplicationService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/applications/viewApplications.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/applications/viewApplications.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/connect/popups/comments-popup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/connect/popups/comments-popup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/loginView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/loginView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/navbar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/register/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/register/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +142,7 @@
       <workItem from="1705227191165" duration="33648000" />
       <workItem from="1705311589021" duration="6568000" />
       <workItem from="1705331970206" duration="16284000" />
-      <workItem from="1705395285736" duration="13973000" />
+      <workItem from="1705395285736" duration="25657000" />
     </task>
     <servers />
   </component>

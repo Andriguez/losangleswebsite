@@ -27,7 +27,7 @@ class loginController extends Controller
             $password = $_POST['password'];
 
             $this->userAuth = new UserAuth();
-            $result =$this->userAuth->userLogin($email, $password);
+            $result = $this->userAuth->userLogin($email, $password);
             if(!$result[0]){
                 $this->loginError($result[1]);
             } else{

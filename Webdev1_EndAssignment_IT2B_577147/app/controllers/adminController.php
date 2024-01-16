@@ -1,6 +1,7 @@
 <?php
 namespace controllers;
 
+use services\ArtistApplicationService;
 use services\ArtistService;
 use services\ContentService;
 use services\EventService;
@@ -17,6 +18,8 @@ require __DIR__ . '/../services/ContentService.php';
 require __DIR__ . '/../services/ArtistService.php';
 require __DIR__ . '/../services/EventService.php';
 require __DIR__ . '/../services/FeedService.php';
+require __DIR__ . '/../services/ArtistApplicationService.php';
+
 require_once __DIR__.'/../models/User.php';
 require_once __DIR__.'/../models/Artist.php';
 require_once __DIR__.'/../models/ArtistContent.php';
@@ -30,6 +33,7 @@ class adminController extends Controller
     protected ArtistService $artistService;
     protected EventService $eventService;
     protected FeedService $feedService;
+    protected ArtistApplicationService $aApplicationsService;
     private UserAuth $userAuth;
 
     public function __construct()
@@ -40,6 +44,7 @@ class adminController extends Controller
         $this->artistService = new ArtistService();
         $this->eventService = new EventService();
         $this->feedService = new FeedService();
+        $this->aApplicationsService = new ArtistApplicationService();
     }
 
     public function index(){
@@ -411,8 +416,10 @@ class adminController extends Controller
         }
     }
     public function viewApplications(){
-        if($this->userAuth->allowAdminAccess())
+        if($this->userAuth->allowAdminAccess()){
+            $applications = $this->aApplicationsService->getAllApplications();
             require __DIR__ . '/../views/admin/windows/applications/viewApplications.php';
+        }
     }
     public function manageApplication(){
         if($this->userAuth->allowAdminAccess())

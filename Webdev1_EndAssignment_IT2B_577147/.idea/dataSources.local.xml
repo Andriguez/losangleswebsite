@@ -16,7 +16,7 @@
       </schema-mapping>
     </data-source>
     <data-source name="losangles_users@localhost" uuid="e0c6b955-f3ce-46fe-a946-bbf3f938ffa8">
-      <database-info product="MariaDB" version="10.9.4-MariaDB-1:10.9.4+maria~ubu2204" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="3.0.7" dbms="MARIADB" exact-version="10.9.4" exact-driver-version="3.0">
+      <database-info product="MariaDB" version="10.6.5-MariaDB-1:10.6.5+maria~focal" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="3.0.7" dbms="MARIADB" exact-version="10.6.5" exact-driver-version="3.0">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
