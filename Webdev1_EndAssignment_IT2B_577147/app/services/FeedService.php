@@ -22,14 +22,17 @@ class FeedService
     public function getPostById($postId){
         return $this->feedRepo->getPostById($postId);
     }
-    public function getAllPosts(){
-        return $this->feedRepo->getAllPosts();
+    public function getAllPosts($limit, $currentpage){
+        return $this->feedRepo->getAllPosts($limit, $currentpage);
     }
     public function getALlPostsByUser($userId){
         return $this->feedRepo->getPostsByUser($userId);
     }
-    public function getAllPostsByTopic($topicId){
-        return $this->feedRepo->getPostsByTopic($topicId);
+    public function getAllPostsByTopic($topicId, $limit, $currentpage){
+        return $this->feedRepo->getPostsByTopic($topicId, $limit, $currentpage);
+    }
+    public function getPostsAmountForTopic($topicId){
+        return $this->feedRepo->getPostsAmountForTopic($topicId);
     }
     //public function getCommentById($commentId):FeedComment{
       //  return $this->feedRepo->getCommentById($commentId);

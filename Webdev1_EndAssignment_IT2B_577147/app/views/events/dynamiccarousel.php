@@ -16,8 +16,8 @@
                 <?php }} ?>
             </div>
             <div id="month-container">
-                <?php if(isset($mFilters)){ foreach ($mFilters as $index => $month){ ?>
-                    <a class="<?php echo ($selectedMonth == $index) ? 'selectedFilter': ''?>" href="/events/<?php echo $selectedYear.'/'.$index ?>"><span><?php echo $month ?>▶</span></a>
+                <?php if(isset($mFilters)){ foreach ($mFilters as $i => $month){ ?>
+                    <a class="<?php echo ($selectedMonth == $i) ? 'selectedFilter': ''?>" href="/events/<?php echo $selectedYear.'/'.$i ?>"><span><?php echo $month ?>▶</span></a>
                 <?php }} ?>
             </div>
         </div>

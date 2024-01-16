@@ -30,7 +30,7 @@
       </schema-mapping>
     </data-source>
     <data-source name="losangles_feed@localhost" uuid="abb37cc5-b258-4574-a5ed-09fb19a58ae0">
-      <database-info product="MariaDB" version="10.9.4-MariaDB-1:10.9.4+maria~ubu2204" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="3.0.7" dbms="MARIADB" exact-version="10.9.4" exact-driver-version="3.0">
+      <database-info product="MariaDB" version="10.6.5-MariaDB-1:10.6.5+maria~focal" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="3.0.7" dbms="MARIADB" exact-version="10.6.5" exact-driver-version="3.0">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>

@@ -21,6 +21,7 @@ class connectController extends Controller
     private UserAuth $userAuth;
     private User $loggedUser;
     private FeedTopic $selectedTopic;
+    private int $currentPage;
     public function __construct()
     {
         $this->feedService = new FeedService();
@@ -29,6 +30,8 @@ class connectController extends Controller
         $this->userAuth = new UserAuth();
         $this->loggedUser = $this->userAuth->loggedUser();
         $this->selectedTopic = $this->feedService->getTopicByName('general');
+        $this->currentPage = isset($_GET['pagenr']) ? (int)$_GET['pagenr'] : 1;
+
     }
     public function index($selectedTopicName = null, $action = null, $selectedPostId = null){
         if (isset($this->loggedUser)) {
@@ -43,16 +46,12 @@ class connectController extends Controller
                 $this->selectedTopic = $topicInput;
             }
         }
+            $totalPosts = $this->feedService->getPostsAmountForTopic($this->selectedTopic->getTopicId());
+            $totalPages = ceil($totalPosts / 3);
 
-        $posts = $this->feedService->getAllPostsByTopic($this->selectedTopic->getTopicId());
+            if (isset($selectedPostId)) { $this->proccessAction($action, $selectedPostId);
+        } else{ $this->proccessAction($action); }
 
-
-            if (isset($selectedPostId)) {
-
-                $this->proccessAction($action, $selectedPostId);
-        } else{
-                $this->proccessAction($action);
-            }
             require __DIR__ . '/../views/connect/index2.php';
         }
     }
@@ -78,9 +77,19 @@ class connectController extends Controller
             case 'deletecomment':
                 $this->deleteComment();
                 break;
+            case 'displayposts':
+                $this->displayPostsByTopic($this->currentPage);
+                exit;
+                break;
         }
     }
+    private function displayPostsByTopic($currentPage){
+        if(isset($this->selectedTopic)){
+            $posts = $this->feedService->getAllPostsByTopic($this->selectedTopic->getTopicId(), 3, $currentPage);
 
+        }
+        require __DIR__ . '/../views/connect/popups/posts-window.php';
+    }
     private function displayComments($postId){
         if(isset($postId)){
             $post = $this->feedService->getPostById($postId);

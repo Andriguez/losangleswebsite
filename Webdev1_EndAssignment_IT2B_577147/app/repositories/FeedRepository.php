@@ -81,38 +81,42 @@ class FeedRepository extends Repository
         } catch (\PDOException $e){echo $e;}
     }
 
-    public function getAllPosts(){
-        //TODO : research into how to paginate posts
-        //or how to load them in chunks
-        $query = "SELECT post_Id FROM feed_posts ORDER BY `post_posted_at` DESC";
+    public function getAllPosts($limit, $currentpage){
+        $query = "SELECT post_Id FROM feed_posts ORDER BY `post_posted_at` DESC LIMIT :limit OFFSET :offset";
 
-        return $this->getPosts($query);
+        $params['limit'] = $limit;
+        $offset = ($currentpage - 1) * $limit;
+        $params['offset'] = $offset;
+
+        return $this->getPosts($query, $params);
     }
 
     public function getPostsByUser($userId){
-        //TODO : research into how to paginate posts
-        //or how to load them in chunks
         $query = "SELECT post_Id FROM feed_posts WHERE post_user = :user";
         $params['user'] = $userId;
 
         return $this->getPosts($query, $params);
     }
 
-    public function getPostsByTopic($topicId){
-    //TODO : research into how to paginate posts
-    //or how to load them in chunks
-        $query = "SELECT post_Id FROM feed_posts WHERE post_topic = :topic ORDER BY `post_posted_at` DESC";
+    public function getPostsByTopic($topicId, $limit, $currentpage){
+        $query = "SELECT post_Id FROM feed_posts WHERE post_topic = :topic ORDER BY `post_posted_at` DESC LIMIT :limit OFFSET :offset";
+
         $params['topic'] = $topicId;
+        $params['limit'] = $limit;
+        $offset = ((int)$currentpage - 1) * (int)$limit;
+        $params['offset'] = $offset;
 
         return $this->getPosts($query, $params);
     }
+
+
     private function getPosts($query, $params = null) {
         try {
             $statement = $this->getfeedDB()->prepare($query);
 
             if (isset($params)) {
                 foreach ($params as $pname => $pvalue) {
-                    $statement->bindParam($pname, $pvalue);
+                    $statement->bindValue($pname, $pvalue, \PDO::PARAM_INT);
                 }
             }
 
@@ -126,6 +130,18 @@ class FeedRepository extends Repository
         } catch (\PDOException $e){echo $e;}
     }
 
+    public function getPostsAmountForTopic($topicId){
+        $query = "SELECT COUNT(*) FROM feed_posts WHERE post_topic = :topic";
+
+        try{
+            $statement = $this->getfeedDB()->prepare($query);
+            $statement->bindParam(':topic', $topicId);
+            $statement->execute();
+
+            return $statement->fetchColumn();
+
+        }catch (\PDOException $e){echo $e;}
+    }
 
     //private function getPosts2($row){
       //  while($row) {

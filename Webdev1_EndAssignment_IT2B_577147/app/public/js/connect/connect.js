@@ -21,6 +21,23 @@ function displayPostText(topicName){
     displayPopUp(`/feed/${topicName}/postbox`)
 }
 
+window.onload = function() {
+    const page = document.getElementById('page')
+    const sectionName = page.getAttribute('data-section-name')
+    loadPosts(sectionName, 1);
+};
+function loadPosts(sectionName, pageNumber){
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', `/feed/${sectionName}/displayposts?pagenr=${pageNumber}`, true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            document.getElementById('all-posts-container').innerHTML = xhr.responseText;
+        }
+    };
+    xhr.send();
+
+}
+
 function displayPopUp(filepath) {
 
     let xhr = new XMLHttpRequest();
