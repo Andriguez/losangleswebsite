@@ -23,13 +23,18 @@
                 <div class="comment-form">
                     <div class="embed-submit-field">
                         <input id="<?php echo $post->getId()?>" type="text" placeholder="Say something..."/>
-                        <button type="button" onclick="storeComment(<?php echo $post->getId()?>, '<?php echo $post->getTopic()->getTopicName()?>', <?php echo $post->getId()?>)">comment</button>
+                        <button type="button" onclick="storeComment(<?php echo $post->getId()?>, '<?php echo $post->getTopic()->getTopicName()?>', <?php echo $post->getId()?>)"> comment</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 <?php }}?>
+</div>
+<div class="pagination">
+    <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+        <a onclick="loadPosts('<?php echo $this->selectedTopic->getTopicName()?>',<?php echo $i?>)" class="page-link<?php echo ($i === $this->currentPage)? ' current-page': ''?> "><?php echo $i; ?></a>
+    <?php endfor; ?>
 </div>
 
 

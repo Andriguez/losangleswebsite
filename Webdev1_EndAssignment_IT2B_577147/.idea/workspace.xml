@@ -5,20 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/views/connect/popups/posts-window.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/51cfa111-f852-4349-9f6f-ece595806c11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/51cfa111-f852-4349-9f6f-ece595806c11.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/abb37cc5-b258-4574-a5ed-09fb19a58ae0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/abb37cc5-b258-4574-a5ed-09fb19a58ae0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/abb37cc5-b258-4574-a5ed-09fb19a58ae0/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/abb37cc5-b258-4574-a5ed-09fb19a58ae0/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/abb37cc5-b258-4574-a5ed-09fb19a58ae0/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/abb37cc5-b258-4574-a5ed-09fb19a58ae0/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/connectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/connectController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/js/connect/connect.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/js/connect/connect.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/style/connect/connect.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/style/connect/connect.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/FeedRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/FeedRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/FeedService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/FeedService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/connect/index2.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/connect/index2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/events/dynamiccarousel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/dynamiccarousel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/connect/popups/posts-window.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/connect/popups/posts-window.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +127,7 @@
       <workItem from="1705227191165" duration="33648000" />
       <workItem from="1705311589021" duration="6568000" />
       <workItem from="1705331970206" duration="16284000" />
-      <workItem from="1705395285736" duration="13834000" />
+      <workItem from="1705395285736" duration="13973000" />
     </task>
     <servers />
   </component>

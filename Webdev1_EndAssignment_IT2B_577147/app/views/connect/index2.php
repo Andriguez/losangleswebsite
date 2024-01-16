@@ -22,11 +22,6 @@
 <div id="all-posts-container">
 
 </div>
-    <div class="pagination">
-        <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-            <a onclick="loadPosts('<?php echo $this->selectedTopic->getTopicName()?>',<?php echo $i?>)" class="page-link<?php echo ($i === $this->currentPage)? ' current-page': ''?> "><?php echo $i; ?></a>
-        <?php endfor; ?>
-    </div>
 
     <div id="btns-container">
         <a type="button" id="text" onclick="displayPostText('general')"><img src="/media/text-icon.svg" alt=""></a>
