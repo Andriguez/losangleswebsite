@@ -11,7 +11,7 @@
                 <th scope="col">Discipline</th>
                 <th scope="col">Socials</th>
                 <th scope="col">Submission Date</th>
-                <th scope="col">Is User</th>
+                <th scope="col">Is User?</th>
             </tr>
             </thead>
             <tbody>

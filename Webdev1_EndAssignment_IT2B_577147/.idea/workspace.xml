@@ -5,17 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/applications/newuserartist.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/adminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/ArtistApplication.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ArtistApplication.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/js/admin/adminscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/js/admin/adminscript.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/style/admin/adminstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/style/admin/adminstyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/ArtistApplicationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/ArtistApplicationRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/applications/manageApplication.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/applications/manageApplication.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/admin/windows/applications/viewApplications.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/applications/viewApplications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/content/artistspage/manageArtistDetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/content/artistspage/manageArtistDetails.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +125,7 @@
       <workItem from="1705311589021" duration="6568000" />
       <workItem from="1705331970206" duration="16284000" />
       <workItem from="1705395285736" duration="25657000" />
-      <workItem from="1705477596230" duration="11387000" />
+      <workItem from="1705477596230" duration="11541000" />
     </task>
     <servers />
   </component>
