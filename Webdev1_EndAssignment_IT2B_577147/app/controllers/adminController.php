@@ -442,12 +442,13 @@ class adminController extends Controller
                 $message = $data['message'];
                 $socials = $data['socials'];
 
-                $this->aApplicationsService->storeApplication($name,$stagename,$email,$pronouns,$gender,$location,$discipline,$message,$socials);
+                $success = $this->aApplicationsService->storeApplication($name,$stagename,$email,$pronouns,$gender,$location,$discipline,$message,$socials);
 
-                $result = "Artist Application for $name was successfully edited";
+                if ($success){
+                    $result = "Artist Application for $name was successfully edited";
+                } else {$result = "There was an unexpected error trying to update the application, please check the submitted details and try it again";}
                 header('Content-Type: application/json;');
                 echo json_encode($result);
-
             }  else {   echo json_encode("No Artist Application input has been found!");    }
         }
     }
@@ -498,12 +499,62 @@ class adminController extends Controller
             }  else {   echo json_encode("No user has been created or mandatory fields haven't been added!");  }
         }
     }
-    public function deleteapplication($applicationId){
-        if($this->userAuth->allowAdminAccess()) {
+    public function deleteApplication($applicationId){
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'GET'){
 
-        }
-        }
+            if(isset($applicationId)){
+                $this->aApplicationsService->deleteArtistApplication($applicationId);
 
+                $result = 'Artist Application has been successfully deleted';
+
+            } else { $result = 'No Application has been selected'; }
+
+            header('Content-Type: application/json;');
+            echo json_encode($result);
+        }
+    }
+    public function downloadArtistApplications(){
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
+            if($_SERVER['CONTENT_TYPE'] === 'application/json'){
+                $data = json_decode(file_get_contents("php://input"), true);
+                $result = $this->processApplicationsJSON($data);
+
+            } else { $result = ["status" => "error", "message" => "Incorrect content type"]; }
+
+            header('Content-Type: application/json;');
+            echo json_encode($result);
+        }
+    }
+
+    public function displayArtistApplicationsInNewTab(){
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
+            if($_SERVER['CONTENT_TYPE'] === 'application/json'){
+
+                $data = json_decode(file_get_contents("php://input"), true);
+                $result = $this->processApplicationsJSON($data);
+                $applicationsJSON = htmlspecialchars(json_encode($result, JSON_PRETTY_PRINT));
+
+            } else { $result = ["status" => "error", "message" => "Incorrect content type"]; }
+
+            header('Content-Type: application/json;');
+            echo json_encode($result);
+            require __DIR__ . '/../views/admin/windows/applications/displayJSONApplications.php';
+            exit;
+        }
+    }
+
+    private function processApplicationsJSON($data){
+        if (is_array($data)) {
+            $applications = [];
+            foreach ($data as $applicationId) {
+                $application = $this->aApplicationsService->getApplicationById($applicationId);
+                $applications[] = $application;
+            }
+            $result = ["status" => "success", "data" => $applications];
+        } else { $result = ["status" => "error", "message" => "The data is not in the right format"]; }
+
+        return $result;
+    }
     public function viewTopics(){
         if($this->userAuth->allowAdminAccess()){
             $topics = $this->feedService->getAllTopics();
@@ -541,7 +592,6 @@ class adminController extends Controller
 
             header('Content-Type: application/json;');
             echo json_encode($result);
-
         }
     }
     public function viewUsers($selectedUserTypeId = null){

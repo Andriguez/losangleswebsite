@@ -59,33 +59,6 @@ function selectedIdAction(selectedId, functionName, redirect) {
 //  console.log("No user selected.");
 //}
 //}
-function selectedSingleCheckAction(functionName, redirect) {
-    let checkboxes = document.querySelectorAll('.checkbox:checked');
-
-    if (checkboxes.length > 0 && checkboxes.length < 2) {
-        let id = checkboxes[0].id;
-        selectedIdAction(id, functionName, redirect)
-
-    }else if(checkboxes.length > 2){
-        alert("only one checkbox is allowed to be selected.")
-    } else {
-        alert("No checkbox has been selected.");
-    }
-}
-function selectedCheckOpenWindow(functionName) {
-    let checkboxes = document.querySelectorAll('.checkbox:checked');
-
-    if (checkboxes.length > 0 && checkboxes.length === 1) {
-        let id = checkboxes[0].id;
-        let redirect = `${functionName}/${id}`
-        openWindow(redirect)
-
-    } else if (checkboxes.length > 2){
-        alert("more than one checkbox has been selected.");
-    } else {
-        alert("No checkbox has been selected.");
-    }
-}
 
 function selectedRadioBtnAction(functionName, redirect) {
     let radios = document.querySelectorAll('.radioBtn:checked');
@@ -412,4 +385,75 @@ function createUserFromApplication(){
     const redirect = `viewapplications`;
 
     storeData(formData, functionName, redirect);
+}
+
+function selectAll(maincheckbox){
+    const itemCheckboxes = document.querySelectorAll('.aa-checkbox');
+
+    if(itemCheckboxes.length > 0){
+        itemCheckboxes.forEach(checkbox => { checkbox.checked = maincheckbox.checked; });
+    }
+}
+function selectedCheckAction(functionName, redirect, allowmultiple) {
+    let checkboxes = document.querySelectorAll('.aa-checkbox:checked');
+
+    if (checkboxes.length > 0 && checkboxes.length < 2) {
+        let id = checkboxes[0].id;
+        selectedIdAction(id, functionName, redirect)
+
+    }else if(checkboxes.length > 1){
+
+        if (allowmultiple){
+            let data = [];
+            checkboxes.forEach(checkbox => {
+                let id = checkbox.id;
+                data.push(id);
+            });
+            let JSONdata = JSON.stringify(data)
+            multipleSelectionAction(JSONdata, functionName, redirect);
+
+        } else { alert("only one checkbox is allowed to be selected.") }
+
+    } else { alert("No checkbox(s) has been selected."); }
+}
+function multipleSelectionAction(data, functionName, redirect){
+    fetch(`/admin/${functionName}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: data
+    })
+        .then(response => response.json())
+        .then(data => {
+            if(functionName === 'downloadArtistApplications'){
+                downloadJSONdata(data);
+                openWindow(redirect);
+            } else {
+                alert(data.message);
+                openWindow(redirect);
+            } })
+        .catch((error) => console.error('Error:', error));
+}
+function downloadJSONdata(data){
+    const blob = new Blob([JSON.stringify(data.data)],
+        { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = window.URL.createObjectURL(blob);
+    a.download = 'applications.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+function selectedCheckOpenWindow(functionName) {
+    let checkboxes = document.querySelectorAll('.aa-checkbox:checked');
+
+    if (checkboxes.length > 0 && checkboxes.length === 1) {
+        let id = checkboxes[0].id;
+        let redirect = `${functionName}/${id}`
+        openWindow(redirect)
+
+    } else if (checkboxes.length > 2){ alert("more than one checkbox has been selected."); }
+
+    else { alert("No checkbox has been selected."); }
 }

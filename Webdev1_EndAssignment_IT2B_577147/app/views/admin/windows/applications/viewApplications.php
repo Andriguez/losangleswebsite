@@ -4,7 +4,7 @@
         <table class="table table-hover">
             <thead>
             <tr>
-                <th scope="col"><input type="checkbox" name="row1"></th>
+                <th scope="col"><input id="checkAll" type="checkbox" name="row1" onchange="selectAll(this)"></th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Location</th>
@@ -17,7 +17,7 @@
             <tbody>
             <?php if(isset($applications)){ $i=0; foreach ($applications as $application){?>
             <tr>
-                <th scope="row"><input id="<?php echo $application->getApplicationId()?>"  class="checkbox" type="checkbox" name="row<?php echo $i?>"></th>
+                <th scope="row"><input id="<?php echo $application->getApplicationId()?>"  class="aa-checkbox" type="checkbox" name="row<?php echo $i?>"></th>
                 <td><?php echo $application->getName()?></td>
                 <td><?php echo $application->getEmail()?></td>
                 <td><?php echo $application->getLocation()?></td>
@@ -33,9 +33,18 @@
 
 
     <div id="button-container">
-        <button type="button" class="btn btn-danger" onclick="selectedSingleCheckAction('deleteapplication','viewapplications')">Delete</button>
+        <button type="button" class="btn btn-danger" onclick="selectedCheckAction('deleteapplication','viewapplications', false, 'delete')">Delete</button>
         <button class="btn btn-primary" type="button" onclick="selectedCheckOpenWindow('manageapplication')">Edit</button>
         <button type="button" onclick="selectedCheckOpenWindow('displayNewUserArtistForm')" class="btn btn-info">Create User</button>
-        <button type="button" class="btn btn-success">Download Applications</button>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Export Applications.JSON
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" onclick="selectedCheckAction('downloadArtistApplications', 'viewApplications', true)">Download</a></li>
+                <li><a class="dropdown-item" onclick="selectedCheckAction('displayArtistApplicationsInNewTab', 'viewApplications', true)">Open in New Tab</a></li>
+            </ul>
+        </div>
     </div>
 </div>

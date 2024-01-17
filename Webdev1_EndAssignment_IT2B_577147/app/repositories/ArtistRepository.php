@@ -27,7 +27,7 @@ class ArtistRepository extends Repository
             while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
 
                 $artistContent = new ArtistContent();
-                $artistContent->setDescription($row['artist_description']);
+                $artistContent->setDescription(htmlspecialchars_decode($row['artist_description']));
                 $artistContent->setDiscipline($this->getDisciplineById($row['artist_discipline']));
                 $artistContent->setExtraLink($row['artist_extralink']);
                 $artistContent->setEmail($row['artist_email']);

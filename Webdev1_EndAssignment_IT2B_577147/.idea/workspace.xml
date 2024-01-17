@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/applications/displayJSONApplications.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/adminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/registerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/registerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/ArtistApplication.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ArtistApplication.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/js/admin/adminscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/js/admin/adminscript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/ArtistApplicationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/ArtistApplicationRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/ArtistRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/ArtistRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/ArtistApplicationService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/ArtistApplicationService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/about/index2.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/about/index2.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/admin/windows/applications/viewApplications.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/applications/viewApplications.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/register/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/register/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,29 +52,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;back-end-initial&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/brhig/OneDrive/Escritorio/School 22-23/Year 2 Term 3/Project Haarlem Festival/The Festival Repository&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Node.js.adminscript.js.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "back-end-initial",
+    "last_opened_file_path": "C:/Users/brhig/OneDrive/Escritorio/School 22-23/Year 2 Term 3/Project Haarlem Festival/The Festival Repository",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\admin\windows\applications" />
@@ -71,6 +84,16 @@
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\public\js\admin" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\public\style\connect" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="adminscript.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/app/public/js/admin/adminscript.js" working-dir="$PROJECT_DIR$/app/public/js/admin">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.adminscript.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -126,6 +149,7 @@
       <workItem from="1705331970206" duration="16284000" />
       <workItem from="1705395285736" duration="25657000" />
       <workItem from="1705477596230" duration="11541000" />
+      <workItem from="1705504963531" duration="17823000" />
     </task>
     <servers />
   </component>

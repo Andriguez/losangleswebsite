@@ -27,7 +27,8 @@ class ArtistApplicationRepository extends Repository
 
         try {
             $statement = $this->getusersDB()->prepare($query);
-            $statement->execute(array(
+
+            return $statement->execute(array(
                 ':name' => $this->sanitizeText($name),
                 ':stagename' => $this->sanitizeText($stagename),
                 ':email' => $this->sanitizeText($email),
@@ -41,6 +42,20 @@ class ArtistApplicationRepository extends Repository
 
         } catch (\PDOException $e) {
             error_log($e);
+            echo $e->getMessage();
+        }
+    }
+
+    public function deleteArtistApplication($applicationId){
+        $query = "DELETE FROM `artists_applications` WHERE application_Id = :applicationId";
+
+        try{
+            $statement = $this->getusersDB()->prepare($query);
+
+            $statement->bindParam(':applicationId', $applicationId, \PDO::PARAM_INT);
+            $statement->execute();
+
+        }catch(\PDOException $e){
             echo $e->getMessage();
         }
     }
@@ -80,6 +95,20 @@ class ArtistApplicationRepository extends Repository
 
         return $application ?? null;
 
+    }
+
+    public function applicationEmailExists($email){
+        $query = "SELECT application_Id FROM artists_applications WHERE applicant_email = :email ";
+
+        try{
+            $sanitizedEmail = $this->sanitizeText($email);
+            $statement = $this->getusersDB()->prepare($query);
+            $statement->bindParam(':email', $sanitizedEmail);
+
+            $statement->execute();
+
+            return $statement->fetchColumn();
+        } catch (\PDOException $e){echo $e;}
     }
 
     public function getAllApplications(){

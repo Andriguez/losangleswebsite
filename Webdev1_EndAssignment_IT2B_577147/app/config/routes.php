@@ -10,10 +10,10 @@ $routes = [
     new Route(['GET','HEAD'],'eventsController',  null,'/^\/events(?:\/(?:|index|([a-z0-9_-]+)(?:\/(\w+))?)?)?\/?#?$/i'),
                                                                                     // /^\/events(?:\/([a-z0-1_-]+))?$/
     new Route(['GET','HEAD'],'aboutController',  null,'/^\/about(?:\/([a-z0-1_-]+))?$/'),
-    new Route(['GET','HEAD'],'loginController',  null,null,'/login'),
+    new Route(['GET','HEAD'],'loginController',  null,'/^\/login(\/index(\.php)?)?\/?$/'),
     new Route(['POST'],'loginController',  'access',null, '/login/access'),
-    new Route(['GET'],'loginController',  'logOut',null, '/logout'),
-    new Route(['GET','HEAD'],'registerController',  null,null, '/register'),
+    new Route(['GET'],'loginController',  'logOut','/^\/logout(\/index(\.php)?)?\/?$/'),
+    new Route(['GET','HEAD'],'registerController',  null,'/^\/register(\/index(\.php)?)?\/?$/'),
     new Route(['POST','HEAD'],'registerController',  'submitregistration',null, '/register/submitregistration'),
     new Route(['GET','HEAD', 'POST'],'adminController',  null,'/^\/admin(?:\/([a-z0-9_-]+)(?:\/(\w+))?)?\/?#?$/i'),
                                                                                 ///^\/admin(?:\/([a-z0-9_-]+)(?:\/(\w+))?)?\/?$/i

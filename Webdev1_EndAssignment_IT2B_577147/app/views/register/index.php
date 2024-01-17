@@ -115,9 +115,10 @@
     }
 
     #output-message-container{
-        color: red;
+        font-weight: bold;
+        color: black;
         font-family: "Agency FB";
-        font-size: 16px;
+        font-size: 20px;
         margin: auto;
         width: 300px;
     }

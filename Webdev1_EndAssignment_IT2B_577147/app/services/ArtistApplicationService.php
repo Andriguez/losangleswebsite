@@ -13,12 +13,10 @@ class ArtistApplicationService
         $this->AaRepo = new ArtistApplicationRepository();
     }
     public function storeApplication($name, $stagename, $email, $pronouns, $gender, $location, $discipline, $message, $socialmedia){
-        $this->AaRepo->storeApplication($name, $stagename, $email, $pronouns, $gender, $location, $discipline, $message, $socialmedia);
+        return $this->AaRepo->storeApplication($name, $stagename, $email, $pronouns, $gender, $location, $discipline, $message, $socialmedia);
     }
-    public function getApplicationById($applicationId){
-        return $this->AaRepo->getApplicationById($applicationId);
+    public function getApplicationById($applicationId){ return $this->AaRepo->getApplicationById($applicationId); }
+    public function getAllApplications(){ return $this->AaRepo->getAllApplications(); }
+    public function applicationEmailExists($email){ return $this->AaRepo->applicationEmailExists($email); }
+    public function deleteArtistApplication($applicationId){   $this->AaRepo->deleteArtistApplication($applicationId); }
     }
-    public function getAllApplications():array{
-        return $this->AaRepo->getAllApplications();
-    }
-}

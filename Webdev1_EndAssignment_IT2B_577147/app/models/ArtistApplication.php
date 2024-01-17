@@ -2,7 +2,9 @@
 
 namespace models;
 
-class ArtistApplication
+use ReturnTypeWillChange;
+
+class ArtistApplication implements \JsonSerializable
 {
     private int $application_Id;
     private string $applicant_name,$applicant_stagename,$applicant_email,
@@ -10,6 +12,23 @@ class ArtistApplication
         $applicant_discipline,$applicant_message,$applicant_socialmedia;
     private \DateTime $application_submissiondate;
     private bool $isUser;
+
+    #[ReturnTypeWillChange]
+    public function jsonSerialize(){
+        return [
+            'applicant_name' => $this->applicant_name,
+            'applicant_stagename' => $this->applicant_stagename,
+            'applicant_email' => $this->applicant_email,
+            'applicant_pronouns' => $this->applicant_pronouns,
+            'applicant_gender' => $this->applicant_gender,
+            'applicant_location' => $this->applicant_location,
+            'applicant_discipline' => $this->applicant_discipline,
+            'applicant_message' => $this->applicant_message,
+            'applicant_socialmedia' => $this->applicant_socialmedia,
+            'application_submissiondate' => $this->application_submissiondate,
+            'applicant_isAngle' => $this->isUser
+        ];
+    }
 
     //setters
     public function setApplicationId($id){$this->application_Id = $id;}
