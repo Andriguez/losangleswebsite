@@ -431,6 +431,8 @@ function multipleSelectionAction(data, functionName, redirect){
                 openWindow(redirect);
             } else if (functionName === 'displayArtistApplicationsInNewTab') {
                 console.log(JSON.stringify(data));
+                const div = document.getElementById('displayApplicationsJson');
+                div.innerHTML = data;
             } else{
                 alert(data.message);
                 openWindow(redirect);

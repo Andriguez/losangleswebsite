@@ -47,4 +47,6 @@
             </ul>
         </div>
     </div>
+
+    <div id="displayApplicationsJson"></div>
 </div>
