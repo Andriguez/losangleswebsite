@@ -133,7 +133,7 @@ session_start();} ?>
                     <div class="accordion-body">
                         <!--APPLICATIONS CHILD OPTIONS-->
                         <ul class="nav nav-pills flex-column mb-auto">
-                            <li><a href="#" class="nav-link text-reset" onclick="openWindow('viewapplications')">manage applications</a></li>
+                            <li><a class="nav-link text-reset" onclick="openWindow('viewapplications')">manage applications</a></li>
                         </ul>
                     </div>
                 </div>

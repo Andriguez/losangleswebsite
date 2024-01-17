@@ -54,6 +54,8 @@ class ArtistApplicationRepository extends Repository
             $statement->bindParam(':id', $id, \PDO::PARAM_INT);
             $statement->execute();
 
+            $userRepo = new UserRepository();
+
             while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
 
                 $application = new ArtistApplication();
@@ -67,6 +69,7 @@ class ArtistApplicationRepository extends Repository
                 $application->setDiscipline($row['applicant_discipline']);
                 $application->setMessage($row['applicant_message']);
                 $application->setSocialMedia($row['applicant_socialmedia']);
+                $application->setIsUser(!empty($userRepo->getUserByEmail($row['applicant_email'])));
 
                 $dateTimestring = $row['application_submissiondate'];
                 $dateTime = \DateTime::createFromFormat('Y-m-d', $dateTimestring);

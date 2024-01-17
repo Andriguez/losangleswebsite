@@ -9,6 +9,7 @@ class ArtistApplication
         $applicant_pronouns,$applicant_gender, $applicant_location,
         $applicant_discipline,$applicant_message,$applicant_socialmedia;
     private \DateTime $application_submissiondate;
+    private bool $isUser;
 
     //setters
     public function setApplicationId($id){$this->application_Id = $id;}
@@ -22,11 +23,18 @@ class ArtistApplication
     public function setMessage($message){$this->applicant_message = $message;}
     public function setSocialMedia($socialmedia){$this->applicant_socialmedia = $socialmedia;}
     public function setSubmissionDate($datetime){ $this->application_submissiondate = $datetime;}
+    public function setIsUser($isUser) { $this->isUser = $isUser; }
 
 
     //getters
     public function getApplicationId():int{return $this->application_Id;}
     public function getName(){return $this->applicant_name;}
+    public function getFirstName(){
+        $result = explode(' ',$this->applicant_name, 2);
+        return $result[0];}
+    public function getLastName(){
+    $result = explode(' ',$this->applicant_name, 2);
+    return $result[1];}
     public function getStagename(){return $this->applicant_stagename;}
     public function getEmail(){return $this->applicant_email;}
     public function getPronouns(){return $this->applicant_pronouns;}
@@ -36,5 +44,6 @@ class ArtistApplication
     public function getMessage(){return $this->applicant_message;}
     public function getSocialMedia(){return $this->applicant_socialmedia;}
     public function getSubmissionDate():\DateTime{return $this->application_submissiondate;}
+    public function getIsUser(){return $this->isUser;}
 
 }

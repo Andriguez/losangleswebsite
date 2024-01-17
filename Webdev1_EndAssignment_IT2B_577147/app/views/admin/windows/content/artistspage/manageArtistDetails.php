@@ -24,7 +24,7 @@
         <div class="col-md-8">
             <div class="row g-3">
                 <div id="nameCol" class="col-md-6">
-                    <span id="selectedArtistName"><?php echo(isset($selectedArtist))? $selectedArtist->getFullName() : '';?></span>
+                    <span id="selectedArtistName"><?php $selectedArtist->getFullName();?></span>
                 </div>
                 <div class="col-md-5">
                     <label for="inputstagename" class="form-label"><strong>stage name</strong></label>

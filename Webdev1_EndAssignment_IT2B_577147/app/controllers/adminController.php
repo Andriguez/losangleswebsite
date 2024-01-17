@@ -421,10 +421,89 @@ class adminController extends Controller
             require __DIR__ . '/../views/admin/windows/applications/viewApplications.php';
         }
     }
-    public function manageApplication(){
-        if($this->userAuth->allowAdminAccess())
+    public function manageApplication($applicationId){
+        if($this->userAuth->allowAdminAccess()){
+            if(isset($applicationId)){ $application = $this->aApplicationsService->getApplicationById($applicationId); }
             require __DIR__ . '/../views/admin/windows/applications/manageApplication.php';
+        }
     }
+    public function storeapplication(){
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
+            $data = json_decode(file_get_contents("php://input"), true);
+
+            if(isset($data['email'])){
+                $name = $data['name'];
+                $stagename = $data['stagename'];
+                $email = $data['email'];
+                $location = $data['location'];
+                $pronouns = $data['pronouns'];
+                $gender = $data['gender'];
+                $discipline = $data['discipline'];
+                $message = $data['message'];
+                $socials = $data['socials'];
+
+                $this->aApplicationsService->storeApplication($name,$stagename,$email,$pronouns,$gender,$location,$discipline,$message,$socials);
+
+                $result = "Artist Application for $name was successfully edited";
+                header('Content-Type: application/json;');
+                echo json_encode($result);
+
+            }  else {   echo json_encode("No Artist Application input has been found!");    }
+        }
+    }
+
+    public function displayNewUserArtistForm($applicationId){
+        if($this->userAuth->allowAdminAccess()){
+            if(isset($applicationId)){ $application = $this->aApplicationsService->getApplicationById($applicationId); }
+            $disciplines = $this->artistService->getAllDisciplines();
+            require __DIR__ . '/../views/admin/windows/applications/newuserartist.php';
+        }
+    }
+    public function createUserFromApplication(){
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
+            $userId = rand(999, 9999);
+            if(isset($_POST['email']) && isset($_POST['usertype'])){
+
+                $firstname = $_POST['firstname'];
+                $lastname = $_POST['lastname'];
+                $email = $_POST['email'];
+                $usertype = $_POST['usertype'];
+                $pronouns = $_POST['pronouns'];
+                //$password = $this->userAuth->hashPassword($_POST['password']);
+                $password = $_POST['password'];
+                $picture = 1;
+
+                $this->userService->storeUser($userId, $firstname, $lastname, $email, $pronouns, $usertype, $password, $picture);
+
+                $result = "A new collaborator has been added: applicant $firstname $lastname is now a member.!";
+
+                if($usertype === '3'){
+                    $stagename = $_POST['stagename'];
+                    $discipline = $_POST['discipline'];
+                    $location = $_POST['location'];
+                    $description = $_POST['description'];
+                    $socialslink = $_POST['socials'];
+
+                    if(isset($_FILES['picture']) && !($_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE)){
+                        $picture = $this->uploadPicture('artists/','artistpicture');    }
+
+                    $this->artistService->storeArtistContent($userId, $description, ' ', $discipline, $email, ' ', $socialslink, $stagename, $picture, $location);
+
+                    $result = " A new artist has been added: applicant $firstname $lastname ($stagename) is now a featured artist.";
+                }
+
+                header('Content-Type: application/json;');
+                echo json_encode($result);
+
+            }  else {   echo json_encode("No user has been created or mandatory fields haven't been added!");  }
+        }
+    }
+    public function deleteapplication($applicationId){
+        if($this->userAuth->allowAdminAccess()) {
+
+        }
+        }
+
     public function viewTopics(){
         if($this->userAuth->allowAdminAccess()){
             $topics = $this->feedService->getAllTopics();
@@ -489,7 +568,7 @@ class adminController extends Controller
     public function storeUser($userId = null){
         if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
             if(!isset($userId) | $userId == 0){    $userId = rand(999, 9999);  }
-            if(isset($_POST)){
+            if(isset($_POST['email']) && isset($_POST['usertype'])){
 
                 $firstname = $_POST['firstname'];
                 $lastname = $_POST['lastname'];
@@ -544,10 +623,10 @@ class adminController extends Controller
             return $this->contentService->createMediaInfo($fileName, $mediaType, $directoryId);
         }
     }
-    public function manageCollaboratorDetails(){
-        if($this->userAuth->allowAdminAccess())
-            require __DIR__ . '/../views/admin/windows/users/manageCollaboratorInfo.php';
-    }
+    //public function manageCollaboratorDetails(){
+      //  if($this->userAuth->allowAdminAccess())
+        //    require __DIR__ . '/../views/admin/windows/users/manageCollaboratorInfo.php';
+    //}
 
     /*public function hashtest(){
         $costs = [10, 11, 12, 13, 14];

@@ -59,6 +59,33 @@ function selectedIdAction(selectedId, functionName, redirect) {
 //  console.log("No user selected.");
 //}
 //}
+function selectedSingleCheckAction(functionName, redirect) {
+    let checkboxes = document.querySelectorAll('.checkbox:checked');
+
+    if (checkboxes.length > 0 && checkboxes.length < 2) {
+        let id = checkboxes[0].id;
+        selectedIdAction(id, functionName, redirect)
+
+    }else if(checkboxes.length > 2){
+        alert("only one checkbox is allowed to be selected.")
+    } else {
+        alert("No checkbox has been selected.");
+    }
+}
+function selectedCheckOpenWindow(functionName) {
+    let checkboxes = document.querySelectorAll('.checkbox:checked');
+
+    if (checkboxes.length > 0 && checkboxes.length === 1) {
+        let id = checkboxes[0].id;
+        let redirect = `${functionName}/${id}`
+        openWindow(redirect)
+
+    } else if (checkboxes.length > 2){
+        alert("more than one checkbox has been selected.");
+    } else {
+        alert("No checkbox has been selected.");
+    }
+}
 
 function selectedRadioBtnAction(functionName, redirect) {
     let radios = document.querySelectorAll('.radioBtn:checked');
@@ -68,7 +95,7 @@ function selectedRadioBtnAction(functionName, redirect) {
         selectedIdAction(id, functionName, redirect)
 
     } else {
-        alert("No id selected.");
+        alert("No radio button has been selected.");
     }
 }
 
@@ -81,7 +108,7 @@ function selectedRadioBtnOpenWindow(functionName) {
         openWindow(redirect)
 
     } else {
-        alert("No id selected.");
+        alert("No radio button has been selected.");
     }
 }
 
@@ -328,4 +355,61 @@ function storeEventLineUp() {
     const redirect = 'viewtopics';
 
     storeData(data, functionName, redirect);
+}
+
+//APPLICATIONS
+
+function storeApplication(){
+    let name = document.getElementById('inputName').value;
+    let stagename = document.getElementById('inputStageName').value;
+    let email = document.getElementById('inputEmail').value;
+    let location = document.getElementById('inputLocation').value;
+    let pronouns = document.getElementById('inputpronouns').value;
+    let gender = document.getElementById('inputGender').value;
+    let discipline = document.getElementById('inputDiscipline').value;
+    let message = document.getElementById('inputMessage').value;
+    let socials = document.getElementById('inputSocials').value;
+
+    const data = {"name": name, "stagename": stagename, "email": email, "location": location, "pronouns": pronouns, "gender": gender, "discipline": discipline, "message": message, "socials": socials}
+    const functionName = 'storeapplication';
+    const redirect = 'viewapplications';
+
+    storeData(data, functionName, redirect);
+}
+
+function createUserFromApplication(){
+    let email = document.getElementById('inputEmail').value;
+    let password = document.getElementById('inputPassword').value;
+    let pronouns = document.getElementById('inputpronouns').value;
+    let firstname = document.getElementById('inputfirstname').value;
+    let lastname = document.getElementById('inputlastname').value;
+    let stagename = document.getElementById('inputstagename').value;
+    let usertype = document.getElementById('inputType').value;
+    let discipline = document.getElementById('inputDiscipline').value;
+    let location = document.getElementById('inputlocation').value;
+    let description = document.getElementById('inputdescription').value;
+    let socials = document.getElementById('inputsocials').value;
+
+    let fileInput = document.getElementById('upload-artist-picture');
+    let file = fileInput.files[0];
+
+    const formData = new FormData();
+    formData.append('email', email);
+    formData.append('password', password);
+    formData.append('pronouns', pronouns);
+    formData.append('firstname', firstname);
+    formData.append('description', description);
+    formData.append('lastname', lastname);
+    formData.append('stagename', stagename);
+    formData.append('usertype', usertype);
+    formData.append('discipline', discipline);
+    formData.append('location', location);
+    formData.append('picture', file);
+    formData.append('socials', socials);
+
+
+    const functionName = 'createuserfromapplication';
+    const redirect = `viewapplications`;
+
+    storeData(formData, functionName, redirect);
 }
