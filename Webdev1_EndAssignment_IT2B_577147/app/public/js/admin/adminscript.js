@@ -397,11 +397,11 @@ function selectAll(maincheckbox){
 function selectedCheckAction(functionName, redirect, allowmultiple) {
     let checkboxes = document.querySelectorAll('.aa-checkbox:checked');
 
-    if (checkboxes.length > 0 && checkboxes.length < 2) {
+    if (checkboxes.length > 0 && !allowmultiple) {
         let id = checkboxes[0].id;
         selectedIdAction(id, functionName, redirect)
 
-    }else if(checkboxes.length > 1){
+    }else if(checkboxes.length >= 1){
 
         if (allowmultiple){
             let data = [];

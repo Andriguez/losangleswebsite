@@ -5,19 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/views/admin/windows/applications/displayJSONApplications.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/adminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/registerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/registerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/ArtistApplication.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ArtistApplication.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/public/js/admin/adminscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/js/admin/adminscript.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/ArtistApplicationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/ArtistApplicationRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/ArtistRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/ArtistRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/ArtistApplicationService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/ArtistApplicationService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/about/index2.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/about/index2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/applications/viewApplications.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/applications/viewApplications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/register/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/register/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +138,7 @@
       <workItem from="1705331970206" duration="16284000" />
       <workItem from="1705395285736" duration="25657000" />
       <workItem from="1705477596230" duration="11541000" />
-      <workItem from="1705504963531" duration="17823000" />
+      <workItem from="1705504963531" duration="18125000" />
     </task>
     <servers />
   </component>
