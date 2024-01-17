@@ -424,12 +424,14 @@ function multipleSelectionAction(data, functionName, redirect){
         },
         body: data
     })
-        .then(response => response.json())
+        .then(response => response.json() )
         .then(data => {
             if(functionName === 'downloadArtistApplications'){
                 downloadJSONdata(data);
                 openWindow(redirect);
-            } else {
+            } else if (functionName === 'displayArtistApplicationsInNewTab') {
+                console.log(JSON.stringify(data));
+            } else{
                 alert(data.message);
                 openWindow(redirect);
             } })

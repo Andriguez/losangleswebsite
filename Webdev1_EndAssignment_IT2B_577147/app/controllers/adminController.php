@@ -528,18 +528,12 @@ class adminController extends Controller
 
     public function displayArtistApplicationsInNewTab(){
         if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
-            if($_SERVER['CONTENT_TYPE'] === 'application/json'){
 
                 $data = json_decode(file_get_contents("php://input"), true);
                 $result = $this->processApplicationsJSON($data);
                 $applicationsJSON = htmlspecialchars(json_encode($result, JSON_PRETTY_PRINT));
-
-            } else { $result = ["status" => "error", "message" => "Incorrect content type"]; }
-
-            header('Content-Type: application/json;');
-            echo json_encode($result);
-            require __DIR__ . '/../views/admin/windows/applications/displayJSONApplications.php';
-            exit;
+                require __DIR__ . '/../views/admin/windows/applications/displayJSONApplications.php';
+                
         }
     }
 
