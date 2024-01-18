@@ -333,7 +333,19 @@ class ContentRepository extends Repository
             return $mediaInfo;
         } catch (\PDOException $e){echo $e;}
     }
+    public function deleteMediaEntryByName($fileName){
+        $query = "DELETE FROM `media` WHERE media_filename = :fileName";
 
+        try{
+            $statement = $this->getContentDB()->prepare($query);
+
+            $statement->bindParam(':fileName', $fileName);
+            $statement->execute();
+
+        }catch(\PDOException $e){
+            echo $e->getMessage();
+        }
+    }
     public function getAllMediaInfoEntries(){
         $query = "SELECT media_Id FROM media";
 

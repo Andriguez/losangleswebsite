@@ -74,4 +74,7 @@ class ContentService
     public function getAdminContentById($adminId){
         return $this->contentRepo->getAdminContentById($adminId);
     }
+    public function deleteMediaByfileName($fileName){
+        $this->contentRepo->deleteMediaEntryByName($fileName);
+    }
 }

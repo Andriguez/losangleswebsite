@@ -64,9 +64,13 @@ class adminController extends Controller
     public function updateHomepagePicture(){
         if($this->userAuth->allowAdminAccess()){
             if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['picture'])){
+                $currentPicture = $this->contentService->getAllContentByPageId(2)['homepagePicture']->getMedia();
+
                 $picture = $this->uploadPicture('homepage/','homepagePicture');
                 $elementId = 'homepagePicture';
                 $this->contentService->updateContentPictureByElementId($elementId, $picture);
+
+                if (isset($currentPicture)){ $this->deletePicture("{$currentPicture->getMediaPath()->getPath()}{$currentPicture->getMediaFilename()}",$currentPicture->getMediaFilename());}
 
                 $result = 'The Homepage picture has been successfully updated!';
             } else{
@@ -102,23 +106,23 @@ class adminController extends Controller
                 $soundcloudlink = $_POST['soundcloud'];
                 $extralink = $_POST['extraLink'];
 
-                if(!isset($_FILES['picture']) || $_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE){
-                    $artistContent = $this->artistService->getArtistContentById($artistId);
+                $artistContent = $this->artistService->getArtistContentById($artistId);
 
+                if(!isset($_FILES['picture']) || $_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE){
                     if(!isset($artistContent)){     $picture = 1;   }
                     else{
                         $picture = $artistContent->getPicture()->getMediaId(); }
 
                 } else {
-                    $picture = $this->uploadPicture('artists/','artistpicture');
-                }
+                        if(isset($artistContent)){$currentArtistPicture = $artistContent->getPicture();}
+                        $picture = $this->uploadPicture('artists/','artistpicture'); }
 
-                $this->artistService->storeArtistContent($artistId, $description, $extralink, $discipline, $email, $soundcloudlink, $socialslink, $stagename, $picture, $location);
+                        $this->artistService->storeArtistContent($artistId, $description, $extralink, $discipline, $email, $soundcloudlink, $socialslink, $stagename, $picture, $location);
+                        if (isset($currentArtistPicture) && $currentArtistPicture->getMediaId() != 1){ $this->deletePicture("{$currentArtistPicture->getMediaPath()->getPath()}{$currentArtistPicture->getMediaFilename()}",$currentArtistPicture->getMediaFilename());}
 
-                $result = "details for artist: $stagename were successfully added";
-                header('Content-Type: application/json;');
-                echo json_encode($result);
-
+                        $result = "details for artist: $stagename were successfully added";
+                        header('Content-Type: application/json;');
+                        echo json_encode($result);
             }  else {   echo json_encode("No artist details have been added!"); }
         }
     }
@@ -187,21 +191,23 @@ class adminController extends Controller
                 $btnText = $_POST['btnText'];
                 $btnLink = $_POST['btnLink'];
 
-                if(!isset($_FILES['picture']) || $_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE){
-                    if (isset($eventId) && $eventId !=0 ){$event = $this->eventService->getEventById($eventId);}
+                if ($eventId !=0 ){$event = $this->eventService->getEventById($eventId);}
 
+                if(!isset($_FILES['picture']) || $_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE){
                     if(!isset($event)){     $eventPoster = 1;   }
                     else{
                         $eventPoster = $event->getEventPoster()->getMediaId(); }
 
                 } else {
-                    $eventPoster = $this->uploadPicture('events/','eventposter');
+                        if(isset($event)){  $currentEventPoster = $event->getEventPoster(); }
+                         $eventPoster = $this->uploadPicture('events/','eventposter');
                 }
 
                 if($eventId == 0){
                     $this->eventService->storeEvent($name, $type, $dateTime, $location, $description, $btnText, $btnLink, $eventPoster);
                 } else{
                     $this->eventService->storeEvent($name, $type, $dateTime, $location, $description, $btnText, $btnLink, $eventPoster, $eventId);
+                    if (isset($currentEventPoster) && $currentEventPoster->getMediaId() != 1){ $this->deletePicture("{$currentEventPoster->getMediaPath()->getPath()}{$currentEventPoster->getMediaFilename()}",$currentEventPoster->getMediaFilename());}
                 }
 
                 $result = "details for event: $name were successfully added";
@@ -382,18 +388,20 @@ class adminController extends Controller
                 $titles = $_POST['titles'];
                 $description = $_POST['description'];
 
-                if(!isset($_FILES['picture']) || $_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE){
-                    $adminContent = $this->contentService->getAdminContentById($adminId);
+                $adminContent = $this->contentService->getAdminContentById($adminId);
 
+                if(!isset($_FILES['picture']) || $_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE){
                     if(!isset($adminContent)){     $picture = 1;   }
                     else{
                         $picture = $adminContent->getMediaInfo()->getMediaId(); }
 
                 } else {
+                    if(isset($adminContent)){ $currentAdminPicture = $adminContent->getMediaInfo();}
                     $picture = $this->uploadPicture('about/','anglepicture');
                 }
 
                 $this->contentService->storeAdminContent($adminId, $link, $titles, $description, $picture);
+                if (isset($currentAdminPicture) && $currentAdminPicture->getMediaId() != 1){ $this->deletePicture("{$currentAdminPicture->getMediaPath()->getPath()}{$currentAdminPicture->getMediaFilename()}",$currentAdminPicture->getMediaFilename());}
 
                 $adminName = $this->userService->getUserById($adminId)->getFullName();
 
@@ -654,14 +662,20 @@ class adminController extends Controller
                 //$password = $this->userAuth->hashPassword($_POST['password']);
                 $password = $_POST['password'];
 
-                if(!isset($_FILES['picture']) || $_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE){
-                    $user = $this->userService->getUserById($userId);
+                $user = $this->userService->getUserById($userId);
 
+
+                if(!isset($_FILES['picture']) || $_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE){
                     if(!isset($user)){ $picture = 1; } else { $picture = $user->getMediaInfo()->getMediaId(); }
 
-                } else {    $picture = $this->uploadPicture('users/','userpicture');    }
+                } else {
+                        if (isset($user)){  $currentUserPicture = $user->getMediaInfo();  }
+                        $picture = $this->uploadPicture('users/','userpicture');
+                }
 
                 $this->userService->storeUser($userId, $firstname, $lastname, $email, $pronouns, $usertype, $password, $picture);
+
+                if (isset($currentUserPicture) && $currentUserPicture->getMediaId() != 1){ $this->deletePicture("{$currentUserPicture->getMediaPath()->getPath()}{$currentUserPicture->getMediaFilename()}",$currentUserPicture->getMediaFilename());}
 
                 $result = "the information of user: $firstname $lastname was successfully added";
                 header('Content-Type: application/json;');
@@ -686,8 +700,20 @@ class adminController extends Controller
     }
     private function uploadPicture($mediaDirectory, $mediaType){
         if ($_FILES['picture']['error'] == UPLOAD_ERR_OK) {
+            $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/svg', 'image/webp'];
+            $fileMimeType = mime_content_type($_FILES['picture']['tmp_name']);
 
-            $fileName = $_FILES['picture']['name'];
+            if (!in_array($fileMimeType, $allowedMimeTypes)) {
+                die("Invalid file type for the picture.");
+            }
+
+            $maxFileSize = 8 * 1024 * 1024; // 8 MB;
+
+            if ($_FILES['picture']['size'] > $maxFileSize) {
+                die("Picture size is too large.");
+            }
+            //$fileName = uniqid() . '.' . $_FILES['picture']['name'];
+            $fileName = uniqid() . '.' . pathinfo($_FILES['picture']['name'], PATHINFO_EXTENSION);
             $tempName = $_FILES['picture']['tmp_name'];
 
             $defaultDir = 'media/';
@@ -695,8 +721,16 @@ class adminController extends Controller
             move_uploaded_file($tempName, $path);
 
             $directoryId = $this->contentService->createDirectory('media', $defaultDir.$mediaDirectory);
+            $mediaId = $this->contentService->createMediaInfo($fileName, $mediaType, $directoryId);
 
-            return $this->contentService->createMediaInfo($fileName, $mediaType, $directoryId);
+            return $mediaId;
+        }
+    }
+
+    private function deletePicture($picturePath, $pictureName){
+        if(file_exists($picturePath)){
+            $this->contentService->deleteMediaByfileName($pictureName);
+            unlink($picturePath);
         }
     }
     //public function manageCollaboratorDetails(){
