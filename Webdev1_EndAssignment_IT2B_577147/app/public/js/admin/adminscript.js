@@ -429,14 +429,9 @@ function multipleSelectionAction(data, functionName, redirect){
             if(functionName === 'downloadArtistApplications'){
                 downloadJSONdata(data);
                 openWindow(redirect);
-            } else if (functionName === 'displayArtistApplicationsInNewTab') {
-                console.log(JSON.stringify(data));
-                const div = document.getElementById('displayApplicationsJson');
-                div.innerHTML = data;
             } else{
                 alert(data.message);
-                openWindow(redirect);
-            } })
+                openWindow(redirect);} })
         .catch((error) => console.error('Error:', error));
 }
 function downloadJSONdata(data){

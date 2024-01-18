@@ -31,22 +31,10 @@
         </table>
     </div>
 
-
     <div id="button-container">
         <button type="button" class="btn btn-danger" onclick="selectedCheckAction('deleteapplication','viewapplications', false, 'delete')">Delete</button>
         <button class="btn btn-primary" type="button" onclick="selectedCheckOpenWindow('manageapplication')">Edit</button>
         <button type="button" onclick="selectedCheckOpenWindow('displayNewUserArtistForm')" class="btn btn-info">Create User</button>
-
-        <div class="btn-group">
-            <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                Export Applications.JSON
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" onclick="selectedCheckAction('downloadArtistApplications', 'viewApplications', true)">Download</a></li>
-                <li><a class="dropdown-item" onclick="selectedCheckAction('displayArtistApplicationsInNewTab', 'viewApplications', true)">Open in New Tab</a></li>
-            </ul>
-        </div>
+        <button type="button" class="btn btn-success" onclick="selectedCheckAction('downloadArtistApplications', 'viewApplications', true)">Download Applications</button>
     </div>
-
-    <div id="displayApplicationsJson"></div>
 </div>

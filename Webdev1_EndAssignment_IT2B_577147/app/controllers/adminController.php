@@ -526,17 +526,6 @@ class adminController extends Controller
         }
     }
 
-    public function displayArtistApplicationsInNewTab(){
-        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
-
-                $data = json_decode(file_get_contents("php://input"), true);
-                $result = $this->processApplicationsJSON($data);
-                $applicationsJSON = htmlspecialchars(json_encode($result, JSON_PRETTY_PRINT));
-                require __DIR__ . '/../views/admin/windows/applications/displayJSONApplications.php';
-                
-        }
-    }
-
     private function processApplicationsJSON($data){
         if (is_array($data)) {
             $applications = [];

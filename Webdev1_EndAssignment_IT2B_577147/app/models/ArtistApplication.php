@@ -25,7 +25,7 @@ class ArtistApplication implements \JsonSerializable
             'applicant_discipline' => $this->applicant_discipline,
             'applicant_message' => $this->applicant_message,
             'applicant_socialmedia' => $this->applicant_socialmedia,
-            'application_submissiondate' => $this->application_submissiondate,
+            'application_submissiondate' => $this->application_submissiondate->format('d/m/y'),
             'applicant_isAngle' => $this->isUser
         ];
     }
