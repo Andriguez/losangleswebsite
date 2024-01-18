@@ -72,6 +72,20 @@ function selectedRadioBtnAction(functionName, redirect) {
     }
 }
 
+function openPostInNewTab(topicName) {
+    let radios = document.querySelectorAll('.radioBtn:checked');
+
+    if (radios.length > 0) {
+        let id = radios[0].id;
+        const url =`/feed/${topicName}/viewpost/${id}`
+
+        window.open(url, '_blank')
+
+    } else {
+        alert("No radio button has been selected.");
+    }
+}
+
 function selectedRadioBtnOpenWindow(functionName) {
     let radios = document.querySelectorAll('.radioBtn:checked');
 

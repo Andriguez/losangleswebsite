@@ -321,6 +321,26 @@ class FeedRepository extends Repository
         }catch (\PDOException $e){echo $e;}
     }
 
+    public function getPostersByTopic($topic){
+        $query = "SELECT DISTINCT `post_user` FROM `feed_posts` WHERE `post_topic` = :topic";
+
+        try{
+            $statement = $this->getfeedDB()->prepare($query);
+            $statement->bindParam(':topic', $topic);
+            $statement->execute();
+
+            $userRepo = new UserRepository();
+
+            while($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+                $user = $userRepo->getUserById($row['post_user']);
+                $allPosters[] = $user;
+            }
+
+            return $allPosters ?? null;
+        }catch (\PDOException $e){echo $e;}
+
+    }
+
     private function sanitizeText($input):string{
         return htmlspecialchars($input);
 

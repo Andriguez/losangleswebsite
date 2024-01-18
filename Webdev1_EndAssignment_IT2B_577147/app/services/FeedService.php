@@ -17,7 +17,7 @@ class FeedService
         $this->feedRepo->createPost($userId, $title, $content, $topic);
     }
     public function deletePost($postId){
-        $this->deletePost($postId);
+        $this->feedRepo->deletePost($postId);
     }
     public function getPostById($postId){
         return $this->feedRepo->getPostById($postId);
@@ -58,5 +58,8 @@ class FeedService
     }
     public  function createComment($userId, $parentPost, $content){
         $this->feedRepo->createComment($userId, $parentPost, $content);
+    }
+    public function getPostersByTopic($topic){
+        return $this->feedRepo->getPostersByTopic($topic);
     }
 }

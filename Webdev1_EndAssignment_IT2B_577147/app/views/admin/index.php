@@ -150,8 +150,12 @@ session_start();} ?>
                     <div class="accordion-body">
                         <!--FEED CHILD OPTIONS-->
                         <ul class="nav nav-pills flex-column mb-auto">
+                            <li><a onclick="openWindow('viewposts')" class="nav-link text-reset">posts</a></li>
+                        </ul>
+                        <ul class="nav nav-pills flex-column mb-auto">
                             <li><a onclick="openWindow('viewtopics')" class="nav-link text-reset">topics</a></li>
                         </ul>
+
                     </div>
                 </div>
             </div>

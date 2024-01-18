@@ -538,6 +538,30 @@ class adminController extends Controller
 
         return $result;
     }
+    public function viewPosts($selectedTopicId = null){
+        if($this->userAuth->allowAdminAccess()){
+            if(isset($selectedTopicId)){
+                $selectedTopic = $this->feedService->getTopicById($selectedTopicId);
+                $users = $this->feedService->getPostersByTopic($selectedTopicId);
+                $posts = $this->feedService->getAllPostsByTopic($selectedTopicId, 100, 1);
+            }
+            $topics = $this->feedService->getAllTopics();
+            require __DIR__ . '/../views/admin/windows/feed/viewPosts.php';
+        }
+    }
+    public function deletePost($postId){
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'GET'){
+            if(isset($postId)){
+                $this->feedService->deletePost($postId);
+
+                $result = 'Post has been successfully deleted';
+
+            } else { $result = 'no Post has been selected'; }
+
+            header('Content-Type: application/json;');
+            echo json_encode($result);
+        }
+    }
     public function viewTopics(){
         if($this->userAuth->allowAdminAccess()){
             $topics = $this->feedService->getAllTopics();
