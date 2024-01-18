@@ -1,4 +1,4 @@
-<div id="viewusers">
+<div id="viewPosts">
     <h1>Posts</h1>
     <select id="selectTopic" class="form-select" onchange="displaySelectIdAction(this, 'viewPosts')">
         <option selected value="<?php echo isset($selectedTopic) ? $selectedTopic->getTopicId() : ''?>"><?php echo isset($selectedTopic) ? $selectedTopic->getTopicName() : 'Choose..'?></option>

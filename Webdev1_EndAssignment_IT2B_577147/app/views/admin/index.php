@@ -41,7 +41,7 @@ session_start();} ?>
                                     <div class="accordion-body">
                                         <!--CHiLD ACCORDION HOME-PAGE OPTIONS-->
                                         <ul class="nav nav-pills flex-column mb-auto">
-                                            <li><a onClick="openWindow('managehomepagelogo')" class="nav-link text-reset">Logo</a></li>
+                                            <li><a onClick="openWindow('managehomepagepicture')" class="nav-link text-reset">Main Picture</a></li>
                                         </ul>
                                     </div>
                                 </div>

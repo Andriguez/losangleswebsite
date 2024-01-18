@@ -1,19 +1,23 @@
 <?php
 namespace controllers;
+use services\ContentService;
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
 require __DIR__ . '/Controller.php';
+require __DIR__ . '/../services/ContentService.php';
+
 class homeController extends Controller
 {
+    private ContentService $contentService;
+
+    public function __construct(){
+        $this->contentService = new ContentService;
+    }
     public function index(){
+        $homepagePicture = $this->contentService->getAllContentByPageId(2)['homepagePicture'];
         require __DIR__ . '/../views/home/index.php';
-        if(!isset($_SESSION['user_id'])){
-            $_SESSION['visitor_id'] = rand(999999, 2000000);
-            echo $_SESSION['visitor_id'];
-        } else{
-            echo $_SESSION['user_id'].' - '.$_SESSION['user_type'];
-        }
     }
 }

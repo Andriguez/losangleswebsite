@@ -54,9 +54,28 @@ class adminController extends Controller
         }
     }
 
-    public function manageHomepageLogo(){
-        if($this->userAuth->allowAdminAccess())
+    public function manageHomepagePicture(){
+        if($this->userAuth->allowAdminAccess()){
+            $pictureSrc = $this->contentService->getAllContentByPageId(2)['homepagePicture']->getPictureSrc();
             require __DIR__ . '/../views/admin/windows/content/homepage/manageLogo.php';
+        }
+    }
+
+    public function updateHomepagePicture(){
+        if($this->userAuth->allowAdminAccess()){
+            if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['picture'])){
+                $picture = $this->uploadPicture('homepage/','homepagePicture');
+                $elementId = 'homepagePicture';
+                $this->contentService->updateContentPictureByElementId($elementId, $picture);
+
+                $result = 'The Homepage picture has been successfully updated!';
+            } else{
+                $result = 'No file or the wrong file has been uploaded in the input. Please chose a valid image file and try again';
+            }
+
+            header('Content-Type: application/json;');
+            echo json_encode($result);
+        }
     }
     public function manageArtistDetails($artistId = null){
         if($this->userAuth->allowAdminAccess()){

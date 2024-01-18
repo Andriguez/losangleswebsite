@@ -8,7 +8,7 @@
 <body>
 <?php include_once __DIR__.'/../navbar.php';?>
     <div id="page" class="container px-0">
-        <img class="logoHomepage" src="/media/trialpagelogo.png" alt="Logo" width="930" height="450">
+        <img id="homepagePicture" class="logoHomepage" src="<?php echo $homepagePicture->getPictureSrc() ?? ''?>" alt="Logo" width="930" height="450">
 </div>
 </body>
 </html>

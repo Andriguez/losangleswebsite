@@ -143,7 +143,22 @@ class ContentRepository extends Repository
         }catch(\PDOException $e){
             echo $e->getMessage();
         }
+    }
 
+    public function updateContentPictureByElementId($elementId, $picture){
+        $query = "UPDATE `page_content` SET `page_content_media`= :picture WHERE `element_Id` = :elementId";
+
+        try{
+            $statement = $this->getContentDB()->prepare($query);
+
+            $statement->bindParam(':picture', $picture, \PDO::PARAM_INT);
+            $statement->bindParam(':elementId', $elementId);
+
+            $statement->execute();
+
+        }catch(\PDOException $e){
+            echo $e->getMessage();
+        }
     }
     private function getContent($query, $params = null) {
         try {

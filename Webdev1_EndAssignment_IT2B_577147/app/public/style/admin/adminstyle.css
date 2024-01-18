@@ -403,3 +403,21 @@ body{
             }
         }}
 }
+
+/*VIEW POSTS */
+#viewPosts{
+
+    #selectTopic{
+        width: 150px;
+        margin: 10px;
+    }
+
+    #table-container {
+        max-height: 300px !important;
+        overflow-y: auto;
+    }
+
+    #button-container{
+        float: right;
+        margin: 10px;
+    } }

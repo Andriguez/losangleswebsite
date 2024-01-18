@@ -48,18 +48,6 @@ function selectedIdAction(selectedId, functionName, redirect) {
         .catch(error => console.error(error));
 }
 
-//function editSelectedUser(){
-//  let userRadios = document.querySelectorAll('.userRadio:checked');
-
-//if (userRadios.length > 0) {
-//  let userId = userRadios[0].id;
-//let filepath = `admin/manageuser/${userId}`;
-//openWindow(filepath);
-//} else {
-//  console.log("No user selected.");
-//}
-//}
-
 function selectedRadioBtnAction(functionName, redirect) {
     let radios = document.querySelectorAll('.radioBtn:checked');
 
@@ -458,6 +446,7 @@ function downloadJSONdata(data){
     a.click();
     document.body.removeChild(a);
 }
+//View Feed Post
 function selectedCheckOpenWindow(functionName) {
     let checkboxes = document.querySelectorAll('.aa-checkbox:checked');
 
@@ -469,4 +458,18 @@ function selectedCheckOpenWindow(functionName) {
     } else if (checkboxes.length > 2){ alert("more than one checkbox has been selected."); }
 
     else { alert("No checkbox has been selected."); }
+}
+
+function updateHomepagePicture(){
+
+    let fileInput = document.getElementById('upload-homepage-picture');
+    let file = fileInput.files[0];
+
+    const formData = new FormData();
+    formData.append('picture', file);
+
+    const functionName = 'updateHomepagePicture';
+    const redirect = `manageHomepagePicture`;
+
+    storeData(formData, functionName, redirect);
 }
