@@ -55,6 +55,11 @@
                         margin: 5px;
                     }
                 }
+                #parent-post-title{
+                    font-family: "Agency FB" !important;
+                    font-size: 24px;
+                    font-weight: bold;
+                }
                 #parent-post-content{
                     font-family: "Agency FB" !important;
                     font-size: 20px;
