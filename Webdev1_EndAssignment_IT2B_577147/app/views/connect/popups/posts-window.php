@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col">
             <div id="<?php echo $post->getId()?>" class="post-container">
-                <div class="post-card shadow-sm">
+                <div class="<?php echo ($post->getUser()->getUserType()->getUserTypeId() === 2) ? 'admin-post-card' : 'post-card'?> shadow-sm">
                     <div class="card-body">
                         <div class="profile-picture">
                             <img class="picture" src="<?php echo $post->getUser()->getPictureSrc() ?>" role="img" width="90px" height="90px">
