@@ -9,28 +9,27 @@ use services\UserService;
 
 session_start();
 require __DIR__ . '/Controller.php';
+require __DIR__ . '/navbarController.php';
 require_once __DIR__ . '/UserAuth.php';
 require __DIR__ . '/../services/FeedService.php';
 
 
 class connectController extends Controller
 {
-    private UserService $userService;
-    private ContentService $contentService;
     private FeedService $feedService;
     private UserAuth $userAuth;
     private User $loggedUser;
     private FeedTopic $selectedTopic;
     private int $currentPage;
+    private navbarController $navbar;
     public function __construct()
     {
         $this->feedService = new FeedService();
-        $this->userService = new UserService();
-        $this->contentService = new ContentService();
         $this->userAuth = new UserAuth();
         $this->loggedUser = $this->userAuth->loggedUser();
         $this->selectedTopic = $this->feedService->getTopicByName('general');
         $this->currentPage = isset($_GET['pagenr']) ? (int)$_GET['pagenr'] : 1;
+        $this->navbar = new navbarController();
 
     }
     public function index($selectedTopicName = null, $action = null, $selectedPostId = null){

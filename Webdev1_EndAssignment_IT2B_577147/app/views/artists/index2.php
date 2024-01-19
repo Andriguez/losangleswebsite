@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="/style/artists/artists.css">
 </head>
 <body>
-<?php include_once __DIR__.'/../navbar.php'?>
+<?php $this->navbar->displayNavbar(); ?>
 <div class="mt-1 mb-2 ms-5">
     <select data-discipline-param="<?php echo (isset($targetDiscipline)) ? $targetDiscipline->getDisciplineId() : ''?>" id="disciplineFilter" class="form-select">
         <option value="<?php echo isset($targetDiscipline) ? $targetDiscipline->getName() : ''?>" selected><?php echo isset($targetDiscipline) ? $targetDiscipline->getName() : 'discipline'?> </option>

@@ -7,16 +7,20 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 require __DIR__ . '/Controller.php';
+require __DIR__ . '/navbarController.php';
 require __DIR__ . '/../services/ContentService.php';
 
 class homeController extends Controller
 {
     private ContentService $contentService;
+    private navbarController $navbar;
 
     public function __construct(){
         $this->contentService = new ContentService;
+        $this->navbar = new navbarController();
     }
     public function index(){
+        $this->navbar->displayNavbar();
         $homepagePicture = $this->contentService->getAllContentByPageId(2)['homepagePicture'];
         require __DIR__ . '/../views/home/index.php';
     }

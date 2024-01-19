@@ -3,8 +3,8 @@ namespace controllers;
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-
 require __DIR__ . '/Controller.php';
+require __DIR__ . '/navbarController.php';
 require_once __DIR__.'/../models/User.php';
 require_once __DIR__ . '/UserAuth.php';
 
@@ -12,7 +12,14 @@ use JetBrains\PhpStorm\NoReturn;
 class loginController extends Controller
 {
     private UserAuth $userAuth;
+    private navbarController $navbar;
+    public function __construct()
+    {
+        $this->userAuth = new UserAuth();
+        $this->navbar = new navbarController();
+    }
     public function index(){
+        $this->navbar->displayNavbar();
         if(isset($_SESSION['user_id'])){
             $this->redirectPage();
         }
@@ -26,7 +33,6 @@ class loginController extends Controller
             $email = $_POST['email'];
             $password = $_POST['password'];
 
-            $this->userAuth = new UserAuth();
             $result = $this->userAuth->userLogin($email, $password);
             if(!$result[0]){
                 $this->loginError($result[1]);

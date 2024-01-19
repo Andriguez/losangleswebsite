@@ -5,7 +5,6 @@
     <link rel="stylesheet" type="text/css" href="/style/about/about.css">
 </head>
 <body>
-<?php include __DIR__.'/../navbar.php'?>
 <div class="album px-4 py-5">
         <div class="row about-row">
             <div class="col about-col">

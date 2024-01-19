@@ -5,7 +5,6 @@
     <link rel="stylesheet" type="text/css" href="/style/events/events.css">
 </head>
 <body>
-<?php include __DIR__.'/../navbar.php'?>
 <div class="main-container mt-2">
     <div id="gallery">
         <div class="gallery-container">

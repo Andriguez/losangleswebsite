@@ -9,17 +9,17 @@ require_once __DIR__.'/../services/ContentService.php';
 require_once __DIR__.'/../services/UserService.php';
 require_once __DIR__.'/../services/ArtistService.php';
 require_once __DIR__.'/../models/ArtistDiscipline.php';
+require __DIR__ . '/navbarController.php';
+
 
 class artistsController extends Controller
 {
-    private $contentService;
-    private $artistService;
-    private $userService;
+    private ArtistService $artistService;
+    private navbarController $navbar;
     public function __construct()
     {
-        $this->contentService = new ContentService();
-        $this->userService = new UserService();
         $this->artistService = new ArtistService();
+        $this->navbar = new navbarController();
     }
     public function index($disciplineName = null, $artistName = null){
         $disciplines = $this->artistService->getAllDisciplines();

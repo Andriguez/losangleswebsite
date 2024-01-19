@@ -6,6 +6,6 @@ class trialController extends Controller
 {
     public function index()
     {
-        require __DIR__ . '/../views/artists/detailpage.php';
+        require __DIR__ . '/../config/image_display_api.php';
     }
 }

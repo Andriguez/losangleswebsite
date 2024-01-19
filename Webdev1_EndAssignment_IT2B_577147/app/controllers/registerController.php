@@ -4,6 +4,7 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 require __DIR__ . '/Controller.php';
+require __DIR__ . '/navbarController.php';
 require_once __DIR__.'/../models/ArtistApplication.php';
 require_once __DIR__ . '/../services/ArtistApplicationService.php';
 
@@ -14,16 +15,19 @@ class registerController extends Controller
 {
 
     private ArtistApplicationService $aAService;
+    private navbarController $navbar;
 
     public function __construct(){
         $this->aAService = new ArtistApplicationService();
+        $this->navbar = new navbarController();
     }
     public function index(){
+        $this->navbar->displayNavbar();
         if(isset($_SESSION['user_id'])){
             header("Location: /");
            exit;
         }
-        require __DIR__ . '/../views/register/index.php';
+        require __DIR__ . '/../views/registerView.php';
     }
 
     public function submitRegistration(){

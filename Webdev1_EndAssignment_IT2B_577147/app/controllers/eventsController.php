@@ -3,17 +3,21 @@ namespace controllers;
 use services\EventService;
 
 require __DIR__ . '/Controller.php';
+require __DIR__ . '/navbarController.php';
 require_once __DIR__.'/../services/EventService.php';
 
 
 class eventsController extends Controller
 {
     private EventService $eventService;
+    private navbarController $navbar;
     public function __construct()
     {
+        $this->navbar = new navbarController();
         $this->eventService = new EventService();
     }
     public function index($selectedYear = null, $selectedMonth = null){
+        $this->navbar->displayNavbar();
         $event = $this->eventService->getEventById(2);
         //$lineups = $this->eventService->getAllLineupsByEvent(2);
 

@@ -2,9 +2,10 @@
 <head>
     <title>login</title>
     <link rel="icon" href="/media/onlytb.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="/style/login/login.css">
+
 </head>
 <body>
-<?php include_once __DIR__.'/navbar.php'?>
 <div class="form-container">
 <form method="post" action="/login/access">
     <div class="form-floating">
@@ -26,71 +27,3 @@
     <?php unset($_SESSION['loginError']); }  ?>
 </body>
 </html>
-<style>
-    body{
-        overflow: hidden;
-        position: relative;
-    }
-    .form-container{
-        margin-top: 80px;
-        padding: 0;
-        height: 40vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-    }
-    form{
-        position: relative;
-        max-width: 350px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-family: angles;
-        font-size: 12px;
-    }
-    form #passwordfield{
-    }
-    input{
-        border-radius: 0;
-        border-top: none;
-        border-left: none;
-        border-right: none;
-        border-bottom: black solid 4px;
-        margin: 10px;
-        text-transform: uppercase !important;
-    }
-    input:focus{
-        outline: none;
-        border-bottom: silver;
-        box-shadow: black;
-    }
-    button{
-        border-radius: 0 !important;
-        border: 4px solid black;
-        background-color: white !important;
-        color: black !important;
-        font-weight: bold !important;
-        margin: 2px;
-        text-align: center;
-        text-transform: uppercase;
-
-    }
-    button:hover {
-        background-color: black !important;
-        border-color: white !important;
-        color: white !important;
-        border-width: 2px !important;
-        margin: 4px !important;
-    }
-    .btn-group{
-        margin-top: 20px;
-    }
-    #error-message-container{
-        color: red;
-        font-family: "Agency FB";
-        font-size: 16px;
-        margin: auto;
-        width: 300px;
-    }
-</style>

@@ -3,10 +3,9 @@
     <title>connect</title>
     <link rel="icon" href="/media/onlytb.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="/style/connect/connect.css">
-
 </head>
 <body>
-<?php include __DIR__.'/../navbar.php'?>
+<?php $this->navbar->displayNavbar();?>
 <div id="page" data-section-name="<?php echo $this->selectedTopic->getTopicName()?>" class="main-container text-center">
     <div id="topics-container" class="container my-4">
         <h5 id="topics-label">Topics</h5>

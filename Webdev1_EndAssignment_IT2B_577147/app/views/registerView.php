@@ -5,7 +5,6 @@
     <link rel="stylesheet" type="text/css" href="/style/register/register.css">
 </head>
 <body>
-<?php include __DIR__.'/../navbar.php'?>
 <div class="form-container">
     <form method="post" action="/register/submitregistration">
         <?php if(isset($_SESSION['registerMessage'])){?>
