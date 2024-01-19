@@ -16,37 +16,20 @@
             </div>
         </div>
         <div class="row about-row">
-            <div class="col about-col">
-                <div class="name-container">
-                    <a class="name-link" href="#" data-image-src="/media/artist1.png"><span class="title">Maria Walhout</span></a>
-                    <img alt="angle" id="angle-1">
-                    <label>she/her | artist/researcher</label>
-                </div>
-                <div class="description-container">
-                    <span class="description">Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam.</span>
-                </div>
-            </div>
 
+        <?php if(isset($admins)){ foreach ($admins as $admin){?>
             <div class="col about-col">
                 <div class="name-container">
-                    <a class="name-link" href="#" data-image-src="/media/place-holder-angle.png"><span class="title">Alma YoungWoman</span></a>
-                    <img alt="angle" id="angle-2">
-                    <label>she/her | artist/researcher</label>
-                </div>
-                <div class="description-container">
-                    <span class="description">Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam.</span>
-                </div>
-            </div>
-
-            <div class="col about-col">
-                <div class="name-container">
-                    <a class="name-link" href="<?php echo $admin->getAdminContent()->getNameLink();?>" data-image-src="<?php echo $admin->getAdminContent()->getPictureSrc();?>"><span class="title"><?php echo $admin->getFullName();?></span></a>
+                    <a class="name-link" href="<?php echo $admin->getAdminContent()->getNameLink();?>" data-image-src="<?php echo $admin->getAdminContent()->getPictureSrc();?>">
+                        <span class="title"><?php echo $admin->getFullName();?></span></a>
                     <img alt="angle" id="angle-3">
                 </div>
                 <div class="description-container">
                     <span class="description"><?php echo $admin->getAdminContent()->getDescription();?></span>
                 </div>
                 </div>
+            <?php }}?>
+
             </div>
         </div>
 <script src="/js/about/about.js"></script>

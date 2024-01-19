@@ -209,7 +209,7 @@ class adminController extends Controller
                     $this->eventService->storeEvent($name, $type, $dateTime, $location, $description, $btnText, $btnLink, $eventPoster);
                 } else{
                     $this->eventService->storeEvent($name, $type, $dateTime, $location, $description, $btnText, $btnLink, $eventPoster, $eventId);
-                    if (isset($currentPoster) && $currentPoster->getMediaId() != 1){ $this->deletePicture("{$currentPoster->getMediaPath()->getPath()}{$currentPoster->getMediaFilename()}",$currentPoster->getMediaFilename());}
+                    if (isset($currentPoster) && $currentPoster->getMediaId() != 2){ $this->deletePicture("{$currentPoster->getMediaPath()->getPath()}{$currentPoster->getMediaFilename()}",$currentPoster->getMediaFilename());}
                 }
 
                 $result = "details for event: $name were successfully added";
@@ -225,11 +225,11 @@ class adminController extends Controller
 
                 $eventToDelete = $this->eventService->getEventById($eventId);
                 $poster = $eventToDelete->getEventPoster();
-                if(isset($poster) && $poster->getMediaId() != 1){ $this->deletePicture("{$poster->getMediaPath()->getPath()}{$poster->getMediaFilename()}",$poster->getMediaFilename());}
+                if(isset($poster) && $poster->getMediaId() != 2){ $this->deletePicture("{$poster->getMediaPath()->getPath()}{$poster->getMediaFilename()}",$poster->getMediaFilename());}
 
                 $this->eventService->deleteEvent($eventId);
 
-                $result = 'Event has been successfully deleted';
+                $result = "Event: {$eventToDelete->getName()} has been successfully deleted";
 
             } else { $result = 'no Event has been selected'; }
 

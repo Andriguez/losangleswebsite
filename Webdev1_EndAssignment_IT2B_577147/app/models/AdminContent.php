@@ -16,9 +16,14 @@ class AdminContent
     public function setPicture($media){$this->admin_picture = $media;}
 
     //getters
-    public function getNameLink():string{return $this->admin_name_link;}
-    public function getTitles():string{return $this->admin_titles;}
-    public function getDescription():string{return $this->admin_description;}
-    public function getMediaInfo():MediaInfo{return $this->admin_picture;}
-    public function getPictureSrc():string{return '/'.$this->getMediaInfo()->getMediaPath()->getPath().$this->getMediaInfo()->getMediaFilename();}
+    public function getNameLink(){return $this->admin_name_link;}
+    public function getTitles(){return $this->admin_titles;}
+    public function getDescription(){return $this->admin_description;}
+    public function getMediaInfo(){return $this->admin_picture;}
+    public function getPictureSrc(){
+        if($this->getMediaInfo()->getMediaId() === 1){
+            return '/media/placeholders/user-picture-placeholder.png';
+        }
+        return "/img/?p={$this->getMediaInfo()->getMediaPath()->getDirectoryName()}&i={$this->getMediaInfo()->getMediaFilename()}";
+    }
 }

@@ -4,9 +4,20 @@ if (isset($_GET['i'])&&isset($_GET['p'])) {
     $imageName = sanitizeFileName($_GET['i']);
     $pageDirectory = sanitizeFileName($_GET['p']);
 
-    if($pageDirectory === 'connect/u'){ $composedFilepath = '/app/views/connect/media/users/'.$imageName; }
-        else if($pageDirectory === 'connect/p'){ $composedFilepath = '/app/views/connect/media/posts/'.$imageName; }
-        else { $composedFilepath = '/app/views/'.$pageDirectory.'/media/'.$imageName; }
+        switch($pageDirectory){
+            case 'connect/u':
+                $composedFilepath = '/app/views/connect/media/users/'.$imageName;
+                break;
+            case 'connect/p':
+                $composedFilepath = '/app/views/connect/media/posts/'.$imageName;
+                break;
+            case 'admin':
+                $composedFilepath = '/app/views/admin/media/placeholders/'.$imageName;
+                break;
+            default:
+                $composedFilepath = '/app/views/'.$pageDirectory.'/media/'.$imageName;
+                break;
+        }
 
     //$filePath = '../views/home/media/' . $imageName;
 

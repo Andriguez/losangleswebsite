@@ -44,7 +44,9 @@ class Event implements \JsonSerializable
     public function setEventType($type){$this->event_type = $type;}
     public function setEventPoster($poster){
         $this->event_poster = $poster;
-        $src = "/img/?p={$poster->getMediaPath()->getDirectoryName()}&i={$poster->getMediaFilename()}";
+        if($poster->getMediaId() == 2){ $src = '/media/placeholders/picture-placeholder.png';}
+            else{ $src = "/img/?p={$poster->getMediaPath()->getDirectoryName()}&i={$poster->getMediaFilename()}"; }
+
         $this->setPosterSrc($src);
     }
     public function setPosterSrc($src){$this->posterSrc = $src;}

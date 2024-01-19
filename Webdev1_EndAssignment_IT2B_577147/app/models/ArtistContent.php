@@ -31,7 +31,12 @@ class ArtistContent
     public function getSoundcloudUrl():string{return $this->artist_soundcloud_url;}
     public function getDiscipline(){return $this->artist_discipline;}
     public function getPicture(){return $this->artist_picture;}
-    public function getPictureSrc():string{return "/img/?p={$this->getPicture()->getMediaPath()->getDirectoryName()}&i={$this->getPicture()->getMediaFilename()}";}
+    public function getPictureSrc():string{
+        if($this->getPicture()->getMediaId() === 1){
+            return '/media/placeholders/user-picture-placeholder.png';
+        }
+        return "/img/?p={$this->getPicture()->getMediaPath()->getDirectoryName()}&i={$this->getPicture()->getMediaFilename()}";
+    }
 
 
 }
