@@ -5,28 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/config/image_display_api.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/style/homepage/homepage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/style/login/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/home/media/homelogotrial.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/aboutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/aboutController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/artistsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/artistsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/connectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/connectController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/eventsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/eventsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/homeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/homeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/loginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/loginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/image_display_api.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/image_display_api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/navbarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/navbarController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/registerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/registerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/trialController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/trialController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/about/index2.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/about/index2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/artists/index2.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/artists/index2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/connect/index2.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/connect/index2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/events/dynamiccarousel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/dynamiccarousel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/connect/popups/posts-window.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/connect/popups/posts-window.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/loginView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/loginView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/navbar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/register/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/registerView.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,30 +46,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Node.js.adminscript.js.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "back-end-initial",
-    "last_opened_file_path": "C:/Users/brhig/OneDrive/Escritorio/LOSANGLES/losangleswebsite/Webdev1_EndAssignment_IT2B_577147/app/views/home/media",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Node.js.adminscript.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;back-end-initial&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/brhig/OneDrive/Escritorio/LOSANGLES/losangleswebsite/Webdev1_EndAssignment_IT2B_577147/app/views/home/media&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\home\media" />
@@ -167,7 +151,8 @@
       <workItem from="1705535239357" duration="95000" />
       <workItem from="1705577656842" duration="19871000" />
       <workItem from="1705609113972" duration="4116000" />
-      <workItem from="1705626927979" duration="6067000" />
+      <workItem from="1705626927979" duration="6464000" />
+      <workItem from="1705674068588" duration="1900000" />
     </task>
     <servers />
   </component>

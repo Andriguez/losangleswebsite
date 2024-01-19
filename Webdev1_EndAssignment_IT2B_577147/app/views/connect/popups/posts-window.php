@@ -14,7 +14,7 @@
                         <h5 class="post-title"><?php echo $post->getPostTitle()?></h5>
                         <p class="post-content mx-3"><?php echo $post->getTextContent()?></p>
                         <div class="post-footer">
-                            <a class="card-link" onclick="displayComments('<?php echo $post->getTopic()->getTopicName()?>', <?php echo (int)$post->getId()?>)"><?php echo $post->getCommentAmount();?>comments</a>
+                            <a class="card-link" onclick="displayComments('<?php echo $post->getTopic()->getTopicName()?>', <?php echo (int)$post->getId()?>)"><?php echo $post->getCommentAmount();?> comments</a>
                             <p>‣</p>
                             <label>posted on<cite title="time stamp"><?php echo ' '.$post->getPostedAt()->format('D d/m/y').' at '.$post->getPostedAt()->format('H:i')?></cite></label>
                         </div>
