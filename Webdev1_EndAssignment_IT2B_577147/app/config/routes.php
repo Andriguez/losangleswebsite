@@ -21,6 +21,6 @@ $routes = [
     //new Route(['GET','HEAD'],'adminController',  'manageArtistDetails',null,'/admin/artists/details'),
 
     new Route(['GET','HEAD'],'trialController',  null,'/^\/trial(?:\/([a-z0-1_-]+))?$/'),
-    new Route(['GET','HEAD'],null,  null,null, '/img/',['i'], null,'/config/image_display_api.php')
+    new Route(['GET','HEAD'],null,  null,null, '/img/',['p', 'i'], null,'/config/image_display_api.php')
 
 ];

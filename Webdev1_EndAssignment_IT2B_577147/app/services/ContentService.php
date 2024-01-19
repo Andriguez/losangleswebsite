@@ -56,8 +56,8 @@ class ContentService
     public function getAllDirectoryEntries():array{
         return $this->contentRepo->getAllDirectoryEntries();
     }
-    public function createDirectory($type, $path){
-        return $this->contentRepo->createDirectory($type, $path);
+    public function createDirectory($type, $path, $directoryName){
+        return $this->contentRepo->createDirectory($type, $path, $directoryName);
     }
     public function createMediaInfo($filename, $mediaType, $pathId){
         return $this->contentRepo->createMediaInfo($filename, $mediaType, $pathId);

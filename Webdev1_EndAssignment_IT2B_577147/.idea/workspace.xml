@@ -6,11 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Router.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/Route.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/Route.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/image_display_api.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/image_display_api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/adminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/homeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/homeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/DirectoryLog.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/DirectoryLog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/artists/65a95755d13fe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/homepage/65a944497e5c4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/ContentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/ContentRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/ContentService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/ContentService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/home/media/homelogotrial.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/media/65aad518edf02.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,40 +51,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Node.js.adminscript.js.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;back-end-initial&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/brhig/OneDrive/Escritorio/LOSANGLES/losangleswebsite/Webdev1_EndAssignment_IT2B_577147/app/views/home/media&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Node.js.adminscript.js.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "back-end-initial",
+    "last_opened_file_path": "C:/Users/brhig/OneDrive/Escritorio/LOSANGLES/losangleswebsite/Webdev1_EndAssignment_IT2B_577147/app/views/home/media",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\home\media" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\connect" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\public\style" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\admin\windows\applications" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\connect\popups" />
-      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\public\style\admin" />
     </key>
   </component>
   <component name="RunManager">
@@ -151,7 +158,7 @@
       <workItem from="1705577656842" duration="19871000" />
       <workItem from="1705609113972" duration="4116000" />
       <workItem from="1705626927979" duration="6464000" />
-      <workItem from="1705674068588" duration="6006000" />
+      <workItem from="1705674068588" duration="18373000" />
     </task>
     <servers />
   </component>

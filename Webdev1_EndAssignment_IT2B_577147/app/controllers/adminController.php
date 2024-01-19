@@ -56,7 +56,9 @@ class adminController extends Controller
 
     public function manageHomepagePicture(){
         if($this->userAuth->allowAdminAccess()){
-            $pictureSrc = $this->contentService->getAllContentByPageId(2)['homepagePicture']->getPictureSrc();
+            $picture = $this->contentService->getAllContentByPageId(2)['homepagePicture'];
+            $pictureSrc = "/img/?p={$picture->getMedia()->getMediaPath()->getDirectoryName()}&i={$picture->getMedia()->getMediaFilename()}";
+
             require __DIR__ . '/../views/admin/windows/content/homepage/manageLogo.php';
         }
     }
@@ -66,7 +68,7 @@ class adminController extends Controller
             if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['picture'])){
                 $currentPicture = $this->contentService->getAllContentByPageId(2)['homepagePicture']->getMedia();
 
-                $picture = $this->uploadPicture('homepage/','homepagePicture');
+                $picture = $this->uploadPicture('home','homepagePicture');
                 $elementId = 'homepagePicture';
                 $this->contentService->updateContentPictureByElementId($elementId, $picture);
 
@@ -115,7 +117,7 @@ class adminController extends Controller
 
                 } else {
                         if(isset($artistContent)){$currentArtistPicture = $artistContent->getPicture();}
-                        $picture = $this->uploadPicture('artists/','artistpicture'); }
+                        $picture = $this->uploadPicture('artists','artistpicture'); }
 
                         $this->artistService->storeArtistContent($artistId, $description, $extralink, $discipline, $email, $soundcloudlink, $socialslink, $stagename, $picture, $location);
                         if (isset($currentArtistPicture) && $currentArtistPicture->getMediaId() != 1){ $this->deletePicture("{$currentArtistPicture->getMediaPath()->getPath()}{$currentArtistPicture->getMediaFilename()}",$currentArtistPicture->getMediaFilename());}
@@ -200,7 +202,7 @@ class adminController extends Controller
 
                 } else {
                         if(isset($event)){  $currentEventPoster = $event->getEventPoster(); }
-                         $eventPoster = $this->uploadPicture('events/','eventposter');
+                         $eventPoster = $this->uploadPicture('events','eventposter');
                 }
 
                 if($eventId == 0){
@@ -397,7 +399,7 @@ class adminController extends Controller
 
                 } else {
                     if(isset($adminContent)){ $currentAdminPicture = $adminContent->getMediaInfo();}
-                    $picture = $this->uploadPicture('about/','anglepicture');
+                    $picture = $this->uploadPicture('about','anglepicture');
                 }
 
                 $this->contentService->storeAdminContent($adminId, $link, $titles, $description, $picture);
@@ -513,7 +515,7 @@ class adminController extends Controller
                     $socialslink = $_POST['socials'];
 
                     if(isset($_FILES['picture']) && !($_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE)){
-                        $picture = $this->uploadPicture('artists/','artistpicture');    }
+                        $picture = $this->uploadPicture('artists','artistpicture');    }
 
                     $this->artistService->storeArtistContent($userId, $description, ' ', $discipline, $email, ' ', $socialslink, $stagename, $picture, $location);
 
@@ -670,7 +672,7 @@ class adminController extends Controller
 
                 } else {
                         if (isset($user)){  $currentUserPicture = $user->getMediaInfo();  }
-                        $picture = $this->uploadPicture('users/','userpicture');
+                        $picture = $this->uploadPicture('connect','userpicture');
                 }
 
                 $this->userService->storeUser($userId, $firstname, $lastname, $email, $pronouns, $usertype, $password, $picture);
@@ -700,30 +702,25 @@ class adminController extends Controller
     }
     private function uploadPicture($mediaDirectory, $mediaType){
         if ($_FILES['picture']['error'] == UPLOAD_ERR_OK) {
-            $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/svg', 'image/webp'];
+            $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/svg', 'image/webp', 'image/jpg', 'image/svg+xml'];
             $fileMimeType = mime_content_type($_FILES['picture']['tmp_name']);
 
-            if (!in_array($fileMimeType, $allowedMimeTypes)) {
-                die("Invalid file type for the picture.");
-            }
+            if (!in_array($fileMimeType, $allowedMimeTypes)) { die("Invalid file type for the picture."); }
 
             $maxFileSize = 8 * 1024 * 1024; // 8 MB;
+            if ($_FILES['picture']['size'] > $maxFileSize) { die("Picture size is too large."); }
 
-            if ($_FILES['picture']['size'] > $maxFileSize) {
-                die("Picture size is too large.");
-            }
-            //$fileName = uniqid() . '.' . $_FILES['picture']['name'];
             $fileName = uniqid() . '.' . pathinfo($_FILES['picture']['name'], PATHINFO_EXTENSION);
             $tempName = $_FILES['picture']['tmp_name'];
 
-            $defaultDir = 'media/';
-            $path = $defaultDir.$mediaDirectory.$fileName;
-            move_uploaded_file($tempName, $path);
+            if($mediaType === 'userpicture'){   $path = '/app/views/'.$mediaDirectory.'/media/users/';  }
+                else if ($mediaType === 'postpicture') {    $path = '/app/views/'.$mediaDirectory.'/media/posts/';  }
+                else {  $path = '/app/views/'.$mediaDirectory.'/media/'; }
 
-            $directoryId = $this->contentService->createDirectory('media', $defaultDir.$mediaDirectory);
-            $mediaId = $this->contentService->createMediaInfo($fileName, $mediaType, $directoryId);
-
-            return $mediaId;
+            if(move_uploaded_file($tempName, $path.$fileName)){
+                $directoryId = $this->contentService->createDirectory('media', $path, $mediaDirectory);
+                return $this->contentService->createMediaInfo($fileName, $mediaType, $directoryId);
+            }
         }
     }
 

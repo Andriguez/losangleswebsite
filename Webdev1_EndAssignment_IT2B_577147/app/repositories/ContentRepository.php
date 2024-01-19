@@ -364,14 +364,14 @@ class ContentRepository extends Repository
     }
 
     //directory logs
-    public function createDirectory($type, $path){
-        $query = "INSERT IGNORE INTO `file_directory`(`type`, `path`) VALUES (?,?)";
+    public function createDirectory($type, $path, $directoryName){
+        $query = "INSERT IGNORE INTO `file_directory`(`type`, `path`, `directory_name`) VALUES (?,?,?)";
 
         try {
             $statement = $this->getContentDB()->prepare($query);
             $statement->execute(array(
                 $this->sanitizeText($type),
-                $this->sanitizeText($path)));
+                $this->sanitizeText($path),$this->sanitizeText($directoryName)));
 
             $directoryId = $this->getContentDB()->lastInsertId();
 
@@ -386,7 +386,7 @@ class ContentRepository extends Repository
         }
     }
     public function getDirectoryLogById($id){
-        $query = "SELECT `path_Id`, `type`, `path` FROM `file_directory` WHERE path_Id = :id";
+        $query = "SELECT `path_Id`, `type`, `path`, `directory_name` FROM `file_directory` WHERE path_Id = :id";
 
         try{
             $statement = $this->getContentDB()->prepare($query);
@@ -399,6 +399,7 @@ class ContentRepository extends Repository
                 $directory->setPathId($row['path_Id']);
                 $directory->setFiletype($row['type']);
                 $directory->setPath($row['path']);
+                $directory->setDirectoryName($row['directory_name']);
             }
                 return $directory;
 
