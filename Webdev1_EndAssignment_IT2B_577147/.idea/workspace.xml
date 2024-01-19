@@ -5,8 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/public/js/about/about.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/js/artists/artists.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/js/events/events.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/style/about/about.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/style/artists/artists.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/style/events/events.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/style/register/register.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/51cfa111-f852-4349-9f6f-ece595806c11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/51cfa111-f852-4349-9f6f-ece595806c11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/abb37cc5-b258-4574-a5ed-09fb19a58ae0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/abb37cc5-b258-4574-a5ed-09fb19a58ae0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e0c6b955-f3ce-46fe-a946-bbf3f938ffa8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e0c6b955-f3ce-46fe-a946-bbf3f938ffa8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/connect/popups/comments-popup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/connect/popups/comments-popup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/about/index2.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/about/index2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/artists/index2.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/artists/index2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/events/dynamiccarousel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/dynamiccarousel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/register/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/register/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +154,8 @@
       <workItem from="1705504963531" duration="18125000" />
       <workItem from="1705530455682" duration="4218000" />
       <workItem from="1705535239357" duration="95000" />
-      <workItem from="1705577656842" duration="19416000" />
+      <workItem from="1705577656842" duration="19871000" />
+      <workItem from="1705609113972" duration="4116000" />
     </task>
     <servers />
   </component>

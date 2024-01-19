@@ -1,0 +1,108 @@
+#artist-link {
+    color: white !important; /* New text color on hover */
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000000 !important;
+}
+.artists-container{
+    margin: 35px 60px 120px 60px !important;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.type-label{
+    font-size: 30px;
+    font-weight: lighter;
+    color: dimgrey;
+    margin-bottom: 10px;
+}
+option{
+    border-width: 3px !important;
+    border-radius: 0 !important;
+    border-color: black !important;
+    font-family: angles ;
+    font-size: 10px;
+    padding: 5px;
+
+}
+option:hover {
+    filter: invert(100);
+}
+select{
+    border-radius: 0 !important;
+    border-color: black !important;
+    border-width: 4px !important;
+    background-color: white !important;
+    color: black !important;
+    font-family: angles !important;
+    font-size: 12px !important;
+    width: auto !important;
+    text-transform: uppercase !important;
+}
+select:hover {
+    background-color: black !important;
+    border-color: white !important;
+    color: white !important;
+    cursor: pointer;
+}
+.artist-name{
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: angles;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+span img{
+    height: .8rem;
+    width: .8rem;
+}
+
+.artist-name:hover{
+    color: white !important;
+    text-shadow:
+            -1px -1px 0 black,
+            1px -1px 0 black,
+            -1px 1px 0 black,
+            1px 1px 0 black;
+}
+
+.album a{
+    text-decoration: none;
+}
+.artists-container .col{
+    width: auto;
+    margin-top: 7px;
+}
+.artists-container .row{
+    padding: 3px;
+    margin-top: 5px;
+    margin-bottom: 2px;
+}
+body{
+    overflow: hidden;
+}
+.album{
+    margin: auto;
+    max-height: 390px;
+    overflow-y: scroll;
+}
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 5px; /* Set width of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: black; /* Color of the thumb */
+    border-radius: 3px; /* Rounded corners of the thumb */
+}
+
+::-webkit-scrollbar-track {
+    background-color: white; /* Color of the track */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: whitesmoke; /* Color of the thumb on hover */
+}
