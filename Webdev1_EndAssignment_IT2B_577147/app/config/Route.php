@@ -8,8 +8,9 @@ class Route
     private $string;
     private $getParams;
     private $postParams;
+    private $scriptFilePath;
 
-    public function __construct($methods, $controller, $functionInput = null , $pattern = null, $string = null, $getParams = null, $postParams = null)
+    public function __construct($methods, $controller = null, $functionInput = null , $pattern = null, $string = null, $getParams = null, $postParams = null, $filepath = null)
     {
         $this->pattern = $pattern;
         $this->methods = $methods;
@@ -23,6 +24,7 @@ class Route
         $this->string = $string;
         $this->getParams = $getParams;
         $this->postParams = $postParams;
+        $this->scriptFilePath = $filepath;
     }
 
     public function setFunction($function){
@@ -59,5 +61,8 @@ class Route
     }
     public function getController(){
         return $this->controller;
+    }
+    public function getFilePath(){
+        return $this->scriptFilePath;
     }
 }

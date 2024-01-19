@@ -1,6 +1,6 @@
 <?php
-if (isset($_GET['image'])) {
-    $imageName = sanitizeFileName($_GET['image']);
+if (isset($_GET['i'])) {
+    $imageName = sanitizeFileName($_GET['i']);
     $filePath = '../views/home/media/' . $imageName;
 
     if (file_exists($filePath)) {
@@ -11,11 +11,11 @@ if (isset($_GET['image'])) {
         readfile($filePath);
     } else {
         header("HTTP/1.1 404 Not Found");
-        //Router::getInstance()->respond(404, 'Image not found or access denied.');
+        Router::getInstance()->respond(404, 'Image not found or access denied.');
     }
 } else {
     header("HTTP/1.1 400 Bad Request");
-    //Router::getInstance()->respond(400, 'No image specified');
+    Router::getInstance()->respond(400, 'No image specified');
 }
 
 function sanitizeFileName($fileName) {

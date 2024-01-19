@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="page" class="container px-0">
-        <img id="homepagePicture" class="logoHomepage" src="" alt="Logo" width="930" height="450">
+        <img id="homepagePicture" class="logoHomepage" src="/img/?i=homelogotrial.png" alt="Logo" width="930" height="450">
 </div>
 </body>
 </html>

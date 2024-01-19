@@ -37,7 +37,10 @@ class Router
                     if ($route->getPattern() !== null && str_starts_with($route->getPattern(), '/^\/admin(?:\/')) {
                         $this->handleAdminRoute($route, $requestedPath);
                         exit;
-                    } else {
+                    } else if($route->getFilePath() !== null && $route->getController() == null){
+                        $this->redirectToFile($route);
+                        //exit;
+                    }else {
                         $this->redirect($route);
                     }
                 }
@@ -178,7 +181,7 @@ class Router
                 if (method_exists($adminController, $adminFunction)) {
                     $adminController->{$adminFunction}($param);
                     $content = ob_get_clean();
-                    Router::getInstance()->respond(200, $content);
+                    $this->respond(200, $content);
                 }
             }
 
@@ -186,8 +189,23 @@ class Router
             $this->respondNotFound();
         } catch (Exception $e) {
             echo $e;
+            $this->respondServerError('Controller: '.$route->getController().' Function: '.$route->getFunction());
         }
+    }
 
+    private function redirectToFile($route){
+        try{
+            $filepath = __DIR__.$route->getFilePath();
+
+                if(file_exists($filepath)){
+                    require_once __DIR__.$route->getFilePath();
+                    $this->respond(200, 'file found');
+                }
+                else { $this->respondNotFound();  }
+        } catch (Exception $e){
+            echo $e;
+            $this->respondServerError('File: '.$route->getFilePath.' Not Found or Not accessible.');
+        }
     }
 
     private function respondInvalidParameters($invalidParameters)
