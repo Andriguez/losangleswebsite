@@ -77,6 +77,19 @@ class ArtistRepository extends Repository
         } catch(\PDOException $e){echo $e;}
     }
 
+    public function deleteArtistContentByUserId($userId){
+        $query = "DELETE FROM `artist_content` WHERE artist_Id = :userId";
+
+        try{
+            $statement = $this->getContentDB()->prepare($query);
+
+            $statement->bindParam(':userId', $userId, \PDO::PARAM_INT);
+            $statement->execute();
+
+        }catch(\PDOException $e){
+            echo $e->getMessage();
+        }
+    }
     public function getAllArtistsByDiscipline($discipline){
         $query = "SELECT artist_Id FROM artist_content WHERE artist_discipline = :discipline";
 

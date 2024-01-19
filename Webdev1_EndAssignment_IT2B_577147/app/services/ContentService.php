@@ -71,6 +71,9 @@ class ContentService
         public function storeAdminContent($adminId, $link, $titles, $description, $pictureId){
         $this->contentRepo->storeAdminContent($adminId, $link, $titles, $description, $pictureId);
     }
+    public function deleteAdminContentByUser($userId){
+        $this->contentRepo->deleteAdminContentByUserId($userId);
+    }
     public function getAdminContentById($adminId){
         return $this->contentRepo->getAdminContentById($adminId);
     }

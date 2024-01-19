@@ -1,4 +1,5 @@
 <?php
+//url "/img/?p={pagename}&i={picturename}";
 if (isset($_GET['i'])&&isset($_GET['p'])) {
     $imageName = sanitizeFileName($_GET['i']);
     $pageDirectory = sanitizeFileName($_GET['p']);

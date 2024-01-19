@@ -46,6 +46,19 @@ class FeedRepository extends Repository
             echo $e->getMessage();
         }
     }
+    public function deletePostByUserId($userId){
+        $query = "DELETE FROM `feed_posts` WHERE `post_user` = :userId";
+
+        try{
+            $statement = $this->getfeedDB()->prepare($query);
+
+            $statement->bindParam(':userId', $userId, \PDO::PARAM_INT);
+            $statement->execute();
+
+        }catch(\PDOException $e){
+            echo $e->getMessage();
+        }
+    }
     public function getPostById($id){
         $query = "SELECT `post_Id`, `post_user`, `post_title`, `post_picture`, `post_text_content`, `post_topic`,
        `post_posted_at` FROM `feed_posts` WHERE post_Id = :id";
@@ -167,6 +180,20 @@ class FeedRepository extends Repository
             echo $e->getMessage();
         }
 
+    }
+
+    public function deleteCommentByUserId($userId){
+        $query = "DELETE FROM `feed_comments` WHERE `comment_user` = :userId";
+
+        try{
+            $statement = $this->getfeedDB()->prepare($query);
+
+            $statement->bindParam(':userId', $userId, \PDO::PARAM_INT);
+            $statement->execute();
+
+        }catch(\PDOException $e){
+            echo $e->getMessage();
+        }
     }
     private function getCommentById($id){
         $query = "SELECT `comment_Id`, `comment_user`, `comment_parentpost`, `comment_text_content`, `comment_posted_at`

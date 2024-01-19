@@ -19,6 +19,12 @@ class FeedService
     public function deletePost($postId){
         $this->feedRepo->deletePost($postId);
     }
+    public function deletePostByUser($userId){
+        $this->feedRepo->deletePostByUserId($userId);
+    }
+    public function deleteCommentsByUser($userId){
+        $this->feedRepo->deleteCommentByUserId($userId);
+    }
     public function getPostById($postId){
         return $this->feedRepo->getPostById($postId);
     }

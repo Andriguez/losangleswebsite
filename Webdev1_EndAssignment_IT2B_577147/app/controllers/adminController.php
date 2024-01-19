@@ -201,7 +201,7 @@ class adminController extends Controller
                         $eventPoster = $event->getEventPoster()->getMediaId(); }
 
                 } else {
-                        if(isset($event)){  $currentEventPoster = $event->getEventPoster(); }
+                        if(isset($event)){  $currentPoster = $event->getEventPoster(); }
                          $eventPoster = $this->uploadPicture('events','eventposter');
                 }
 
@@ -209,7 +209,7 @@ class adminController extends Controller
                     $this->eventService->storeEvent($name, $type, $dateTime, $location, $description, $btnText, $btnLink, $eventPoster);
                 } else{
                     $this->eventService->storeEvent($name, $type, $dateTime, $location, $description, $btnText, $btnLink, $eventPoster, $eventId);
-                    if (isset($currentEventPoster) && $currentEventPoster->getMediaId() != 1){ $this->deletePicture("{$currentEventPoster->getMediaPath()->getPath()}{$currentEventPoster->getMediaFilename()}",$currentEventPoster->getMediaFilename());}
+                    if (isset($currentPoster) && $currentPoster->getMediaId() != 1){ $this->deletePicture("{$currentPoster->getMediaPath()->getPath()}{$currentPoster->getMediaFilename()}",$currentPoster->getMediaFilename());}
                 }
 
                 $result = "details for event: $name were successfully added";
@@ -222,6 +222,11 @@ class adminController extends Controller
     public function deleteEvent($eventId){
         if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'GET'){
             if(isset($eventId)){
+
+                $eventToDelete = $this->eventService->getEventById($eventId);
+                $poster = $eventToDelete->getEventPoster();
+                if(isset($poster) && $poster->getMediaId() != 1){ $this->deletePicture("{$poster->getMediaPath()->getPath()}{$poster->getMediaFilename()}",$poster->getMediaFilename());}
+
                 $this->eventService->deleteEvent($eventId);
 
                 $result = 'Event has been successfully deleted';
@@ -690,6 +695,16 @@ class adminController extends Controller
         if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] === 'GET'){
 
             if(isset($userId)){
+                $userToDelete = $this->userService->getUserById($userId);
+                $userPicture = $userToDelete->getMediaInfo();
+                if(isset($userPicture) && $userPicture->getMediaId() != 1){ $this->deletePicture("{$userPicture->getMediaPath()->getPath()}{$userPicture->getMediaFilename()}",$userPicture->getMediaFilename());}
+
+                $this->feedService->deleteCommentsByUser($userId);
+                $this->feedService->deletePostByUser($userId);
+
+                if ($userToDelete->getUserType()->getUserTypeId() === 2){ $this->deleteAdminContent($userId);}
+                else if ($userToDelete->getUserType()->getUserTypeId() === 3){ $this->deleteArtistsContent($userId);}
+
                 $this->userService->deleteUser($userId);
 
                 $result = 'user has been successfully deleted';
@@ -700,6 +715,19 @@ class adminController extends Controller
             echo json_encode($result);
         }
     }
+    private function deleteArtistsContent($userId){
+        $artistPicture = $this->artistService->getArtistContentById($userId)->getPicture();
+        if(!empty($artistPicture) && $artistPicture->getMediaId() != 1){ $this->deletePicture("{$artistPicture->getMediaPath()->getPath()}{$artistPicture->getMediaFilename()}",$artistPicture->getMediaFilename()); }
+
+        $this->artistService->deleteArtistContentByUser($userId);
+    }
+    private function deleteAdminContent($userId){
+        $adminPicture = $this->contentService->getAdminContentById($userId)->getMediaInfo();
+        if(!empty($adminPicture) && $adminPicture->getMediaId() != 1){ $this->deletePicture("{$adminPicture->getMediaPath()->getPath()}{$adminPicture->getMediaFilename()}",$adminPicture->getMediaFilename()); }
+
+        $this->contentService->deleteAdminContentByUser($userId);
+    }
+
     private function uploadPicture($mediaDirectory, $mediaType){
         if ($_FILES['picture']['error'] == UPLOAD_ERR_OK) {
             $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/svg', 'image/webp', 'image/jpg', 'image/svg+xml'];

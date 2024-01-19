@@ -25,6 +25,9 @@ class ArtistService
     public function storeArtistContent($artistId, $description, $link, $disciplineId, $email, $soundcloud, $socialmedia, $stagename, $pictureId, $location){
         $this->artistRepo->storeArtistContent($artistId, $description, $link, $disciplineId, $email, $soundcloud, $socialmedia, $stagename, $pictureId, $location);
     }
+    public function deleteArtistContentByUser($userId){
+        $this->artistRepo->deleteArtistContentByUserId($userId);
+    }
     public function getAllArtistsByDiscipline($discipline){   return $this->artistRepo->getAllArtistsByDiscipline($discipline);  }
     public function getDisciplineByName($name){     return $this->artistRepo->getDisciplineByName($name);    }
     public function getArtistByStageName($stagename){   return $this->artistRepo->getArtistByStageName($stagename);     }

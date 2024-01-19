@@ -7,7 +7,7 @@
 </head>
 <body>
     <div id="page" class="container px-0">
-        <img id="homepagePicture" class="logoHomepage" src="<?php echo $homepagePictureSrc ?? ''?>" alt="Logo" width="930" height="450">
+        <img id="homepagePicture" class="logoHomepage" src="<?php echo $homepagePicture->getPictureSrc() ?? ''?>" alt="Logo" width="930" height="450">
 </div>
 </body>
 </html>

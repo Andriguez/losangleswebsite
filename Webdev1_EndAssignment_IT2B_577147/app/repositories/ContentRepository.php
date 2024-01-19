@@ -42,8 +42,21 @@ class ContentRepository extends Repository
                 ':picture' => $pictureId
             ));
         } catch(\PDOException $e){echo $e;}
-}
+    }
 
+    public function deleteAdminContentByUserId($userId){
+        $query = "DELETE FROM `admin_content` WHERE admin_Id = :userId";
+
+        try{
+            $statement = $this->getContentDB()->prepare($query);
+
+            $statement->bindParam(':userId', $userId, \PDO::PARAM_INT);
+            $statement->execute();
+
+        }catch(\PDOException $e){
+            echo $e->getMessage();
+        }
+    }
     public function getAdminContentById($adminId){
         $query = "SELECT `admin_name_link`, `admin_titles`, `admin_description`, `admin_picture` 
                     FROM `admin_content` WHERE `admin_Id` = :adminId";

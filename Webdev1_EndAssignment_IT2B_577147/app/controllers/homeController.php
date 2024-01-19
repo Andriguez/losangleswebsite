@@ -22,7 +22,6 @@ class homeController extends Controller
     public function index(){
         $this->navbar->displayNavbar();
         $homepagePicture = $this->contentService->getAllContentByPageId(2)['homepagePicture'];
-        $homepagePictureSrc = "/img/?p={$homepagePicture->getMedia()->getMediaPath()->getDirectoryName()}&i={$homepagePicture->getMedia()->getMediaFilename()}";
         require __DIR__ . '/../views/home/index.php';
     }
 }

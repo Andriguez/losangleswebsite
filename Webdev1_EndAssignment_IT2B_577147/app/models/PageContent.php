@@ -28,7 +28,7 @@ class PageContent
 
     public function getType():ContentType{return $this->page_content_type;}
     public function getMedia(){return $this->page_content_media;}
-    public function getPictureSrc(){return '/'.$this->getMedia()->getMediaPath()->getPath().$this->getMedia()->getMediaFilename(); }
+    public function getPictureSrc(){return "/img/?p={$this->getMedia()->getMediaPath()->getDirectoryName()}&i={$this->getMedia()->getMediaFilename()}"; }
     public function getText(){return $this->page_content_text;}
     public function getParentPage():Page{return $this->parent_page;}
 
