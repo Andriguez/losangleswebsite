@@ -99,7 +99,7 @@ class EventRepository extends Repository
     }
 
     public function getAllEvents(){
-        $query = "SELECT event_Id FROM events";
+        $query = "SELECT event_Id FROM events ORDER BY `event_datetime` DESC";
         return $this->getEvents($query);
     }
     public function getEventsByType($type){
@@ -114,6 +114,11 @@ class EventRepository extends Repository
         (YEAR(event_datetime) = :year AND MONTH(event_datetime) = :month)
         OR (YEAR(event_datetime) = :year)
         ORDER BY ABS(MONTH(NOW()) - MONTH(event_datetime))";
+
+        if($year < date('Y')){
+            $query = "SELECT event_Id, event_datetime AS result_date FROM events WHERE (YEAR(event_datetime) = :year 
+                AND MONTH(event_datetime) = :month) OR (YEAR(event_datetime) = :year) ORDER BY MONTH(event_datetime) DESC";
+        }
 
         $params[':year'] = $year;
         $params[':month'] = $month;

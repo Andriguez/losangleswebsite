@@ -19,7 +19,7 @@ class navbarController extends Controller
         $logoSrc = '/media/logos/logo-letters-bigger.png';
         $parsedUrl = parse_url($_SERVER['REQUEST_URI']);
         $requestedPath = $parsedUrl['path'];
-        $homepageUrls = ['/', '/index', 'index.php'];
+        $homepageUrls = ['/', '/index', '/index.php', '/home', '/homepage'];
 
         if(in_array($requestedPath, $homepageUrls)){
             $logoSrc = '/media/logos/losangles-text.png';

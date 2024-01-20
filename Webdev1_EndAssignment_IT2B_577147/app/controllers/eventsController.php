@@ -30,15 +30,14 @@ class eventsController extends Controller
 
         $events = $this->eventService->getAllEventsByDate($selectedYear, $selectedMonth);
 
-        foreach ($events as $event){
-            $eLineups = $this->eventService->getAllLineupsByEvent($event->getEventId());
-            if (isset($eLineups)){
-                $event->setLineups($eLineups);
+        if(!empty($events)) {
+            foreach ($events as $event) {
+                $eLineups = $this->eventService->getAllLineupsByEvent($event->getEventId());
+                if (isset($eLineups)) {
+                    $event->setLineups($eLineups);
+                }
             }
         }
-
-        //echo json_encode($events);
-
-        require __DIR__ . '/../views/events/dynamiccarousel.php';
+        require __DIR__ . '/../views/events/index.php';
     }
 }

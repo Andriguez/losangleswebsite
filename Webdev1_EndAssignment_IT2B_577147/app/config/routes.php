@@ -3,7 +3,7 @@ require_once __DIR__.'/../config/Route.php';
 $routes = [
     new Route(['GET','HEAD','POST'],'connectController', null,'/^\/feed(?:\/(?:|index|([a-z0-9_-]+)(?:\/(\w+)(?:\/(\w+))?)?)?)?\/?#?$/i', '/feed'),
                                                                             ///^\/feed(?:\/(?:|index|([a-z0-9_-]+)(?:\/(\w+))?)?)?\/?#?$/i
-    new Route(['GET','HEAD'],'homeController', null,'/^\/(index(\.php)?)?$/i'),
+    new Route(['GET','HEAD'],'homeController', null,'/^\/(index(\.php)?|home(page)?)?$/i'),
     new Route(['GET','HEAD'],'artistsController',  null,'/^\/artists(?:\/(?:|index|([a-z0-9_-]+)(?:\/(\w+))?)?)?\/?#?$/i', '/artists'),
     //new Route(['GET','HEAD'],'artistsController',  'displayRequest','/^\/artists(?:\/([a-z0-9_.-]+)(?:\/(\w+))?)?\/?$/i'),
     //alternative joint pattern : /^\/artists(?:\/(?:|index|([a-z0-9_-]+)(?:\/(\w+))?)?)?\/?#?$/i

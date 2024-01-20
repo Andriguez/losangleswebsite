@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>artists</title>
+    <title>Artists</title>
     <!--<link rel="icon" href="/media/onlytb.png" type="image/png">-->
     <link rel="stylesheet" type="text/css" href="/style/artists/artists.css">
 </head>
