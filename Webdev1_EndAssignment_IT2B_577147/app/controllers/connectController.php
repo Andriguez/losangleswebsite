@@ -50,7 +50,7 @@ class connectController extends Controller
             if (isset($selectedPostId)) { $this->proccessAction($action, $selectedPostId);
         } else{ $this->proccessAction($action); }
 
-            require __DIR__ . '/../views/connect/index2.php';
+            require __DIR__ . '/../views/connect/index.php';
         }
     }
 

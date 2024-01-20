@@ -1,144 +1,37 @@
-<html>
+<!DOCTYPE html>
 <head>
     <title>about us</title>
+    <!--<link rel="icon" href="/media/onlytb.png" type="image/png">-->
+    <link rel="stylesheet" type="text/css" href="/style/about/about.css">
 </head>
 <body>
-<?php include __DIR__.'/../navbar.php'?>
-<div class="custom-cursor"></div>
-    <div class="album py-4">
-        <div class="container ">
-            <div class="row">
-                <div class="col">
-                    <div class="text-container mx-5 text-center" style="width: 50rem;">
-                        <h4 class="mb-2">Some text about los angles</h4>
-                        <h6 class="mb-4">Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id. Scelerisque in dictum non consectetur  erat nam. Quis varius quam quisque id.</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <div class="col">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <div class="card-front">
-                            <img style="max-width: 100%; max-height: 100%;" src="/media/artist1.png" role="img">
-                            <h5 class="card-text">Angle Name</h5>
-                        </div>
-                        <div class="card-back text-center">
-                            <h6 class="mx-3">this is a text about one of the angles in the front! idk how long it should be</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card shadow-sm position-relative">
-                    <div class="card-body">
-                        <div class="card-front">
-                            <img style="max-width: 100%; max-height: 100%;" src="/media/artist2.png" role="img">
-                            <h5 class="card-text">Angle Name</h5>
-                        </div>
-                        <div class="card-back text-center">
-                            <h6 class="mx-3">this is a text about one of the angles in the front! idk how long it should be</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card shadow-sm position-relative">
-                    <div class="card-body">
-                        <div class="card-front">
-                            <img style="max-width: 100%; max-height: 100%;" src="/media/artist1.png" role="img">
-                            <h5 class="card-text">Angle Name</h5>
-                        </div>
-                        <div class="card-back text-center">
-                            <h6 class="mx-3">this is a text about one of the angles in the front! idk how long it should be</h6>
-                        </div>
-                    </div>
+<div class="album px-4 py-4">
+        <div class="row about-row">
+            <div class="col about-col">
+                <div class="text-container">
+                    <a id="title-link" href="<?php echo (isset($aboutContent)) ? $aboutContent['title-link']->getText() : '#'?>"><span id="title-text" class="title"><?php echo (isset($aboutContent)) ? $aboutContent['title-text']->getText() : ''?></span></a>
+                    <span id="about-description" class="description"><?php echo (isset($aboutContent)) ? $aboutContent['about-description']->getText() : ''?></span>
+                    <a id="footer-link" href="<?php echo (isset($aboutContent)) ? $aboutContent['footer-link']->getText() : '#'?>"><span id="footer-text"><?php echo (isset($aboutContent)) ? $aboutContent['footer-text']->getText() : ''?></span></a>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const customCursor = document.querySelector(".custom-cursor");
+        <div class="row about-row">
 
-        document.addEventListener("mousemove", function (e) {
-            const x = e.clientX - 15;
-            const y = e.clientY - 95;
+        <?php if(isset($admins)){ foreach ($admins as $admin){?>
+            <div class="col about-col">
+                <div class="name-container">
+                    <a class="name-link" href="<?php echo $admin->getAdminContent()->getNameLink();?>" data-image-src="<?php echo $admin->getAdminContent()->getPictureSrc();?>">
+                        <span class="title"><?php echo $admin->getFullName();?></span></a>
+                    <img alt="angle" id="angle-3">
+                </div>
+                <div class="description-container">
+                    <span class="description"><?php echo $admin->getAdminContent()->getDescription();?></span>
+                </div>
+                </div>
+            <?php }}?>
 
-
-            customCursor.style.transform = `translate(${x}px, ${y}px)`;
-        });
-    });
-</script>
+            </div>
+        </div>
+<script src="/js/about/about.js"></script>
 </body>
 </html>
-<style>
-    #about-link {
-        color: white !important; /* New text color on hover */
-        text-shadow:
-                -1px -1px 0 #000,
-                1px -1px 0 #000,
-                -1px 1px 0 #000,
-                1px 1px 0 #000000 !important;
-    }
-
-    .card {
-        perspective: 1000px;
-        width: 300px;
-        height: 270px;
-        position: relative;
-        transform-style: preserve-3d;
-        transition: transform 0.5s;
-        border-radius: 0 !important;
-        border-color: black !important;
-        border-width: 3px;
-    }
-    .col{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .card-body {
-        width: 100%;
-        height: 100%;
-        transform-style: preserve-3d;
-        transition: transform 0.5s;
-        margin: 0 !important;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .card:hover {
-        transform: rotateY(180deg);
-    }
-
-    .card-front,
-    .card-back {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        backface-visibility: hidden;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        box-sizing: border-box;
-    }
-
-    .card-back{
-        background-color: black;
-        color: white;
-    }
-
-    .card-back {
-        transform: rotateY(180deg);
-    }
-
-    body{
-        overflow: hidden;
-    }
-</style>

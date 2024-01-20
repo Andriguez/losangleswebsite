@@ -5,20 +5,85 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/public/media/placeholders/picture-placeholder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/about/media/65aafd1256613.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/about/media/65aafd44b7ec5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/connect/media/users/65ab085c406eb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/media/logos/navbarlogo.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/about/media/65ab23a51c4ad.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/about/media/65ab26c03b3f3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/about/media/65ab27bec414a.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/image_display_api.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/image_display_api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/aboutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/aboutController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/adminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/AdminContent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/AdminContent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/ArtistContent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ArtistContent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Event.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/artistsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/artistsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/connectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/connectController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/media/about/65a9580251e39.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/about/index2.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/about/index2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/IMG_4754.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/Logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/about/artist2.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/connect/media/users/65ab0c4346adb.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/about/place-holder-angle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/arrow_left.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/arrow_right.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/artist1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/artist2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/artist3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/artist4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/artist5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/artists/artist3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/artists/artist5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/charlies-angles.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/event1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/event2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/event3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/event4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/event5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/events/65a9515ae7ebd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/events/65a9533000321.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/events/65a953ab592d6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/events/65a954399be01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/events/65a9550169ee9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/events/event2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/instagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/media/icons/instagram.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/logo-specifications.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/logo.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/logo_placeholder.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/logocrop.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/logoplaceholder.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/mail.svg" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/media/icons/mail.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/more-icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/media/icons/more-icon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/onlytb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/picture-frame.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/picture-frame.svg" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/media/icons/picture-frame.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/place-holder-angle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/text-icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/media/icons/text-icon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/trialpagelogo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/triangle-big-crop.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/triangle-big-crop1.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/triangle-big.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/triangle-icon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/triangle.svg" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/media/icons/triangle.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/users/65a94d942264e.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/connect/media/users/65ab0c547485d.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/users/65a958317be25.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/users/IMG_4747.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/users/artist3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/media/x-icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/media/icons/x-icon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/style/about/about.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/style/about/about.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/ContentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/ContentRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/about/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/about/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/about/index2.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/about/media/65aafd1256613.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/about/media/65aafd44b7ec5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/artists/detailpage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/artists/detailpage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/artists/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/artists/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/artists/index2.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/connect/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/connect/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/connect/index2.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/events/dynamiccarousel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/dynamiccarousel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/home/copy.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/loginView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/loginView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/navbar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/navbarcopies.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/registerView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/registerView.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +126,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "back-end-initial",
-    "last_opened_file_path": "C:/Users/brhig/OneDrive/Escritorio/LOSANGLES/losangleswebsite/Webdev1_EndAssignment_IT2B_577147/app/views/home/media",
+    "last_opened_file_path": "C:/Users/brhig/OneDrive/Escritorio/LOSANGLES/losangleswebsite/Webdev1_EndAssignment_IT2B_577147/app/public/media/logos",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -80,14 +145,15 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\public\media\logos" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\home\media" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\public\media\icons" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\public\media" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\admin\media\placeholders" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\connect" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views" />
-      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\public\style" />
     </key>
   </component>
   <component name="RunManager">
@@ -160,7 +226,7 @@
       <workItem from="1705577656842" duration="19871000" />
       <workItem from="1705609113972" duration="4116000" />
       <workItem from="1705626927979" duration="6464000" />
-      <workItem from="1705674068588" duration="27108000" />
+      <workItem from="1705674068588" duration="34668000" />
     </task>
     <servers />
   </component>

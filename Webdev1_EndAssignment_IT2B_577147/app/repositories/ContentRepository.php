@@ -71,7 +71,7 @@ class ContentRepository extends Repository
                 $adminContent = new AdminContent();
                 $adminContent->setNameLink($row['admin_name_link']);
                 $adminContent->setTitles($row['admin_titles']);
-                $adminContent->setDescription($row['admin_description']);
+                $adminContent->setDescription(htmlspecialchars_decode($row['admin_description']));
 
                 if (!is_null($row['admin_picture'])){
                     $adminContent->setPicture($this->getMediaInfoById($row['admin_picture']));
@@ -116,7 +116,7 @@ class ContentRepository extends Repository
 
                 $pageContent = new PageContent();
                 $pageContent->setElementId($row['page_content_Id']);
-                $pageContent->setText($row['page_content_text']);
+                $pageContent->setText(htmlspecialchars_decode($row['page_content_text']));
                 $pageContent->setType($this->getTypeById($row['page_content_type']));
                 $pageContent->setParentPage($this->getPageById($row['parent_page']));
 

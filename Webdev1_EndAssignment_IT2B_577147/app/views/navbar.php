@@ -12,7 +12,7 @@
 
                 <div class="nav-logo mb-2 mb-md-0 mx-5">
                     <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none navbar-brand">
-                        <img src="/media/logocrop.jpeg" width="90" height="60" alt="Logo" class="d-inline-block align-text-top">
+                        <img src="/media/logos/navbarlogo.jpeg" width="90" height="60" alt="Logo" class="d-inline-block align-text-top">
                     </a>
                 </div>
 

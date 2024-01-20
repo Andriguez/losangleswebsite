@@ -26,6 +26,6 @@ class aboutController extends Controller
 
         $admins = $this->userService->getAllUsersByType(2);
 
-        require __DIR__ . '/../views/about/index2.php';
+        require __DIR__ . '/../views/about/index.php';
     }
 }

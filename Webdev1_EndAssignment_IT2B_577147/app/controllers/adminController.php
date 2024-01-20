@@ -49,7 +49,7 @@ class adminController extends Controller
 
     public function index(){
         if ($this->userAuth->allowAdminAccess()){
-            $this->userService = new UserService();
+            $loggedAdmin = $this->userAuth->loggedUser();
             require __DIR__ . '/../views/admin/index.php';
         }
     }

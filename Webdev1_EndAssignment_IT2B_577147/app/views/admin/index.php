@@ -3,7 +3,7 @@ session_start();} ?>
 <html>
 <head>
     <title>Admin page</title>
-    <link rel="icon" href="/media/onlytb.png" type="image/png">
+    <!--<link rel="icon" href="/media/onlytb.png" type="image/png">-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/style/admin/adminstyle.css">
@@ -164,23 +164,17 @@ session_start();} ?>
     </div>
     <hr>
     <div id="admin-info-container">
-            <img src="/media/artist1.png" alt="" width="40" height="40" class="ms-3 me-2">
+            <img src=" <?php echo $loggedAdmin->getPictureSrc() ?? '';?>" alt="" width="40" height="40" class="ms-3 me-2">
         <div id="info-text">
-            <strong><?php echo (isset($_SESSION['user_id'])) ? $_SESSION['user_id'] : 'admin name';?></strong>
+            <strong> <?php echo $loggedAdmin->getFullName() ?? 'Admin name';?></strong>
             <a href="/logout">logout</a>
         </div>
     </div>
 </div>
 <div id="main-window" style="flex-grow: 1; padding: 20px;">
-    <div id="main-window-content">
-    <img src="/media/charlies-angles.svg">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-quote" viewBox="0 0 16 16">
-            <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"/>
-        </svg>
-    <span>Good Morning, Angles</span>
-        <svg id="closinq" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-quote" viewBox="0 0 16 16">
-            <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"/>
-        </svg>
+    <div style="margin: 50px;" id="main-window-content">
+        <span>Welcome Backstage, <?php echo $loggedAdmin->getFirstName() ?? 'Admin';?>!</span>
+        <p style="font-size: 20px;">from this page you can manage the users(CRUD), all registrations/artist applications and all content in the website (text, detail pages, images)</p>
     </div>
 </div>
 <script src="/js/admin/adminscript.js"></script>

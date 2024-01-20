@@ -5,10 +5,10 @@ if (isset($_GET['i'])&&isset($_GET['p'])) {
     $pageDirectory = sanitizeFileName($_GET['p']);
 
         switch($pageDirectory){
-            case 'connect/u':
+            case 'connect-u':
                 $composedFilepath = '/app/views/connect/media/users/'.$imageName;
                 break;
-            case 'connect/p':
+            case 'connect-p':
                 $composedFilepath = '/app/views/connect/media/posts/'.$imageName;
                 break;
             case 'admin':

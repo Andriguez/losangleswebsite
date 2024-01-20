@@ -10,9 +10,9 @@
     </div>
     <div class="media-container">
         <div class="icon-container">
-            <a href="<?php echo (isset($artist)) ? $artist->getArtistContent()->getSocials() : '' ?>"><img src="/media/instagram.svg"></a>
-            <a href="mailto:<?php echo (isset($artist)) ? $artist->getArtistContent()->getEmail() : '' ?>"><img src="/media/mail.svg"></a>
-            <a href="<?php echo (isset($artist)) ? $artist->getArtistContent()->getExtraLink() : '' ?>"><img src="/media/triangle.svg"></a>
+            <a href="<?php echo (isset($artist)) ? $artist->getArtistContent()->getSocials() : '' ?>"><img src="/media/icons/instagram.svg"></a>
+            <a href="mailto:<?php echo (isset($artist)) ? $artist->getArtistContent()->getEmail() : '' ?>"><img src="/media/icons/mail.svg"></a>
+            <a href="<?php echo (isset($artist)) ? $artist->getArtistContent()->getExtraLink() : '' ?>"><img src="/media/icons/triangle.svg"></a>
         </div>
         <div class="soundcloud-container">
             <?php echo (isset($artist)) ? $artist->getArtistContent()->getSoundcloudUrl() : '' ?>

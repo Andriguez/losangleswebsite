@@ -37,7 +37,7 @@ class artistsController extends Controller
             $artists = $this->artistService->getAllArtistsByDiscipline($discipline->getDisciplineId());
             $allArtists[$discipline->getDisciplineId()] = $artists;
         }
-        require __DIR__ . '/../views/artists/index2.php';
+        require __DIR__ . '/../views/artists/index.php';
     }
     private function displayArtistDetails($artistName, $discipline){
         $artist = $this->artistService->getArtistByStageName($artistName);
