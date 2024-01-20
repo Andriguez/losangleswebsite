@@ -37,7 +37,7 @@ class registerController extends Controller
     }
 
     public function storeApplication(){
-        if(isset($_POST['inputEmail']) && isset($_POST['inputName']) && isset($_POST['inputSocials']) && isset($_POST['inputMessage'])) {
+        if(!empty($_POST['inputEmail']) && !empty($_POST['inputName']) && !empty($_POST['inputSocials']) && !empty($_POST['inputMessage'])) {
             $_POST = filter_input_array(INPUT_POST);
             $name = $_POST['inputName'];
             $stagename = $_POST['inputStageName'];

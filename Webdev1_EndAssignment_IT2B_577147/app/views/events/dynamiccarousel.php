@@ -26,6 +26,7 @@
 <script>
     const galleryContainer = document.querySelector('.gallery-container')
     const galleryItems = document.querySelectorAll('.gallery-item')
+    let centerIndex = 3;
 
     class Carousel {
         constructor(container) {
@@ -152,6 +153,7 @@
 
             // mapping for 4 items case
             const mappingForFourItems = [5, 1, 2, 3];
+            const mappingForFiveItems = [3, 4, 5, 1, 2]
 
             this.carouselItems.forEach((el, i) => {
                 el.classList.remove(...Array.from({ length: 5 }, (_, j) => `gallery-item-${j + 1}`));
@@ -169,12 +171,14 @@
                             newIndex = mappingForFourItems[i];
                             break;
                         default:
-                            newIndex = 3; // Single item, center it
+                            newIndex = 3;
+                            // Single item, center it
                             break; }
                     el.classList.add(`gallery-item-${newIndex}`);
                 } else {
                     // Normal class assignment for 5 or more items
                     let itemIndex = i + 1;
+                   // let newIndex = mappingForFiveItems[i]
                     el.classList.add(`gallery-item-${itemIndex}`);
                 }
             });
@@ -193,7 +197,7 @@
         useControls() {
 
             this.carouselContainer.addEventListener('click', (e) => {
-                const centerIndex = Math.floor(this.carouselItems.length / 2);
+                //const centerIndex = Math.floor((this.carouselItems.length - 1) / 2);
 
 
                     const clickedIndex = Array.from(this.carouselItems).indexOf(e.target.closest('.gallery-item'));

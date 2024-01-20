@@ -112,7 +112,7 @@ class ArtistApplicationRepository extends Repository
     }
 
     public function getAllApplications(){
-        $query = "SELECT application_Id FROM artists_applications";
+        $query = "SELECT application_Id FROM artists_applications ORDER BY `application_submissiondate` DESC";
 
         try{
             $statement = $this->getusersDB()->prepare($query);
