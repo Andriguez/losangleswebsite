@@ -671,13 +671,18 @@ class adminController extends Controller
 
                 $user = $this->userService->getUserById($userId);
 
-
                 if(!isset($_FILES['picture']) || $_FILES['picture']['error'] === UPLOAD_ERR_NO_FILE){
                     if(!isset($user)){ $picture = 1; } else { $picture = $user->getMediaInfo()->getMediaId(); }
-
                 } else {
                         if (isset($user)){  $currentUserPicture = $user->getMediaInfo();  }
-                        $picture = $this->uploadPicture('connect','userpicture');
+                        $picture = $this->uploadPicture('connect','userpicture'); }
+
+                if(isset($user) && $user->getUserType()->getUserTypeId() != $usertype){
+                    if ($user->getUserType()->getUserTypeId() == 2){
+                        $this->deleteAdminContent($userId);
+                    } else if ($user->getUserType()->getUserTypeId() == 3) {
+                        $this->deleteArtistsContent($userId);
+                    }
                 }
 
                 $this->userService->storeUser($userId, $firstname, $lastname, $email, $pronouns, $usertype, $password, $picture);
