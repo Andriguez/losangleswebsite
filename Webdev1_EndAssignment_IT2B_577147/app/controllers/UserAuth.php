@@ -25,13 +25,11 @@ class UserAuth
         if (is_null($user)){
             return [false, 'email'];
         }
-        else if ($user->getPassword() !== $password) //(!password_verify($password, $user->getPassword())
+        else if ($password !== $user->getPassword())//(!password_verify($password, $user->getPassword()))
              {
             return [false, 'password'];}
         else{
             $_SESSION['user_id'] = $user->getUserId();
-            $_SESSION['user_type'] = $user->getUserType()->getUserType();
-
             return [true];
         }
     }
@@ -60,7 +58,11 @@ class UserAuth
             $_SESSION['redirect_url'] = $_SERVER['REQUEST_URI'];
             header("Location: /login");
             exit;
-        } else if ($_SESSION['user_type'] === 'developer' || $_SESSION['user_type'] === $userType){
+        }
+
+        $loggedUser = $this->userService->getUserById($_SESSION['user_id']);
+
+        if ($loggedUser->getUserType()->getUserType() === 'developer' || $loggedUser->getUserType()->getUserType() === $userType){
             return true;
         } else {
             header("Location: /");

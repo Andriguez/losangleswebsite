@@ -19,7 +19,7 @@
         <div class="col-md-6">
             <label for="inputPassword" class="form-label"><strong>Password</strong></label>
             <div class="input-group">
-                <input type="password" class="form-control" id="inputPassword" name="password" value="<?php echo (isset($user))? $user->getPassword() : ''?>">
+                <input type="password" class="form-control" id="inputPassword" name="password">
                 <button class="btn btn-outline-secondary" type="button" id="togglePasswordbtn" onclick="togglePassword()">Show</button>
             </div>
         </div>

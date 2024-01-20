@@ -666,8 +666,7 @@ class adminController extends Controller
                 $email = $_POST['email'];
                 $usertype = $_POST['usertype'];
                 $pronouns = $_POST['pronouns'];
-                //$password = $this->userAuth->hashPassword($_POST['password']);
-                $password = $_POST['password'];
+                //$password = $_POST['password'];
 
                 $user = $this->userService->getUserById($userId);
 
@@ -677,13 +676,21 @@ class adminController extends Controller
                         if (isset($user)){  $currentUserPicture = $user->getMediaInfo();  }
                         $picture = $this->uploadPicture('connect','userpicture'); }
 
-                if(isset($user) && $user->getUserType()->getUserTypeId() != $usertype){
+                if(isset($user)) {
+                    if(empty($_POST['password'])){
+                        $password = $this->userAuth->hashPassword($_POST['password']);
+                    } else {}
+
+                    if($user->getUserType()->getUserTypeId() != $usertype){
                     if ($user->getUserType()->getUserTypeId() == 2){
                         $this->deleteAdminContent($userId);
                     } else if ($user->getUserType()->getUserTypeId() == 3) {
                         $this->deleteArtistsContent($userId);
                     }
                 }
+                }
+
+
 
                 $this->userService->storeUser($userId, $firstname, $lastname, $email, $pronouns, $usertype, $password, $picture);
 

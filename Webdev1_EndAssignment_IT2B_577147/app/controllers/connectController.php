@@ -108,7 +108,7 @@ class connectController extends Controller
     }
 
     private function createPost(){
-        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['post-title']) && !empty($_POST['post-content'])){
 
                 $_POST = filter_input_array(INPUT_POST);
                 $inputTopic = $_POST['post-topic'];

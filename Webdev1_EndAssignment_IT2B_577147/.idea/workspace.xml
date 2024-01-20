@@ -5,37 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/views/events/media/65ac043188513.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/eventsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/eventsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/navbarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/navbarController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/js/events/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/js/events/events.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/js/jquery.flipster.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/js/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/js/testimonials.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/media/logos/letters.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/media/logos/logo-final.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/media/logos/logo-letters-big.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/media/logos/losangles-text.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/style/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/style/carousel.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/style/carousel2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/style/jquery.flipster.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/style/jquery.flipster.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/style/rotatingcard.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/style/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/style/testimonials.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/EventRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/EventRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/artists/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/artists/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/events/carousel.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/events/chatgptsuggest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/events/dynamiccarousel.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/events/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/events/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/events/index2.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/events/index3.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/events/newcarousel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/UserAuth.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/UserAuth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/adminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/connectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/connectController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/loginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/loginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/trialController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/users/manageUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/users/manageUser.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +158,7 @@
       <workItem from="1705626927979" duration="6464000" />
       <workItem from="1705674068588" duration="36473000" />
       <workItem from="1705745026917" duration="6554000" />
-      <workItem from="1705760462769" duration="14740000" />
+      <workItem from="1705760462769" duration="17824000" />
     </task>
     <servers />
   </component>

@@ -28,7 +28,7 @@ class loginController extends Controller
 
     public function access(){
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        if(isset($_POST['email'])&&isset($_POST['password'])){
+        if(!empty($_POST['email'])&&!empty($_POST['password'])){
             $_POST = filter_input_array(INPUT_POST);
             $email = $_POST['email'];
             $password = $_POST['password'];
@@ -54,7 +54,6 @@ class loginController extends Controller
     }
     public function logOut(){
             unset($_SESSION['user_id']);
-            unset($_SESSION['user_type']);
             session_destroy();
         $this->redirectPage();
     }
