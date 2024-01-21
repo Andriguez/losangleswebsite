@@ -17,6 +17,7 @@ class navbarController extends Controller
     public function displayNavbar()
     {
         $logoSrc = '/media/logos/logo-letters-bigger.png';
+
         $parsedUrl = parse_url($_SERVER['REQUEST_URI']);
         $requestedPath = $parsedUrl['path'];
         $homepageUrls = ['/', '/index', '/index.php', '/home', '/homepage'];

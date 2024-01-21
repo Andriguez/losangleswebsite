@@ -5,70 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    <header class="py-2">
-        <div id="desktop-nav-bar">
-            <ul class="nav justify-content-center flex-nowrap">
-                <li class="nav-item"><h3><a id="artist-link" href="/artists" class="nav-link mt-3 mx-md-2 mx-lg-4 mx-xl-5 text-reset">Artists</a></h3></li>
-                <li class="nav-item"><h3><a id="events-link" href="/events" class="nav-link mt-3 mx-md-2 mx-lg-4 mx-xl-5 text-reset">Events</a></h3></li>
-
-                <div class="nav-logo mb-2 mb-md-0 mx-sm-4 mx-md-4 mx-xl-5">
-                    <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none navbar-brand">
-                        <img id="nav-logo-desktop" src="<?php echo $logoSrc ?? ''?>" alt="Logo" class="d-inline-block align-text-top">
-                    </a>
-                </div>
-
-                <li class="nav-item"><h3><a id="about-link" href="/about" class="nav-link mt-3 mx-md-2 mx-lg-4 mx-xl-5 text-reset">About</a></h3></li>
-                <li class="nav-item"><h3><a id="connect-link" class="nav-link mt-3 mx-md-2 ms-lg-3 me-lg-4 ms-xl-4 me-xl-5 text-reset" data-bs-toggle="dropdown" aria-expanded="false">Connect</a>
-                        <ul class="dropdown-menu" aria-labelledby="connect-link">
-                            <?php if(isset($loggedUser)){?>
-                                    <li><span><?php echo $loggedUser->getFullName();?></span></li>
-                                <li><a class="dropdown-item" href="/feed">feed</a></li>
-                                <?php if($loggedUser->getUserType()->getUserType() === 'developer' || $loggedUser->getUserType()->getUserType() === 'admin'){?>
-                                    <li><a class="dropdown-item" href="/admin">admin</a></li>
-                                    <?php } ?>
-                                <li><a class="dropdown-item" href="/logout">logout</a></li>
-                            <?php } else{ ?>
-                                <li><a class="dropdown-item" href="/register">register</a></li>
-                                <li><a class="dropdown-item" href="/login">login</a></li>
-                            <?php } ?>
-                        </ul>
-                    </h3>
-                </li>
-            </ul>
-        </div>
-
+<header class="py-2">
         <div id="mobile-nav-bar">
             <div id="nav-logo" class="nav-logo mt-3 mb-md-0 mx-5">
                 <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none navbar-brand">
-                    <img id="navbar-logo" src="<?php echo $logoSrc ?? ''?>" alt="Logo" class="d-inline-block align-text-top">
+                    <img id="navbar-logo" src="/media/logos/logo-letters-bigger.png" alt="Logo" class="d-inline-block align-text-top">
                 </a>
             </div>
             <div id="nav-item-conatiner">
-                <div id="nav-menu-button" class="nav-item"><a id="menu-button" class="nav-link mt-3 mx-5" data-bs-toggle="dropdown" aria-expanded="false"><img id="menu-icon" src="/media/icons/menu-icon-transparent.svg"></a>
+            <div id="nav-menu-button" class="nav-item"><a id="menu-button" class="nav-link mt-3 mx-5" data-bs-toggle="dropdown" aria-expanded="false"><img id="menu-icon" src="/media/icons/menu-icon-transparent.svg"></a>
                     <ul class="dropdown-menu" aria-labelledby="menu-button">
                         <li><a id="artist-link" class="nav-link nav-menu-item" href="/artists">Artists</a></li>
                         <li><a id="events-link" class="nav-link nav-menu-item" href="/events">Events</a></li>
                         <li><a id="about-link" class="nav-link nav-menu-item">About</a></li>
                         <li><a id="connect-link" class="nav-link nav-menu-item">Connect</a>
-                            <ul style="list-style-type: none;">
-                                <?php if(isset($loggedUser)){?>
-                                    <li id="logged-user-name"><span><?php echo $loggedUser->getFirstName();?></span></li>
-                                    <li><a class="dropdown-item" href="/feed">feed</a></li>
-                                    <?php if($loggedUser->getUserType()->getUserType() === 'developer' || $loggedUser->getUserType()->getUserType() === 'admin'){?>
-                                        <li><a class="dropdown-item" href="/admin">admin</a></li>
-                                    <?php } ?>
-                                    <li><a class="dropdown-item" href="/logout">logout</a></li>
-                                <?php } else{ ?>
-                                    <li><a class="dropdown-item" href="/register">register</a></li>
-                                    <li><a class="dropdown-item" href="/login">login</a></li>
-                                <?php } ?>
-                            </ul>
+                        <ul style="list-style-type: none;">
+                        <?php if(isset($loggedUser)){?>
+                            <li><span><?php echo $loggedUser->getFullName();?></span></li>
+                            <li><a class="dropdown-item" href="/feed">feed</a></li>
+                            <?php if($loggedUser->getUserType()->getUserType() === 'developer' || $loggedUser->getUserType()->getUserType() === 'admin'){?>
+                                <li><a class="dropdown-item" href="/admin">admin</a></li>
+                            <?php } ?>
+                            <li><a class="dropdown-item" href="/logout">logout</a></li>
+                        <?php } else{ ?>
+                            <li><a class="dropdown-item" href="/register">register</a></li>
+                            <li><a class="dropdown-item" href="/login">login</a></li>
+                        <?php } ?>
+                        </ul>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
-    </header>
+</header>
 </body>
 </html>
 <script>
@@ -101,9 +70,6 @@
         }
     }
     @media (min-width: 400px){
-        #desktop-nav-bar{
-            display: none;
-        }
         #mobile-nav-bar{
             display: flex;
             justify-content: center;
@@ -125,9 +91,6 @@
         }
     }
     @media (min-width: 400px) {
-        #desktop-nav-bar{
-            display: none;
-        }
         #mobile-nav-bar{
             display: flex;
             justify-content: center;
@@ -150,9 +113,6 @@
     }
 
     @media (min-width: 600px){
-        #desktop-nav-bar{
-            display: none;
-        }
         #mobile-nav-bar{
             display: flex;
             justify-content: center;
@@ -174,26 +134,12 @@
         }
     }
 
-    @media (min-width: 910px){
+    @media (min-width: 800px){
         #mobile-nav-bar {
             display: none;
         }
-        #desktop-nav-bar{
-            display: block;
-            #logged-user-name{
-                padding: 5px;
-            }
-
-            #nav-logo-desktop{
-                width: 120px;
-                height: 60px;
-            }
-        }
-        .dropdown-item{
-            padding: 5px;
-        }
-
     }
+
     .dropdown-menu{
         border-width: 3px !important;
         border-radius: 0 !important;
@@ -201,6 +147,7 @@
         font-family: angles;
         font-size: 10px;
         text-transform: uppercase;
+        padding: 20px;
     }
     .dropdown-item:hover {
         background-color: black !important;
@@ -211,9 +158,7 @@
         background-color: black !important;
     }
     a.nav-link:hover{
-        /**font-size: 105% !important;
-        text-transform: uppercase;*/
-        color: white !important; /* New text color on hover */
+        color: white !important;
         text-shadow:
                 -1px -1px 0 #000,
                 1px -1px 0 #000,
@@ -225,9 +170,9 @@
         color: black;
         font-family: angles;
         font-size: 16px !important;
-        /*font-size: 18px !important;*/
         text-transform: uppercase;
     }
+
     #nav-menu-button{
         position: sticky;
         float: left;

@@ -19,7 +19,6 @@ class eventsController extends Controller
     public function index($selectedYear = null, $selectedMonth = null){
         $this->navbar->displayNavbar();
         $event = $this->eventService->getEventById(2);
-        //$lineups = $this->eventService->getAllLineupsByEvent(2);
 
         $yFilters = $this->eventService->getEventsYears();
         $mFilters = $this->eventService->getEventsMonthsByYear($selectedYear);

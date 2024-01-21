@@ -17,7 +17,7 @@ $routes = [
     new Route(['POST','HEAD'],'registerController',  'submitregistration',null, '/register/submitregistration'),
     new Route(['GET','HEAD', 'POST'],'adminController',  null,'/^\/admin(?:\/([a-z0-9_-]+)(?:\/(\w+))?)?\/?#?$/i'),
                                                                                 ///^\/admin(?:\/([a-z0-9_-]+)(?:\/(\w+))?)?\/?$/i
-    new Route(['GET','HEAD'],null,  null,null, '/img/',['p', 'i'], null,'/config/image_display_api.php')
-    //new Route(['GET','HEAD'],'trialController',  null,'/^\/trial(?:\/([a-z0-1_-]+))?$/'),
+    new Route(['GET','HEAD'],null,  null,null, '/img/',['p', 'i'], null,'/config/image_display_api.php'),
+    new Route(['GET','HEAD'],'trialController',  null,'/^\/trial(?:\/([a-z0-1_-]+))?$/')
 
 ];

@@ -23,7 +23,6 @@ class aboutController extends Controller
     public function index(){
         $this->navbar->displayNavbar();
         $aboutContent = $this->contentService->getAllContentByPageId(1);
-
         $admins = $this->userService->getAllUsersByType(2);
 
         require __DIR__ . '/../views/about/index.php';
