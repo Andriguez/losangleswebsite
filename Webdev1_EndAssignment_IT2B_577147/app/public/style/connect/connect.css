@@ -15,20 +15,19 @@
 }
 
 .post-container{
-    /*border: 3px solid pink; /* Adjust thickness and color as needed */
     text-align: center;
     justify-content: center;
     position: relative;
     padding: 5px;
     display: inline-block;
-    width: auto;
+    width: 100%;
 }
 
 .admin-post-card{
-    border: 5px solid black; /* Adjust thickness and color as needed */
+    border: 5px solid black;
     text-align: left;
     justify-content: left;
-    width: 600px;
+    width: auto;
     margin-top: 1rem;
     margin-left: 1rem;
     padding: 0.5rem;
@@ -70,10 +69,9 @@
 }
 
 .post-card{
-    border: 5px solid black; /* Adjust thickness and color as needed */
+    border: 5px solid black;
     text-align: left;
     justify-content: left;
-    width: 600px;
     margin-top: 1rem;
     margin-left: 1rem;
     padding: 0.5rem;
@@ -130,9 +128,7 @@
     a{
         font-weight: bold;
         font-size: 15px;
-
     }
-
 
     p{
         margin: 0 4px;
@@ -189,6 +185,21 @@ button:hover {
     color: white;
 }
 }
+
+#allposts{
+    max-width: 620px;
+    width: 100%;
+    display: inline-block;
+    flex-direction: column;
+    align-items: stretch;
+    margin: auto;
+    padding: 7px;
+}
+#all-posts-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 #topics-container{
     border: 3px solid black; /* Adjust thickness and color as needed */
     text-align: center;
@@ -234,13 +245,13 @@ button:hover {
 
 #btns-container{
     background-color: #000000;
-    width: 8rem;
+    width: 6rem;
     height: auto;
-    border: 3px solid black;
+    border: 3px solid white;
     padding: .4rem;
     position: absolute;
     bottom: 2rem;
-    right: 4rem;
+    right: 2rem;
 
     img{
         width: 3rem;
@@ -261,17 +272,17 @@ body{
 #page{
     overflow-y: scroll;
     overflow-x: hidden;
-    max-height: 445px;
+    max-height: 80vh;
 }
 
 .box-popup{
     border: black solid 3px;
     display: none;
     position: fixed;
-    top: 55%;
+    top: 57%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 9;
+    z-index: 9999;
     background-color: white;
 
     button {

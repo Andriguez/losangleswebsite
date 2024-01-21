@@ -39,9 +39,10 @@
     #comments-section{
         overflow-y: scroll;
         background-color: black;
-        width: 500px;
+        max-width: 500px;
+        min-width: 400px;
         height: auto;
-        max-height: 400px;
+        max-height: 380px;
         padding: 5px;
 
         #parent-post{

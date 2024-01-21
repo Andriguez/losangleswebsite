@@ -142,12 +142,12 @@
 
             #menu-icon{
                 width: 80px;
-                height: 80px;
+                height: 75px;
             }
 
             #navbar-logo{
                 width: 160px;
-                height: 70px;
+                height: 65px;
             }
         }
         .nav-menu-item{

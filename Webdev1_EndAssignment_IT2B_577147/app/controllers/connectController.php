@@ -83,9 +83,9 @@ class connectController extends Controller
     }
     private function displayPostsByTopic($currentPage){
         if(isset($this->selectedTopic)){
-            $posts = $this->feedService->getAllPostsByTopic($this->selectedTopic->getTopicId(), 3, $currentPage);
+            $posts = $this->feedService->getAllPostsByTopic($this->selectedTopic->getTopicId(), 10, $currentPage);
             $totalPosts = $this->feedService->getPostsAmountForTopic($this->selectedTopic->getTopicId());
-            $totalPages = ceil($totalPosts / 3);
+            $totalPages = ceil($totalPosts / 10);
         }
         require __DIR__ . '/../views/connect/popups/posts-window.php';
     }
