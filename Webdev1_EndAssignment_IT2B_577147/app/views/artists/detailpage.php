@@ -45,7 +45,7 @@
         background-color: black !important;
         color: white !important;
         display: flex;
-        height: 280px;
+        min-height: 280px;
 
         img{
             height: 250px !important;
@@ -60,12 +60,12 @@
         }
         .text-container{
             min-width: 320px;
+            max-height: 300px;
             height: 80%;
             margin: auto;
             padding: 5px;
             justify-content: center;
             align-items: center;
-            overflow-y: auto;
             font-family: "Agency FB";
 
             span{
@@ -76,6 +76,7 @@
                 margin: 25px 30px 12px 5px;
                 font-size: 20px;
                 max-width: 320px;
+                overflow-y: auto;
             }
         }
 

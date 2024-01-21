@@ -86,9 +86,11 @@ body{
 }
 .album{
     margin: auto;
-    max-height: 390px;
+    height: 75vh;
     overflow-y: scroll;
 }
+
+
 /* For WebKit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
     width: 5px; /* Set width of the scrollbar */

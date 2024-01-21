@@ -48,11 +48,11 @@
                     <ul class="dropdown-menu" aria-labelledby="menu-button">
                         <li><a id="artist-link" class="nav-link nav-menu-item" href="/artists">Artists</a></li>
                         <li><a id="events-link" class="nav-link nav-menu-item" href="/events">Events</a></li>
-                        <li><a id="about-link" class="nav-link nav-menu-item">About</a></li>
-                        <li><a id="connect-link" class="nav-link nav-menu-item">Connect</a>
+                        <li><a id="about-link" class="nav-link nav-menu-item" href="/about">About</a></li>
+                        <li><span id="connect-link" class="nav-link nav-menu-item">Connect</span>
                             <ul style="list-style-type: none;">
                                 <?php if(isset($loggedUser)){?>
-                                    <li id="logged-user-name"><span><?php echo $loggedUser->getFirstName();?></span></li>
+                                    <li id="logged-user-name"><label>Welcome, </label><span> <?php echo $loggedUser->getFirstName();?></span></li>
                                     <li><a class="dropdown-item" href="/feed">feed</a></li>
                                     <?php if($loggedUser->getUserType()->getUserType() === 'developer' || $loggedUser->getUserType()->getUserType() === 'admin'){?>
                                         <li><a class="dropdown-item" href="/admin">admin</a></li>
@@ -80,11 +80,15 @@
         src: url('/style/fonts/losangles-font.ttf');
     }
     @media (max-width: 400px){
+        #desktop-nav-bar{
+            display: none;
+        }
         #mobile-nav-bar{
             display: flex;
             justify-content: center;
             position: relative;
             width: 100%;
+            z-index: 9999;
 
             #menu-icon{
                 width: 40px;
@@ -109,6 +113,7 @@
             justify-content: center;
             position: relative;
             width: 100%;
+            z-index: 9999;
 
             #menu-icon{
                 width: 60px;
@@ -133,6 +138,7 @@
             justify-content: center;
             position: relative;
             width: 100%;
+            z-index: 9999;
 
             #menu-icon{
                 width: 80px;
@@ -158,6 +164,7 @@
             justify-content: center;
             position: relative;
             width: 100%;
+            z-index: 9999;
 
             #menu-icon{
                 width: 60px;
@@ -201,8 +208,6 @@
         font-family: angles;
         font-size: 10px;
         text-transform: uppercase;
-        position: absolute;
-        z-index: 9;
     }
     .dropdown-item:hover {
         background-color: black !important;
@@ -223,7 +228,7 @@
                 1px 1px 0 #000000;
         cursor: pointer;
     }
-    a.nav-link{
+    .nav-link{
         color: black;
         font-family: angles;
         font-size: 16px !important;
@@ -248,5 +253,11 @@
         position: absolute;
         right: 0;
         top: 0;
+    }
+    #logged-user-name{
+        label{
+            font-family: "Agency FB";
+            font-size: 16px;
+        }
     }
 </style>

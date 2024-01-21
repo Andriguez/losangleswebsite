@@ -1,25 +1,30 @@
 const nameLinks = document.querySelectorAll('.name-link');
 
 nameLinks.forEach((link) => {
-    link.addEventListener('mousemove', (e) => {
-        const image = link.nextElementSibling;
+    const image = link.nextElementSibling;
+
+    if(window.matchMedia("(max-width: 600px)").matches){
         image.src = link.getAttribute('data-image-src');
-
-        const mouseX = e.clientX;
-        const mouseY = e.clientY;
-
         image.style.display = 'block';
+    } else{
+        link.addEventListener('mousemove', (e) => {
+            image.src = link.getAttribute('data-image-src');
 
-        image.style.left = mouseX + 'px';
-        image.style.top = mouseY + 'px';
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
 
-    });
+            image.style.display = 'block';
 
-    link.addEventListener('mouseout', (e) => {
-        const image = link.nextElementSibling;
+            image.style.left = mouseX + 'px';
+            image.style.top = mouseY + 'px';
 
-        image.style.display = 'none';
-    });
+        });
+
+        link.addEventListener('mouseout', (e) => {
+            const image = link.nextElementSibling;
+            image.style.display = 'none';
+        });
+    }
 });
 
 /*document.addEventListener('DOMContentLoaded', function () {

@@ -7,6 +7,43 @@
             1px 1px 0 #000000 !important;
 }
 
+@media (max-width: 600px) {
+    .about-col{
+        position: relative;
+        min-width: 400px;
+    }
+    .name-container .admin-name{
+        width: auto;
+    }
+
+    .admin-picture{
+        display: block;
+        margin: auto;
+    }
+
+}
+
+@media (min-width: 600px) and (max-width: 2000px){
+    .admin-picture{
+        display: none;
+        position: absolute;
+    }
+
+    .name-link:hover img{
+        transform: translate(10px, 10px);
+    }
+
+}
+
+@media (max-width: 960px){
+    .admin-name{
+        display: inline-block;
+        max-width: 200px;
+        overflow: hidden;
+        margin: auto;
+    }
+}
+
 .about-row{
     margin-top: 7px;
     margin-bottom: 40px;
@@ -39,13 +76,8 @@
                 -1px 1px 0 black,
                 1px 1px 0 black;
     }
-    .name-link:hover img{
-        display: block;
-        transform: translate(10px, 10px);
-    }
+
     img{
-        display: none;
-        position: absolute;
         max-width: 200px;
         max-height: 200px;
         pointer-events: none;
@@ -98,7 +130,7 @@ body{
 
 .album{
     margin: auto;
-    max-height: 450px;
+    max-height: 83vh;
     overflow-y: scroll;
 }
 ::-webkit-scrollbar {

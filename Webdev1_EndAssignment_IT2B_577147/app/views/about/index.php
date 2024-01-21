@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <title>about us</title>
+    <title>About Us</title>
     <!--<link rel="icon" href="/media/onlytb.png" type="image/png">-->
     <link rel="stylesheet" type="text/css" href="/style/about/about.css">
 </head>
@@ -21,8 +21,8 @@
             <div class="col about-col">
                 <div class="name-container">
                     <a class="name-link" href="<?php echo $admin->getAdminContent()->getNameLink();?>" data-image-src="<?php echo $admin->getAdminContent()->getPictureSrc();?>">
-                        <span class="title"><?php echo $admin->getFullName();?></span></a>
-                    <img alt="angle" id="angle-3">
+                        <span class="title admin-name"><?php echo $admin->getFullName();?></span></a>
+                    <img class="admin-picture" alt="angle" id="angle-3">
                 </div>
                 <div class="description-container">
                     <span class="description"><?php echo $admin->getAdminContent()->getDescription();?></span>
