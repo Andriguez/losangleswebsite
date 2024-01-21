@@ -667,6 +667,7 @@ class adminController extends Controller
                 $usertype = $_POST['usertype'];
                 $pronouns = $_POST['pronouns'];
                 //$password = $_POST['password'];
+                $password = $this->userAuth->hashPassword($_POST['password']);
 
                 $user = $this->userService->getUserById($userId);
 
@@ -677,9 +678,7 @@ class adminController extends Controller
                         $picture = $this->uploadPicture('connect','userpicture'); }
 
                 if(isset($user)) {
-                    if(empty($_POST['password'])){
-                        $password = $this->userAuth->hashPassword($_POST['password']);
-                    } else {}
+                    if(empty($_POST['password'])){ $password = $user->getPassword(); }
 
                     if($user->getUserType()->getUserTypeId() != $usertype){
                     if ($user->getUserType()->getUserTypeId() == 2){

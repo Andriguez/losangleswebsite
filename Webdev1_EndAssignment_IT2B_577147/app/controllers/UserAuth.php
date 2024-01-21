@@ -25,7 +25,7 @@ class UserAuth
         if (is_null($user)){
             return [false, 'email'];
         }
-        else if ($password !== $user->getPassword())//(!password_verify($password, $user->getPassword()))
+        else if (!password_verify($password, $user->getPassword()))
              {
             return [false, 'password'];}
         else{
