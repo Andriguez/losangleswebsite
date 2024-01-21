@@ -2,13 +2,31 @@
 <head>
     <title>Los Angles</title>
     <!--<link rel="icon" href="/media/onlytb.png" type="image/png">-->
-    <link rel="stylesheet" type="text/css" href="/style/homepage/homepage.css">
-
 </head>
 <body>
     <div id="page" class="container px-0">
-        <img id="homepagePicture" class="logoHomepage" src="<?php echo $homepagePicture->getPictureSrc() ?? ''?>" alt="Logo" width="930" height="480">
+        <!--<img id="homepagePicture" class="logoHomepage" src="" alt="Logo">-->
 </div>
 </body>
 </html>
+<style>
+    @font-face {
+        font-family: 'angles';
+        src: url('/style/fonts/losangles-font.ttf');
+    }
+    body{
+        overflow: hidden;
+    }
+    #page{
+        background-image: url('<?php echo $homepagePicture->getPictureSrc() ?? ''?>');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: white;
+        z-index: -1;
+
+        width: 100%;
+        height: 85%;
+    }
+</style>
 

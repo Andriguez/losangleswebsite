@@ -18,7 +18,7 @@
                 </div>
 
                 <li class="nav-item"><h3><a id="about-link" href="/about" class="nav-link mt-3 mx-md-2 mx-lg-4 mx-xl-5 text-reset">About</a></h3></li>
-                <li class="nav-item"><h3><a id="connect-link" class="nav-link mt-3 mx-md-2 ms-lg-3 me-lg-4 ms-xl-4 me-xl-5 text-reset" data-bs-toggle="dropdown" aria-expanded="false">Connect</a>
+                <li class="nav-item"><h3><a id="connect-link" class="nav-link mt-3 mx-md-2 mx-lg-4 mx-xl-5 text-reset" data-bs-toggle="dropdown" aria-expanded="false">Connect</a>
                         <ul class="dropdown-menu" aria-labelledby="connect-link">
                             <?php if(isset($loggedUser)){?>
                                     <li><span><?php echo $loggedUser->getFullName();?></span></li>
