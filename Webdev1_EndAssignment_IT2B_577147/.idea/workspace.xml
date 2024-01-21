@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/views/connect/media/users/65ad7810e924c.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/connect/media/users/65ad7866186da.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/connect/media/users/65ad78705ac26.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/connectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/connectController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/style/connect/connect.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/style/connect/connect.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/connect/popups/comments-popup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/connect/popups/comments-popup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/navbar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/adminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/FeedPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/FeedPost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/FeedRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/FeedRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/windows/applications/viewApplications.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/windows/applications/viewApplications.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/artists/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/artists/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/artists/media/65aae92528603.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/connect/media/users/65ab085c406eb.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +162,7 @@
       <workItem from="1705674068588" duration="36473000" />
       <workItem from="1705745026917" duration="6554000" />
       <workItem from="1705760462769" duration="18131000" />
-      <workItem from="1705827436718" duration="33144000" />
+      <workItem from="1705827436718" duration="35800000" />
     </task>
     <servers />
   </component>

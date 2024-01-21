@@ -35,6 +35,6 @@
         <button type="button" class="btn btn-danger" onclick="selectedCheckAction('deleteapplication','viewapplications', false, 'delete')">Delete</button>
         <button class="btn btn-primary" type="button" onclick="selectedCheckOpenWindow('manageapplication')">Edit</button>
         <button type="button" onclick="selectedCheckOpenWindow('displayNewUserArtistForm')" class="btn btn-info">Create User</button>
-        <button type="button" class="btn btn-success" onclick="selectedCheckAction('downloadArtistApplications', 'viewApplications', true)">Download Applications</button>
+        <button type="button" class="btn btn-success" onclick="selectedCheckAction('downloadArtistApplications', 'viewApplications', true)">Download Applications in JSON</button>
     </div>
 </div>

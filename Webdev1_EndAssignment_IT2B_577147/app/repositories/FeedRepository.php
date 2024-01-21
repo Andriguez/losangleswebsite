@@ -60,7 +60,7 @@ class FeedRepository extends Repository
         }
     }
     public function getPostById($id){
-        $query = "SELECT `post_Id`, `post_user`, `post_title`, `post_picture`, `post_text_content`, `post_topic`,
+        $query = "SELECT `post_Id`, `post_user`, `post_title`, `post_text_content`, `post_topic`,
        `post_posted_at` FROM `feed_posts` WHERE post_Id = :id";
 
         try{
@@ -84,8 +84,8 @@ class FeedRepository extends Repository
                 $dateTime = \DateTime::createFromFormat('Y-m-d H:i:s', $dateTime_string);
                 $post->setPostedAt($dateTime);
 
-                if(is_null($row['post_picture'])){ $post->setPicture(null);}
-                else {$post->setPicture($contentService->getMediaInfoById($row['post_picture']));}
+                //if(is_null($row['post_picture'])){ $post->setPicture(null);}
+                //else {$post->setPicture($contentService->getMediaInfoById($row['post_picture']));}
 
             }
 

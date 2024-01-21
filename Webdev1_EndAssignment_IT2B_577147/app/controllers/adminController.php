@@ -504,9 +504,11 @@ class adminController extends Controller
                 $email = $_POST['email'];
                 $usertype = $_POST['usertype'];
                 $pronouns = $_POST['pronouns'];
-                //$password = $this->userAuth->hashPassword($_POST['password']);
-                $password = $_POST['password'];
                 $picture = 1;
+
+                if(empty($_POST['password'])){ $password = 'password';
+                } else{ $password = $_POST['password']; }
+                $password = $this->userAuth->hashPassword($password);
 
                 $this->userService->storeUser($userId, $firstname, $lastname, $email, $pronouns, $usertype, $password, $picture);
 
@@ -666,7 +668,10 @@ class adminController extends Controller
                 $email = $_POST['email'];
                 $usertype = $_POST['usertype'];
                 $pronouns = $_POST['pronouns'];
-                $password = $this->userAuth->hashPassword($_POST['password']);
+
+                if(empty($_POST['password'])){ $password = 'password';
+                } else{ $password = $_POST['password']; }
+                $password = $this->userAuth->hashPassword($password);
 
                 $user = $this->userService->getUserById($userId);
 
@@ -686,6 +691,7 @@ class adminController extends Controller
                     } else if ($user->getUserType()->getUserTypeId() == 3) {
                         $this->deleteArtistsContent($userId);
                     } } }
+
 
                 $this->userService->storeUser($userId, $firstname, $lastname, $email, $pronouns, $usertype, $password, $picture);
 
