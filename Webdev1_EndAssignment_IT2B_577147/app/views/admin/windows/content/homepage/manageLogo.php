@@ -5,10 +5,10 @@
         <div id="picture-container">
             <img id="imgthumbnail" src="<?php echo $pictureSrc ?? ''?>" alt="picture" width="100%" height="100%">
         </div>
-        <div class="input-group mt-3">
+    </div>
+    <div class="input-group mt-3">
             <input type="file" class="form-control" name="picture" id="upload-homepage-picture" aria-describedby="inputGroupFileAddon04" aria-label="Upload" onclick="previewImage(this, 'imgthumbnail')">
         </div>
     <div class="btn-group" role="group">
         <button type="button" class="btn btn-success" onclick="updateHomepagePicture()">Save</button>
     </div>
-</div>

@@ -201,6 +201,8 @@
         font-family: angles;
         font-size: 10px;
         text-transform: uppercase;
+        position: absolute;
+        z-index: 9;
     }
     .dropdown-item:hover {
         background-color: black !important;

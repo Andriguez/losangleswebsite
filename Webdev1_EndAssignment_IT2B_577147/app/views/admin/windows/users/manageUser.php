@@ -5,10 +5,10 @@
             <strong>Profile Picture</strong>
     <div id="img-container" class="d-flex flex-column align-items-center">
         <img id="imgthumbnail" src="<?php echo (!isset($user))? '/media/placeholders/user-picture-placeholder.png' : $user->getPictureSrc()?>" width="200px" height="200px">
-        <div class="input-group mt-3">
+    </div>
+            <div class="input-group mt-3">
         <input type="file" class="form-control" name="picture" id="user-profile-picture" aria-describedby="inputGroupFileAddon04" aria-label="Upload" onclick="previewImage(this, 'imgthumbnail')">
         </div>
-    </div>
     </div>
         <div class="col-md-8">
     <div class="row g-3">

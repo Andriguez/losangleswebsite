@@ -27,6 +27,11 @@
     }
 
     .artist-details{
+        overflow-x: hidden;
+        overflow-y: auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
 
         .artist-name{
             color: black;
@@ -47,7 +52,6 @@
             width: 250px !important;
         }
         .artist-name{
-            margin-top: ;
             display: block;
         }
 
@@ -55,15 +59,14 @@
             margin: auto;
         }
         .text-container{
-            max-width: 420px;
+            min-width: 320px;
             height: 80%;
             margin: auto;
             padding: 5px;
             justify-content: center;
+            align-items: center;
             overflow-y: auto;
             font-family: "Agency FB";
-
-
 
             span{
                 color: white;
@@ -72,6 +75,7 @@
             p{
                 margin: 25px 30px 12px 5px;
                 font-size: 20px;
+                max-width: 320px;
             }
         }
 
@@ -100,5 +104,23 @@
                     margin-top: 50px !important;
                 }
             }  }
+    }
+
+    /* For WebKit browsers (Chrome, Safari) */
+    ::-webkit-scrollbar {
+        width: 5px; /* Set width of the scrollbar */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: black; /* Color of the thumb */
+        border-radius: 3px; /* Rounded corners of the thumb */
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: white; /* Color of the track */
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: whitesmoke; /* Color of the thumb on hover */
     }
 </style>

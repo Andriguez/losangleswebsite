@@ -384,7 +384,7 @@ class adminController extends Controller
                 $selectedAdmin = $this->userService->getUserById($adminId);
                 $adminContent = $selectedAdmin->getAdminContent();
             }
-            require __DIR__ . '/../views/admin/windows/content/aboutpage/manageAngleDetails.php';
+            require __DIR__ . '/../views/admin/windows/content/aboutpage/manageAdminDetails.php';
     }
 
     public function storeAdminContent($adminId){

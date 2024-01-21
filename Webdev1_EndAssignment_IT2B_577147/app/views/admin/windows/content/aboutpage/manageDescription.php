@@ -2,7 +2,7 @@
 <div id="managedescription">
     <h1>About</h1>
 
-    <div class="container justify-content-center">
+    <div class="container">
             <form class="row">
                 <div class="col-md-4">
                     <label for="inputtitle" class="form-label"><strong>title</strong></label>

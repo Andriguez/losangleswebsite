@@ -17,10 +17,10 @@
             <strong>Angle Picture</strong>
             <div id="img-container" class="d-flex flex-column align-items-center">
                 <img id="imgthumbnail" src="<?php echo (!isset($adminContent))? '/media/placeholders/user-picture-placeholder.png' : $selectedAdmin->getAdminContent()->getPictureSrc()?>">
+            </div>
                 <div class="input-group mt-3">
                     <input type="file" class="form-control" name="picture" id="admin-picture" aria-describedby="inputGroupFileAddon04" aria-label="Upload"  onclick="previewImage(this, 'imgthumbnail')">
                 </div>
-            </div>
         </div>
         <div class="col-md-8">
             <div class="row g-3">
