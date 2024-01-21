@@ -108,25 +108,19 @@ function togglePassword() {
 }
 
 function previewImage(fileInput, imgId) {
-    let previewContainer = fileInput.parentElement.parentElement;
     let thumbnailPreview = document.getElementById(imgId);
 
     fileInput.addEventListener('change', function () {
-        // Check if any file is selected
         if (fileInput.files.length > 0) {
             let file = fileInput.files[0];
 
-            // Check if the selected file is an image
             if (file.type.startsWith('image/')) {
-                // Create a FileReader to read the file
                 const reader = new FileReader();
 
                 reader.onload = function (e) {
-                    // Set the thumbnail preview source
                     thumbnailPreview.src = e.target.result;
                 };
 
-                // Read the file as a data URL
                 reader.readAsDataURL(file);
 
             } else {

@@ -76,7 +76,7 @@ class FeedRepository extends Repository
                 $post->setPostId($row['post_Id']);
                 $post->setUser($userService->getUserById($row['post_user']));
                 $post->setTopic($this->getTopicById($row['post_topic']));
-                $post->setTextContent($row['post_text_content']);
+                $post->setTextContent(html_entity_decode($row['post_text_content']));
                 $post->setCommentAmount($this->getCommentAmountForPost($row['post_Id']));
                 $post->setPostTitle($row['post_title']);
 

@@ -10,7 +10,7 @@
                             <img class="picture" src="<?php echo $post->getUser()->getPictureSrc() ?>" role="img" width="90px" height="90px">
                             <!--<img class="frame" src="/media/picture-frame.svg" role="img" width="90px"> -->
                         </div>
-                        <h5 class="poster-name"><?php echo $post->getUser()->getFullName()?></h5>
+                        <h5 class="poster-name"><?php echo $post->getUser()->getFullName()?><?php echo ($post->getUser()->getUserType()->getUserTypeId() === 2) ? '⭐' : ''?></h5>
                         <h5 class="post-title"><?php echo $post->getPostTitle()?></h5>
                         <p class="post-content mx-3"><?php echo $post->getTextContent()?></p>
                         <div class="post-footer">

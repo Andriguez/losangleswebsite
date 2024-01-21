@@ -175,9 +175,7 @@ class Carousel {
     useControls() {
 
         this.carouselContainer.addEventListener('click', (e) => {
-            //const centerIndex = Math.floor((this.carouselItems.length - 1) / 2);
-            const centerIndex = 3;
-            const clickedItemIndex = 0;
+            //const centerIndex = Math.floor((this.carouselItems.length - 1) / 2);.
 
             if (this.carouselItems.length <= 1) {
                 const clickedItem = e.target.closest('.gallery-item');
