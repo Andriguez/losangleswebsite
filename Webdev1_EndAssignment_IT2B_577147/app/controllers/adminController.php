@@ -97,7 +97,7 @@ class adminController extends Controller
 
     public function storeArtistDetails($artistId){
         if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
-
+            $_POST = filter_input_array(INPUT_POST);
             if(isset($artistId)){
                 $stagename = $_POST['stageName'];
                 $discipline = $_POST['discipline'];
@@ -184,7 +184,7 @@ class adminController extends Controller
     public function storeEvent($eventId = null){
         if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
             if(isset($eventId)){
-
+                $_POST = filter_input_array(INPUT_POST);
                 $name =  $_POST['name'];
                 $type = $_POST['type'];
                 $dateTime = $_POST['datetime'];
@@ -389,6 +389,8 @@ class adminController extends Controller
 
     public function storeAdminContent($adminId){
         if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
+            $_POST = filter_input_array(INPUT_POST);
+
             if(isset($adminId)){
 
                 $link = $_POST['link'];
@@ -496,6 +498,7 @@ class adminController extends Controller
     }
     public function createUserFromApplication(){
         if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
+            $_POST = filter_input_array(INPUT_POST);
             $userId = rand(999, 9999);
             if(isset($_POST['email']) && isset($_POST['usertype'])){
 
@@ -660,6 +663,7 @@ class adminController extends Controller
 
     public function storeUser($userId = null){
         if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
+            $_POST = filter_input_array(INPUT_POST);
             if(!isset($userId) | $userId == 0){    $userId = rand(999, 9999);  }
             if(isset($_POST['email']) && isset($_POST['usertype'])){
 

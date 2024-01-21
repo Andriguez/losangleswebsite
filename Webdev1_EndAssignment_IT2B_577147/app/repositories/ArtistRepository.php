@@ -113,7 +113,7 @@ class ArtistRepository extends Repository
     }
 
     public function getArtistByStageName($stagename){
-        $query = "SELECT artist_Id FROM artist_content WHERE artist_stagename = :stagename";
+        $query = "SELECT artist_Id FROM artist_content WHERE LOWER(artist_stagename) = LOWER(:stagename)";
 
         try{
             $statement = $this->getContentDB()->prepare($query);

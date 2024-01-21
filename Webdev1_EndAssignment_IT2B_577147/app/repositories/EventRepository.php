@@ -80,7 +80,7 @@ class EventRepository extends Repository
                 $event->setName($row['event_name']);
                 $event->setLocation($this->getLocationById($row['event_location']));
                 $event->setEventType($this->getTypeById($row['event_type']));
-                $event->setDescription($row['event_description']);
+                $event->setDescription(html_entity_decode($row['event_description']));
                 $event->setTicketBtnText($row['event_ticketbtn_text']);
                 $event->setTicketUrl($row['event_ticketbtn_url']);
 

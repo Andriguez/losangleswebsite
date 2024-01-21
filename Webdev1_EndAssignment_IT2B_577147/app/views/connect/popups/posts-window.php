@@ -22,8 +22,8 @@
                 </div>
                 <div class="comment-form">
                     <div class="embed-submit-field">
-                        <input id="<?php echo $post->getId()?>" type="text" placeholder="Say something..."/>
-                        <button type="button" onclick="storeComment(<?php echo $post->getId()?>, '<?php echo $post->getTopic()->getTopicName()?>', <?php echo $post->getId()?>)"> comment</button>
+                        <input id="<?php echo $post->getId()?>-mainwindow" type="text" placeholder="Say something..."/>
+                        <button type="button" onclick="storeComment(<?php echo $post->getId()?>, '<?php echo $post->getTopic()->getTopicName()?>', '<?php echo $post->getId()?>-mainwindow')"> comment</button>
                     </div>
                 </div>
             </div>
