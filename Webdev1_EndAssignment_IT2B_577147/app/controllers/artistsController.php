@@ -33,7 +33,6 @@ class artistsController extends Controller
         }
 
         foreach ($disciplines as $discipline){
-
             $artists = $this->artistService->getAllArtistsByDiscipline($discipline->getDisciplineId());
             $allArtists[$discipline->getDisciplineId()] = $artists;
         }

@@ -12,7 +12,7 @@ session_start();} ?>
 <body>
 <div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 250px; height: 100%;">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-reset text-decoration-none">
-        <img src="/media/logos/logo-letters-bigger.png" id="logo" width="60" height="40">
+        <img src="/media/logos/logo-notriangle.jpg" id="logo" width="60" height="40">
         <span class="fs-4">Los Angles <label>backstage</label></span>
     </a>
     <hr>
@@ -173,8 +173,8 @@ session_start();} ?>
 </div>
 <div id="main-window" style="flex-grow: 1; padding: 20px;">
     <div style="margin: 50px;" id="main-window-content">
-        <span>Welcome Backstage, <?php echo $loggedAdmin->getFirstName() ?? 'Admin';?>!</span>
-        <p style="font-size: 20px;">from this page you can manage the users(CRUD), all registrations/artist applications and all content in the website (text, detail pages, images)</p>
+        <img src="/media/icons/charlies-angles.svg">
+        <span>"Good Morning, Angles"</span>
     </div>
 </div>
 <script src="/js/admin/adminscript.js"></script>

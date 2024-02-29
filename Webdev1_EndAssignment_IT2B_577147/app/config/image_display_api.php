@@ -12,7 +12,7 @@ if (isset($_GET['i'])&&isset($_GET['p'])) {
                 $composedFilepath = '/app/views/connect/media/posts/'.$imageName;
                 break;
             case 'admin':
-                $composedFilepath = '/app/views/admin/media/placeholders/'.$imageName;
+                $composedFilepath = '/app/views/admin/media/'.$imageName;
                 break;
             default:
                 $composedFilepath = '/app/views/'.$pageDirectory.'/media/'.$imageName;

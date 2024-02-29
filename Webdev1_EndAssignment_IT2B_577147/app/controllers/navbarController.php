@@ -16,7 +16,7 @@ class navbarController extends Controller
     }
     public function displayNavbar()
     {
-        $logoSrc = '/media/logos/logo-letters-bigger.png';
+        $logoSrc = '/media/logos/logo-notriangle.jpg';
 
         $parsedUrl = parse_url($_SERVER['REQUEST_URI']);
         $requestedPath = $parsedUrl['path'];
