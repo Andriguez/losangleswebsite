@@ -6,9 +6,6 @@ if (session_status() == PHP_SESSION_NONE) {
 
 use Services\UserService;
 
-require_once __DIR__ . '/Controller.php';
-require_once __DIR__ . '/../services/UserService.php';
-
 class navbarController extends Controller
 {
     private UserService $userService;
