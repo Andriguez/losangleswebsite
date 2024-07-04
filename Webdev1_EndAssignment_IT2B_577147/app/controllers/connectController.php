@@ -1,18 +1,10 @@
 <?php
-namespace controllers;
-use models\FeedPost;
-use models\FeedTopic;
-use models\User;
-use services\ContentService;
-use services\FeedService;
-use services\UserService;
+namespace Controllers;
+use Models\FeedTopic;
+use Models\User;
+use Services\FeedService;
 
 session_start();
-require __DIR__ . '/Controller.php';
-require __DIR__ . '/navbarController.php';
-require_once __DIR__ . '/UserAuth.php';
-require __DIR__ . '/../services/FeedService.php';
-
 
 class connectController extends Controller
 {

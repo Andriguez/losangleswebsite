@@ -1,22 +1,11 @@
 <?php
-namespace repositories;
-use controllers\UserAuth;
-use models\AdminContent;
-use models\ArtistContent;
-use models\ContentType;
-use models\DirectoryLog;
-use models\MediaInfo;
-use models\Page;
-use models\PageContent;
-
-require_once __DIR__.'/../models/DirectoryLog.php';
-require_once __DIR__.'/../models/Page.php';
-require_once __DIR__.'/../models/PageContent.php';
-require_once __DIR__.'/../models/ContentType.php';
-require_once __DIR__.'/../models/MediaInfo.php';
-require_once __DIR__.'/../models/NavbarElement.php';
-require_once __DIR__.'/../models/AdminContent.php';
-require_once __DIR__.'/../repositories/Repository.php';
+namespace Repositories;
+use Models\AdminContent;
+use Models\ContentType;
+use Models\DirectoryLog;
+use Models\MediaInfo;
+use Models\Page;
+use Models\PageContent;
 
 class ContentRepository extends Repository
 {

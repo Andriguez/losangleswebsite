@@ -1,10 +1,6 @@
 <?php
-namespace services;
-use models\Artist;
-use models\ArtistContent;
-use models\ArtistDiscipline;
-use repositories\ArtistRepository;
-require_once __DIR__.'/../repositories/ArtistRepository.php';
+namespace Services;
+use Repositories\ArtistRepository;
 
 class ArtistService
 {

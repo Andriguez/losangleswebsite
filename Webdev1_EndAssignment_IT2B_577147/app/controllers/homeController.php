@@ -1,14 +1,10 @@
 <?php
-namespace controllers;
-use services\ContentService;
+namespace Controllers;
+use Services\ContentService;
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-
-require __DIR__ . '/Controller.php';
-require __DIR__ . '/navbarController.php';
-require __DIR__ . '/../services/ContentService.php';
 
 class homeController extends Controller
 {

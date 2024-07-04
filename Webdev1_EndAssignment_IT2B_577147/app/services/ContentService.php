@@ -1,14 +1,13 @@
 <?php
-namespace services;
-use models\ContentType;
-use models\DirectoryLog;
-use models\MediaInfo;
-use models\NavbarElement;
-use models\PageContent;
-use repositories\ContentRepository;
-use models\Page;
+namespace Services;
+use Models\ContentType;
+use Models\DirectoryLog;
+use Models\MediaInfo;
+use Models\NavbarElement;
+use Models\Page;
+use Models\PageContent;
+use Repositories\ContentRepository;
 
-require_once __DIR__.'/../repositories/ContentRepository.php';
 class ContentService
 {
     private ContentRepository $contentRepo;

@@ -1,30 +1,16 @@
 <?php
-namespace controllers;
+namespace Controllers;
 
-use services\ArtistApplicationService;
-use services\ArtistService;
-use services\ContentService;
-use services\EventService;
-use services\FeedService;
-use services\UserService;
+use Services\ArtistApplicationService;
+use Services\ArtistService;
+use Services\ContentService;
+use Services\EventService;
+use Services\FeedService;
+use Services\UserService;
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-
-require __DIR__ . '/Controller.php';
-require __DIR__ . '/../services/UserService.php';
-require __DIR__ . '/../services/ContentService.php';
-require __DIR__ . '/../services/ArtistService.php';
-require __DIR__ . '/../services/EventService.php';
-require __DIR__ . '/../services/FeedService.php';
-require __DIR__ . '/../services/ArtistApplicationService.php';
-
-require_once __DIR__.'/../models/User.php';
-require_once __DIR__.'/../models/Artist.php';
-require_once __DIR__.'/../models/ArtistContent.php';
-require_once __DIR__ . '/UserAuth.php';
-
 
 class adminController extends Controller
 {

@@ -1,15 +1,7 @@
 <?php
-namespace repositories;
-use models\Artist;
-use models\ArtistContent;
-use models\ArtistDiscipline;
-use mysql_xdevapi\Exception;
-
-require_once __DIR__.'/../models/Artist.php';
-require_once __DIR__.'/../models/ArtistDiscipline.php';
-require_once __DIR__.'/../models/ArtistContent.php';
-require_once __DIR__.'/UserRepository.php';
-require_once __DIR__.'/../models/MediaInfo.php';
+namespace Repositories;
+use Models\ArtistContent;
+use Models\ArtistDiscipline;
 
 class ArtistRepository extends Repository
 {

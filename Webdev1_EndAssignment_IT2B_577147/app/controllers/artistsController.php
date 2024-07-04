@@ -1,16 +1,6 @@
 <?php
-namespace controllers;
-use services\ArtistService;
-use services\ContentService;
-use services\UserService;
-
-require __DIR__ . '/Controller.php';
-require_once __DIR__.'/../services/ContentService.php';
-require_once __DIR__.'/../services/UserService.php';
-require_once __DIR__.'/../services/ArtistService.php';
-require_once __DIR__.'/../models/ArtistDiscipline.php';
-require __DIR__ . '/navbarController.php';
-
+namespace Controllers;
+use Services\ArtistService;
 
 class artistsController extends Controller
 {

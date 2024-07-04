@@ -1,20 +1,10 @@
 <?php
-namespace repositories;
-use models\Admin;
-use models\Artist;
-use models\Collaborator;
-use models\User;
-use models\UserType;
-
-require_once __DIR__.'/../models/User.php';
-require_once __DIR__.'/../models/Admin.php';
-require_once __DIR__.'/../models/Collaborator.php';
-require_once __DIR__.'/../models/Artist.php';
-require_once __DIR__.'/../models/UserType.php';
-require_once __DIR__.'/../models/MediaInfo.php';
-require_once __DIR__ . '/../repositories/Repository.php';
-require_once __DIR__ . '/../repositories/ContentRepository.php';
-require_once __DIR__ . '/../repositories/ArtistRepository.php';
+namespace Repositories;
+use Models\Admin;
+use Models\Artist;
+use Models\Collaborator;
+use Models\User;
+use Models\UserType;
 
 class UserRepository extends Repository
 {

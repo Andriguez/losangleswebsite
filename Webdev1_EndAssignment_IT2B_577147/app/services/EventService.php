@@ -1,11 +1,8 @@
 <?php
-namespace services;
-use models\Event;
-use models\EventLineup;
-use models\EventLocation;
-use models\EventType;
-use repositories\EventRepository;
-require_once __DIR__ . '/../repositories/EventRepository.php';
+namespace Services;
+use Models\EventType;
+use Repositories\EventRepository;
+
 class EventService
 {
     private EventRepository $eventRepo;

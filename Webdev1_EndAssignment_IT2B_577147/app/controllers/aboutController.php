@@ -1,12 +1,7 @@
 <?php
-namespace controllers;
-use services\ContentService;
-use services\UserService;
-
-require __DIR__ . '/Controller.php';
-require __DIR__ . '/navbarController.php';
-require_once __DIR__.'/../services/ContentService.php';
-require_once __DIR__.'/../services/UserService.php';
+namespace Controllers;
+use Services\ContentService;
+use Services\UserService;
 
 class aboutController extends Controller
 {

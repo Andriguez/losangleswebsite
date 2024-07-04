@@ -11,6 +11,10 @@ class ComposerStaticInit3820561b221bb2f045e2a69d2a1057ef
         array (
             'Services\\' => 9,
         ),
+        'R' => 
+        array (
+            'Repositories\\' => 13,
+        ),
         'M' => 
         array (
             'Models\\' => 7,
@@ -29,6 +33,10 @@ class ComposerStaticInit3820561b221bb2f045e2a69d2a1057ef
         'Services\\' => 
         array (
             0 => __DIR__ . '/../..' . '/services',
+        ),
+        'Repositories\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/repositories',
         ),
         'Models\\' => 
         array (

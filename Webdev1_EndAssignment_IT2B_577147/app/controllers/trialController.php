@@ -1,6 +1,5 @@
 <?php
-namespace controllers;
-require __DIR__ . '/Controller.php';
+namespace Controllers;
 
 class trialController extends Controller
 {

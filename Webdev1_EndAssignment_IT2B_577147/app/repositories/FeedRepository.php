@@ -1,17 +1,10 @@
 <?php
-namespace repositories;
-use models\FeedComment;
-use models\FeedPost;
-use models\FeedTopic;
-use services\ContentService;
-use services\UserService;
-
-require __DIR__.'/../models/FeedTopic.php';
-require __DIR__.'/../models/FeedPost.php';
-require __DIR__.'/../models/FeedComment.php';
-require_once __DIR__.'/../models/MediaInfo.php';
-require_once __DIR__.'/../services/UserService.php';
-require_once __DIR__.'/../services/ContentService.php';
+namespace Repositories;
+use Models\FeedComment;
+use Models\FeedPost;
+use Models\FeedTopic;
+use Services\ContentService;
+use Services\UserService;
 
 class FeedRepository extends Repository
 {

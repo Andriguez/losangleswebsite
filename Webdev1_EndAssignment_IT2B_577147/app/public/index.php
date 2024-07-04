@@ -4,6 +4,9 @@ require_once __DIR__.'/../Router.php';
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Headers: *');
 date_default_timezone_set('Europe/Amsterdam');
+require __DIR__ . '/../vendor/autoload.php';
+
 Router::getInstance()->handleRequest();
+
 
 

@@ -1,8 +1,7 @@
 <?php
-namespace services;
-require_once __DIR__ . '/../repositories/ArtistApplicationRepository.php';
+namespace Services;
 
-use repositories\ArtistApplicationRepository;
+use Repositories\ArtistApplicationRepository;
 
 class ArtistApplicationService
 {

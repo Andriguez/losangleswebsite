@@ -1,10 +1,6 @@
 <?php
-namespace services;
-use models\FeedComment;
-use models\FeedPost;
-use models\FeedTopic;
-use repositories\FeedRepository;
-require_once __DIR__ . '/../repositories/FeedRepository.php';
+namespace Services;
+use Repositories\FeedRepository;
 
 class FeedService
 {

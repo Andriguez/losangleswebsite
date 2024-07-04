@@ -1,14 +1,11 @@
 <?php
-namespace controllers;
+namespace Controllers;
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-require __DIR__ . '/Controller.php';
-require __DIR__ . '/navbarController.php';
-require_once __DIR__.'/../models/User.php';
-require_once __DIR__ . '/UserAuth.php';
 
 use JetBrains\PhpStorm\NoReturn;
+
 class loginController extends Controller
 {
     private UserAuth $userAuth;

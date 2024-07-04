@@ -10,7 +10,9 @@
       "App\\": "app/",
       "Controllers\\": "controllers",
       "Services\\": "services",
-      "Models\\": "models"
+      "Models\\": "models",
+      "Repositories\\": "repositories"
+
     }
   }
 }

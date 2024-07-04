@@ -1,11 +1,6 @@
 <?php
-namespace controllers;
-use services\EventService;
-
-require __DIR__ . '/Controller.php';
-require __DIR__ . '/navbarController.php';
-require_once __DIR__.'/../services/EventService.php';
-
+namespace Controllers;
+use Services\EventService;
 
 class eventsController extends Controller
 {

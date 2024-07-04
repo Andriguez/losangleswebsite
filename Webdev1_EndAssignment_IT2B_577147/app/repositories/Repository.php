@@ -1,6 +1,7 @@
 <?php
-namespace repositories;
+namespace Repositories;
 use DB;
+
 require_once __DIR__.'/../config/dbconfig.php';
 
 class Repository

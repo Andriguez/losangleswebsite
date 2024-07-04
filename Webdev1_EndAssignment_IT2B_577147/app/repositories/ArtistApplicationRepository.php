@@ -1,10 +1,6 @@
 <?php
-namespace repositories;
-use models\ArtistApplication;
-
-require_once __DIR__.'/../models/ArtistApplication.php';
-require_once __DIR__.'/../repositories/Repository.php';
-
+namespace Repositories;
+use Models\ArtistApplication;
 
 class ArtistApplicationRepository extends Repository
 {
