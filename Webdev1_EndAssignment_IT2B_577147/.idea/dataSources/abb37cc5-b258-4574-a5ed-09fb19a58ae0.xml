@@ -1,79 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="losangles_feed@localhost">
   <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.51">
-    <root id="1">
-      <DefaultCasing>exact</DefaultCasing>
-      <DefaultEngine>InnoDB</DefaultEngine>
-      <Grants>developmentdb|schema||developer||ALTER|G
-developmentdb|schema||developer||ALTER ROUTINE|G
-developmentdb|schema||developer||CREATE|G
-developmentdb|schema||developer||CREATE ROUTINE|G
-developmentdb|schema||developer||CREATE TEMPORARY TABLES|G
-developmentdb|schema||developer||CREATE VIEW|G
-developmentdb|schema||developer||DELETE|G
-developmentdb|schema||developer||DROP|G
-developmentdb|schema||developer||EVENT|G
-developmentdb|schema||developer||EXECUTE|G
-developmentdb|schema||developer||INDEX|G
-developmentdb|schema||developer||INSERT|G
-developmentdb|schema||developer||REFERENCES|G
-developmentdb|schema||developer||SELECT|G
-developmentdb|schema||developer||SHOW VIEW|G
-developmentdb|schema||developer||TRIGGER|G
-developmentdb|schema||developer||UPDATE|G
-losangles_content|schema||developer||ALTER|G
-losangles_content|schema||developer||ALTER ROUTINE|G
-losangles_content|schema||developer||CREATE|G
-losangles_content|schema||developer||CREATE ROUTINE|G
-losangles_content|schema||developer||CREATE TEMPORARY TABLES|G
-losangles_content|schema||developer||CREATE VIEW|G
-losangles_content|schema||developer||DELETE|G
-losangles_content|schema||developer||DROP|G
-losangles_content|schema||developer||EVENT|G
-losangles_content|schema||developer||EXECUTE|G
-losangles_content|schema||developer||INDEX|G
-losangles_content|schema||developer||INSERT|G
-losangles_content|schema||developer||REFERENCES|G
-losangles_content|schema||developer||SELECT|G
-losangles_content|schema||developer||SHOW VIEW|G
-losangles_content|schema||developer||TRIGGER|G
-losangles_content|schema||developer||UPDATE|G
-losangles_feed|schema||developer||ALTER|G
-losangles_feed|schema||developer||ALTER ROUTINE|G
-losangles_feed|schema||developer||CREATE|G
-losangles_feed|schema||developer||CREATE ROUTINE|G
-losangles_feed|schema||developer||CREATE TEMPORARY TABLES|G
-losangles_feed|schema||developer||CREATE VIEW|G
-losangles_feed|schema||developer||DELETE|G
-losangles_feed|schema||developer||DROP|G
-losangles_feed|schema||developer||EVENT|G
-losangles_feed|schema||developer||EXECUTE|G
-losangles_feed|schema||developer||INDEX|G
-losangles_feed|schema||developer||INSERT|G
-losangles_feed|schema||developer||REFERENCES|G
-losangles_feed|schema||developer||SELECT|G
-losangles_feed|schema||developer||SHOW VIEW|G
-losangles_feed|schema||developer||TRIGGER|G
-losangles_feed|schema||developer||UPDATE|G
-losangles_users|schema||developer||ALTER|G
-losangles_users|schema||developer||ALTER ROUTINE|G
-losangles_users|schema||developer||CREATE|G
-losangles_users|schema||developer||CREATE ROUTINE|G
-losangles_users|schema||developer||CREATE TEMPORARY TABLES|G
-losangles_users|schema||developer||CREATE VIEW|G
-losangles_users|schema||developer||DELETE|G
-losangles_users|schema||developer||DROP|G
-losangles_users|schema||developer||EVENT|G
-losangles_users|schema||developer||EXECUTE|G
-losangles_users|schema||developer||INDEX|G
-losangles_users|schema||developer||INSERT|G
-losangles_users|schema||developer||REFERENCES|G
-losangles_users|schema||developer||SELECT|G
-losangles_users|schema||developer||SHOW VIEW|G
-losangles_users|schema||developer||TRIGGER|G
-losangles_users|schema||developer||UPDATE|G</Grants>
-      <ServerVersion>10.6.5</ServerVersion>
-    </root>
+    <root id="1"/>
     <collation id="2" parent="1" name="armscii8_bin">
       <Charset>armscii8</Charset>
     </collation>
@@ -1091,53 +1019,66 @@ losangles_users|schema||developer||UPDATE|G</Grants>
     </schema>
     <schema id="327" parent="1" name="losangles_feed">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2024-01-16.09:28:18</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="328" parent="1" name="losangles_users">
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
-    <user id="329" parent="1" name="developer"/>
-    <table id="330" parent="327" name="feed_comments">
+    <schema id="329" parent="1" name="mysql">
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </schema>
+    <schema id="330" parent="1" name="performance_schema">
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </schema>
+    <schema id="331" parent="1" name="sys">
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </schema>
+    <user id="332" parent="1" name="developer"/>
+    <user id="333" parent="1" name="mariadb.sys">
+      <Host>localhost</Host>
+    </user>
+    <user id="334" parent="1" name="root"/>
+    <user id="335" parent="1" name="root">
+      <Host>localhost</Host>
+    </user>
+    <table id="336" parent="327" name="feed_comments">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="331" parent="327" name="feed_posts">
+    <table id="337" parent="327" name="feed_posts">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="332" parent="327" name="feed_topics">
+    <table id="338" parent="327" name="feed_topics">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <column id="333" parent="330" name="comment_Id">
-      <AutoIncrement>22</AutoIncrement>
+    <column id="339" parent="336" name="comment_Id">
+      <AutoIncrement>1</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="334" parent="330" name="comment_user">
+    <column id="340" parent="336" name="comment_user">
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="335" parent="330" name="comment_parentpost">
+    <column id="341" parent="336" name="comment_parentpost">
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="336" parent="330" name="comment_text_content">
-      <DasType>varchar(125)|0s</DasType>
-      <NotNull>1</NotNull>
+    <column id="342" parent="336" name="comment_parentcomment">
+      <DasType>int(11)|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="337" parent="330" name="comment_posted_at">
-      <DasType>datetime|0s</DasType>
-      <DefaultExpression>current_timestamp()</DefaultExpression>
+    <column id="343" parent="336" name="comment_text_content">
+      <DasType>varchar(125)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <foreign-key id="338" parent="330" name="comment_userId_FK">
+    <foreign-key id="344" parent="336" name="comment_userId_FK">
       <ColNames>comment_user</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
@@ -1145,67 +1086,79 @@ losangles_users|schema||developer||UPDATE|G</Grants>
       <RefTableName>users</RefTableName>
       <RefTableParentName>losangles_users</RefTableParentName>
     </foreign-key>
-    <foreign-key id="339" parent="330" name="post_FK">
+    <foreign-key id="345" parent="336" name="post_FK">
       <ColNames>comment_parentpost</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>post_Id</RefColNames>
       <RefTableName>feed_posts</RefTableName>
     </foreign-key>
-    <index id="340" parent="330" name="PRIMARY">
+    <foreign-key id="346" parent="336" name="parentcomment_FK">
+      <ColNames>comment_parentcomment</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+      <RefColNames>comment_Id</RefColNames>
+      <RefTableName>feed_comments</RefTableName>
+    </foreign-key>
+    <index id="347" parent="336" name="PRIMARY">
       <ColNames>comment_Id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="341" parent="330" name="comment_userId_FK">
+    <index id="348" parent="336" name="comment_userId_FK">
       <ColNames>comment_user</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="342" parent="330" name="post_FK">
+    <index id="349" parent="336" name="post_FK">
       <ColNames>comment_parentpost</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="343" parent="330" name="PRIMARY">
+    <index id="350" parent="336" name="parentcomment_FK">
+      <ColNames>comment_parentcomment</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="351" parent="336" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="344" parent="331" name="post_Id">
-      <AutoIncrement>8</AutoIncrement>
+    <column id="352" parent="337" name="post_Id">
+      <AutoIncrement>1</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="345" parent="331" name="post_user">
+    <column id="353" parent="337" name="post_user">
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="346" parent="331" name="post_title">
-      <DasType>varchar(50)|0s</DasType>
-      <NotNull>1</NotNull>
+    <column id="354" parent="337" name="post_picture">
+      <DasType>int(11)|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="347" parent="331" name="post_picture">
-      <DasType>int(11)|0s</DasType>
-      <Position>4</Position>
-    </column>
-    <column id="348" parent="331" name="post_text_content">
+    <column id="355" parent="337" name="post_text_content">
       <DasType>varchar(500)|0s</DasType>
       <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="356" parent="337" name="post_topic">
+      <DasType>int(11)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="349" parent="331" name="post_topic">
+    <column id="357" parent="337" name="post_comments_amount">
       <DasType>int(11)|0s</DasType>
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="350" parent="331" name="post_posted_at">
+    <column id="358" parent="337" name="post_posted_at">
       <DasType>datetime|0s</DasType>
       <DefaultExpression>current_timestamp()</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <foreign-key id="351" parent="331" name="post_userId_FK">
+    <foreign-key id="359" parent="337" name="post_userId_FK">
       <ColNames>post_user</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
@@ -1213,7 +1166,7 @@ losangles_users|schema||developer||UPDATE|G</Grants>
       <RefTableName>users</RefTableName>
       <RefTableParentName>losangles_users</RefTableParentName>
     </foreign-key>
-    <foreign-key id="352" parent="331" name="post_picture_FK">
+    <foreign-key id="360" parent="337" name="post_picture_FK">
       <ColNames>post_picture</ColNames>
       <OnDelete>set-null</OnDelete>
       <OnUpdate>cascade</OnUpdate>
@@ -1221,52 +1174,52 @@ losangles_users|schema||developer||UPDATE|G</Grants>
       <RefTableName>media</RefTableName>
       <RefTableParentName>losangles_content</RefTableParentName>
     </foreign-key>
-    <foreign-key id="353" parent="331" name="topic_FK">
+    <foreign-key id="361" parent="337" name="topic_FK">
       <ColNames>post_topic</ColNames>
       <OnDelete>set-null</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>topic_Id</RefColNames>
       <RefTableName>feed_topics</RefTableName>
     </foreign-key>
-    <index id="354" parent="331" name="PRIMARY">
+    <index id="362" parent="337" name="PRIMARY">
       <ColNames>post_Id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="355" parent="331" name="post_userId_FK">
+    <index id="363" parent="337" name="post_userId_FK">
       <ColNames>post_user</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="356" parent="331" name="post_picture_FK">
+    <index id="364" parent="337" name="post_picture_FK">
       <ColNames>post_picture</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="357" parent="331" name="topic_FK">
+    <index id="365" parent="337" name="topic_FK">
       <ColNames>post_topic</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="358" parent="331" name="PRIMARY">
+    <key id="366" parent="337" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="359" parent="332" name="topic_Id">
-      <AutoIncrement>4</AutoIncrement>
+    <column id="367" parent="338" name="topic_Id">
+      <AutoIncrement>1</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="360" parent="332" name="topic_name">
+    <column id="368" parent="338" name="topic_name">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <index id="361" parent="332" name="PRIMARY">
+    <index id="369" parent="338" name="PRIMARY">
       <ColNames>topic_Id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="362" parent="332" name="PRIMARY">
+    <key id="370" parent="338" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

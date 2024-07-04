@@ -125,19 +125,7 @@ class EventRepository extends Repository
 
         return $this->getEvents($query,$params);
     }
-    //    SELECT event_Id
-    //    FROM events
-    //    WHERE YEAR(event_datetime) = 2024 AND MONTH(event_datetime) = 3
-    //       OR YEAR(event_datetime) = 2024
-    //       OR MONTH(event_datetime) = 3;
 
-    //private function getEvents2($row){
-      //  while($row) {
-        //    $event = $this->getEventById($row['event_Id']);
-          //  $allEvents[] = $event;
-        //}
-        //return $allEvents;
-    //}
     private function getEvents($query, $params = null) {
         try {
             $statement = $this->getContentDB()->prepare($query);

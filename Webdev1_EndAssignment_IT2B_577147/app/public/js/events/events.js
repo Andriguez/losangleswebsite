@@ -64,20 +64,36 @@ class Carousel {
         eventLocation.textContent = item.event_location.location_name;
         itemBack.appendChild(eventLocation);
 
+
+        // Tickets button
+        const ticketsBtn = document.createElement('button');
+        ticketsBtn.classList.add('tickets-btn');
+        ticketsBtn.textContent = item.event_ticketbtn_text;
+        ticketsBtn.onclick = function() { toggleButton(item.event_ticketbtn_url); };
+
+        const btnDiv = document.createElement('div');
+        btnDiv.classList.add('btn-div');
+        btnDiv.appendChild(ticketsBtn);
+
+        itemBack.appendChild(btnDiv);
+
+        const infoDiv = document.createElement('div');
+        infoDiv.classList.add('info-div');
+
         const descriptionSubtitle = document.createElement('span');
         descriptionSubtitle.classList.add('subtitle');
         descriptionSubtitle.textContent = 'description';
-        itemBack.appendChild(descriptionSubtitle);
+        infoDiv.appendChild(descriptionSubtitle);
 
         const eventType = document.createElement('span');
         eventType.classList.add('event-type');
         eventType.textContent = item.event_type.event_type_name;
-        itemBack.appendChild(eventType);
+        infoDiv.appendChild(eventType);
 
         const eventDescription = document.createElement('span');
         eventDescription.classList.add('event-description');
         eventDescription.textContent = item.event_description;
-        itemBack.appendChild(eventDescription);
+        infoDiv.appendChild(eventDescription);
 
 
 
@@ -86,7 +102,7 @@ class Carousel {
             const lineupSubtitle = document.createElement('span');
             lineupSubtitle.classList.add('subtitle');
             lineupSubtitle.textContent = 'lineup';
-            itemBack.appendChild(lineupSubtitle);
+            infoDiv.appendChild(lineupSubtitle);
 
             const lineupContainer = document.createElement('div');
             lineupContainer.classList.add('lineup-container');
@@ -108,16 +124,10 @@ class Carousel {
                 lineupContainer.appendChild(typeGroup);
 
             });
-            itemBack.appendChild(lineupContainer);
+            infoDiv.appendChild(lineupContainer);
         }
 
-
-        // Tickets button
-        const ticketsBtn = document.createElement('button');
-        ticketsBtn.classList.add('tickets-btn');
-        ticketsBtn.textContent = item.event_ticketbtn_text;
-        ticketsBtn.onclick = function() { toggleButton(item.event_ticketbtn_url); };
-        itemBack.appendChild(ticketsBtn);
+        itemBack.appendChild(infoDiv)
 
         return itemBack;
     }

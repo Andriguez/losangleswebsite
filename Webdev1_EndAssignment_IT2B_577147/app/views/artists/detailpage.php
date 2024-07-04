@@ -15,7 +15,9 @@
             <a href="<?php echo (isset($artist)) ? $artist->getArtistContent()->getExtraLink() : '' ?>"><img src="/media/icons/triangle.svg"></a>
         </div>
         <div class="soundcloud-container">
-            <?php echo (isset($artist)) ? $artist->getArtistContent()->getSoundcloudUrl() : '' ?>
+            <?php if (isset($artist)) { ?>
+            <iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="<?php echo $artist->getArtistContent()->getSoundcloudUrl() ?>"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"></div>
+            <?php } else { echo ''; } ?>
         </div>
     </div>
 </div>
@@ -86,7 +88,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                margin-bottom: 30px;
+                margin-bottom: 10px;
 
                 img {
                     width: 55px !important;
@@ -102,7 +104,8 @@
 
                 .soundcloud-container{
                     margin-right: 10px;
-                    margin-top: 50px !important;
+                    margin-top: 10px !important;
+                    margin-bottom: 10px;
                 }
             }  }
     }

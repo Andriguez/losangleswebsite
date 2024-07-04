@@ -5,17 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/public/media/icons/charlies-angles.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/media/logos/logo-notriangle.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/media/logos/onlytb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/home/media/65d7bc0e00b2b.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/home/media/65e0ddfcd1a26.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/home/media/6685f41bd4c13.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sql/losangles_databases_final.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/51cfa111-f852-4349-9f6f-ece595806c11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/51cfa111-f852-4349-9f6f-ece595806c11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/abb37cc5-b258-4574-a5ed-09fb19a58ae0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/abb37cc5-b258-4574-a5ed-09fb19a58ae0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e0c6b955-f3ce-46fe-a946-bbf3f938ffa8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e0c6b955-f3ce-46fe-a946-bbf3f938ffa8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/image_display_api.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/image_display_api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/artistsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/artistsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/navbarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/navbarController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/home/media/65ad3a9554bc4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/js/events/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/js/events/events.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/style/events/events.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/style/events/events.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/EventRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/EventRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/artists/detailpage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/artists/detailpage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/home/media/65e0ddfcd1a26.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/loginView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/loginView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/mariadb.env" beforeDir="false" afterPath="$PROJECT_DIR$/env/mariadb.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/php.env" beforeDir="false" afterPath="$PROJECT_DIR$/env/php.env" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +43,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -58,7 +63,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/brhig/OneDrive/Escritorio/LOSANGLES/losangleswebsite/Webdev1_EndAssignment_IT2B_577147/app/views/admin/media",
+    "last_opened_file_path": "C:/Users/brhig/OneDrive/Escritorio/LOSANGLES/losangleswebsite/Webdev1_EndAssignment_IT2B_577147/sql",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -77,18 +82,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\sql" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\admin\media" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\public\media\logos" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\public" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\public\media\icons" />
-      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\home\media" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\sql" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\public\media\icons" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\public\media\logos" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views" />
       <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\public\media" />
-      <recent name="C:\Users\brhig\OneDrive\Escritorio\LOSANGLES\losangleswebsite\Webdev1_EndAssignment_IT2B_577147\app\views\admin\media\placeholders" />
     </key>
   </component>
   <component name="RunManager">
@@ -170,6 +175,20 @@
       <workItem from="1708171138505" duration="1681000" />
       <workItem from="1708637099518" duration="1001000" />
       <workItem from="1709235446281" duration="422000" />
+      <workItem from="1710871965855" duration="35000" />
+      <workItem from="1711037890433" duration="226000" />
+      <workItem from="1711046628528" duration="2943000" />
+      <workItem from="1711099251852" duration="6724000" />
+      <workItem from="1711199101775" duration="4441000" />
+      <workItem from="1711360634153" duration="494000" />
+      <workItem from="1711361159635" duration="1262000" />
+      <workItem from="1711537787627" duration="6000" />
+      <workItem from="1712320181532" duration="1538000" />
+      <workItem from="1712396270428" duration="3000" />
+      <workItem from="1713103621751" duration="3110000" />
+      <workItem from="1719823988022" duration="1213000" />
+      <workItem from="1720024456175" duration="3526000" />
+      <workItem from="1720049628247" duration="6644000" />
     </task>
     <servers />
   </component>
