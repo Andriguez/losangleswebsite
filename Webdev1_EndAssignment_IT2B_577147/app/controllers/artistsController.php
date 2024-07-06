@@ -14,8 +14,6 @@ class artistsController extends Controller
     }
     public function index($disciplineName = null, $artistName = null){
         try {
-
-
             $disciplines = $this->artistService->getAllDisciplines();
 
             if (isset($disciplineName)) {
@@ -42,6 +40,7 @@ class artistsController extends Controller
     }
     private function displayArtistDetails($artistName, $discipline){
         try {
+
             $artist = $this->artistService->getArtistByStageName($artistName);
 
             if(!isset($artist)){

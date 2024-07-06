@@ -37,7 +37,7 @@ function changeNamesBackgroundColor(color){
 }
 
 function splitDivFromElement(targetDiv, clickedElement, div1, div2) {
-    let artistName = clickedElement.innerText.replace(/ /g, "-");
+    let artistName = clickedElement.innerText.replace(/ /g, "_");
     let disciplineName = clickedElement.parentElement.parentElement.getAttribute('data-discipline-name').replace(/ /g, "-");
 
     div1.classList.add('row', 'row-cols-1', 'row-cols-sm-2', 'row-cols-md-3', 'g-4');
@@ -68,7 +68,7 @@ function splitDivFromElement(targetDiv, clickedElement, div1, div2) {
     let artistDetails = document.createElement('div');
     artistDetails.id = 'artistDetails';
 
-    displayArtistDetails(`/artists/${disciplineName}/${artistName}`);
+    displayArtistDetails(`/artists/${disciplineName}/${artistName.toLowerCase()}`);
 
     targetDiv.replaceWith(div1, artistDetails, div2);
     div1.appendChild(fragment1);
@@ -132,8 +132,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // Scroll to the identified category
             disciplineDiv.scrollIntoView({ behavior: 'smooth', block: 'start'});
         }
-    } else {
-        window.location.href = '/artists';
     }
 });
 

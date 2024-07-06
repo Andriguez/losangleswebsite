@@ -115,7 +115,10 @@ class Router
             $parameters = array_slice($result['matches'], 1);
 
             if (isset($parameters[0])) {
-                $parameters[0] = str_replace('-', ' ', $parameters[0]);
+                foreach ($parameters as $k => $v){
+                    $parameters[$k] = str_replace('_', ' ', $parameters[$k]);
+                }
+                //$parameters[0] = str_replace('_', ' ', $parameters[0]);
             }
 
         } else {
