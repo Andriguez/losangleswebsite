@@ -1,5 +1,6 @@
 <?php
 namespace Controllers;
+use Models\ArtistDiscipline;
 use Services\ArtistService;
 
 class artistsController extends Controller
@@ -12,28 +13,44 @@ class artistsController extends Controller
         $this->navbar = new navbarController();
     }
     public function index($disciplineName = null, $artistName = null){
-        $disciplines = $this->artistService->getAllDisciplines();
+        try {
 
-        if(isset($disciplineName)){
-            $targetDiscipline = $this->artistService->getDisciplineByName($disciplineName);
 
-            if(isset($artistName)){
-                $this->displayArtistDetails($artistName, $targetDiscipline); exit;
+            $disciplines = $this->artistService->getAllDisciplines();
+
+            if (isset($disciplineName)) {
+                $targetDiscipline = $this->artistService->getDisciplineByName($disciplineName) ?? $disciplineName;
+
+                if ($targetDiscipline === $disciplineName){
+                    $this->errorHandler(404, "$disciplineName not found");
+                }
+
+                if (isset($artistName)) {
+                    $this->displayArtistDetails($artistName, $targetDiscipline);
+                    exit;
+                }
             }
-        }
 
-        foreach ($disciplines as $discipline){
-            $artists = $this->artistService->getAllArtistsByDiscipline($discipline->getDisciplineId());
-            $allArtists[$discipline->getDisciplineId()] = $artists;
+            foreach ($disciplines as $discipline) {
+                $artists = $this->artistService->getAllArtistsByDiscipline($discipline->getDisciplineId());
+                $allArtists[$discipline->getDisciplineId()] = $artists;
+            }
+            require __DIR__ . '/../views/artists/index.php';
+        } Catch (\Exception $e){
+            $this->errorHandler(502, $e);
         }
-        require __DIR__ . '/../views/artists/index.php';
     }
     private function displayArtistDetails($artistName, $discipline){
-        $artist = $this->artistService->getArtistByStageName($artistName);
+        try {
+            $artist = $this->artistService->getArtistByStageName($artistName);
 
-        if($artist->getArtistContent()->getDiscipline() == $discipline){
-            require __DIR__ . '/../views/artists/detailpage.php';
-        } else {\Router::getInstance()->respond(404, "artist: {$artist->getArtistContent()->getStagename()} not found in category: {$discipline->getName()}!");}
+            if($artist->getArtistContent()->getDiscipline() == $discipline){
+                require __DIR__ . '/../views/artists/detailpage.php';
+            }
+
+        } catch (\Exception $e){
+            $this->errorHandler(500, $e->getMessage());
+        }
 
     }
 }

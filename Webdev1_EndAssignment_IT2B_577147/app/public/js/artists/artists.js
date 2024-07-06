@@ -132,6 +132,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Scroll to the identified category
             disciplineDiv.scrollIntoView({ behavior: 'smooth', block: 'start'});
         }
+    } else {
+        window.location.href = '/artists';
     }
 });
 

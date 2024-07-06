@@ -52,28 +52,6 @@ class Router
         $this->respondNotFound();
     }
 
-    /*public function getCurrentRoute()
-    {
-        $parsedUrl = parse_url($_SERVER['REQUEST_URI']);
-        $requestedPath = $parsedUrl['path'];
-
-        foreach ($this->routes as $route) {
-            $matchResult = $this->matchRoute($route, $requestedPath);
-
-            if ($matchResult['result']) {
-                $string = $route->getString();
-                if(isset($string)){
-                    return $string;
-                }
-
-                return $route->getPattern();
-            }
-        }
-
-        return null;
-    }*/
-
-
     private function handleParameters($route)
     {
         if ($route->getGetParams() !== null) {
@@ -89,7 +67,7 @@ class Router
         $invalidParameters = array_diff(array_keys($parameters), $allowedParameters);
 
         if (!empty($invalidParameters)) {
-            $this->respondInvalidParameters($invalidParameters);
+            $this->respondInvalidParameters($invalidParameters, $allowedParameters);
         }
     }
 
@@ -118,9 +96,6 @@ class Router
 
     private function redirect($route){
         $filename = __DIR__ . '/controllers/'.$route->getController().'.php';
-        //if ($api) {
-        // $filename = __DIR__ . '/api/controllers/' . $controllerName . '.php';
-        //}
         if (file_exists($filename)) {
             ob_start();
             $controllerName = 'controllers\\'.$route->getController();
@@ -152,7 +127,8 @@ class Router
             $controllerObj = new $controllerName;
             $controllerObj->{$route->getFunction()}(...$parameters);
             $content = ob_get_clean();
-            Router::getInstance()->respond(200, $content);
+            $responseCode = $controllerObj::class == \Controllers\errorHandlerController::class ? $_GET['p'] : 200;
+            $this->respond($responseCode, $content);
 
         } catch (Exception $e) {
             echo $e;
@@ -208,20 +184,26 @@ class Router
         }
     }
 
-    private function respondInvalidParameters($invalidParameters)
+    private function respondInvalidParameters($invalidParameters, $allowedParameters)
     {
         echo '<p><b>Invalid request:</b> parameters not allowed.</p>';
         echo '<pre>';
         foreach ($invalidParameters as $invalidKey => $invalidName) {
             echo $invalidKey . ': ' . $invalidName . "\n";
         }
+        echo '<p>expected parameters:</p>';
+        foreach ($allowedParameters as $validKey => $validName) {
+            echo $validKey . ': ' . $validName . "\n";
+        }
         echo '</pre>';
+        http_response_code(400);
         exit();
     }
 
     private function respondMethodNotAllowed($allowedMethods)
     {
-        $this->respond(405, '<h1>405 Method Not Allowed</h1>', ['allow' => implode(', ', $allowedMethods)]);
+        $message = 'Method Not Allowed';
+        $this->errorHandler(405, $message);
     }
 
     private function respondServerError($controller)
@@ -234,7 +216,16 @@ class Router
 
     private function respondNotFound()
     {
-        $this->respond(404, '<h1>404 Not Found</h1><p>Page not recognized...</p>');
+        //$this->respond(404, '<h1>404 Not Found</h1><p>Page not recognized...</p>');
+        $this->errorHandler(404, 'page not found');
+    }
+
+    function errorHandler($code, $message){
+        $_SERVER['REQUEST_URI'] = "/error/";
+        $_GET['p'] = $code;
+        $_GET['i'] = $message;
+
+        $this->handleRequest();
     }
 
     public function respond($code, $html, $headers = [])

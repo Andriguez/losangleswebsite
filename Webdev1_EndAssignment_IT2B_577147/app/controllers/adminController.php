@@ -760,25 +760,4 @@ class adminController extends Controller
             unlink($picturePath);
         }
     }
-    //public function manageCollaboratorDetails(){
-      //  if($this->userAuth->allowAdminAccess())
-        //    require __DIR__ . '/../views/admin/windows/users/manageCollaboratorInfo.php';
-    //}
-
-    /*public function hashtest(){
-        $costs = [10, 11, 12, 13, 14];
-        $password = 'test_password';
-
-        foreach ($costs as $cost) {
-            $start = microtime(true);
-
-            // Adjust the algorithm and options accordingly (PASSWORD_BCRYPT or PASSWORD_ARGON2I)
-            password_hash($password, PASSWORD_BCRYPT, ['cost' => $cost]);
-
-            $end = microtime(true);
-            $time = ($end - $start) * 1000; // Convert to milliseconds
-
-            echo "Cost $cost: $time ms\n";
-        }
-    }*/
 }

@@ -220,10 +220,11 @@ class ArtistRepository extends Repository
                 $discipline->setDisciplineId($row['artist_discipline_Id']);
                 $discipline->setName($row['artist_discipline_name']);
             }
-            return $discipline;
+            return $discipline ?? null;
 
-
-        } catch (\PDOException $e){echo $e;}
+        } catch (\PDOException $e){
+            echo $e;
+        }
     }
 
     public function getAllDisciplines(){
