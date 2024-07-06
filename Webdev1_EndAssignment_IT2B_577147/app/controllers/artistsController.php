@@ -22,7 +22,7 @@ class artistsController extends Controller
                 $targetDiscipline = $this->artistService->getDisciplineByName($disciplineName) ?? $disciplineName;
 
                 if ($targetDiscipline === $disciplineName){
-                    $this->errorHandler(404, "$disciplineName not found");
+                    $this->errorHandler(404, "Category: '$disciplineName' not found");
                 }
 
                 if (isset($artistName)) {
@@ -43,6 +43,10 @@ class artistsController extends Controller
     private function displayArtistDetails($artistName, $discipline){
         try {
             $artist = $this->artistService->getArtistByStageName($artistName);
+
+            if(!isset($artist)){
+                $this->errorHandler(404, "Artist: '$artistName' not found");
+            }
 
             if($artist->getArtistContent()->getDiscipline() == $discipline){
                 require __DIR__ . '/../views/artists/detailpage.php';

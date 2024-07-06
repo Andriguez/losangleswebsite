@@ -260,4 +260,20 @@
             font-size: 16px;
         }
     }
+    footer{
+        font-size: 18px;
+        font-family: "Agency FB";
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(135deg, #b8b8b8, #e0e0e0, #b8b8b8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: #b8b8b8;
+        text-shadow:
+                1px 1px 2px rgba(0, 0, 0, 0.2),
+                -1px -1px 2px rgba(255, 255, 255, 0.7),
+                2px 2px 3px rgba(0,0,0,0.4),
+                -2px -2px 3px rgba(255,255,255,0.5);
+    }
 </style>

@@ -6,7 +6,8 @@
 <body>
     <div id="page" class="container px-0">
         <!--<img id="homepagePicture" class="logoHomepage" src="" alt="Logo">-->
-</div>
+        <footer>design + code by: Andy Rodriguez©</footer>
+    </div>
 </body>
 </html>
 <style>
