@@ -8,9 +8,11 @@ function openPopUp(){
 }
 
 function closePopUp(){
-    location.reload();
+    //location.reload();
     document.getElementById('box-popup').style.display = "none";
     document.getElementById("page").style.filter = "none";
+    document.getElementById("page").style.pointerEvents = "all";
+
 }
 
 function displayComments(topicName, postId) {
