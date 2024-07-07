@@ -14,7 +14,7 @@ services:
     php:
         build:
             context: .
-            dockerfile: Dockerfile
+            dockerfile: PHP.Dockerfile
         env_file: env/php.env
         volumes:
             - ./app:/app
