@@ -18,10 +18,18 @@
         </div>
         <div class="col-md-6">
             <label for="inputPassword" class="form-label"><strong>Password</strong></label>
+
+            <?php if (isset($user)){?>
+            <div>
+            <button class="btn btn-primary" type="button" onclick="resetPassword(<?php echo (!isset($user))? 0 : $user->getUserId();?>)">reset password</button>
+            </div>
+            <p style="font-size: 14px;">set user password to: <em>GeneratedP@ssw0rd!</em></p>
+            <?php } else {?>
             <div class="input-group">
                 <input type="password" class="form-control" id="inputPassword" name="password">
                 <button class="btn btn-outline-secondary" type="button" id="togglePasswordbtn" onclick="togglePassword()">Show</button>
             </div>
+            <?php } ?>
         </div>
         <div class="col-md-4">
             <label for="inputpronouns" class="form-label"><strong>pronouns</strong></label>

@@ -647,6 +647,26 @@ class adminController extends Controller
             require __DIR__ . '/../views/admin/windows/users/manageUser.php';
     }
 
+    public function resetPassword($userId)
+    {
+        if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
+            $_POST = filter_input_array(INPUT_POST);
+            if(isset($_POST['newpassword'])){
+                $password = $this->userAuth->hashPassword($_POST['newpassword']);
+                $user = $this->userService->getUserById($userId);
+
+                if (isset($user)){
+                    $this->userService->resetUserPassword($userId, $password);
+                }
+
+                $result = "the password for user: {$user->getFullName()} was successfully reset";
+                header('Content-Type: application/json;');
+                echo json_encode($result);
+
+            }
+        } else {   echo json_encode("Something went wrong, ask Andy to take a look!");  }
+    }
+
     public function storeUser($userId = null){
         if($this->userAuth->allowAdminAccess() && $_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST = filter_input_array(INPUT_POST);

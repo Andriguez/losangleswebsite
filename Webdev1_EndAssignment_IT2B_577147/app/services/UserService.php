@@ -35,4 +35,8 @@ class UserService
     public function deleteUser($userId){
         $this->userRepo->deleteUser($userId);
     }
+
+    public function resetUserPassword($userid, $password){
+        $this->userRepo->resetUserPassword($userid, $password);
+    }
 }

@@ -245,6 +245,16 @@ function storeUserInfo(userId) {
     storeData(formData, functionName, redirect);
 }
 
+function resetPassword(userId){
+    const formData = new FormData();
+    formData.append('newpassword', 'GeneratedP@ssw0rd!');
+
+    const functionName = 'resetPassword/'+userId
+    const redirect = `viewusers`;
+
+    storeData(formData, functionName, redirect);
+}
+
 //EVENT TYPE
 function storeEventType() {
     let typeName = document.getElementById('inputEventTypeName').value;

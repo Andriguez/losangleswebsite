@@ -149,7 +149,7 @@ class UserRepository extends Repository
             }
 
             return $allUsers;
-        }catch (\PDOException $e){echo $e;}
+        }catch (\PDOException $e){echo $e->getMessage();}
     }
     public function getUsersByType($usertype){
         $query = "SELECT user_Id FROM users WHERE user_type = :usertype";
@@ -166,7 +166,7 @@ class UserRepository extends Repository
             }
 
             return $allUsers ?? null;
-        }catch (\PDOException $e){echo $e;}
+        }catch (\PDOException $e){echo $e->getMessage();}
     }
 
     //usertype table
@@ -185,7 +185,7 @@ class UserRepository extends Repository
                 $userType->setUserType($row['usertype_name']);
             }
 
-        } catch (\PDOException $e){echo $e;}
+        } catch (\PDOException $e){echo $e->getMessage();}
 
         return $userType;
     }
@@ -204,7 +204,23 @@ class UserRepository extends Repository
             }
 
             return $allUserTypes;
-        }catch (\PDOException $e){echo $e;}
+        }catch (\PDOException $e){echo $e->getMessage();}
+    }
+
+    public function resetUserPassword($userId, $password)
+    {
+        $query = "UPDATE `users` SET `user_password`= :password WHERE `user_Id`= :id";
+
+        try{
+            $statement = $this->getusersDB()->prepare($query);
+
+            $statement->bindParam(':password', $password);
+            $statement->bindParam(':id', $userId, \PDO::PARAM_INT);
+
+            $statement->execute();
+        } catch(\PDOException $e){
+            echo $e->getMessage();
+        }
     }
 
     private function sanitizeText($input):string{
