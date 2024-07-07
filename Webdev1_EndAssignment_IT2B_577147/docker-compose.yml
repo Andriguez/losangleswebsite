@@ -20,6 +20,9 @@ services:
             - ./app:/app
         expose:
             - "9000"
+        depends_on:
+            - mysql
+
 
     mysql:
         image: mariadb:10.6.5
