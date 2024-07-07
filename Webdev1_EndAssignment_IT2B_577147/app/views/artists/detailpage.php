@@ -41,9 +41,7 @@
     </div>
     <div class="media-container">
         <?php if ($artist->getArtistContent()->getSoundcloudUrl() != '#'){?>
-            <div class="soundcloud-container">
-                <iframe width="200%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="<?php echo $artist->getArtistContent()->getSoundcloudUrl() ?>"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"></div>
-            </div>
+                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="<?php echo $artist->getArtistContent()->getSoundcloudUrl() ?>"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"></div>
         <?php } ?>
     </div>
 </div>
@@ -55,6 +53,11 @@
 <div id="<?php echo (isset($artist)) ? $artist->getArtistContent()->getStageName() : '' ?>-details" class="artist-details-phone">
     <div class="img-container">
         <img src="<?php echo (isset($artist)) ? $artist->getArtistContent()->getPictureSrc() : '' ?>" alt="Artist Image">
+        <div class="icon-container">
+            <a href="<?php echo (isset($artist)) ? $artist->getArtistContent()->getSocials() : '' ?>"><img src="/media/icons/instagram.svg"></a>
+            <a href="mailto:<?php echo (isset($artist)) ? $artist->getArtistContent()->getEmail() : '' ?>"><img src="/media/icons/mail.svg"></a>
+            <a href="<?php echo (isset($artist)) ? $artist->getArtistContent()->getExtraLink() : '' ?>"><img src="/media/icons/triangle.svg"></a>
+        </div>
     </div>
     <div class="text-container">
         <span class="artist-name"><?php echo (isset($artist)) ? $artist->getArtistContent()->getStageName() : '' ?></span>
@@ -62,17 +65,10 @@
         <p><?php echo (isset($artist)) ? $artist->getArtistContent()->getDescription() : '' ?></p>
     </div>
     <div class="media-container">
-        <div class="icon-container">
-            <a href="<?php echo (isset($artist)) ? $artist->getArtistContent()->getSocials() : '' ?>"><img src="/media/icons/instagram.svg"></a>
-            <a href="mailto:<?php echo (isset($artist)) ? $artist->getArtistContent()->getEmail() : '' ?>"><img src="/media/icons/mail.svg"></a>
-            <a href="<?php echo (isset($artist)) ? $artist->getArtistContent()->getExtraLink() : '' ?>"><img src="/media/icons/triangle.svg"></a>
-        </div>
-        <?php if ($artist->getArtistContent()->getSoundcloudUrl() != ''){?>
-        <div class="soundcloud-container">
+        <?php if ($artist->getArtistContent()->getSoundcloudUrl() != '#'){?>
             <?php if (isset($artist)) { ?>
                 <iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="<?php echo $artist->getArtistContent()->getSoundcloudUrl() ?>"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"></div>
             <?php } else { echo ''; } ?>
-        </div>
         <?php } ?>
     </div>
 </div>
@@ -179,13 +175,15 @@
     }
     
 
-    @media (max-width: 1049px) {
-        .artist-details-desktop{
+    @media (min-width: 740px) and (max-width: 1049px) {
+        .artist-details-desktop {
             display: none !important;
         }
-        .artist-details-phone{
+
+        .artist-details-phone {
             display: none !important;
         }
+
         .artist-details-medium {
             overflow-x: hidden;
             overflow-y: auto;
@@ -196,7 +194,7 @@
             .artist-name {
                 color: black;
                 font-weight: bold;
-                font-size: 20px;
+                font-size: 18px;
                 font-family: angles;
                 text-transform: uppercase;
             }
@@ -218,6 +216,7 @@
 
             .img-container {
                 margin: auto;
+
                 .icon-container {
                     display: flex;
                     align-items: center;
@@ -235,7 +234,8 @@
                     img:hover {
                         background-color: black;
                         filter: invert(100%);
-                    }}
+                    }
+                }
 
             }
 
@@ -263,21 +263,24 @@
             }
 
             .media-container {
-                align-content: center;
-                    .soundcloud-container {
-                    }
-                }
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                width: 100%;
             }
         }
     }
     
-    @media (max-width:740px) {
-        .artist-details-desktop{
+    @media (min-width: 40px) and (max-width: 740px) {
+        .artist-details-desktop {
             display: none !important;
         }
-        .artist-details-medium{
+
+        .artist-details-medium {
             display: none !important;
         }
+
         .artist-details-phone {
             overflow-x: hidden;
             overflow-y: auto;
@@ -288,7 +291,7 @@
             .artist-name {
                 color: black;
                 font-weight: bold;
-                font-size: 20px;
+                font-size: 16px;
                 font-family: angles;
                 text-transform: uppercase;
             }
@@ -310,33 +313,9 @@
 
             .img-container {
                 margin: auto;
-            }
-
-            .text-container {
-                min-width: 320px;
-                max-height: 300px;
-                height: 80%;
-                margin: auto;
-                padding: 5px;
+                display: flex;
                 justify-content: center;
-                align-items: center;
-                font-family: "Agency FB";
-
-                span {
-                    color: white;
-                    margin-bottom: 2px;
-                }
-
-                p {
-                    margin: 25px 30px 12px 5px;
-                    font-size: 20px;
-                    max-width: 320px;
-                    overflow-y: auto;
-                }
-            }
-
-            .media-container {
-                margin: auto auto 10px auto;
+                flex-wrap: wrap;
 
                 .icon-container {
                     display: flex;
@@ -356,13 +335,41 @@
                         background-color: black;
                         filter: invert(100%);
                     }
-
-                    .soundcloud-container {
-                        margin-right: 20px;
-                        margin-top: 10px !important;
-                        margin-bottom: 10px;
-                    }
                 }
+
+            }
+
+            .text-container {
+                min-width: 320px;
+                max-height: 300px;
+                height: 80%;
+                margin: auto;
+                padding: 5px;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
+                font-family: "Agency FB";
+
+                span {
+                    color: white;
+                    margin-bottom: 2px;
+                }
+
+                p {
+                    margin: 25px 30px 12px 5px;
+                    font-size: 20px;
+                    max-width: 320px;
+                    overflow-y: auto;
+                    text-align: center;
+                }
+            }
+
+            .media-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                width: 100%;
             }
         }
     }
