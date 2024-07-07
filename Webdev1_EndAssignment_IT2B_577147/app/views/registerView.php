@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>Join us!</title>
-    <!--<link rel="icon" href="/media/onlytb.png" type="image/png">-->
+    <link rel="icon" href="/media/logos/onlytb.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="/style/register/register.css">
 </head>
 <body>

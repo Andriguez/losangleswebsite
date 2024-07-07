@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>Los Angles</title>
-    <!--<link rel="icon" href="/media/onlytb.png" type="image/png">-->
+    <link rel="icon" href="/media/logos/onlytb.png" type="image/png">
 </head>
 <body>
     <div id="page" class="container px-0">

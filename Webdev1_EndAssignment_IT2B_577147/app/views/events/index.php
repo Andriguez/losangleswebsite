@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <title>Events</title>
-    <!--<link rel="icon" href="/media/onlytb.png" type="image/png">-->
+    <link rel="icon" href="/media/logos/onlytb.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="/style/events/events.css">
 </head>
 <body>
