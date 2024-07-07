@@ -8,4 +8,4 @@ RUN docker-php-ext-install zip
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-WORKDIR /app
+WORKDIR /app/public
