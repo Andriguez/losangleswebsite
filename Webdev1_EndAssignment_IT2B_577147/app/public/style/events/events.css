@@ -240,19 +240,19 @@ body{
     }
 
     .gallery-item-3{
-        min-height: 570px;
+        min-height: 385px;
         opacity: 1;
         left: 50%;
         transform: translateX(-50%);
-        min-width: 505px;
+        min-width: 400px;
         z-index: 2;
     }
 }
 
 @media (max-width: 915px){
     .gallery-item-3{
-        max-height: 530px;
-        min-height: 500px;
+        max-height: 600px;
+        min-height: 550px;
         opacity: 1;
         left: 50%;
         transform: translateX(-50%);

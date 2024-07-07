@@ -44,7 +44,7 @@
                 </a>
             </div>
             <div id="nav-item-conatiner">
-                <div id="nav-menu-button" class="nav-item"><a id="menu-button" class="nav-link mt-3 mx-5" data-bs-toggle="dropdown" aria-expanded="false"><img id="menu-icon" src="/media/icons/menu-icon-transparent.svg"></a>
+                <div id="nav-menu-button" class="nav-item"><a id="menu-button" class="nav-link mt-3 mx-5" data-bs-toggle="dropdown" aria-expanded="false"><img id="menu-icon" src="/media/icons/menu-icon.svg"></a>
                     <ul class="dropdown-menu" aria-labelledby="menu-button">
                         <li><a id="artist-link" class="nav-link nav-menu-item" href="/artists">Artists</a></li>
                         <li><a id="events-link" class="nav-link nav-menu-item" href="/events">Events</a></li>
