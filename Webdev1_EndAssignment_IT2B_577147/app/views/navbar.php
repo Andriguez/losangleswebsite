@@ -261,7 +261,7 @@
         }
     }
     footer{
-        font-size: 18px;
+        font-size: 1.15rem;
         font-family: "Agency FB";
         position: fixed;
         bottom: 0;
