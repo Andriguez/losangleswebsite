@@ -10,6 +10,8 @@ services:
             - ./app:/app
         networks:
             - nginxphp
+        environment:
+            - PORT=80
 
     php:
         build:
