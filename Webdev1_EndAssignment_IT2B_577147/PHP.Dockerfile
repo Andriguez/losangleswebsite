@@ -8,4 +8,5 @@ RUN docker-php-ext-install zip
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-RUN sed -i "s|;*listen\s*=\s*127.0.0.1:9000|listen = 9000|g" /etc/php7/php-fpm.d/www.conf && \
+RUN     sed -i "s|;*listen\s*=\s*127.0.0.1:9000|listen = 9000|g" /etc/php7/php-fpm.d/www.conf && \
+        
