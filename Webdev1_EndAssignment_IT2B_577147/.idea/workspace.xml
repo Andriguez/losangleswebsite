@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/mariadb.env" beforeDir="false" afterPath="$PROJECT_DIR$/env/mariadb.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/php.env" beforeDir="false" afterPath="$PROJECT_DIR$/env/php.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +207,7 @@
       <workItem from="1720276470460" duration="42308000" />
       <workItem from="1721347095460" duration="10419000" />
       <workItem from="1723144442736" duration="213000" />
-      <workItem from="1723213927190" duration="2181000" />
+      <workItem from="1723213927190" duration="4773000" />
     </task>
     <servers />
   </component>
