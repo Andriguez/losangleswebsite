@@ -2,7 +2,7 @@
      $configs = [
         $config1 = [
 
-            'hostname' => 'losangleswebsite-mariadbimage:3306',
+            'hostname' => 'losangleswebsite-mariadbimage',
             'port' => 3306,
             'username' => 'developer',
             'password' => 'secret123',
@@ -10,7 +10,7 @@
         ],
         $config2 = [
 
-            'hostname' => 'losangleswebsite-mariadbimage:3306',
+            'hostname' => 'losangleswebsite-mariadbimage',
             'port' => 3306,
             'username' => 'developer',
             'password' => 'secret123',
@@ -18,7 +18,7 @@
         ],
         $config3 = [
 
-            'hostname' => 'losangleswebsite-mariadbimage:3306',
+            'hostname' => 'losangleswebsite-mariadbimage',
             'port' => 3306,
             'username' => 'developer',
             'password' => 'secret123',
