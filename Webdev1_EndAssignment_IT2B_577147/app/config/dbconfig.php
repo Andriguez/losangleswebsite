@@ -4,7 +4,7 @@
 
             'hostname' => 'losangleswebsite-mariadbimage',
             'port' => 3306,
-            'username' => 'developer',
+            'username' => 'root',
             'password' => 'secret123',
             'name' => 'losangles_content'
         ],
@@ -12,7 +12,7 @@
 
             'hostname' => 'losangleswebsite-mariadbimage',
             'port' => 3306,
-            'username' => 'developer',
+            'username' => 'root',
             'password' => 'secret123',
             'name' => 'losangles_users'
         ],
@@ -20,7 +20,7 @@
 
             'hostname' => 'losangleswebsite-mariadbimage',
             'port' => 3306,
-            'username' => 'developer',
+            'username' => 'root',
             'password' => 'secret123',
             'name' => 'losangles_feed'
         ]

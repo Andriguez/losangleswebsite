@@ -116,30 +116,6 @@ INSERT INTO `users_usertypes` (`usertype_Id`, `usertype_name`) VALUES
                                                                    (3, 'artist'),
                                                                    (4, 'collaborator');
 COMMIT;
---
--- Indexes for table `artists_applications`
---
-ALTER TABLE `artists_applications`
-  ADD PRIMARY KEY (`application_Id`),
-  ADD UNIQUE KEY `applicant_email` (`applicant_email`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_Id`) USING BTREE,
-  ADD UNIQUE KEY `user_email` (`user_email`) USING BTREE,
-  ADD KEY `usertype_FK` (`user_type`);
-
---
--- Indexes for table `users_usertypes`
---
-ALTER TABLE `users_usertypes`
-  ADD PRIMARY KEY (`usertype_Id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
 
 --
 -- AUTO_INCREMENT for table `artists_applications`
@@ -236,32 +212,6 @@ INSERT INTO `feed_topics` (`topic_Id`, `topic_name`) VALUES
 
 --
 -- Constraints for dumped tables
---
-
---
--- Indexes for table `feed_comments`
---
-ALTER TABLE `feed_comments`
-  ADD PRIMARY KEY (`comment_Id`),
-  ADD KEY `post_FK` (`comment_parentpost`),
-  ADD KEY `comment_userId_FK` (`comment_user`);
-
---
--- Indexes for table `feed_posts`
---
-ALTER TABLE `feed_posts`
-  ADD PRIMARY KEY (`post_Id`),
-  ADD KEY `topic_FK` (`post_topic`),
-  ADD KEY `post_userId_FK` (`post_user`);
-
---
--- Indexes for table `feed_topics`
---
-ALTER TABLE `feed_topics`
-  ADD PRIMARY KEY (`topic_Id`);
-
---
--- AUTO_INCREMENT for dumped tables
 --
 
 --

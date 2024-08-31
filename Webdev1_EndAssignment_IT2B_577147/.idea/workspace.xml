@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/dbconfig.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/dbconfig.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/php.env" beforeDir="false" afterPath="$PROJECT_DIR$/env/php.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/losangles_databases_final.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/losangles_databases_final.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +212,7 @@
       <workItem from="1723144442736" duration="213000" />
       <workItem from="1723213927190" duration="4773000" />
       <workItem from="1723273738817" duration="1286000" />
-      <workItem from="1725123653858" duration="1412000" />
+      <workItem from="1725123653858" duration="4672000" />
     </task>
     <servers />
   </component>
