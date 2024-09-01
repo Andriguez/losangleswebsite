@@ -357,6 +357,7 @@
                 font-family: "Agdasima", sans-serif;
                 font-weight: 400;
                 font-style: normal;
+                overflow-y: auto;
                 span {
                     color: white;
                     margin-bottom: 2px;
@@ -365,7 +366,7 @@
                 p {
                     margin: 25px 30px 12px 5px;
                     font-size: 22px;
-                    max-width: 320px;
+                    max-width: 350px;
                     overflow-y: auto;
                     text-align: center;
                 }
@@ -377,7 +378,7 @@
                 align-items: center;
                 text-align: center;
                 width: 100%;
-                height: 100%;
+                height: 80%;
             }
         }
     }

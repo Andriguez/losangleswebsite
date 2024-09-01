@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/views/artists/detailpage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/artists/detailpage.php" afterDir="false" />
-    </list>
+    <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
