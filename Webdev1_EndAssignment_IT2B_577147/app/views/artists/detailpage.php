@@ -378,7 +378,6 @@
                 align-items: center;
                 text-align: center;
                 width: 100%;
-                height: 80%;
             }
         }
     }
