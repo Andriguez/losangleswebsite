@@ -178,6 +178,7 @@
         border-width: 3px;
         background-color: white;
         margin-top: 5px;
+        color: black;
     }
 button:hover {
     background-color: black;
