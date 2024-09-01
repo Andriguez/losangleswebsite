@@ -5,76 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    <header class="py-2">
-        <div id="desktop-nav-bar">
-            <ul class="nav justify-content-center flex-nowrap">
-                <li class="nav-item"><h3><a id="artist-link" href="/artists" class="nav-link mt-3 mx-md-2 mx-lg-4 mx-xl-5 text-reset">Artists</a></h3></li>
-                <li class="nav-item"><h3><a id="events-link" href="/events" class="nav-link mt-3 mx-md-2 mx-lg-4 mx-xl-5 text-reset">Events</a></h3></li>
+<header class="py-2">
+    <div id="desktop-nav-bar">
+        <ul class="nav justify-content-center flex-nowrap">
+            <li class="nav-item"><h3><a id="artist-link" href="/artists" class="nav-link mt-3 mx-md-2 mx-lg-4 mx-xl-5 text-reset">Artists</a></h3></li>
+            <li class="nav-item"><h3><a id="events-link" href="/events" class="nav-link mt-3 mx-md-2 mx-lg-4 mx-xl-5 text-reset">Events</a></h3></li>
 
-                <div class="nav-logo mb-2 mb-md-0 mx-sm-4 mx-md-4 mx-xl-5">
-                    <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none navbar-brand">
-                        <img id="nav-logo-desktop" src="<?php echo $logoSrc ?? ''?>" alt="Logo" class="d-inline-block align-text-top">
-                    </a>
-                </div>
+            <div class="nav-logo mb-2 mb-md-0 mx-sm-4 mx-md-4 mx-xl-5">
+                <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none navbar-brand">
+                    <img id="nav-logo-desktop" src="<?php echo $logoSrc ?? ''?>" alt="Logo" class="d-inline-block align-text-top">
+                </a>
+            </div>
 
-                <li class="nav-item"><h3><a id="about-link" href="/about" class="nav-link mt-3 mx-md-2 mx-lg-4 mx-xl-5 text-reset">About</a></h3></li>
-                <li class="nav-item"><h3><a id="connect-link" class="nav-link mt-3 mx-md-2 mx-lg-4 mx-xl-5 text-reset" data-bs-toggle="dropdown" aria-expanded="false">Connect</a>
-                        <ul class="dropdown-menu" aria-labelledby="connect-link">
+            <li class="nav-item"><h3><a id="about-link" href="/about" class="nav-link mt-3 mx-md-2 mx-lg-4 mx-xl-5 text-reset">About</a></h3></li>
+            <li class="nav-item"><h3><a id="connect-link" class="nav-link mt-3 mx-md-2 mx-lg-4 mx-xl-5 text-reset" data-bs-toggle="dropdown" aria-expanded="false">Connect</a>
+                    <ul class="dropdown-menu" aria-labelledby="connect-link">
+                        <?php if(isset($loggedUser)){?>
+                            <li><span><?php echo $loggedUser->getFullName();?></span></li>
+                            <li><a class="dropdown-item" href="/feed">feed</a></li>
+                            <?php if($loggedUser->getUserType()->getUserType() === 'developer' || $loggedUser->getUserType()->getUserType() === 'admin'){?>
+                                <li><a class="dropdown-item" href="/admin">admin</a></li>
+                            <?php } ?>
+                            <li><a class="dropdown-item" href="/logout">logout</a></li>
+                        <?php } else{ ?>
+                            <li><a class="dropdown-item" href="/register">register</a></li>
+                            <li><a class="dropdown-item" href="/login">login</a></li>
+                        <?php } ?>
+                    </ul>
+                </h3>
+            </li>
+        </ul>
+    </div>
+
+    <div id="mobile-nav-bar">
+        <div id="nav-logo" class="nav-logo mt-3 mb-md-0 mx-5">
+            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none navbar-brand">
+                <img id="navbar-logo" src="<?php echo $logoSrc ?? ''?>" alt="Logo" class="d-inline-block align-text-top">
+            </a>
+        </div>
+        <div id="nav-item-conatiner">
+            <div id="nav-menu-button" class="nav-item"><a id="menu-button" class="nav-link mt-3 mx-5" data-bs-toggle="dropdown" aria-expanded="false"><img id="menu-icon" src="/media/icons/menu-icon-transparent.svg"></a>
+                <ul class="dropdown-menu" aria-labelledby="menu-button">
+                    <li><a id="artist-link" class="nav-link nav-menu-item" href="/artists">Artists</a></li>
+                    <li><a id="events-link" class="nav-link nav-menu-item" href="/events">Events</a></li>
+                    <li><a id="about-link" class="nav-link nav-menu-item" href="/about">About</a></li>
+                    <li><span id="connect-link" class="nav-link nav-menu-item">Connect</span>
+                        <ul style="list-style-type: none;">
                             <?php if(isset($loggedUser)){?>
-                                    <li><span><?php echo $loggedUser->getFullName();?></span></li>
+                                <li id="logged-user-name"><label>Welcome, </label><span> <?php echo $loggedUser->getFirstName();?></span></li>
                                 <li><a class="dropdown-item" href="/feed">feed</a></li>
                                 <?php if($loggedUser->getUserType()->getUserType() === 'developer' || $loggedUser->getUserType()->getUserType() === 'admin'){?>
                                     <li><a class="dropdown-item" href="/admin">admin</a></li>
-                                    <?php } ?>
+                                <?php } ?>
                                 <li><a class="dropdown-item" href="/logout">logout</a></li>
                             <?php } else{ ?>
                                 <li><a class="dropdown-item" href="/register">register</a></li>
                                 <li><a class="dropdown-item" href="/login">login</a></li>
                             <?php } ?>
                         </ul>
-                    </h3>
-                </li>
-            </ul>
-        </div>
-
-        <div id="mobile-nav-bar">
-            <div id="nav-logo" class="nav-logo mt-3 mb-md-0 mx-5">
-                <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none navbar-brand">
-                    <img id="navbar-logo" src="<?php echo $logoSrc ?? ''?>" alt="Logo" class="d-inline-block align-text-top">
-                </a>
-            </div>
-            <div id="nav-item-conatiner">
-                <div id="nav-menu-button" class="nav-item"><a id="menu-button" class="nav-link mt-3 mx-5" data-bs-toggle="dropdown" aria-expanded="false"><img id="menu-icon" src="/media/icons/menu-icon-transparent.svg"></a>
-                    <ul class="dropdown-menu" aria-labelledby="menu-button">
-                        <li><a id="artist-link" class="nav-link nav-menu-item" href="/artists">Artists</a></li>
-                        <li><a id="events-link" class="nav-link nav-menu-item" href="/events">Events</a></li>
-                        <li><a id="about-link" class="nav-link nav-menu-item" href="/about">About</a></li>
-                        <li><span id="connect-link" class="nav-link nav-menu-item">Connect</span>
-                            <ul style="list-style-type: none;">
-                                <?php if(isset($loggedUser)){?>
-                                    <li id="logged-user-name"><label>Welcome, </label><span> <?php echo $loggedUser->getFirstName();?></span></li>
-                                    <li><a class="dropdown-item" href="/feed">feed</a></li>
-                                    <?php if($loggedUser->getUserType()->getUserType() === 'developer' || $loggedUser->getUserType()->getUserType() === 'admin'){?>
-                                        <li><a class="dropdown-item" href="/admin">admin</a></li>
-                                    <?php } ?>
-                                    <li><a class="dropdown-item" href="/logout">logout</a></li>
-                                <?php } else{ ?>
-                                    <li><a class="dropdown-item" href="/register">register</a></li>
-                                    <li><a class="dropdown-item" href="/login">login</a></li>
-                                <?php } ?>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                    </li>
+                </ul>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 </body>
 </html>
 <script>
 
 </script>
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap');
+
     @font-face {
         font-family: 'angles';
         src: url('/style/fonts/losangles-font.ttf');
@@ -256,13 +258,17 @@
     }
     #logged-user-name{
         label{
-            font-family: "Agency FB";
-            font-size: 16px;
+            font-family: "Agdasima", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 18px;
         }
     }
     footer{
-        font-size: 1.15rem;
-        font-family: "Agency FB";
+        font-size: 1.20rem;
+        font-family: "Agdasima", sans-serif;
+        font-weight: 400;
+        font-style: normal;
         position: fixed;
         bottom: 0;
         right: 0;
@@ -276,4 +282,5 @@
                 2px 2px 3px rgba(0,0,0,0.4),
                 -2px -2px 3px rgba(255,255,255,0.5);
     }
+
 </style>
