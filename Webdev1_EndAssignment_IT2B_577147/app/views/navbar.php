@@ -75,6 +75,8 @@
 
 </script>
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap');
+
     @font-face {
         font-family: 'angles';
         src: url('/style/fonts/losangles-font.ttf');
@@ -276,4 +278,5 @@
                 2px 2px 3px rgba(0,0,0,0.4),
                 -2px -2px 3px rgba(255,255,255,0.5);
     }
+
 </style>

@@ -54,8 +54,9 @@
     text-align: center;
     .name-container{
         label{
-            font-weight: bold;
-            font-family: "Agency FB";
+            font-family: "Agdasima", sans-serif;
+            font-weight: 700;
+            font-style: normal;
             font-size: 18px;
         }
     }
@@ -99,20 +100,27 @@
         padding: 10px;
         max-width: 333px;
         margin: auto;
-        font-family: "Agency FB";
+
+        font-family: "Agdasima", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+
         font-size: 20px;
+
         label{
-            font-weight: bold;
-            font-family: "Agency FB";
+            font-family: "Agdasima", sans-serif;
+            font-weight: 700;
+            font-style: normal;
         }
 
     }
     .text-container{
         max-width: 800px;
         margin: auto;
-        font-family: "Agency FB";
         font-size: 20px;
-        font-weight: bold;
+        font-family: "Agdasima", sans-serif;
+        font-weight: 700;
+        font-style: normal;
 
         span{
 
