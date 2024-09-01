@@ -5,7 +5,7 @@
     </div>
     <div class="text-container">
         <span class="artist-name"><?php echo (isset($artist)) ? $artist->getArtistContent()->getStageName() : '' ?></span>
-        <label><?php echo (isset($artist)) ? $artist->getPronouns() : '' ?>/<?php echo (isset($artist)) ? $artist->getArtistContent()->getDiscipline()->getName() : '' ?></label>
+        <label><?php echo (isset($artist)) ? $artist->getPronouns() : '' ?>    <?php echo (isset($artist)) ? $artist->getArtistContent()->getDiscipline()->getName() : '' ?></label>
         <p><?php echo (isset($artist)) ? $artist->getArtistContent()->getDescription() : '' ?></p>
     </div>
     <div class="media-container" style="padding-top: 30px;">
