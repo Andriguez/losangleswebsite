@@ -7,7 +7,7 @@ services:
             - "80:80"
         volumes:
             - ./nginx.conf:/etc/nginx/nginx.conf
-            - ./app:/app
+            - ./app:/usr/share/nginx/html
         networks:
             - nginxphp
         environment:
