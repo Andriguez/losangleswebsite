@@ -65,7 +65,7 @@
         <p><?php echo (isset($artist)) ? $artist->getArtistContent()->getDescription() : '' ?></p>
     </div>
     <div class="media-container">
-        <?php if ($artist->getArtistContent()->getSoundcloudUrl() != '#' || is_null($artist->getArtistContent()->getSoundcloudUrl())){?>
+        <?php if ($artist->getArtistContent()->getSoundcloudUrl() != '#' || empty($artist->getArtistContent()->getSoundcloudUrl())){?>
             <?php if (isset($artist)) { ?>
                 <iframe width="100%" height="70%" scrolling="no" frameborder="no" allow="autoplay" src="<?php echo $artist->getArtistContent()->getSoundcloudUrl() ?>"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"></div>
             <?php } else { echo ''; } ?>
