@@ -3,7 +3,7 @@
         <select id="topicSelect" class="form-select" name="post-topic">
             <option selected value="<?php echo $this->selectedTopic->getTopicId();?>"><?php echo $this->selectedTopic->getTopicName();?></option>
             <?php if(isset($topics)){foreach ($topics as $topic){?>
-            <option value="<?php echo $topic->getTopicId();?>"><?php echo $topic->getTopicName();?></option>
+                <option value="<?php echo $topic->getTopicId();?>"><?php echo $topic->getTopicName();?></option>
             <?php }} ?>
         </select>
         <input type="text" placeholder="title" name="post-title">
@@ -12,6 +12,8 @@
     </form>
 </div>
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap');
+
     #post-text{
         width: 400px;
         height: auto;
@@ -49,15 +51,19 @@
             input{
                 width: 55%;
                 height: 30px;
-                font-family: "Agency FB";
-                font-size: 20px;
+                font-family: "Agdasima", sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 22px;
             }
 
             textarea{
                 width: 100%;
                 margin-top: 2px;
-                font-family: "Agency FB";
-                font-size: 20px;
+                font-family: "Agdasima", sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 22px;
             }
             .post-btn{
                 position: absolute;
