@@ -233,14 +233,14 @@ body{
     }
 
     .gallery-item-2, .gallery-item-4{
-        min-height: 405px;
+        min-height: 365px;
         opacity: 0.5;
         width: 380px;
         z-index: 1;
     }
 
     .gallery-item-3{
-        min-height: 570px;
+        min-height: 530px;
         opacity: 1;
         left: 50%;
         transform: translateX(-50%);
