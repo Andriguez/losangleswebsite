@@ -6,7 +6,7 @@
 <body>
     <div id="page" class="container px-0">
         <!--<img id="homepagePicture" class="logoHomepage" src="" alt="Logo">-->
-        <footer>design + code by: Andy Rodriguez©</footer>
+        <footer>design + code by: Andi Rodriguez©</footer>
     </div>
 </body>
 </html>

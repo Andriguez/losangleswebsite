@@ -571,7 +571,7 @@ class adminController extends Controller
                 $posts = $this->feedService->getAllPostsByTopic($selectedTopicId, 100, 1);
             }
             $topics = $this->feedService->getAllTopics();
-            require __DIR__ . '/../views/admin/windows/feed/viewPosts.php';
+            require __DIR__ . '/../views/admin/windows/feed/viewposts.php';
         }
     }
     public function deletePost($postId){

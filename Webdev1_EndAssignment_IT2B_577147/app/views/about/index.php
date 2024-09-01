@@ -32,7 +32,7 @@
 
             </div>
         </div>
-<footer>design + code by: Andy Rodriguez©</footer>
+<footer>design + code by: Andi Rodriguez©</footer>
 <script src="/js/about/about.js"></script>
 </body>
 </html>
