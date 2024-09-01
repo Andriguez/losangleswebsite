@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="435ed4c8-b7db-4104-985c-30a6d4d18595" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +26,7 @@
         <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="tsconfig.json" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
@@ -61,7 +62,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "deployment-2",
+    "git-widget-placeholder": "nginx-deploy",
     "last_opened_file_path": "C:/xampp/htdocs/web_backend_test_catering_api",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
@@ -237,7 +238,7 @@
       <workItem from="1723213927190" duration="4773000" />
       <workItem from="1723273738817" duration="1286000" />
       <workItem from="1725123653858" duration="4672000" />
-      <workItem from="1725175439121" duration="6717000" />
+      <workItem from="1725175439121" duration="7192000" />
     </task>
     <servers />
   </component>
