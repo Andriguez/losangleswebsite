@@ -48,8 +48,10 @@
     }
     .post-content{
         margin-left: 0 !important;
-        font-family: "Agency FB";
-        font-size: 20px;
+        font-family: "Agdasima", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 22px;
         max-height: 100px;
         overflow-y: auto;
     }
@@ -60,11 +62,11 @@
         text-transform: uppercase;
     }
     .post-title{
-        font-size: 22px;
         text-transform: lowercase;
-        font-family: "Agency FB";
-        font-size: 25px;
-        font-weight: bold;
+        font-family: "Agdasima", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 27px;
     }
 }
 
@@ -91,8 +93,10 @@
     }
     .post-content{
         margin-left: 0 !important;
-        font-family: "Agency FB";
-        font-size: 20px;
+        font-family: "Agdasima", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 22px;
         max-height: 100px;
         overflow-y: auto;
     }
@@ -103,11 +107,11 @@
         text-transform: uppercase;
     }
     .post-title{
-        font-size: 22px;
+        font-size: 24px;
         text-transform: lowercase;
-        font-family: "Agency FB";
-        font-size: 25px;
-        font-weight: bold;
+        font-family: "Agdasima", sans-serif;
+        font-weight: 700;
+        font-style: normal;
     }
 }
 .card-body{
@@ -122,12 +126,14 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    font-family: "Agency FB";
-    font-size: 17px;
+    font-family: "Agdasima", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 19px;
     margin-bottom: 0;
     a{
-        font-weight: bold;
-        font-size: 15px;
+        font-weight: 700;
+        font-size: 17px;
     }
 
     p{
@@ -162,7 +168,9 @@
         width: 87%;
         position: sticky;
         left: 0;
-        font-family: "Agency FB";
+        font-family: "Agdasima", sans-serif;
+        font-weight: 400;
+        font-style: normal;
         border-radius: 0 !important;
         border: 0 solid white;
     }
@@ -172,9 +180,10 @@
     button {
         position: absolute;
         right: 5px;
-        font-family: "Agency FB";
-        font-size: 18px;
-        font-weight: bold;
+        font-family: "Agdasima", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 20px;
         border-width: 3px;
         background-color: white;
         margin-top: 5px;
@@ -342,7 +351,9 @@ body{
         color: black;
         text-decoration: none;
         transition: background-color 0.3s;
-        font-family: "Agency FB";
+        font-family: "Agdasima", sans-serif;
+        font-weight: 400;
+        font-style: normal;
     }
 
     .page-link:hover{

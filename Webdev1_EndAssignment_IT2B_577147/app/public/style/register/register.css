@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap');
+
 body{
     overflow: hidden;
 }
@@ -29,7 +31,9 @@ input, textarea{
     border-right: none;
     border-bottom: black solid 4px;
     margin: 4px 6px 6px 6px;
-    font-family: "Agency FB";
+    font-family: "Agdasima", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 input:focus, textarea:focus{
     outline: none;
@@ -71,10 +75,11 @@ button:hover {
 }
 
 #output-message-container{
-    font-weight: bold;
     color: black;
-    font-family: "Agency FB";
-    font-size: 20px;
+    font-family: "Agdasima", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 22px;
     margin: auto;
     width: 300px;
 }

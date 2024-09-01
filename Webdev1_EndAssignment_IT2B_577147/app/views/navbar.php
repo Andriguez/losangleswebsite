@@ -258,13 +258,17 @@
     }
     #logged-user-name{
         label{
-            font-family: "Agency FB";
-            font-size: 16px;
+            font-family: "Agdasima", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 18px;
         }
     }
     footer{
-        font-size: 1.15rem;
-        font-family: "Agency FB";
+        font-size: 1.20rem;
+        font-family: "Agdasima", sans-serif;
+        font-weight: 400;
+        font-style: normal;
         position: fixed;
         bottom: 0;
         right: 0;

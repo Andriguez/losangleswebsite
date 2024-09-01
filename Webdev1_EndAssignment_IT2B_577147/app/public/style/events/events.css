@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap');
+
 #events-link {
     color: white !important; /* New text color on hover */
     text-shadow:
@@ -85,11 +87,15 @@ body{
     }
     .event-date {
         display: inline-block;
-        font-family: "Agency FB";
+        font-family: "Agdasima", sans-serif;
+        font-weight: 400;
+        font-style: normal;
     }
     .event-location{
         display: inline-block;
-        font-family: "Agency FB";
+        font-family: "Agdasima", sans-serif;
+        font-weight: 400;
+        font-style: normal;
     }
 
     .info-div {
@@ -101,16 +107,20 @@ body{
         text-align: right;
         display: block;
         font-weight: lighter;
-        font-size: 16px;
-        font-family: "Agency FB";
+        font-size: 18px;
+        font-family: "Agdasima", sans-serif;
+        font-weight: 250;
+        font-style: normal;
     }
     .event-description{
         display: block;
         text-align: justify;
         margin: auto;
         width: 310px;
-        font-size: 18px;
-        font-family: "Agency FB";
+        font-size: 20px;
+        font-family: "Agdasima", sans-serif;
+        font-weight: 400;
+        font-style: normal;
     }
     .lineup-container{
         display: block;
@@ -121,9 +131,10 @@ body{
     .lineup-type{
         text-align: right;
         display: block;
-        font-weight: lighter;
-        font-size: 18px;
-        font-family: "Agency FB";
+        font-size: 20px;
+        font-family: "Agdasima", sans-serif;
+        font-weight: 250;
+        font-style: normal;
     }
     .lineup-artist{
         font-family: angles;

@@ -1,8 +1,10 @@
 /*ADMIN MAIN PAGE*/
 body{
-    font-family: "Agency FB";
+    font-family: "Agdasima", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     color: black !important;
-    font-size: 20px;
+    font-size: 23px;
     display: flex;
     overflow: hidden;
 }
