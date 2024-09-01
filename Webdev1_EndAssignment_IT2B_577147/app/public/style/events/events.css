@@ -248,7 +248,8 @@ body{
         opacity: 1;
         left: 50%;
         transform: translateX(-50%);
-        min-width: 505px;
+        min-width: 400px;
+        max-width: 480px;
         z-index: 2;
     }
 }
