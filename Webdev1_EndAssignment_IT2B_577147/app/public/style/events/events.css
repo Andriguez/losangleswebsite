@@ -243,6 +243,7 @@ body{
     }
 
     .gallery-item-3{
+        max-height: 550px;
         min-height: 540px;
         opacity: 1;
         left: 50%;
