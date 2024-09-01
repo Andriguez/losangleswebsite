@@ -6,16 +6,16 @@ if (isset($_GET['i'])&&isset($_GET['p'])) {
 
         switch($pageDirectory){
             case 'connect-u':
-                $composedFilepath = '/app/views/connect/media/users/'.$imageName;
+                $composedFilepath = '/app/app/views/connect/media/users/'.$imageName;
                 break;
             case 'connect-p':
-                $composedFilepath = '/app/views/connect/media/posts/'.$imageName;
+                $composedFilepath = '/app/app/views/connect/media/posts/'.$imageName;
                 break;
             case 'admin':
-                $composedFilepath = '/app/views/admin/media/'.$imageName;
+                $composedFilepath = '/app/app/views/admin/media/'.$imageName;
                 break;
             default:
-                $composedFilepath = '/app/views/'.$pageDirectory.'/media/'.$imageName;
+                $composedFilepath = '/app/app/views/'.$pageDirectory.'/media/'.$imageName;
                 break;
         }
 
