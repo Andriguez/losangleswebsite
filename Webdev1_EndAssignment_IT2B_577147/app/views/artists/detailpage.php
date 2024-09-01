@@ -305,7 +305,6 @@
             width: 100% !important;
             background-color: black !important;
             color: white !important;
-            display: flex;
             min-height: 280px;
             max-height: 1000px;
 
@@ -378,6 +377,7 @@
                 align-items: center;
                 text-align: center;
                 width: 100%;
+                height: 100%;
             }
         }
     }
