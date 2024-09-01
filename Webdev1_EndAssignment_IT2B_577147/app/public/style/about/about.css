@@ -10,8 +10,8 @@
 @media (max-width: 850px) {
     .about-col{
         position: relative;
-        min-width: 400px;
-        max-width: 410px;
+        min-width: 300px;
+        max-width: 350px;
     }
     .name-container .admin-name{
         width: auto;
