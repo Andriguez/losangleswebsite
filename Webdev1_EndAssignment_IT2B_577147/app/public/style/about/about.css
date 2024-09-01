@@ -11,6 +11,7 @@
     .about-col{
         position: relative;
         min-width: 400px;
+        max-width: 410px;
     }
     .name-container .admin-name{
         width: auto;
