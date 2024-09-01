@@ -200,6 +200,9 @@ body{
     transform: translateX(-50%);
     height: 360px;
 }
+.gallery-item-1{
+    height: 360px;
+}
 #date-filter-container{
     text-align: center;
 }
@@ -229,7 +232,7 @@ body{
         left: 15%;
         opacity: 0.2;
         transform: translateX(-50%);
-        min-height: 390px;
+        min-height: 350px;
     }
 
     .gallery-item-2, .gallery-item-4{
