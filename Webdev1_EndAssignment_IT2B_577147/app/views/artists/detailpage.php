@@ -41,7 +41,7 @@
     </div>
     <div class="media-container">
         <?php if ($artist->getArtistContent()->getSoundcloudUrl() != '#'){?>
-                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="<?php echo $artist->getArtistContent()->getSoundcloudUrl() ?>"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"></div>
+            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="<?php echo $artist->getArtistContent()->getSoundcloudUrl() ?>"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"></div>
         <?php } ?>
     </div>
 </div>
@@ -74,6 +74,8 @@
 </div>
 
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap');
+
     @font-face {
         font-family: 'angles';
         src: url('/style/fonts/losangles-font.ttf');
@@ -126,8 +128,9 @@
                 padding: 10px;
                 justify-content: center;
                 align-items: center;
-                font-family: "Agency FB";
-
+                font-family: "Agdasima", sans-serif;
+                font-weight: 400;
+                font-style: normal;
                 span {
                     color: white;
                     margin-bottom: 2px;
@@ -135,7 +138,7 @@
 
                 p {
                     margin: 25px 30px 12px 5px;
-                    font-size: 20px;
+                    font-size: 22px;
                     max-width: 320px;
                     max-height: 210px;
                     overflow-y: auto;
@@ -173,7 +176,7 @@
             }
         }
     }
-    
+
 
     @media (min-width: 740px) and (max-width: 1049px) {
         .artist-details-desktop {
@@ -247,7 +250,9 @@
                 padding: 5px;
                 justify-content: center;
                 align-items: center;
-                font-family: "Agency FB";
+                font-family: "Agdasima", sans-serif;
+                font-weight: 400;
+                font-style: normal;
 
                 span {
                     color: white;
@@ -256,7 +261,7 @@
 
                 p {
                     margin: 25px 30px 12px 5px;
-                    font-size: 20px;
+                    font-size: 22px;
                     max-width: 320px;
                     overflow-y: auto;
                 }
@@ -271,7 +276,7 @@
             }
         }
     }
-    
+
     @media (min-width: 40px) and (max-width: 740px) {
         .artist-details-desktop {
             display: none !important;
@@ -348,8 +353,9 @@
                 justify-content: center;
                 text-align: center;
                 align-items: center;
-                font-family: "Agency FB";
-
+                font-family: "Agdasima", sans-serif;
+                font-weight: 400;
+                font-style: normal;
                 span {
                     color: white;
                     margin-bottom: 2px;
@@ -357,7 +363,7 @@
 
                 p {
                     margin: 25px 30px 12px 5px;
-                    font-size: 20px;
+                    font-size: 22px;
                     max-width: 320px;
                     overflow-y: auto;
                     text-align: center;
