@@ -207,6 +207,7 @@
             color: white !important;
             display: flex;
             min-height: 280px;
+            max-height: 340px;
 
             img {
                 height: 250px !important;
@@ -306,6 +307,7 @@
             color: white !important;
             display: flex;
             min-height: 280px;
+            max-height: 340px;
 
             img {
                 height: 250px !important;
