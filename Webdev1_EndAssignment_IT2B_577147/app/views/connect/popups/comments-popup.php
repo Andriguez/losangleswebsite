@@ -36,6 +36,8 @@
 </div>
 </body>
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap');
+
     #comments-section{
         overflow-y: scroll;
         background-color: black;
@@ -57,13 +59,16 @@
                     }
                 }
                 #parent-post-title{
-                    font-family: "Agency FB" !important;
-                    font-size: 24px;
-                    font-weight: bold;
+                    font-family: "Agdasima", sans-serif;
+                    font-weight: 700;
+                    font-style: normal;
+                    font-size: 26px;
                 }
                 #parent-post-content{
-                    font-family: "Agency FB" !important;
-                    font-size: 20px;
+                    font-family: "Agdasima", sans-serif;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-size: 22px;
                     max-height: 100px;
                     overflow-y: auto;
                 }
@@ -76,8 +81,10 @@
         background-color: white;
         padding: 5px;
         margin-bottom: 5px;
-        font-family: "Agency FB";
-        font-size: 20px;
+        font-family: "Agdasima", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 22px;
 
         .btns-section{
             display: flex;
@@ -100,8 +107,10 @@
 
             a{
                 color: black;
-                font-family: "Agency FB";
-                font-size: 18px;
+                font-family: "Agdasima", sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 20px;
             }
             a:hover{
                 background-color: white;
@@ -109,10 +118,11 @@
             }
 
             .poster-name{
-                font-family: angles !important;
-                font-size: 11px;
+                font-family: "Agdasima", sans-serif;
+                font-weight: 700;
+                font-style: normal;
+                font-size: 13px;
                 text-transform: uppercase;
-                font-weight: bold;
             }
 
             .comment-submit{
@@ -128,8 +138,10 @@
                 width: 85%;
                 position: relative;
                 height: 30px;
-                font-family: "Agency FB";
-                font-size: 18px;
+                font-family: "Agdasima", sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 20px;
                 border: 0 solid white;
             }
                 input:focus{
@@ -138,11 +150,13 @@
             button {
                 position: absolute;
                 right: 0;
-                font-family: "Agency FB";
-                font-size: 18px;
-                font-weight: bold;
+                font-family: "Agdasima", sans-serif;
+                font-weight: 700;
+                font-style: normal;
+                font-size: 20px;
                 border-width: 3px;
                 background-color: white;
+                color: black;
             }
             button:hover{
                 background-color: black;

@@ -64,18 +64,21 @@ class Carousel {
         eventLocation.textContent = item.event_location.location_name;
         itemBack.appendChild(eventLocation);
 
+        if (item.event_ticketbtn_url != null) {
+            // Tickets button
+            const ticketsBtn = document.createElement('button');
+            ticketsBtn.classList.add('tickets-btn');
+            ticketsBtn.textContent = item.event_ticketbtn_text;
+            ticketsBtn.onclick = function () {
+                toggleButton(item.event_ticketbtn_url);
+            };
 
-        // Tickets button
-        const ticketsBtn = document.createElement('button');
-        ticketsBtn.classList.add('tickets-btn');
-        ticketsBtn.textContent = item.event_ticketbtn_text;
-        ticketsBtn.onclick = function() { toggleButton(item.event_ticketbtn_url); };
+            const btnDiv = document.createElement('div');
+            btnDiv.classList.add('btn-div');
+            btnDiv.appendChild(ticketsBtn);
 
-        const btnDiv = document.createElement('div');
-        btnDiv.classList.add('btn-div');
-        btnDiv.appendChild(ticketsBtn);
-
-        itemBack.appendChild(btnDiv);
+            itemBack.appendChild(btnDiv);
+        }
 
         const infoDiv = document.createElement('div');
         infoDiv.classList.add('info-div');

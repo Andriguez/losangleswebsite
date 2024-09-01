@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap');
+
 #connect-link {
     color: white !important; /* New text color on hover */
     text-shadow:
@@ -129,11 +131,11 @@
     font-family: "Agdasima", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 19px;
+    font-size: 17px;
     margin-bottom: 0;
     a{
         font-weight: 700;
-        font-size: 17px;
+        font-size: 16px;
     }
 
     p{
@@ -344,6 +346,7 @@ body{
     list-style: none;
     padding: 0;
     margin-top: 20px;
+    margin-bottom: 20px;
 
     .page-link{
         padding: 5px 10px;
